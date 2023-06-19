@@ -1,7 +1,7 @@
 
 import { FaShapes } from "react-icons/fa";
 import { IoSync } from "react-icons/io5";
-
+import { FaExternalLinkAlt } from "react-icons/fa";
 
 export default function OverallInfoCard() {
   return (
@@ -28,7 +28,7 @@ export default function OverallInfoCard() {
           <p>In progress</p>
         </div>
         <div className="bg-[#F55706]">
-          
+          <FaExternalLinkAlt />
           <div>11</div>
           <p>Completed</p>
         </div>
