@@ -1,0 +1,2583 @@
+{
+  "id": 639995936,
+  "name": "g1-e-commerce-app",
+  "full_name": "LorenaCapraru/g1-e-commerce-app",
+  "private": false,
+  "owner": {
+    "login": "LorenaCapraru",
+    "id": 108892538,
+    "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4",
+    "url": "https://api.github.com/users/LorenaCapraru",
+    "html_url": "https://github.com/LorenaCapraru",
+    "type": "User",
+    "site_admin": false
+  },
+  "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app",
+  "description": "Deployed Version",
+  "fork": false,
+  "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+  "events_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/events",
+  "assignees": [
+    {
+      "login": "ali1373107",
+      "id": 113782230,
+      "node_id": "U_kgDOBsgt1g",
+      "avatar_url": "https://avatars.githubusercontent.com/u/113782230?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/ali1373107",
+      "html_url": "https://github.com/ali1373107",
+      "type": "User",
+      "site_admin": false
+    },
+    {
+      "login": "LorenaCapraru",
+      "id": 108892538,
+      "node_id": "U_kgDOBn2Reg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/LorenaCapraru",
+      "html_url": "https://github.com/LorenaCapraru",
+      "type": "User",
+      "site_admin": false
+    },
+    {
+      "login": "momahboobian",
+      "id": 17272675,
+      "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/momahboobian",
+      "html_url": "https://github.com/momahboobian",
+      "type": "User",
+      "site_admin": false
+    },
+    {
+      "login": "monahvi",
+      "id": 108987896,
+      "node_id": "U_kgDOBn8F-A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/monahvi",
+      "html_url": "https://github.com/monahvi",
+      "type": "User",
+      "site_admin": false
+    },
+    {
+      "login": "nataliiazab",
+      "id": 113237479,
+      "node_id": "U_kgDOBr_d5w",
+      "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nataliiazab",
+      "html_url": "https://github.com/nataliiazab",
+      "type": "User",
+      "site_admin": false
+    }
+  ],
+  "languages": {
+    "JavaScript": 14153,
+    "CSS": 11626,
+    "HTML": 1993
+  },
+  "contributors": [
+    {
+      "login": "LorenaCapraru",
+      "id": 108892538,
+      "node_id": "U_kgDOBn2Reg",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/LorenaCapraru",
+      "html_url": "https://github.com/LorenaCapraru",
+      "type": "User",
+      "site_admin": false,
+      "contributions": 43
+    },
+    {
+      "login": "momahboobian",
+      "id": 17272675,
+      "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+      "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/momahboobian",
+      "html_url": "https://github.com/momahboobian",
+      "type": "User",
+      "site_admin": false,
+      "contributions": 9
+    },
+    {
+      "login": "monahvi",
+      "id": 108987896,
+      "node_id": "U_kgDOBn8F-A",
+      "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/monahvi",
+      "html_url": "https://github.com/monahvi",
+      "type": "User",
+      "site_admin": false,
+      "contributions": 7
+    },
+    {
+      "login": "nataliiazab",
+      "id": 113237479,
+      "node_id": "U_kgDOBr_d5w",
+      "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4",
+      "gravatar_id": "",
+      "url": "https://api.github.com/users/nataliiazab",
+      "html_url": "https://github.com/nataliiazab",
+      "type": "User",
+      "site_admin": false,
+      "contributions": 4
+    }
+  ],
+  "commits": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/commits",
+  "created_at": "2023-05-12T18:04:03Z",
+  "updated_at": "2023-05-16T12:13:46Z",
+  "pushed_at": "2023-06-07T20:34:25Z",
+  "homepage": "https://g1-e-commerce-react-app.netlify.app/",
+  "topics": [],
+  "visibility": "public",
+  "default_branch": "main",
+  "open_issues_count": 31,
+  "issues": [
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/43",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/43",
+      "id": 1746673275,
+      "number": 43,
+      "title": "Add CSS to Collections Page",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-06-07T20:57:11Z",
+      "updated_at": "2023-06-07T20:57:11Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Add CSS to Collections Page to design the cards and the rest of the content."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/42",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/42",
+      "id": 1746672367,
+      "number": 42,
+      "title": "Create Collections Page",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-06-07T20:56:31Z",
+      "updated_at": "2023-06-07T20:56:31Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create Collections Page within pages folder:\n\n> _pages/Collections/Collections.jsx_\n> _pages/Collections/Collections.css_"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/41",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/41",
+      "id": 1746663536,
+      "number": 41,
+      "title": "Collections Page-Render Products on the Page",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-06-07T20:51:25Z",
+      "updated_at": "2023-06-07T20:54:28Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Fetch all products on _Pages/Collections/Collections.js_ using the endpoint '/products' already created on _/server/server.js_.\n\n**_As a user I want to be able to see all products on the page to add one in the basket_**"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/40",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/40",
+      "id": 1746636250,
+      "number": 40,
+      "title": "Added Routes, deleted Men section from Header",
+      "user": {
+        "login": "nataliiazab",
+        "id": 113237479,
+        "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [],
+      "milestone": null,
+      "comments": 1,
+      "created_at": "2023-06-07T20:34:24Z",
+      "updated_at": "2023-06-07T20:46:03Z",
+      "closed_at": null,
+      "author_association": "COLLABORATOR",
+      "active_lock_reason": null,
+      "draft": false,
+      "pull_request": {
+        "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/40",
+        "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/40",
+        "merged_at": null
+      },
+      "body": "Added Routes to Collections, About, and Contact pages. At the moment we have only About page, but this should work for other pages too, once they are added "
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/39",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/39",
+      "id": 1746635662,
+      "number": 39,
+      "title": "GET products end point",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-06-07T20:33:51Z",
+      "updated_at": "2023-06-07T20:39:17Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create inside **/server/server.js** a GET \"/products\" endpoint which returns all products from products table within db.\nExample of a returned object within the list:\n\n **_{\n    \"id\":0,\n    \"product_name\":\"White Sneakers lace up trainers\",\n    \"product_img_url\": \"https://www.dv8fashion.com/Images/Models/Full/26172.Jpg\",\n    \"initialPrice\": 75,\n    \"discount\":20\n}_**"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/38",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/38",
+      "id": 1746631122,
+      "number": 38,
+      "title": "Server Folder",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": {
+        "login": "momahboobian",
+        "id": 17272675,
+        "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+      },
+      "assignees": [],
+      "milestone": null,
+      "comments": 1,
+      "created_at": "2023-06-07T20:29:57Z",
+      "updated_at": "2023-06-08T21:03:33Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Set up the server folder. \n> .env file with db credentials\n> gitignore file for node_modules and .env\n> server.js environment set up."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/37",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/37",
+      "id": 1746624409,
+      "number": 37,
+      "title": "Database Populate",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "momahboobian",
+          "id": 17272675,
+          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 1,
+      "created_at": "2023-06-07T20:24:27Z",
+      "updated_at": "2023-06-08T21:04:28Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Populate the database by creating a _products_ table with at least **10 products** containing the following fields:\n\n> id\n\n> product_name\n\n> product_img_url\n\n> initial_price\n\n> discount\n\nSearch for products images (ideal for ones containing similar colours palettes).\nGet inspired from shopping websites e.g. [Asos for men](https://www.asos.com/search/?q=sneakers&refine=floor:1001,2001) to collect productName or productImg data."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/36",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/36",
+      "id": 1746621880,
+      "number": 36,
+      "title": "Create Database on Render",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-06-07T20:22:29Z",
+      "updated_at": "2023-06-08T09:46:32Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create a db on render and provide the link to be used further."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/33",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/33",
+      "id": 1725845150,
+      "number": 33,
+      "title": "Back-end Part",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-25T13:35:08Z",
+      "updated_at": "2023-05-25T13:35:18Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create the back-end part so you can fetch the data from an API for:\n\n- render the products on Collections Page\n- query for filters on the Collections Page"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/32",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/32",
+      "id": 1725839985,
+      "number": 32,
+      "title": "Filters Added for collections page",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "momahboobian",
+          "id": 17272675,
+          "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-25T13:32:09Z",
+      "updated_at": "2023-05-25T13:32:35Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Add filters on to the collections page. \nFind an example below:\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/6cb20d2f-ec0d-4ec2-b517-8e744041d7c7)\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/31",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/31",
+      "id": 1725835191,
+      "number": 31,
+      "title": "Collections Page",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-25T13:29:22Z",
+      "updated_at": "2023-05-25T13:29:45Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "A collection page must be created where it renders all the products available in the stock with their details like:\n- product name\n- product picture\n- product price\n- discounted price if existed\n\n**Suggestion**:\nThe page could display 3 cards based on some categories:\n- basics\n- new in the stock\n- popular\n And after clicking to render the products."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/30",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/30",
+      "id": 1725824696,
+      "number": 30,
+      "title": "Checkout Page",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "momahboobian",
+          "id": 17272675,
+          "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-25T13:23:04Z",
+      "updated_at": "2023-05-25T13:29:53Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "A view your basket link should redirect to Checkout Page where you can see all products added to the basket.\nFeatures:\n- renders all products added in the cart by the user\n- displays number of items added for each product\n- can increase or decrease number of items per product\n- can delete product from basket\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/29",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/29",
+      "id": 1725820282,
+      "number": 29,
+      "title": "About Page",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": {
+        "login": "monahvi",
+        "id": 108987896,
+        "node_id": "U_kgDOBn8F-A",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4"
+      },
+      "assignees": [
+        {
+          "login": "monahvi",
+          "id": 108987896,
+          "node_id": "U_kgDOBn8F-A",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-25T13:20:38Z",
+      "updated_at": "2023-05-28T19:36:28Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create an about page which includes a short description about the business and services provided. You have the freedom of designing at your own pace just stick to the colours, sizes, font-family used by now."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/28",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/28",
+      "id": 1725402397,
+      "number": 28,
+      "title": "Products json",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-25T09:06:40Z",
+      "updated_at": "2023-05-25T13:18:00Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create a json file which includes products details in below format:\n```\n{\n    \"id\":0,\n    \"productName\":\"White Sneakers lace up trainers\",\n    \"productImg\": \"../images/product1.png\",\n    \"initialPrice\": 75,\n    \"discount\":20\n}\n```\n\n- Create at least 20 objects\n- Search for products images (ideal for ones containing similar colours palettes) and add them inside images folder\n- Get inspired from shopping websites e.g. [Asos for men](https://www.asos.com/search/?q=sneakers&refine=floor:1001,2001) to collect productName or productImg data.\n- Place the file inside server folder. If there's no server folder, create it."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/27",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/27",
+      "id": 1725359117,
+      "number": 27,
+      "title": "Contact Page",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "ali1373107",
+          "id": 113782230,
+          "avatar_url": "https://avatars.githubusercontent.com/u/113782230?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-25T08:40:37Z",
+      "updated_at": "2023-05-25T08:47:03Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create a contact page which includes a contact form to collect data from customers. \n- full name\n- contact number\n- email address\n- comment section\nPlease be sure you provide form validation, hence to make appropriate fields mandatory and also constraints for input format( e.g. email address format).\nTry to stick to the css style from home page.\nAlso include details about company, like: social media links, physical address"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/26",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/26",
+      "id": 1725352151,
+      "number": 26,
+      "title": "Responsiveness and CSS Adjustments",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "momahboobian",
+          "id": 17272675,
+          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4",
+          "gravatar_id": ""
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-25T08:36:14Z",
+      "updated_at": "2023-05-25T13:41:06Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Styling needs fixing for both **desktop and mobile** versions. Some notes are made on, but feel free to explore:\n\n- > Cart positioning/shadow/transition \n- > Photo slider and Description wrap in a div to control position.\n- > Photo slider : fixing picture maximising/pictures border\n- > Header : menu hover function changed to mid-to-bottom underline\n- > Hamburger menu positioning when scroll."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/24",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/24",
+      "id": 1720396287,
+      "number": 24,
+      "title": "user profile pop_up Box",
+      "user": {
+        "login": "ali1373107",
+        "id": 113782230,
+        "avatar_url": "https://avatars.githubusercontent.com/u/113782230?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "ali1373107",
+          "id": 113782230,
+          "node_id": "U_kgDOBsgt1g",
+          "avatar_url": "https://avatars.githubusercontent.com/u/113782230?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-22T19:57:41Z",
+      "updated_at": "2023-05-22T19:58:14Z",
+      "closed_at": null,
+      "author_association": "COLLABORATOR",
+      "active_lock_reason": null,
+      "body": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/18",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/18",
+      "id": 1711770266,
+      "number": 18,
+      "title": "Move Cart to Header",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-16T10:53:27Z",
+      "updated_at": "2023-05-16T11:02:18Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Cart must be moved to Header and Header style update.\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/13",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/13",
+      "id": 1708678696,
+      "number": 13,
+      "title": "Cart Pop-up Box",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:40:08Z",
+      "updated_at": "2023-05-17T12:08:19Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "When clicking on the cart should have the following pop-up box:\n\n> if empty: \n\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/03086d71-f355-4a02-a5f7-0cdf11bb73c0)\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/94b7a6e9-d77a-4e49-a7bd-7af12656f8a0)\n\n> if it has items it should enable user to delete the elements in the basket\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/a403615f-dabf-485d-b3c6-15ec6df5a91a)\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/b97825d6-2380-464a-b66f-bcb9149c6420)\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/12",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/12",
+      "id": 1708677864,
+      "number": 12,
+      "title": "Hover State",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "monahvi",
+          "id": 108987896,
+          "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4",
+          "gravatar_id": ""
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:36:56Z",
+      "updated_at": "2023-05-16T20:01:45Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Set hover state to all interactive elements on the page. \nCheck the below image:\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/964908ee-9dfa-4646-a361-a003d8fa1c44)\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/11",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/11",
+      "id": 1708677036,
+      "number": 11,
+      "title": "LightBox Gallery",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "momahboobian",
+          "id": 17272675,
+          "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:33:52Z",
+      "updated_at": "2023-05-16T09:14:31Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create a LightBox Gallery which opens when a user clicks on the main image from the home page.\nThe mode is exited by clicking X:\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/90b2ceaa-762f-49f8-a136-f08727f10732)\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/10",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/10",
+      "id": 1708676740,
+      "number": 10,
+      "title": "Product Description",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": {
+        "login": "nataliiazab",
+        "id": 113237479,
+        "node_id": "U_kgDOBr_d5w",
+        "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4",
+        "gravatar_id": ""
+      },
+      "assignees": [
+        {
+          "login": "nataliiazab",
+          "id": 113237479,
+          "node_id": "U_kgDOBr_d5w",
+          "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4",
+          "gravatar_id": ""
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:32:45Z",
+      "updated_at": "2023-05-15T18:30:41Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Provide Product's description on the right hand side as in the below image:\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/be802203-b501-4cbf-bd5c-073bf32cca24)\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/9",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/9",
+      "id": 1708675837,
+      "number": 9,
+      "title": "Home Page Photo Slider",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "monahvi",
+          "id": 108987896,
+          "node_id": "U_kgDOBn8F-A",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4",
+          "gravatar_id": ""
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:29:34Z",
+      "updated_at": "2023-05-18T20:36:58Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create this photo slider as shown below:\n\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/a023a1c8-938c-4a09-b83c-69eafde96451)\n\n\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/8",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/8",
+      "id": 1708675656,
+      "number": 8,
+      "title": "Add to cart component",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "momahboobian",
+          "id": 17272675,
+          "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:28:55Z",
+      "updated_at": "2023-05-17T09:34:50Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Create an **Add to Cart** button/component which when you click on it, it updates the cart in the header with correct number of items.\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/69bde6b0-a2e3-462c-9257-cb440f8e33ed)\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/7",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/7",
+      "id": 1708674708,
+      "number": 7,
+      "title": "Increase/Decrease Items to add in the Basket",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "momahboobian",
+          "id": 17272675,
+          "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 1,
+      "created_at": "2023-05-13T16:25:13Z",
+      "updated_at": "2023-05-15T22:05:00Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Focus just on increase/decrease component. It should increase and decrease when press on +/- . \n\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/029661d9-2f47-4893-a5b9-877966eb2e86)\n\n\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/6",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/6",
+      "id": 1708674212,
+      "number": 6,
+      "title": "Lighthouse Accessibility Check",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:23:19Z",
+      "updated_at": "2023-05-13T16:23:19Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "We have to run a Lighthouse Accessibility before we finish the project and to modify accordingly to pass."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/5",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/5",
+      "id": 1708672545,
+      "number": 5,
+      "title": "Header component (Hamburger Menu)/",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [
+        {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        }
+      ],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:18:53Z",
+      "updated_at": "2023-05-15T11:07:22Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "Header to be created as fit can include: \n\n1. **hamburger menu** as its mobile-app-first approach.(2 first images)\n2. desktop size basic nav. (3rd image)\n**_check the images file_**\n\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/4054f37f-650b-448a-b4fe-8aa00d1f9c72)\n\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/e7fea80e-b289-44e9-b311-23233c2ed9d0)\n\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/dfe849d0-f756-4157-9f5d-d911b91db23b)\n\n\n\n"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/4",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/4",
+      "id": 1708670900,
+      "number": 4,
+      "title": "Readme.md file",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [
+        {
+          "id": 5496507314,
+          "node_id": "LA_kwDOJiWQIM8AAAABR54Lsg",
+          "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/labels/documentation",
+          "name": "documentation",
+          "color": "0075ca",
+          "default": true,
+          "description": "Improvements or additions to documentation"
+        }
+      ],
+      "state": "open",
+      "locked": false,
+      "assignee": {
+        "login": "momahboobian",
+        "id": 17272675,
+        "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+      },
+      "assignees": [],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:13:28Z",
+      "updated_at": "2023-05-13T16:33:00Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "At the end, readme.md file need to be added, describing:\n\n- website **name**;\n- website **demo link**;\n- short **description**\n- **features**;\n- **contributors**;"
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/3",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/3",
+      "id": 1708670268,
+      "number": 3,
+      "title": "Linting",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:11:04Z",
+      "updated_at": "2023-05-13T16:11:21Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "This task is for the end of the project. \nBefore its declared done, it must be checked for proper linting."
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/2",
+      "repository_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/issues/2",
+      "id": 1708669885,
+      "number": 2,
+      "title": "Responsiveness",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "labels": [],
+      "state": "open",
+      "locked": false,
+      "assignee": null,
+      "assignees": [],
+      "milestone": null,
+      "comments": 0,
+      "created_at": "2023-05-13T16:09:43Z",
+      "updated_at": "2023-05-23T19:53:58Z",
+      "closed_at": null,
+      "author_association": "OWNER",
+      "active_lock_reason": null,
+      "body": "The website is build on mobile-first approach. \nTherefore 2 more breakpoints needed added for all pages:\n\n> **media query for tablet** `@media screen and (min-width: 540px) `\n\n> **media query for desktop** `@media screen and (min-width: 900px) `\n### **Also check images**\n\n\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/b9baf7eb-16e5-400b-bb15-969286c06d00)\n![Image](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/108892538/0e055334-cc0f-4158-99af-f5f0cfa8c9d0)\n\n\n"
+    }
+  ],
+  "pulls": [
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/40",
+      "id": 1383337245,
+      "node_id": "PR_kwDOJiWQIM5SdA0d",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/40",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/40",
+      "number": 40,
+      "state": "open",
+      "locked": false,
+      "title": "Added Routes, deleted Men section from Header",
+      "user": {
+        "login": "nataliiazab",
+        "id": 113237479,
+        "node_id": "U_kgDOBr_d5w",
+        "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4"
+      },
+      "body": "Added Routes to Collections, About, and Contact pages. At the moment we have only About page, but this should work for other pages too, once they are added ",
+      "created_at": "2023-06-07T20:34:24Z",
+      "updated_at": "2023-06-07T20:46:03Z",
+      "closed_at": null,
+      "merged_at": null,
+      "merge_commit_sha": "95ed37a20304cf5ba9605a5a1ce366550635736e",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/40/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/40/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/d550b1d29ecabfdc5d03a1d9e5f63fe1af8c21f6",
+      "head": {
+        "label": "LorenaCapraru:Natalie-UpdatedRouting-1",
+        "ref": "Natalie-UpdatedRouting-1",
+        "sha": "d550b1d29ecabfdc5d03a1d9e5f63fe1af8c21f6",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "3886b721e1c7506af1a7bdf5bdb0049a9b20ce56",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/40"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/40"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/40"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/40/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/40/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/40/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/d550b1d29ecabfdc5d03a1d9e5f63fe1af8c21f6"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/35",
+      "id": 1372705071,
+      "node_id": "PR_kwDOJiWQIM5R0dEv",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/35",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/35",
+      "number": 35,
+      "state": "closed",
+      "locked": false,
+      "title": "Monahvi-AboutPage-29",
+      "user": {
+        "login": "monahvi",
+        "id": 108987896,
+        "node_id": "U_kgDOBn8F-A",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4"
+      },
+      "body": "About page is done.",
+      "created_at": "2023-05-31T18:33:40Z",
+      "updated_at": "2023-06-07T20:11:12Z",
+      "closed_at": "2023-06-07T20:11:12Z",
+      "merged_at": "2023-06-07T20:11:12Z",
+      "merge_commit_sha": "3886b721e1c7506af1a7bdf5bdb0049a9b20ce56",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/35/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/35/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/ebca1ea54f8966b489556995eddf38e31232670d",
+      "head": {
+        "label": "LorenaCapraru:Monahvi-AboutPage-29",
+        "ref": "Monahvi-AboutPage-29",
+        "sha": "ebca1ea54f8966b489556995eddf38e31232670d",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "8fe866b9d549ddcdea5353fb61b0f4e473d4f510",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/35"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/35"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/35"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/35/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/35/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/35/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/ebca1ea54f8966b489556995eddf38e31232670d"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/34",
+      "id": 1367919058,
+      "node_id": "PR_kwDOJiWQIM5RiMnS",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/34",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/34",
+      "number": 34,
+      "state": "closed",
+      "locked": false,
+      "title": "Hover state done.",
+      "user": {
+        "login": "monahvi",
+        "id": 108987896,
+        "node_id": "U_kgDOBn8F-A",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4"
+      },
+      "body": "I add some style for the hover in Header.css and AddToCart.css to complete this task.",
+      "created_at": "2023-05-28T11:00:20Z",
+      "updated_at": "2023-06-07T20:11:14Z",
+      "closed_at": "2023-06-07T20:11:14Z",
+      "merged_at": "2023-06-07T20:11:14Z",
+      "merge_commit_sha": "0bbcc1b7fffa61fdaf08e8a07fac6974a03bdc51",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/34/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/34/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/0bbcc1b7fffa61fdaf08e8a07fac6974a03bdc51",
+      "head": {
+        "label": "LorenaCapraru:Monahvi-HoverState-12",
+        "ref": "Monahvi-HoverState-12",
+        "sha": "0bbcc1b7fffa61fdaf08e8a07fac6974a03bdc51",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "8fe866b9d549ddcdea5353fb61b0f4e473d4f510",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/34"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/34"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/34"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/34/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/34/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/34/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/0bbcc1b7fffa61fdaf08e8a07fac6974a03bdc51"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/25",
+      "id": 1361828406,
+      "node_id": "PR_kwDOJiWQIM5RK9o2",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/25",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/25",
+      "number": 25,
+      "state": "closed",
+      "locked": false,
+      "title": "completed #1 Route",
+      "user": {
+        "login": "nataliiazab",
+        "id": 113237479,
+        "node_id": "U_kgDOBr_d5w",
+        "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4"
+      },
+      "body": "THere are no pages yet",
+      "created_at": "2023-05-23T17:58:55Z",
+      "updated_at": "2023-06-07T20:15:19Z",
+      "closed_at": "2023-06-07T20:15:19Z",
+      "merged_at": null,
+      "merge_commit_sha": "58f6de655d516f6ce7465748e20f64b46319da22",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/25/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/25/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/d45cd62fc86b8faf66fc6d16612a69d4a54a176f",
+      "head": {
+        "label": "LorenaCapraru:Natalie-Routing-1",
+        "ref": "Natalie-Routing-1",
+        "sha": "d45cd62fc86b8faf66fc6d16612a69d4a54a176f",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "8fe866b9d549ddcdea5353fb61b0f4e473d4f510",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/25"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/25"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/25"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/25/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/25/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/25/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/d45cd62fc86b8faf66fc6d16612a69d4a54a176f"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/23",
+      "id": 1359706284,
+      "node_id": "PR_kwDOJiWQIM5RC3is",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/23",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/23",
+      "number": 23,
+      "state": "closed",
+      "locked": false,
+      "title": "Help mo slider",
+      "user": {
+        "login": "monahvi",
+        "id": 108987896,
+        "node_id": "U_kgDOBn8F-A",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4"
+      },
+      "body": "I have create the photoSlider with styling",
+      "created_at": "2023-05-22T18:22:35Z",
+      "updated_at": "2023-05-22T19:50:50Z",
+      "closed_at": "2023-05-22T19:50:50Z",
+      "merged_at": "2023-05-22T19:50:50Z",
+      "merge_commit_sha": "8fe866b9d549ddcdea5353fb61b0f4e473d4f510",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/23/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/23/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/3a5f7baea89e0a5d8c73f647fdaf9c7cde8b1c51",
+      "head": {
+        "label": "LorenaCapraru:helpMoSlider",
+        "ref": "helpMoSlider",
+        "sha": "3a5f7baea89e0a5d8c73f647fdaf9c7cde8b1c51",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "5cfa2f5d781a6594e78c3a0a7ed5de8975630490",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/23"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/23"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/23"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/23/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/23/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/23/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/3a5f7baea89e0a5d8c73f647fdaf9c7cde8b1c51"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/22",
+      "id": 1359663188,
+      "node_id": "PR_kwDOJiWQIM5RCtBU",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/22",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/22",
+      "number": 22,
+      "state": "closed",
+      "locked": false,
+      "title": "Lightbox component for photo gallery slider",
+      "user": {
+        "login": "momahboobian",
+        "id": 17272675,
+        "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+      },
+      "body": "I have created Lightbox for PhotoSlider gallery",
+      "created_at": "2023-05-22T17:50:53Z",
+      "updated_at": "2023-05-22T19:50:52Z",
+      "closed_at": "2023-05-22T19:50:52Z",
+      "merged_at": "2023-05-22T19:50:52Z",
+      "merge_commit_sha": "82126377746a0965965872d1d4200b6879bb109f",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/22/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/22/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/82126377746a0965965872d1d4200b6879bb109f",
+      "head": {
+        "label": "LorenaCapraru:mo-lightbox-11",
+        "ref": "mo-lightbox-11",
+        "sha": "82126377746a0965965872d1d4200b6879bb109f",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "5cfa2f5d781a6594e78c3a0a7ed5de8975630490",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/22"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/22"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/22"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/22/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/22/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/22/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/82126377746a0965965872d1d4200b6879bb109f"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/21",
+      "id": 1358309128,
+      "node_id": "PR_kwDOJiWQIM5Q9icI",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/21",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/21",
+      "number": 21,
+      "state": "closed",
+      "locked": false,
+      "title": "Lorena cart pop up 13",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "body": "I created the pop-up. \r\n- [x] Desktop Design \r\n- [x] Mobile Design \r\n- [x] Delete element in the basket feature\r\n- [x] adjusts the total according to the number of elements\r\n- [x] fixed the heading responsiveness problem",
+      "created_at": "2023-05-21T19:49:17Z",
+      "updated_at": "2023-05-22T17:25:49Z",
+      "closed_at": "2023-05-22T17:25:49Z",
+      "merged_at": "2023-05-22T17:25:49Z",
+      "merge_commit_sha": "5cfa2f5d781a6594e78c3a0a7ed5de8975630490",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/21/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/21/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/ff1a79c037f6221171ef0dcf7683952e92e77f66",
+      "head": {
+        "label": "LorenaCapraru:Lorena-CartPopUp-13",
+        "ref": "Lorena-CartPopUp-13",
+        "sha": "ff1a79c037f6221171ef0dcf7683952e92e77f66",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "2bd93fb4ebbedaa82ccf1b93961ec81b8b733883",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/21"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/21"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/21"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/21/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/21/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/21/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/ff1a79c037f6221171ef0dcf7683952e92e77f66"
+        }
+      },
+      "author_association": "OWNER",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/20",
+      "id": 1354871516,
+      "node_id": "PR_kwDOJiWQIM5QwbLc",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/20",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/20",
+      "number": 20,
+      "state": "closed",
+      "locked": false,
+      "title": "Completed ticket 10 : Organised CSS files in 1 Folder, Added Product.jsx and Product.css co…",
+      "user": {
+        "login": "nataliiazab",
+        "id": 113237479,
+        "node_id": "U_kgDOBr_d5w",
+        "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4"
+      },
+      "body": "…mponents, inserted AddToCard components inside Product one\r\n\r\n1. Added a separate folder for css files and put all the elements there. Change links to the previous CSS file so everything should work as previously.\r\n2. Added Product component with it's own Product.css file, reorganised structure of the website accordingly 3.Changed css classes in conflicting styling to more meaningful",
+      "created_at": "2023-05-17T21:32:39Z",
+      "updated_at": "2023-05-18T08:34:31Z",
+      "closed_at": "2023-05-18T08:34:31Z",
+      "merged_at": "2023-05-18T08:34:31Z",
+      "merge_commit_sha": "2bd93fb4ebbedaa82ccf1b93961ec81b8b733883",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/20/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/20/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/80ff2988e101372f31f558645dd3cddf92ae1daa",
+      "head": {
+        "label": "LorenaCapraru:Natalie-ProductDescription-10",
+        "ref": "Natalie-ProductDescription-10",
+        "sha": "80ff2988e101372f31f558645dd3cddf92ae1daa",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "a488cd5bd37d79b0398f4134e49a8ac4cc9c37d1",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/20"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/20"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/20"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/20/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/20/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/20/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/80ff2988e101372f31f558645dd3cddf92ae1daa"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/19",
+      "id": 1352285658,
+      "node_id": "PR_kwDOJiWQIM5Qmj3a",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/19",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/19",
+      "number": 19,
+      "state": "closed",
+      "locked": false,
+      "title": "Cart moved to header and Header CSS completed",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "body": "I moved the cart and also, I linked the components with the same hooks within Home page. Header style is finished after completing the details.",
+      "created_at": "2023-05-16T10:55:45Z",
+      "updated_at": "2023-05-17T07:19:14Z",
+      "closed_at": "2023-05-16T11:25:07Z",
+      "merged_at": "2023-05-16T11:25:07Z",
+      "merge_commit_sha": "a488cd5bd37d79b0398f4134e49a8ac4cc9c37d1",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [
+        {
+          "login": "monahvi",
+          "id": 108987896,
+          "node_id": "U_kgDOBn8F-A",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4"
+        },
+        {
+          "login": "nataliiazab",
+          "id": 113237479,
+          "node_id": "U_kgDOBr_d5w",
+          "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4"
+        }
+      ],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/19/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/19/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/ad7c746aa0478682ea092ef0f3aa7e3a50bb4cfb",
+      "head": {
+        "label": "LorenaCapraru:Lorena-MoveCartToHeader",
+        "ref": "Lorena-MoveCartToHeader",
+        "sha": "ad7c746aa0478682ea092ef0f3aa7e3a50bb4cfb",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "28d003a020e6e85e2d1ef92be13b8d68921e08af",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/19"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/19"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/19"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/19/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/19/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/19/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/ad7c746aa0478682ea092ef0f3aa7e3a50bb4cfb"
+        }
+      },
+      "author_association": "OWNER",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/17",
+      "id": 1352133765,
+      "node_id": "PR_kwDOJiWQIM5Ql-yF",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/17",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/17",
+      "number": 17,
+      "state": "closed",
+      "locked": false,
+      "title": "add to card component update",
+      "user": {
+        "login": "momahboobian",
+        "id": 17272675,
+        "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+      },
+      "body": null,
+      "created_at": "2023-05-16T09:15:35Z",
+      "updated_at": "2023-05-16T09:16:52Z",
+      "closed_at": "2023-05-16T09:16:51Z",
+      "merged_at": "2023-05-16T09:16:51Z",
+      "merge_commit_sha": "28d003a020e6e85e2d1ef92be13b8d68921e08af",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/17/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/17/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/c7fa054213d7871422db0bfbd4081ec986739602",
+      "head": {
+        "label": "LorenaCapraru:mo-slider-09",
+        "ref": "mo-slider-09",
+        "sha": "c7fa054213d7871422db0bfbd4081ec986739602",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "00ca2c395643376dee48c48c8cc448eeb88da473",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/17"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/17"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/17"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/17/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/17/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/17/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/c7fa054213d7871422db0bfbd4081ec986739602"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/16",
+      "id": 1351529483,
+      "node_id": "PR_kwDOJiWQIM5QjrQL",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/16",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/16",
+      "number": 16,
+      "state": "closed",
+      "locked": false,
+      "title": "AddToCard component",
+      "user": {
+        "login": "momahboobian",
+        "id": 17272675,
+        "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+      },
+      "body": "Add to card component has  been add.\r\nReady for feedback\r\n![Screenshot 2023-05-15 at 23 04 03](https://github.com/LorenaCapraru/g1-e-commerce-app/assets/17272675/ef128dd1-8cbd-469e-af49-5192b7a268ca)\r\n",
+      "created_at": "2023-05-15T22:07:41Z",
+      "updated_at": "2023-05-16T08:51:48Z",
+      "closed_at": "2023-05-16T08:51:48Z",
+      "merged_at": "2023-05-16T08:51:48Z",
+      "merge_commit_sha": "00ca2c395643376dee48c48c8cc448eeb88da473",
+      "assignee": null,
+      "assignees": [],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/16/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/16/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/9c6072f4ff035423ab097329598372d9cae37f0d",
+      "head": {
+        "label": "LorenaCapraru:mo-slider-09",
+        "ref": "mo-slider-09",
+        "sha": "9c6072f4ff035423ab097329598372d9cae37f0d",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "b29526552903fc179518108a14a49cb2fbe270a0",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/16"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/16"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/16"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/16/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/16/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/16/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/9c6072f4ff035423ab097329598372d9cae37f0d"
+        }
+      },
+      "author_association": "COLLABORATOR",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/15",
+      "id": 1351442134,
+      "node_id": "PR_kwDOJiWQIM5QjV7W",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/15",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/15",
+      "number": 15,
+      "state": "closed",
+      "locked": false,
+      "title": "Lorena header",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "body": "I created the header for both small screens and large screens. \r\nPlease review and merge. ",
+      "created_at": "2023-05-15T20:58:26Z",
+      "updated_at": "2023-05-15T23:27:09Z",
+      "closed_at": "2023-05-15T23:27:09Z",
+      "merged_at": "2023-05-15T23:27:09Z",
+      "merge_commit_sha": "b29526552903fc179518108a14a49cb2fbe270a0",
+      "assignee": {
+        "login": "momahboobian",
+        "id": 17272675,
+        "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+        "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+      },
+      "assignees": [
+        {
+          "login": "momahboobian",
+          "id": 17272675,
+          "node_id": "MDQ6VXNlcjE3MjcyNjc1",
+          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+        },
+        {
+          "login": "monahvi",
+          "id": 108987896,
+          "node_id": "U_kgDOBn8F-A",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108987896?v=4"
+        },
+        {
+          "login": "nataliiazab",
+          "id": 113237479,
+          "node_id": "U_kgDOBr_d5w",
+          "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4"
+        }
+      ],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/15/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/15/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/d6e54687b427dc923afbad096f8c9f329c8ebd5b",
+      "head": {
+        "label": "LorenaCapraru:Lorena-Header",
+        "ref": "Lorena-Header",
+        "sha": "d6e54687b427dc923afbad096f8c9f329c8ebd5b",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "df5f77c8936ef87a35c9ec2815a8af7f2ecbd969",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/15"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/15"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/15"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/15/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/15/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/15/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/d6e54687b427dc923afbad096f8c9f329c8ebd5b"
+        }
+      },
+      "author_association": "OWNER",
+      "auto_merge": null,
+      "active_lock_reason": null
+    },
+    {
+      "url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/14",
+      "id": 1350623956,
+      "node_id": "PR_kwDOJiWQIM5QgOLU",
+      "html_url": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/14",
+      "issue_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/14",
+      "number": 14,
+      "state": "closed",
+      "locked": false,
+      "title": "Lorena header",
+      "user": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "body": null,
+      "created_at": "2023-05-15T11:30:13Z",
+      "updated_at": "2023-05-15T11:31:17Z",
+      "closed_at": "2023-05-15T11:31:16Z",
+      "merged_at": "2023-05-15T11:31:16Z",
+      "merge_commit_sha": "df5f77c8936ef87a35c9ec2815a8af7f2ecbd969",
+      "assignee": {
+        "login": "LorenaCapraru",
+        "id": 108892538,
+        "node_id": "U_kgDOBn2Reg",
+        "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+      },
+      "assignees": [
+        {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        }
+      ],
+      "requested_reviewers": [],
+      "requested_teams": [],
+      "labels": [],
+      "milestone": null,
+      "draft": false,
+      "commits_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/14/commits",
+      "review_comments_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/14/comments",
+      "statuses_url": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/bd5e01bb5a1f676e804159e686b1c720ab144051",
+      "head": {
+        "label": "LorenaCapraru:Lorena-Header",
+        "ref": "Lorena-Header",
+        "sha": "bd5e01bb5a1f676e804159e686b1c720ab144051",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "base": {
+        "label": "LorenaCapraru:main",
+        "ref": "main",
+        "sha": "97f54ffa61d806be28f4d48068d3c3af48177a40",
+        "user": {
+          "login": "LorenaCapraru",
+          "id": 108892538,
+          "node_id": "U_kgDOBn2Reg",
+          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+        },
+        "repo": {
+          "id": 639995936,
+          "node_id": "R_kgDOJiWQIA",
+          "name": "g1-e-commerce-app",
+          "full_name": "LorenaCapraru/g1-e-commerce-app",
+          "private": false,
+          "owner": {
+            "login": "LorenaCapraru",
+            "id": 108892538,
+            "node_id": "U_kgDOBn2Reg",
+            "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+          }
+        }
+      },
+      "_links": {
+        "self": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/14"
+        },
+        "html": {
+          "href": "https://github.com/LorenaCapraru/g1-e-commerce-app/pull/14"
+        },
+        "issue": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/14"
+        },
+        "comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/issues/14/comments"
+        },
+        "review_comments": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/14/comments"
+        },
+        "review_comment": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/comments{/number}"
+        },
+        "commits": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/pulls/14/commits"
+        },
+        "statuses": {
+          "href": "https://api.github.com/repos/LorenaCapraru/g1-e-commerce-app/statuses/bd5e01bb5a1f676e804159e686b1c720ab144051"
+        }
+      },
+      "author_association": "OWNER",
+      "auto_merge": null,
+      "active_lock_reason": null
+    }
+  ]
+}
