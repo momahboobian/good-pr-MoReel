@@ -1,6 +1,5 @@
-import { FaShapes } from "react-icons/fa";
-import { IoSync } from "react-icons/io5";
-import { FaExternalLinkAlt } from "react-icons/fa";
+import { FaShapes, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
+
 
 export default function OverallInfoCard() {
   return (
@@ -28,7 +27,7 @@ export default function OverallInfoCard() {
         <button className="w-20 bg-[#36BCBA] rounded-xl p-3">
           <div className="w-16">
             <div className="flex justify-center mt-2">
-              <IoSync />
+              <FaSyncAlt />
             </div>
             <p className="font-bold text-lg mt-2">17</p>
             <p className="text-xs mt-2">In progress</p>
