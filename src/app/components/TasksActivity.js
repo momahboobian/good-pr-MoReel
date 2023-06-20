@@ -18,22 +18,32 @@ const TaskActivity = () => {
           </tr>
         </thead>
         <tbody>
-          {data.issues.map((el) => (
-            <tr>
-              <td>
-                <img
-                  src={el.user.avatar_url}
-                  width={80}
-                  height={80}
-                  alt="Picture of the contributor"
-                />
-              </td>
-              <td>{el.user.login}</td>
-              <td>{el.title}</td>
-              <td>{el.state}</td>
-              <td>{data.name}</td>
-            </tr>
-          ))}
+          {data.issues.map((el) =>
+            el.assignees.length !== 0 ? ( //this line renders only the tasks that are assigned to someone
+              <tr key={el.id}>
+                <td>
+                  {el.assignees.map((assignee) => (
+                    <span>
+                      <img
+                        src={assignee.avatar_url}
+                        width={80}
+                        height={80}
+                        alt="Picture of the contributor"
+                      />
+                      {assignee.login}
+                    </span>
+                  ))}
+                </td>
+                <td>{el.created_at.slice(0, 10)}</td>
+                <td>{el.title}</td>
+                <td>{el.state}</td>
+                <td>{data.name}</td>
+                <td>
+                  <a href={el.html_url}>See details</a>{" "}
+                </td>
+              </tr>
+            ) : null
+          )}
         </tbody>
       </table>
     </div>
