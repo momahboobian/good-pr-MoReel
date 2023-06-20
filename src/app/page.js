@@ -1,6 +1,14 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+import TeamOverviewHeader from "./components/TeamOverviewHeader";
 
 export default function Home() {
-  return <h1 className="text-3xl font-bold underline">Hello world!</h1>;
+  return (
+    <main className="flex min-h-screen justify-between p-6">
+      <div className="flex border-neutral-800 rounded-3xl overflow-hidden">
+        {/* Content for the sidebar */}
+        <div className="flex-1 w-screen bg-[#070E0E] p-6">
+          <TeamOverviewHeader />
+        </div>
+      </div>
+    </main>
+  );
 }
