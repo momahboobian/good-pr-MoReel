@@ -1,4 +1,5 @@
 import data from "g1-e-commerce.json";
+import Image from "next/image";
 
 const TaskActivity = () => {
   return (
@@ -9,26 +10,34 @@ const TaskActivity = () => {
             <th className="py-6 pr-4 pl-0 font-medium text-[1.2em]">
               Assigned to
             </th>
+
             <th className="py-6 pr-4 font-medium text-[1.2em]">
               Last Update at
             </th>
+
             <th className="py-6 pr-4 font-medium text-[1.2em]">Task</th>
+
             <th className="py-[2%] pr-[2%] font-medium text-right text-[1.2em]">
               Status
             </th>
+
             <th className="py-6 pr-4 font-medium text-[1.2em]">Project</th>
+
             <th className="py-6 pr-4 font-medium text-[1.2em]"></th>
           </tr>
         </thead>
+
         <tbody className="text-white divide-y divide-[rgba(124,124,123,0.2)]  ">
           {data.issues.map((el, idx) =>
-            el.assignees.length !== 0 ? (
+            el.assignees.length !== 0 ? ( //I am checking if is an assignee for that issue, otherwise don't display the ticket
               <tr key={idx}>
                 <td className="pr-6 py-4 ">
                   {el.assignees.map((assignee) => (
-                    // eslint-disable-next-line react/jsx-key
-                    <span className="flex flex-row items-center ">
-                      <img
+                    <span
+                      key={assignee.id}
+                      className="flex flex-row items-center "
+                    >
+                      <Image
                         src={assignee.avatar_url}
                         width={40}
                         height={40}
@@ -44,10 +53,8 @@ const TaskActivity = () => {
                   ))}
                 </td>
                 <td className="pr-6 py-4  ">
-                  {" "}
                   {el.updated_at.slice(0, 16).replace("T", " ")}
                 </td>
-
                 <td className="pr-6 py-4 ">{el.title}</td>
                 <td className="pr-6 py-4  text-right ">
                   <span
@@ -57,6 +64,7 @@ const TaskActivity = () => {
                         : "text-[#b9c170] bg-[#122a29]"
                     }`}
                   >
+                    {" "}
                     {el.state === "open" ? "In progress" : "Done"}
                   </span>
                 </td>
