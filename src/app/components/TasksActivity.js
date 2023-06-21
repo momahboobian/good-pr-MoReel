@@ -2,50 +2,64 @@ import data from "g1-e-commerce.json";
 import Image from "next/image";
 
 const TaskActivity = () => {
-  const noOfTasks = data.open_issues_count;
-
   return (
-    <div className="text-white">
-      <h2>Task Activity</h2>
-      <table className="w-[90%] ">
-        <thead>
-          <tr className="text-[#6d7174]">
-            <th className="font-light   text-left p-[1%]">Assigned to</th>
-            <th className="font-light  text-left p-[1%]">Created at</th>
-            <th className="font-light  text-left p-[1%]">Task</th>
-            <th className="font-light  text-right p-[1%]">Status</th>
-            <th className="font-light  text-left p-[1%]">Project</th>
+    <div className="mt-12 relative h-max overflow-auto">
+      <table className="w-[80%] table-auto text-xs text-left">
+        <thead className="text-[#6d7174]  border-b font-medium  ">
+          <tr>
+            <th className="py-6 pr-4 pl-0 font-medium">Assigned to</th>
+            <th className="py-6 pr-4 font-medium">Last Update at</th>
+            <th className="py-6 pr-4 font-medium ">Task</th>
+            <th className="py-[2%] pr-[2%] font-medium text-right">Status</th>
+            <th className="py-6 pr-4 font-medium">Project</th>
+            <th className="py-6 pr-4 font-medium"></th>
           </tr>
         </thead>
-        <tbody>
-          {data.issues.map((el) =>
-            el.assignees.length !== 0 ? ( //this line renders only the tasks that are assigned to someone
-              <tr key={el.id}>
-                <td className=" text-left ">
+        <tbody className="text-white divide-y divide-[#6d7174]  ">
+          {data.issues.map((el, idx) =>
+            el.assignees.length !== 0 ? (
+              <tr key={idx}>
+                <td className="pr-6 py-4 ">
                   {el.assignees.map((assignee) => (
+                    // eslint-disable-next-line react/jsx-key
                     <span className="flex flex-row items-center ">
                       <img
                         src={assignee.avatar_url}
-                        width={60}
-                        height={60}
+                        width={40}
+                        height={40}
                         alt="Picture of the contributor"
-                        className="rounded-[50%] p-[1%] m-[10%] bg-[white]"
+                        className={`rounded-[50%] p-[1%]  ${
+                          el.state === "open" ? "bg-[#bc8d5e]" : "bg-[#b9c170]"
+                        }`}
                       />
-                      <span>{assignee.login}</span>
+                      <span className="pl-2">{assignee.login}</span>
                     </span>
                   ))}
                 </td>
+                <td className="pr-6 py-4 ">
+                  {el.updated_at.slice(0, 16).replace("T", " ")}
+                </td>
 
-                <td className="text-left p-[1%]">
-                  {el.created_at.slice(0, 10)}
+                <td className="pr-6 py-4 ">{el.title}</td>
+                <td className="pr-6 py-4  text-right">
+                  <span
+                    className={`px-6 py-3 rounded-full font-semibold text-xs ${
+                      el.state === "open"
+                        ? "text-[#bc8d5e] bg-[#282e16]"
+                        : "text-[#b9c170] bg-[#122a29]"
+                    }`}
+                  >
+                    {el.state === "open" ? "In progress" : "Done"}
+                  </span>
                 </td>
-                <td className="text-left p-[1%]">{el.title}</td>
-                <td className="text-right p-[1%]">
-                  {el.state === "open" ? "In progress" : "Done"}
-                </td>
-                <td className="text-left p-[1%]">{data.name}</td>
-                <td className="text-left p-[1%]">
-                  <a href={el.html_url}>See details</a>{" "}
+                <td className="pr-6 py-4 ">{data.name}</td>
+                <td className="text-right ">
+                  <a
+                    href={el.html_url}
+                    className="py-3 px-6 text-[#696d6f] bg-[#1a1e1f] border-none hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg"
+                  >
+                    See Details
+                  </a>
                 </td>
               </tr>
             ) : null
