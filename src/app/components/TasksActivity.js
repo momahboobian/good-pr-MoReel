@@ -2,8 +2,56 @@ import data from "g1-e-commerce.json";
 import Image from "next/image";
 
 const TaskActivity = () => {
+  const noOfIssues = data.issues.number;
+
   return (
-    <div className="mt-12 relative h-max overflow-auto">
+    <div className="my-12 mr-12 relative h-max overflow-auto">
+      <div className="flex flex-row justify-between">
+        <h2 className="text-white font-bold">Tasks Activity</h2>
+        <span className="text-white font-bold flex flex-row justify-between">
+          <button
+            type="button"
+            class="bg-[#1a1e1f] text-white rounded-l-md border-r border-gray-100 py-2 hover:text-gray-500 duration-150 hover:bg-gray-50 px-3"
+          >
+            <div class="flex flex-row align-middle">
+              <svg
+                class="w-5 mr-2"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M7.707 14.707a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414l4-4a1 1 0 011.414 1.414L5.414 9H17a1 1 0 110 2H5.414l2.293 2.293a1 1 0 010 1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+              <p class="ml-2 text-[12px]">Prev</p>
+            </div>
+          </button>
+          <button
+            type="button"
+            class="bg-[#1a1e1f] text-white rounded-r-md py-2 border-l border-gray-200 hover:text-gray-500 duration-150 hover:bg-gray-50  px-3"
+          >
+            <div class="flex flex-row align-middle">
+              <span class="mr-2 text-[12px]">Next</span>
+              <svg
+                class="w-5 ml-2"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M12.293 5.293a1 1 0 011.414 0l4 4a1 1 0 010 1.414l-4 4a1 1 0 01-1.414-1.414L14.586 11H3a1 1 0 110-2h11.586l-2.293-2.293a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                ></path>
+              </svg>
+            </div>
+          </button>
+        </span>
+      </div>
+
       <table className="w-[100%] table-auto text-xs text-left">
         <thead className="text-[#6d7174]  border-b border-[rgba(124,124,123,0.6)] font-medium  ">
           <tr>
