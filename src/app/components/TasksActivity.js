@@ -4,18 +4,24 @@ import Image from "next/image";
 const TaskActivity = () => {
   return (
     <div className="mt-12 relative h-max overflow-auto">
-      <table className="w-[80%] table-auto text-xs text-left">
-        <thead className="text-[#6d7174]  border-b font-medium  ">
+      <table className="w-[100%] table-auto text-xs text-left">
+        <thead className="text-[#6d7174]  border-b border-[rgba(124,124,123,0.6)] font-medium  ">
           <tr>
-            <th className="py-6 pr-4 pl-0 font-medium">Assigned to</th>
-            <th className="py-6 pr-4 font-medium">Last Update at</th>
-            <th className="py-6 pr-4 font-medium ">Task</th>
-            <th className="py-[2%] pr-[2%] font-medium text-right">Status</th>
-            <th className="py-6 pr-4 font-medium">Project</th>
-            <th className="py-6 pr-4 font-medium"></th>
+            <th className="py-6 pr-4 pl-0 font-medium text-[1.2em]">
+              Assigned to
+            </th>
+            <th className="py-6 pr-4 font-medium text-[1.2em]">
+              Last Update at
+            </th>
+            <th className="py-6 pr-4 font-medium text-[1.2em]">Task</th>
+            <th className="py-[2%] pr-[2%] font-medium text-right text-[1.2em]">
+              Status
+            </th>
+            <th className="py-6 pr-4 font-medium text-[1.2em]">Project</th>
+            <th className="py-6 pr-4 font-medium text-[1.2em]"></th>
           </tr>
         </thead>
-        <tbody className="text-white divide-y divide-[#6d7174]  ">
+        <tbody className="text-white divide-y divide-[rgba(124,124,123,0.2)]  ">
           {data.issues.map((el, idx) =>
             el.assignees.length !== 0 ? (
               <tr key={idx}>
@@ -32,16 +38,18 @@ const TaskActivity = () => {
                           el.state === "open" ? "bg-[#bc8d5e]" : "bg-[#b9c170]"
                         }`}
                       />
-                      <span className="pl-2">{assignee.login}</span>
+                      <span className="pl-2 font-medium text-[1.2em]">
+                        {assignee.login}
+                      </span>
                     </span>
                   ))}
                 </td>
-                <td className="pr-6 py-4 ">
+                <td className="pr-6 py-4  ">
                   {el.updated_at.slice(0, 16).replace("T", " ")}
                 </td>
 
                 <td className="pr-6 py-4 ">{el.title}</td>
-                <td className="pr-6 py-4  text-right">
+                <td className="pr-6 py-4  text-right ">
                   <span
                     className={`px-6 py-3 rounded-full font-semibold text-xs ${
                       el.state === "open"
