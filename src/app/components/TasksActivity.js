@@ -1,9 +1,6 @@
 import data from "g1-e-commerce.json";
-import Image from "next/image";
 
 const TaskActivity = () => {
-  const noOfIssues = data.issues.number;
-
   return (
     <div className="my-12 mr-12 relative h-[350px] overflow-auto ">
       <table className="w-[100%] table-auto text-xs text-left">
@@ -47,6 +44,7 @@ const TaskActivity = () => {
                   ))}
                 </td>
                 <td className="pr-6 py-4  ">
+                  {" "}
                   {el.updated_at.slice(0, 16).replace("T", " ")}
                 </td>
 
