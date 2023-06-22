@@ -4,7 +4,7 @@ import Image from "next/image";
 const TaskActivity = () => {
   return (
     <div className="my-12 mr-12 relative h-[350px] overflow-auto ">
-      <table className="w-[100%] table-auto text-xs text-left">
+      <table className="w-[80%] table-auto text-xs text-left">
         <thead className="text-[#6d7174]  border-b border-[rgba(124,124,123,0.6)] font-medium   ">
           <tr>
             <th className="py-6 pr-4 pl-0 font-medium text-[1.2em]">
