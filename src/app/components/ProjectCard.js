@@ -1,16 +1,31 @@
 import { FaCalendarAlt } from "react-icons/fa";
+import Image from "next/image";
 import data from "g1-e-commerce.json";
 
+// Color for the avatar border based on the index
 const avatarBorderColor = (index) => {
   const colors = [
     "border-yellow-200",
     "border-orange-600",
     "border-cyan-700",
     "border-violet-600",
-    "border-yellow-700	",
+    "border-yellow-700",
   ];
   const colorIndex = index % colors.length;
   return colors[colorIndex];
+};
+
+// finding the date for the last activity from the pull request
+const lastActivityDate = () => {
+  const pullRequests = data.pulls;
+  if (pullRequests && pullRequests.length > 0) {
+    const firstPullRequest = pullRequests[0];
+    const updatedAt = new Date(firstPullRequest.updated_at);
+    const options = { day: "numeric", month: "long", year: "numeric" };
+    const formattedDate = updatedAt.toLocaleDateString(undefined, options);
+    return formattedDate;
+  }
+  return "";
 };
 
 const ProjectCard = () => {
@@ -39,9 +54,11 @@ const ProjectCard = () => {
           </div>{" "}
           <div className="flex just border rounded-full border-gray-600 p-1">
             {data.assignees.map((assignee, index) => (
-              <img
+              <Image
                 key={assignee.id}
                 src={assignee.avatar_url}
+                width={40}
+                height={40}
                 alt={assignee.login}
                 className={`w-11 h-11 rounded-full border-2 object-cover
                  ${avatarBorderColor(index)}
@@ -58,8 +75,8 @@ const ProjectCard = () => {
             </p>
           </div>
           <div className="flex items-left items-center text-gray-500 text-xs text-center">
-            <FaCalendarAlt className="mr-1 text-[#37BCBA] text-lg" />
-            {formattedDate}
+            <p className="mr-1 text-white text-sx">Last Activity: </p>
+            {lastActivityDate()}
           </div>{" "}
           <button className="bg-[#37BCBA] text-black rounded-lg p-2 font-semibold">
             See All Project
