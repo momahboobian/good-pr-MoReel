@@ -6,7 +6,7 @@ import {
 
 const SidebarTeams = () => {
   return (
-    <ul className="flex flex-col items-start gap-6 pt-10">
+    <ul className="flex flex-col items-start gap-6 pt-28">
       <li className="flex items-center ml-3 text-sm text-[#717578]">TEAMS</li>
       <li className="flex items-center text-xs">
         <FontAwesomeIcon

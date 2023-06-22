@@ -2,7 +2,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle, faSun } from "@fortawesome/free-solid-svg-icons";
 const SidebarDarkMode = () => {
   return (
-    <div className="flex flex-row gap-1 pt-16">
+    <div className="flex flex-row gap-1 pt-32">
       <div className="flex text-xs ">Light</div>
       <div className="flex flex-row gap-1 bg-[#2A3131] rounded-sm ">
         <span className="flex">

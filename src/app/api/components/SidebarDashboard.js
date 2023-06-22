@@ -7,7 +7,7 @@ import {
 
 const SidebarDashboard = () => {
   return (
-    <ul className="flex flex-col items-start gap-6 mt-7">
+    <ul className="flex flex-col items-start gap-6 pt-14">
       <li className="flex items-center text-sm text-[#37BCBA]">
         <FontAwesomeIcon icon={faHouseUser} className=" w-[15px] mr-3" />
         Dashboard
