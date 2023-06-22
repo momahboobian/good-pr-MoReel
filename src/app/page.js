@@ -1,3 +1,4 @@
+
 import Sidebar from "./components/Sidebar";
 import TeamOverviewHeader from "./components/TeamOverviewHeader";
 
@@ -9,6 +10,7 @@ export default function Home() {
 
         <div className="flex-1 w-screen bg-[#070E0E] p-6">
           <TeamOverviewHeader />
+          <OverallInfoCard    />
         </div>
       </div>
     </main>
