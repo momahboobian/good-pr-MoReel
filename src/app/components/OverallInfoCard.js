@@ -11,7 +11,9 @@ export default function OverallInfoCard() {
       <div className="flex flex-column justify-left gap-1 items-center my-4">
         <div className="text-[#F9F9F9] font-bold text-2xl">
           {" "}
-          {String(data.issues.filter((issue) => issue.state === "done").length)}
+          {String(
+            data.issues.filter((issue) => issue.state === "completed").length
+          )}
           {/* when the issue.state is not open , it will calculate the number of completed issues. To double check with the real API, so we can know for sure how to track them       */}
         </div>
         <div className="text-[#F9F9F9] ">|</div>
@@ -21,7 +23,7 @@ export default function OverallInfoCard() {
         </div>
         <p className="text-[#606467] text-xs ml-[10px] items-end">Tasks Done</p>
       </div>
-      <div className="flex flex-column justify-between  mt-2">
+      <div className="flex flex-column justify-between  gap-6 mt-2">
         <button className="w-20 bg-[#E2E949] rounded-xl p-3 flex justify-center items-center">
           <div className="w-16 ">
             <div className="flex justify-center mt-2">
