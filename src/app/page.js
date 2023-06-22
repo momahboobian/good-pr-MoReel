@@ -1,3 +1,4 @@
+import OverallInfoCard from "./components/OverallInfoCard";
 import TeamOverviewHeader from "./components/TeamOverviewHeader";
 
 export default function Home() {
@@ -9,6 +10,7 @@ export default function Home() {
         
         <div className="flex-1 w-screen bg-[#070E0E] p-6">
           <TeamOverviewHeader />
+          <OverallInfoCard    />
         </div>
       </div>
     </main>
