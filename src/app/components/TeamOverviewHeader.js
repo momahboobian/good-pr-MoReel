@@ -11,7 +11,7 @@ const TeamOverview = () => {
       <p className="font-light	text-xs	text-gray-600	pt-2">
         Track you projects, tasks & team activity here
       </p>
-      <div className="flex flex-column mt-4 justify-between">
+      <div className="flex flex-column mt-4 w-full space-x-4">
         <ProjectCard />
         <OverallInfoCard />
         <TeamActivity />
