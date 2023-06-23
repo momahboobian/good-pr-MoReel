@@ -1,4 +1,3 @@
-import { FaCalendarAlt } from "react-icons/fa";
 import Image from "next/image";
 import data from "g1-e-commerce.json";
 
@@ -34,7 +33,7 @@ const ProjectCard = () => {
   const formattedDate = currentDate.toLocaleDateString(undefined, options);
 
   return (
-    <div className="flex flex-col gap-6 pt-10 pr-10">
+    <div className=" flex flex-cols-1 gap-4 max-w-sm bg-[#1A1E1F] p-0 rounded-2xl">
       <div className="flex items-center gap-4">
         <div className="flex flex-col justify-between h-80 w-80 bg-[#1A1E1F] rounded-2xl p-9 ">
           <div className="flex justify-between items-center">

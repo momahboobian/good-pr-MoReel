@@ -6,7 +6,7 @@ export default function OverallInfoCard() {
     <div className="grid grid-cols-1 gap-4 max-w-sm bg-[#1A1E1F] p-9 rounded-2xl">
       <div className="flex flex-column justify-between">
         <h2 className="text-[#F9F9F9] font-bold">Overall Information</h2>
-        <button className=" text-[#F9F9F9]">...</button>
+        <button className=" text-gray-500">...</button>
       </div>
       <div className="flex flex-column justify-left gap-1 items-center my-4">
         <div className="text-[#F9F9F9] font-bold text-2xl">
