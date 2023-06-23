@@ -69,9 +69,6 @@ const ProjectCard = () => {
                 }}
               />
             ))}
-            <p className="flex items-center text-white text-sm font-bold relative right-2 ">
-              +4
-            </p>
           </div>
           <div className="flex items-left items-center text-gray-500 text-xs text-center">
             <p className="mr-1 text-white text-sx">Last Activity: </p>
