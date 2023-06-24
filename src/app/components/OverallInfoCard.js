@@ -44,7 +44,7 @@ export default function OverallInfoCard() {
             </div>
             <p className="font-bold text-lg mt-2">
               {String(
-                data.issues.filter((issue) => issue.state == "In Progress")
+                data.issues.filter((issue) => issue.state == "open")
                   .length
               )}
               {/* number of issues in progress. To double-check accuracy of the status name in the real API */}
@@ -60,8 +60,7 @@ export default function OverallInfoCard() {
             <p className="font-bold text-lg mt-2">
               {" "}
               {String(
-                data.issues.filter((issue) => issue.state === "completed")
-                  .length
+                data.issues.filter((issue) => issue.state === "closed").length
               )}
               {/* number of completed issues. To double-check accuracy of the status name in the real API */}
             </p>
