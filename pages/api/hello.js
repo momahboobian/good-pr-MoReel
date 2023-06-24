@@ -6,6 +6,9 @@ export default async (req, res) => {
     auth: process.env.GITHUB_AUTH_TOKEN,
   });
 
+  const owner = "nataliiazab";
+  const repos = "good-pr";
+
   const repo = await octokit.request(
     "https://api.github.com/repos/nataliiazab/good-pr"
   );
@@ -19,11 +22,7 @@ export default async (req, res) => {
     "https://api.github.com/repos/nataliiazab/good-pr/languages"
   );
 
-  const contributorsNames = contributors.data.map((el) => el.login);
-  console.log(repo.data.owner.login);
-  console.log(repo.data.name);
-  const owner = repo.data.owner.login;
-  const repos = repo.data.name;
+  const contributorsNames = contributors.data.map((el) => el.login); //used to retrieve individual PRs
 
   const pr = await Promise.all(
     contributorsNames.map(
