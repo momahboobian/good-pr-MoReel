@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const TaskActivity = () => {
   return (
-    <div>
+    <div className="w-full">
       <div className=" flex text-[#F9F9F9]font-bold mt-4 pt-4">
         Task Activity
       </div>
@@ -14,7 +14,7 @@ const TaskActivity = () => {
       >
         x{" "}
         <div className="table-responsive">
-          <table className="table-auto text-xs text-left ">
+          <table className="table-auto text-xs text-left">
             <thead className="text-[#6d7174] border-b border-[rgba(124,124,123,0.6)] font-medium sticky top-0 bg-[#070E0E]">
               <tr>
                 <th className="py-6 pr-4 pl-0 font-medium text-[1.2em]">
