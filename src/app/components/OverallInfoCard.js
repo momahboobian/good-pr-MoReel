@@ -3,7 +3,7 @@ import data from "g1-e-commerce.json";
 
 export default function OverallInfoCard() {
   return (
-    <div className="grid grid-cols-1 gap-4 max-w-sm bg-[#1A1E1F] p-9 rounded-2xl">
+    <div className="flex flex-col gap-4 max-w-sm md:max-w-lg xl:max-w-xl bg-[#1A1E1F] p-9 rounded-2xl">
       <div className="flex flex-column justify-between">
         <h2 className="text-[#F9F9F9] font-bold">Overall Information</h2>
         <button className=" text-gray-500">...</button>
@@ -44,8 +44,7 @@ export default function OverallInfoCard() {
             </div>
             <p className="font-bold text-lg mt-2">
               {String(
-                data.issues.filter((issue) => issue.state == "open")
-                  .length
+                data.issues.filter((issue) => issue.state == "open").length
               )}
               {/* number of issues in progress. To double-check accuracy of the status name in the real API */}
             </p>
