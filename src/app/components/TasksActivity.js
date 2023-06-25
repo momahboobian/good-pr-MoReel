@@ -4,7 +4,7 @@ import Image from "next/image";
 const TaskActivity = () => {
   return (
     <div className="w-full">
-      <div className=" flex text-[#F9F9F9]font-bold mt-4 pt-4">
+      <div className=" flex text-white font-bold mt-4 pt-4">
         Task Activity
       </div>
 
