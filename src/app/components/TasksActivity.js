@@ -9,12 +9,12 @@ const TaskActivity = () => {
       </div>
 
       <div
-        className=" flex first-letter:my-2 mr-12 relative h-[350px] 
+        className=" flex first-letter:my-2 relative h-[350px] 
        min-w-fit overflow-x-auto"
       >
         x{" "}
-        <div className="table-responsive">
-          <table className="table-auto text-xs text-left">
+        <div className="table-responsive w-full">
+          <table className="table-auto text-xs text-left w-full">
             <thead className="text-[#6d7174] border-b border-[rgba(124,124,123,0.6)] font-medium sticky top-0 bg-[#070E0E]">
               <tr>
                 <th className="py-6 pr-4 pl-0 font-medium text-[1.2em]">
