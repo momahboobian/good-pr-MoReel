@@ -3,12 +3,12 @@ import Image from "next/image";
 
 const TaskActivity = () => {
   return (
-    <div className="w-full p-6">
-      <div className=" flex text-white font-bold mt-4 pt-4 p-2">Task Activity</div>
+    <div className="p-6">
+      <div className=" flex text-white font-bold mt-4 pt-4 p-2">
+        Task Activity
+      </div>
 
-      <div
-        className=" flex first-letter:my-2 relative h-[350px] overflow-auto"
-      >
+      <div className=" flex justify-center  relative h-[350px] overflow-auto">
         x{" "}
         <div className="table-responsive w-full">
           <table className="table-auto text-xs text-left w-full">
