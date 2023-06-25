@@ -3,32 +3,29 @@ import Image from "next/image";
 
 const TaskActivity = () => {
   return (
-    <div className="w-full">
-      <div className=" flex text-white font-bold mt-4 pt-4">
-        Task Activity
-      </div>
+    <div className="w-full p-6">
+      <div className=" flex text-white font-bold mt-4 pt-4 p-2">Task Activity</div>
 
       <div
-        className=" flex first-letter:my-2 relative h-[350px] 
-       min-w-fit overflow-x-auto"
+        className=" flex first-letter:my-2 relative h-[350px]"
       >
         x{" "}
         <div className="table-responsive w-full">
           <table className="table-auto text-xs text-left w-full">
             <thead className="text-[#6d7174] border-b border-[rgba(124,124,123,0.6)] font-medium sticky top-0 bg-[#070E0E]">
               <tr>
-                <th className="py-6 pr-4 pl-0 font-medium text-[1.2em]">
+                <th className="w-24 p-3 pl-0 font-medium text-[1.2em]">
                   Assigned to
                 </th>
-                <th className="py-6 pr-4 font-medium text-[1.2em]">
+                <th className="w-24 p-3 font-medium text-[1.2em]">
                   Last Update at
                 </th>
-                <th className="py-6 pr-4 font-medium text-[1.2em]">Task</th>
-                <th className="py-[2%] pr-[2%] font-medium text-right text-[1.2em]">
+                <th className="w-32 p-3 font-medium text-[1.2em]">Task</th>
+                <th className="w-24 p-6 font-medium text-right text-[1.2em]">
                   Status
                 </th>
-                <th className="py-6 pr-4 font-medium text-[1.2em]">Project</th>
-                <th className="py-6 pr-4 font-medium text-[1.2em]"></th>
+                <th className="w-24 p-3 font-medium text-[1.2em]">Project</th>
+                <th className="w-24 p-3 font-medium text-[1.2em]"></th>
               </tr>
             </thead>
 
@@ -36,7 +33,7 @@ const TaskActivity = () => {
               {data.issues.map((el, idx) =>
                 el.assignees.length !== 0 ? (
                   <tr key={idx}>
-                    <td className="pr-6 py-4 min-w-max">
+                    <td className="pr-6 py-4 min-w-max whitespace-nowrap">
                       {el.assignees.map((assignee) => (
                         <span
                           key={assignee.id}
@@ -59,11 +56,13 @@ const TaskActivity = () => {
                         </span>
                       ))}
                     </td>
-                    <td className="pr-6 py-4 min-w-max">
+                    <td className="pr-6 py-4 min-w-max whitespace-nowrap">
                       {el.updated_at.slice(0, 16).replace("T", " ")}
                     </td>
-                    <td className="pr-6 py-4 min-w-max">{el.title}</td>
-                    <td className="pr-6 py-4 text-right min-w-max">
+                    <td className="pr-6 py-4 min-w-max whitespace-nowrap">
+                      {el.title}
+                    </td>
+                    <td className="pr-6 py-4 text-right min-w-max whitespace-nowrap">
                       <span
                         className={`px-6 py-3 rounded-full font-semibold text-xs ${
                           el.state === "open"
@@ -74,8 +73,10 @@ const TaskActivity = () => {
                         {el.state === "open" ? "In progress" : "Done"}
                       </span>
                     </td>
-                    <td className="pr-6 py-4 min-w-max">{data.name}</td>
-                    <td className="text-right min-w-max ">
+                    <td className="pr-6 py-4 min-w-max whitespace-nowrap">
+                      {data.name}
+                    </td>
+                    <td className="text-right min-w-max whitespace-nowrap ">
                       <a
                         href={el.html_url}
                         className="py-3 px-6 text-[#696d6f] bg-[#1a1e1f] border-none hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg"
