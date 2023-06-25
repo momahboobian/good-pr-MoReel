@@ -7,7 +7,7 @@ const TaskActivity = () => {
       <div className=" flex text-white font-bold mt-4 pt-4 p-2">Task Activity</div>
 
       <div
-        className=" flex first-letter:my-2 relative h-[350px]"
+        className=" flex first-letter:my-2 relative h-[350px] overflow-auto"
       >
         x{" "}
         <div className="table-responsive w-full">
