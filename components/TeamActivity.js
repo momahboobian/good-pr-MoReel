@@ -8,8 +8,8 @@ export default function TeamActivity({ assignees, pr }) {
   const chartRef = useRef(null);
 
   let totalContributions = 0;
-  pr.forEach((pr) => {
-    totalContributions += pr.total_count;
+  pr.forEach((prs) => {
+    totalContributions += prs.total_count;
   });
 
   function calculatePercentage(individualPrNumber) {
@@ -26,7 +26,7 @@ export default function TeamActivity({ assignees, pr }) {
         {
           label: "Contributions",
           data: pr.map((user) => calculatePercentage(user)),
-          backgroundColor: ["#E2E949", "#36BCBA", "#36BCBA"],
+          backgroundColor: ["#E2E949", "#36BCBA", "#f55706"],
         },
       ],
     };
@@ -76,22 +76,7 @@ export default function TeamActivity({ assignees, pr }) {
       <div className="flex flex-column justify-between">
         <h2 className="text-[#F9F9F9] font-bold">Team Activity</h2>
       </div>
-
       <canvas ref={chartRef}></canvas>
-
-      {/* code without chart: */}
-      {/* {data.contributors.map((user) => (
-        <div key={user.login} className="flex items-center space-x-4">
-          <img
-            src={user.avatar_url}
-            alt={user.login}
-            className="w-10 h-10 rounded-full"
-          />
-          <div className="text-white">
-            {user.login}: {calculatePercentage(user)}%
-          </div>
-        </div>
-      ))} */}
     </div>
   );
 }
