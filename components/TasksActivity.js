@@ -5,7 +5,6 @@ const TaskActivity = ({ issuesClosed, issuesOpen }) => {
   const issues = [...issuesClosed, ...issuesOpen].sort(
     (a, b) => b.created_at - a.created_at
   );
-  console.log(issues);
 
   return (
     <div className="p-6">

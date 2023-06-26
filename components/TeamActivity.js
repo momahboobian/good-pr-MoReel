@@ -1,29 +1,31 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
-import data from "g1-e-commerce.json";
 
 Chart.register(...registerables);
 
-export default function TeamActivity() {
+export default function TeamActivity({ assignees, pr }) {
   const chartRef = useRef(null);
 
   let totalContributions = 0;
-  data.contributors.forEach((contributor) => {
-    totalContributions += contributor.contributions;
+  pr.forEach((pr) => {
+    totalContributions += pr.total_count;
   });
 
-  function calculatePercentage(user) {
-    return Math.round((100 * user.contributions) / totalContributions);
+  function calculatePercentage(individualPrNumber) {
+    return Math.round(
+      (100 * individualPrNumber.total_count) / totalContributions
+    );
   }
+  console.log("ta", totalContributions);
 
   useEffect(() => {
     const chartData = {
-      labels: data.contributors.map((user) => user.login),
+      labels: assignees.map((user) => user.login),
       datasets: [
         {
           label: "Contributions",
-          data: data.contributors.map((user) => calculatePercentage(user)),
+          data: pr.map((user) => calculatePercentage(user)),
           backgroundColor: ["#E2E949", "#36BCBA", "#36BCBA"],
         },
       ],
