@@ -6,8 +6,8 @@ export default async (req, res) => {
     auth: process.env.GITHUB_AUTH_TOKEN,
   });
 
-  const owner = "nataliiazab";
-  const repository = "good-pr";
+  const owner = "ShayanMahnam";
+  const repository = "lentegeur-hospital-facility-board";
 
   const assignees = await octokit.request(
     `https://api.github.com/repos/${owner}/${repository}/assignees`
@@ -15,8 +15,11 @@ export default async (req, res) => {
   const repo = await octokit.request(
     `https://api.github.com/repos/${owner}/${repository}`
   );
-  const issues = await octokit.request(
-    `https://api.github.com/repos/${owner}/${repository}/issues`
+  const issuesClosed = await octokit.request(
+    `https://api.github.com/repos/${owner}/${repository}/issues?state=closed`
+  );
+  const issuesOpen = await octokit.request(
+    `https://api.github.com/repos/${owner}/${repository}/issues?`
   );
   const contributors = await octokit.request(
     `https://api.github.com/repos/${owner}/${repository}/contributors`
@@ -36,12 +39,24 @@ export default async (req, res) => {
     )
   );
 
-  return res.status(200).json({
-    repo: repo,
-    assignees: assignees,
-    issues: issues,
-    contributors: contributors,
-    languages: languages,
-    pr: pr,
-  });
+  // return res.status(200).json({
+  //   repo: repo,
+  //   assignees: assignees,
+  //   issues: issues,
+  //   contributors: contributors,
+  //   languages: languages,
+  //   pr: pr,
+  // });
+
+  return res
+    .status(200)
+    .json([
+      repo.data,
+      assignees.data,
+      issuesClosed.data,
+      issuesOpen.data,
+      contributors.data,
+      languages.data,
+      pr.map((el) => el.data),
+    ]);
 };

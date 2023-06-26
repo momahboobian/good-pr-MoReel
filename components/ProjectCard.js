@@ -1,5 +1,4 @@
 import Image from "next/image";
-import data from "g1-e-commerce.json";
 
 // Color for the avatar border based on the index
 const avatarBorderColor = (index) => {
@@ -14,23 +13,21 @@ const avatarBorderColor = (index) => {
   return colors[colorIndex];
 };
 
-// finding the date for the last activity from the pull request
-const lastActivityDate = () => {
-  const pullRequests = data.pulls;
-  if (pullRequests && pullRequests.length > 0) {
-    const firstPullRequest = pullRequests[0];
-    const updatedAt = new Date(firstPullRequest.updated_at);
-    const options = { day: "numeric", month: "long", year: "numeric" };
-    const formattedDate = updatedAt.toLocaleDateString(undefined, options);
-    return formattedDate;
-  }
-  return "";
-};
-
-const ProjectCard = () => {
+const ProjectCard = ({ assignees, repo }) => {
   const currentDate = new Date();
   const options = { day: "numeric", month: "long", year: "numeric" };
   const formattedDate = currentDate.toLocaleDateString(undefined, options);
+
+  // finding the date for the last activity from the pull request
+  const lastActivityDate = () => {
+    if (repo) {
+      const updatedAt = new Date(repo.updated_at);
+      const options = { day: "numeric", month: "long", year: "numeric" };
+      const formattedDate = updatedAt.toLocaleDateString(undefined, options);
+      return formattedDate;
+    }
+    return "";
+  };
 
   return (
     <div className=" flex flex-cols-1 gap-4 max-w-sm bg-[#1A1E1F] p-0 rounded-2xl">
@@ -52,7 +49,7 @@ const ProjectCard = () => {
             <span className="w-12 h-2 bg-gray-500 rounded-full mx-1"></span>
           </div>{" "}
           <div className="flex just border rounded-full border-gray-600 p-1">
-            {data.assignees.map((assignee, index) => (
+            {assignees.map((assignee, index) => (
               <Image
                 key={assignee.id}
                 src={assignee.avatar_url}
@@ -71,7 +68,7 @@ const ProjectCard = () => {
             ))}
           </div>
           <div className="flex items-left items-center text-gray-500 text-xs text-center">
-            <p className="mr-1 text-white text-sx">Last Activity: </p>
+            <p className="mr-1 text-white text-sx">Last Activity:</p>
             {lastActivityDate()}
           </div>{" "}
           <button className="bg-[#37BCBA] text-black rounded-lg p-2 font-semibold">
