@@ -6,8 +6,8 @@ export default async (req, res) => {
     auth: process.env.GITHUB_AUTH_TOKEN,
   });
 
-  const owner = "ShayanMahnam";
-  const repository = "lentegeur-hospital-facility-board";
+  const owner = "nataliiazab";
+  const repository = "good-pr";
 
   const assignees = await octokit.request(
     `https://api.github.com/repos/${owner}/${repository}/assignees`
