@@ -1,7 +1,7 @@
 import React from "react";
 import groupsData from "groups.json";
 
-const GroupsPageCards = () => {
+const GroupsPage = () => {
   const getRandomAvatar = (collaborators) => {
     const randomIndex = Math.floor(Math.random() * collaborators.length);
     return collaborators[randomIndex].avatar_url;
@@ -33,4 +33,4 @@ const GroupsPageCards = () => {
   );
 };
 
-export default GroupsPageCards;
+export default GroupsPage;
