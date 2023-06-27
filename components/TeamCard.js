@@ -19,13 +19,13 @@ export default function TeamCard() {
           <div className="text-center text-[18px] font-semibold">
             Last Updated:
           </div>
-          <div className="text-center text-[18px] font-bold">15 June 2023 </div>
+          <div className="text-center text-[18px] font-bold">15 June 2023</div>
         </div>
         <div className="flex-1 ">
           <div className="text-center text-[18px] font-semibold">
             Pull Requests:
           </div>
-          <div className="text-center text-[18px] font-bold">15</div>
+          <div className="text-center text-[18px] font-bold ">15</div>
         </div>
       </div>
     </div>

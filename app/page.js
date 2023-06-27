@@ -12,7 +12,7 @@ export default function Home() {
             <p className="text-sm ">Track teams & members</p>
           </div>
           {/* below  is the part for teams cards, to be edited for multiple cards */}
-          <div className="mt-24">
+          <div className="mt-20">
             <TeamCard />
           </div>
         </div>
