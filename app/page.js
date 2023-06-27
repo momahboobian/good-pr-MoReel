@@ -11,7 +11,7 @@ export default function Home() {
             <p className="text-sm ">Track teams & members</p>
           </div>
         </div>
+      </div>
     </main>
   );
-};
-export default Home;
+}
