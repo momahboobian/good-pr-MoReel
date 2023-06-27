@@ -1,7 +1,11 @@
 import data from "g1-e-commerce.json";
 import Image from "next/image";
 
-const TaskActivity = () => {
+const TaskActivity = ({ issuesClosed, issuesOpen }) => {
+  const issues = [...issuesClosed, ...issuesOpen].sort(
+    (a, b) => b.created_at - a.created_at
+  );
+
   return (
     <div className="p-6">
       <div className=" flex text-white font-bold mt-4 pt-4 p-2">
@@ -30,11 +34,11 @@ const TaskActivity = () => {
             </thead>
 
             <tbody className="text-white divide-y divide-[rgba(124,124,123,0.2)] ">
-              {data.issues.map((el, idx) =>
+              {issues.map((el, idx) =>
                 el.assignees.length !== 0 ? (
                   <tr key={idx}>
                     <td className="pr-6 py-4 min-w-max whitespace-nowrap">
-                      {el.assignees.map((assignee) => (
+                      {/* {el.assignees.map((assignee) => (
                         <span
                           key={assignee.id}
                           className="flex flex-row items-center"
@@ -54,7 +58,24 @@ const TaskActivity = () => {
                             {assignee.login}
                           </span>
                         </span>
-                      ))}
+                      ))} */}
+                      {/* here I display only one assignee if there are many */}
+                      <span className="flex flex-row items-center">
+                        <Image
+                          src={el.assignees[0].avatar_url}
+                          width={40}
+                          height={40}
+                          alt="Picture of the contributor"
+                          className={`rounded-[50%] p-[1%] ${
+                            el.state === "open"
+                              ? "bg-[#bc8d5e]"
+                              : "bg-[#b9c170]"
+                          }`}
+                        />
+                        <span className="pl-2 font-medium text-[1.2em] min-w-max">
+                          {el.assignees[0].login}
+                        </span>
+                      </span>
                     </td>
                     <td className="pr-6 py-4 min-w-max whitespace-nowrap">
                       {el.updated_at.slice(0, 16).replace("T", " ")}

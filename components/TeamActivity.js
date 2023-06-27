@@ -1,30 +1,32 @@
 "use client";
 import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
-import data from "g1-e-commerce.json";
 
 Chart.register(...registerables);
 
-export default function TeamActivity() {
+export default function TeamActivity({ assignees, pr }) {
   const chartRef = useRef(null);
 
   let totalContributions = 0;
-  data.contributors.forEach((contributor) => {
-    totalContributions += contributor.contributions;
+  pr.forEach((prs) => {
+    totalContributions += prs.total_count;
   });
 
-  function calculatePercentage(user) {
-    return Math.round((100 * user.contributions) / totalContributions);
+  function calculatePercentage(individualPrNumber) {
+    return Math.round(
+      (100 * individualPrNumber.total_count) / totalContributions
+    );
   }
+  console.log("ta", totalContributions);
 
   useEffect(() => {
     const chartData = {
-      labels: data.contributors.map((user) => user.login),
+      labels: assignees.map((user) => user.login),
       datasets: [
         {
           label: "Contributions",
-          data: data.contributors.map((user) => calculatePercentage(user)),
-          backgroundColor: ["#E2E949", "#36BCBA", "#36BCBA"],
+          data: pr.map((user) => calculatePercentage(user)),
+          backgroundColor: ["#E2E949", "#36BCBA", "#f55706"],
         },
       ],
     };
@@ -74,22 +76,7 @@ export default function TeamActivity() {
       <div className="flex flex-column justify-between">
         <h2 className="text-[#F9F9F9] font-bold">Team Activity</h2>
       </div>
-
       <canvas ref={chartRef}></canvas>
-
-      {/* code without chart: */}
-      {/* {data.contributors.map((user) => (
-        <div key={user.login} className="flex items-center space-x-4">
-          <img
-            src={user.avatar_url}
-            alt={user.login}
-            className="w-10 h-10 rounded-full"
-          />
-          <div className="text-white">
-            {user.login}: {calculatePercentage(user)}%
-          </div>
-        </div>
-      ))} */}
     </div>
   );
 }

@@ -1,7 +1,7 @@
 import { FaShapes, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
 import data from "g1-e-commerce.json";
 
-export default function OverallInfoCard() {
+export default function OverallInfoCard({ issuesClosed, issuesOpen }) {
   return (
     <div className="flex flex-col gap-4 max-w-sm md:max-w-lg xl:max-w-xl bg-[#1A1E1F] p-9 rounded-2xl">
       <div className="flex flex-row justify-between">
@@ -11,14 +11,12 @@ export default function OverallInfoCard() {
       <div className="flex flex-row justify-left gap-1 items-center my-4">
         <div className="text-[#F9F9F9] font-bold text-2xl">
           {" "}
-          {String(
-            data.issues.filter((issue) => issue.state === "completed").length
-          )}
+          {String(issuesClosed.length)}
           {/* when the issue.state is not open , it will calculate the number of completed issues. To double check with the real API, so we can know for sure how to track them       */}
         </div>
         <div className="text-[#F9F9F9] ">|</div>
         <div className="text-[#F9F9F9] font-bold text-2xl">
-          {String(data.issues[0].number)}
+          {String(issuesClosed.length + issuesOpen.length)}
           {/* number of issues in total. double-check accuracy of the code with the real API */}
         </div>
         <p className="text-[#606467] text-xs ml-[10px] items-end">Tasks Done</p>
@@ -31,7 +29,7 @@ export default function OverallInfoCard() {
             </div>
             <p className="font-bold text-lg mt-2">
               {" "}
-              {String(data.issues[0].number)}
+              {String(issuesClosed.length + issuesOpen.length)}
               {/* number of issues in total. To double-check accuracy of the code with the real API */}
             </p>
             <p className="text-xs mt-2 text-black">Tasks</p>
@@ -43,9 +41,7 @@ export default function OverallInfoCard() {
               <FaSyncAlt />
             </div>
             <p className="font-bold text-lg mt-2">
-              {String(
-                data.issues.filter((issue) => issue.state == "open").length
-              )}
+              {String(issuesOpen.length)}
               {/* number of issues in progress. To double-check accuracy of the status name in the real API */}
             </p>
             <p className="text-xs mt-2 text-black">In progress</p>
@@ -59,7 +55,7 @@ export default function OverallInfoCard() {
             <p className="font-bold text-lg mt-2">
               {" "}
               {String(
-                data.issues.filter((issue) => issue.state === "closed").length
+                issuesClosed.filter((issue) => issue.state === "closed").length
               )}
               {/* number of completed issues. To double-check accuracy of the status name in the real API */}
             </p>
