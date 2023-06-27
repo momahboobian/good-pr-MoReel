@@ -1,29 +1,16 @@
-// "use client";
-// import React, { useEffect, useState } from "react";
+import Sidebar from "@components/Sidebar";
 
-const Home = () => {
-  // const [team, setTeam] = useState([]);
-
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     const response = await fetch("/api/gitHubAPI");
-  //     const data = await response.json();
-  //     setTeam(data);
-  //   };
-
-  //   fetchData();
-  // }, []);
-
-  // console.log(team);
+export default function Home() {
   return (
     <main className="flex min-h-screen justify-between p-0">
-      <div className="">This is from page</div>
-      {/* {team.map((el) => (
-        <div>
-          <span>{el.login}</span>
-          <span>{el.type}</span>
+      <div className="flex border-neutral-800  overflow-hidden rounded-lg">
+        <Sidebar />
+        <div className="flex-1 w-screen bg-[#F1F3F7] p-6">
+          <div>
+            <h1 className="text-2xl font-bold">Teams</h1>
+            <p className="text-sm ">Track teams & members</p>
+          </div>
         </div>
-      ))} */}
     </main>
   );
 };
