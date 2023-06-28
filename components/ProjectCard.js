@@ -31,7 +31,7 @@ const ProjectCard = ({ assignees, repo }) => {
 
   return (
     <div className=" flex flex-cols-1 gap-4 max-w-sm bg-[#1A1E1F] p-0 rounded-2xl">
-      <div className="flex items-center gap-4">
+      <div className="flex items-start gap-4">
         <div className="flex flex-col justify-between h-80 w-80 bg-[#1A1E1F] rounded-2xl p-9 ">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-s text-white">Project</h1>
