@@ -6,7 +6,7 @@ import TeamActivityPie from "@components/TaskActivityPie";
 import TaskActivity from "@components/TasksActivity";
 import React, { useEffect, useState } from "react";
 
-const TeamOverview = () => {
+export default function TeamOverview() {
   const [repo, setRepo] = useState({});
   const [assignees, setAssignees] = useState([]);
   const [issuesClosed, setIssuesClosed] = useState([]);
@@ -53,6 +53,5 @@ const TeamOverview = () => {
       <TaskActivity issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
     </div>
   );
-};
+}
 
-export default TeamOverview;

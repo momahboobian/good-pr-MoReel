@@ -1,7 +1,7 @@
 import data from "g1-e-commerce.json";
 import Image from "next/image";
 
-const TaskActivity = ({ issuesClosed, issuesOpen }) => {
+export default function TaskActivity({ issuesClosed, issuesOpen }) {
   const issues = [...issuesClosed, ...issuesOpen].sort(
     (a, b) => b.created_at - a.created_at
   );
@@ -113,6 +113,4 @@ const TaskActivity = ({ issuesClosed, issuesOpen }) => {
       </div>
     </div>
   );
-};
-
-export default TaskActivity;
+}
