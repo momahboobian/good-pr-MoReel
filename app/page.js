@@ -14,10 +14,9 @@ export default function Home() {
           </div>
           {/* below  is the part for teams cards, to be edited for multiple cards */}
           <div className="mt-20">
-            <TeamCard />
+            <GroupsPage />
           </div>
         </div>
-        <GroupsPage />
       </div>
     </main>
   );
