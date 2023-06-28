@@ -1,3 +1,4 @@
+import GroupsPage from "@components/GroupsPage";
 import Sidebar from "@components/Sidebar";
 import TeamCard from "@components/TeamCard";
 
@@ -16,6 +17,7 @@ export default function Home() {
             <TeamCard />
           </div>
         </div>
+        <GroupsPage />
       </div>
     </main>
   );

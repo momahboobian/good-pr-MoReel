@@ -1,7 +1,7 @@
 import data from "g1-e-commerce.json";
 import Image from "next/image";
 
-const TaskActivity = ({ issuesClosed, issuesOpen }) => {
+export default function TaskActivity({ issuesClosed, issuesOpen }) {
   const issues = [...issuesClosed, ...issuesOpen].sort(
     (a, b) => b.created_at - a.created_at
   );
@@ -13,7 +13,6 @@ const TaskActivity = ({ issuesClosed, issuesOpen }) => {
       </div>
 
       <div className=" flex justify-center  relative h-[350px] overflow-auto">
-        x{" "}
         <div className="table-responsive w-full">
           <table className="table-auto text-xs text-left w-full">
             <thead className="text-[#6d7174] border-b border-[rgba(124,124,123,0.6)] font-medium sticky top-0 bg-[#070E0E]">
@@ -114,6 +113,4 @@ const TaskActivity = ({ issuesClosed, issuesOpen }) => {
       </div>
     </div>
   );
-};
-
-export default TaskActivity;
+}

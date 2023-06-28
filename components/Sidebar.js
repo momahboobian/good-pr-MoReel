@@ -1,9 +1,9 @@
-import SidebarLogo from "./SidebarLogo";
-import SidebarDashboard from "./SidebarDashboard";
-import SidebarTeams from "./SidebarTeams";
-import SidebarDarkMode from "./SidebarDarkMode";
+import SidebarLogo from "@components/SidebarLogo";
+import SidebarDashboard from "@components/SidebarDashboard";
+import SidebarTeams from "@components/SidebarTeams";
+import SidebarDarkMode from "@components/SidebarDarkMode";
 
-const Sidebar = () => {
+export default function Sidebar() {
   return (
     <div
       className="flex flex-col items-center gap-10 pt-14 p-4 min-w-sm
@@ -15,6 +15,4 @@ const Sidebar = () => {
       <SidebarDarkMode />
     </div>
   );
-};
-
-export default Sidebar;
+}

@@ -1,11 +1,12 @@
 "use client";
-import OverallInfoCard from "./OverallInfoCard";
-import ProjectCard from "./ProjectCard";
-import TaskActivity from "./TasksActivity";
-import TeamActivity from "./TeamActivity";
+
+import OverallInfoCard from "@components/OverallInfoCard";
+import ProjectCard from "@components/ProjectCard";
+import TeamActivityPie from "@components/TaskActivityPie";
+import TaskActivity from "@components/TasksActivity";
 import React, { useEffect, useState } from "react";
 
-const TeamOverview = () => {
+export default function TeamOverview() {
   const [repo, setRepo] = useState({});
   const [assignees, setAssignees] = useState([]);
   const [issuesClosed, setIssuesClosed] = useState([]);
@@ -38,7 +39,7 @@ const TeamOverview = () => {
   // console.log("pr", pr);
 
   return (
-    <div class=" p-6">
+    <div className=" p-6">
       {/* Content for the right div */}
       <h1 className="font-bold text-white p-4 ">Team Overview</h1>
       <p className="font-light	text-xs	text-gray-600	pt-1 p-4 ">
@@ -46,12 +47,11 @@ const TeamOverview = () => {
       </p>
       <div className=" flex flex-nowrap justify-between mt-4 gap-4 p-6 ">
         <ProjectCard assignees={assignees} repo={repo} />
+        <TeamActivityPie pr={pr} />
         <OverallInfoCard issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
-        <TeamActivity assignees={assignees} pr={pr} />
       </div>
       <TaskActivity issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
     </div>
   );
-};
+}
 
-export default TeamOverview;

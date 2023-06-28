@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-const SidebarLogo = () => {
+
+export default function SidebarLogo() {
   return (
     <div className="flex items-center">
       <FontAwesomeIcon
@@ -14,6 +15,4 @@ const SidebarLogo = () => {
       </h1>
     </div>
   );
-};
-
-export default SidebarLogo;
+}
