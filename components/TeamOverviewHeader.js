@@ -47,8 +47,8 @@ const TeamOverview = () => {
       </p>
       <div className=" flex flex-nowrap justify-between mt-4 gap-4 p-6 ">
         <ProjectCard assignees={assignees} repo={repo} />
-        <OverallInfoCard issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
         <TeamActivityPie assignees={assignees} pr={pr} />
+        <OverallInfoCard issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
       </div>
       <TaskActivity issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
     </div>
