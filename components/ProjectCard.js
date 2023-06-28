@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // Color for the avatar border based on the index
-export default function avatarBorderColor(index) {
+const avatarBorderColor = (index) => {
   const colors = [
     "border-yellow-200",
     "border-orange-600",
@@ -13,11 +13,7 @@ export default function avatarBorderColor(index) {
   return colors[colorIndex];
 };
 
-const ProjectCard = ({ assignees, repo }) => {
-  const currentDate = new Date();
-  const options = { day: "numeric", month: "long", year: "numeric" };
-  const formattedDate = currentDate.toLocaleDateString(undefined, options);
-
+export default function ProjectCard({ assignees, repo }) {
   // finding the date for the last activity from the pull request
   const lastActivityDate = () => {
     if (repo) {
@@ -78,4 +74,4 @@ const ProjectCard = ({ assignees, repo }) => {
       </div>
     </div>
   );
-};
+}
