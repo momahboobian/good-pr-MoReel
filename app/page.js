@@ -1,3 +1,4 @@
+import GroupsPage from "@components/GroupsPage";
 import Sidebar from "@components/Sidebar";
 
 export default function Home() {
@@ -11,6 +12,7 @@ export default function Home() {
             <p className="text-sm ">Track teams & members</p>
           </div>
         </div>
+        <GroupsPage />
       </div>
     </main>
   );
