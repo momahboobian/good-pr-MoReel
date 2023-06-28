@@ -13,7 +13,7 @@ const avatarBorderColor = (index) => {
   return colors[colorIndex];
 };
 
-export default function ProjectCard({ assignees, repo }) {
+export default function ProjectCard({ repo, pr }) {
   // finding the date for the last activity from the pull request
   const lastActivityDate = () => {
     if (repo) {
@@ -24,6 +24,8 @@ export default function ProjectCard({ assignees, repo }) {
     }
     return "";
   };
+
+  const trainees = pr.filter((el) => el.total_count !== 0);
 
   return (
     <div className=" flex flex-cols-1 gap-4 max-w-sm bg-[#1A1E1F] p-0 rounded-2xl">
@@ -45,13 +47,13 @@ export default function ProjectCard({ assignees, repo }) {
             <span className="w-12 h-2 bg-gray-500 rounded-full mx-1"></span>
           </div>{" "}
           <div className="flex just border rounded-full border-gray-600 p-1">
-            {assignees.map((assignee, index) => (
+            {trainees.map((trainee, index) => (
               <Image
-                key={assignee.id}
-                src={assignee.avatar_url}
+                key={trainee.items[0].user.id}
+                src={trainee.items[0].user.avatar_url}
                 width={40}
                 height={40}
-                alt={assignee.login}
+                alt={trainee.items[0].user.login}
                 className={`w-11 h-11 rounded-full border-2 object-cover
                  ${avatarBorderColor(index)}
                 }`}
