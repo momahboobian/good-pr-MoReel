@@ -8,7 +8,9 @@ export default function TeamActivityPie({ pr }) {
   const [chartType, setChartType] = useState("pie");
   const [prsDoneCount, setPrsDoneCount] = useState(0);
 
-  const prUsers = pr.map((user) => user.items[0].user.login);
+  const prUsers = pr
+    .filter((user) => user.items && user.items.length > 0) // Filter out undefined or empty items
+    .map((user) => user.items[0].user.login);
 
   const totalContributions = pr.reduce(
     (total, prs) => total + (prs?.total_count || 0),
@@ -16,13 +18,17 @@ export default function TeamActivityPie({ pr }) {
   );
 
   useEffect(() => {
-    const chartData = prUsers.map((user) => ({
-      name: user,
-      value: calculatePercentage(
-        pr.find((prs) => prs.items[0].user.login === user)?.total_count || 0,
-        totalContributions
-      ),
-    }));
+    const chartData = prUsers.map((user) => {
+      const prItem = pr.find(
+        (prs) =>
+          prs.items && prs.items.length > 0 && prs.items[0].user?.login === user
+      );
+      const total_count = prItem?.total_count || 0;
+      return {
+        name: user,
+        value: calculatePercentage(total_count, totalContributions),
+      };
+    });
 
     const options = {
       tooltip: {
@@ -110,7 +116,7 @@ export default function TeamActivityPie({ pr }) {
       if (prsDoneCount < totalContributions) {
         setPrsDoneCount((prevCount) => prevCount + 1);
       }
-    }, 100);
+    }, 30);
 
     return () => {
       clearInterval(interval);
