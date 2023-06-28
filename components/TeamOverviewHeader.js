@@ -38,7 +38,7 @@ const TeamOverview = () => {
   // console.log("pr", pr);
 
   return (
-    <div class=" p-6">
+    <div className=" p-6">
       {/* Content for the right div */}
       <h1 className="font-bold text-white p-4 ">Team Overview</h1>
       <p className="font-light	text-xs	text-gray-600	pt-1 p-4 ">
