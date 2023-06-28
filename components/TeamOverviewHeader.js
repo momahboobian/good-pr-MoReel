@@ -1,8 +1,9 @@
 "use client";
-import OverallInfoCard from "./OverallInfoCard";
-import ProjectCard from "./ProjectCard";
-import TaskActivity from "./TasksActivity";
-import TeamActivity from "./TeamActivity";
+
+import OverallInfoCard from "@components/OverallInfoCard";
+import ProjectCard from "@components/ProjectCard";
+import TeamActivityPie from "@components/TaskActivityPie";
+import TaskActivity from "@components/TasksActivity";
 import React, { useEffect, useState } from "react";
 
 const TeamOverview = () => {
@@ -47,7 +48,7 @@ const TeamOverview = () => {
       <div className=" flex flex-nowrap justify-between mt-4 gap-4 p-6 ">
         <ProjectCard assignees={assignees} repo={repo} />
         <OverallInfoCard issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
-        <TeamActivity assignees={assignees} pr={pr} />
+        <TeamActivityPie assignees={assignees} pr={pr} />
       </div>
       <TaskActivity issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
     </div>
