@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from "react";
 import ReactECharts from "echarts-for-react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faChartSimple, faChartPie } from "@fortawesome/free-solid-svg-icons";
 
 export default function TeamActivityPie({ pr }) {
   const [chartOptions, setChartOptions] = useState(null);
@@ -28,12 +30,12 @@ export default function TeamActivityPie({ pr }) {
         formatter: "{b}: {d}%",
       },
       legend: {
-        orient: "horizontal",
-        left: "left",
-        top: "top",
+        orient: "vertical",
+        right: "1",
+        top: "1",
         textStyle: {
           fontSize: 12,
-          color: "rgb(107 114 128)",
+          color: "#606467",
         },
         data: prUsers,
       },
@@ -57,10 +59,10 @@ export default function TeamActivityPie({ pr }) {
             color: (params) =>
               [
                 "rgba(255, 240, 67, 0.8)",
-                "rgb(234 88 12)",
-                "rgb(14 116 144)",
-                "rgb(124 58 237)",
-                "rgb(161 98 7)",
+                "rgba(234, 88, 12, 0.8)",
+                "rgba(14, 116, 144, 0.8)",
+                "rgba(124, 58, 237, 0.8)",
+                "rgba(161, 98, 7, 0.8)",
               ][params.dataIndex % 5],
           },
         },
@@ -68,15 +70,34 @@ export default function TeamActivityPie({ pr }) {
       xAxis: {
         type: "category",
         axisLabel: {
-          formatter: (value) => value.substring(0, 4),
+          formatter: (value) => value.substring(0, 6),
         },
         data: prUsers.map((user) => user),
-        show: false,
+        show: chartType === "bar",
+        axisLine: {
+          lineStyle: {
+            color: "#606467", // Set the color of the axis line to red
+          },
+        },
+        splitLine: {
+          show: false, // Hide the grid lines
+        },
       },
       yAxis: {
         type: "value",
         max: 100,
-        show: chartType === "bar", // Hide yAxis for pie chart type
+        show: chartType === "bar",
+        axisLine: {
+          lineStyle: {
+            color: "#606467",
+          },
+        },
+        splitLine: {
+          lineStyle: {
+            color: "#606467",
+            opacity: 0.1,
+          },
+        },
       },
     };
 
@@ -89,7 +110,7 @@ export default function TeamActivityPie({ pr }) {
       if (prsDoneCount < totalContributions) {
         setPrsDoneCount((prevCount) => prevCount + 1);
       }
-    }, 100); // Increase the count every 100 milliseconds
+    }, 100);
 
     return () => {
       clearInterval(interval);
@@ -100,25 +121,37 @@ export default function TeamActivityPie({ pr }) {
     return Math.round((100 * individualPrNumber) / totalContributions);
   };
 
-  const handleChartTypeChange = () => {
+  const handleChartTypeChange = (event) => {
+    event.preventDefault();
     setChartType((prevChartType) => (prevChartType === "bar" ? "pie" : "bar"));
   };
 
   return (
     <div className="flex flex-cols-1 gap-4 max-w-m bg-[#1A1E1F] p-0 rounded-2xl">
       <div className="flex items-start gap-4">
-        <div className="flex flex-col justify-between h-96 w-96 bg-[#1A1E1F] rounded-2xl p-9 ">
+        <div className="flex flex-col justify-between h-96 w-96 bg-[#1A1E1F] rounded-2xl p-9 relative">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-s text-white">Team Activity</h1>
+
             <a
               href="#"
               className="text-gray-500 text-lg "
               onClick={handleChartTypeChange}
             >
-              ...
+              {chartType === "pie" ? (
+                <FontAwesomeIcon
+                  icon={faChartSimple}
+                  className="w-5 mr-3 text-[#606467]"
+                />
+              ) : (
+                <FontAwesomeIcon
+                  icon={faChartPie} // Replace faPieIcon with the desired pie chart icon
+                  className="w-5 mr-3 text-[#606467]"
+                />
+              )}
             </a>
           </div>
-          <div className="flex flex-row justify-left gap-1 items-center my-4">
+          <div className="flex justify-left gap-1 items-center absolute top-24">
             <div className="text-[#F9F9F9] font-bold text-2xl">
               {prsDoneCount}
             </div>
@@ -126,12 +159,12 @@ export default function TeamActivityPie({ pr }) {
               Prs Done
             </p>
           </div>
-          <div className="flex items-start gap-4 w-full h-full">
+          <div className="absolute -bottom-8">
             {chartOptions && (
               <ReactECharts
-                className="w-full h-full"
                 option={chartOptions}
-                notMerge={true} // Prevent merging with previous options
+                notMerge={true}
+                style={{ width: "300px", height: "320px" }} // Prevent merging with previous options
               />
             )}
           </div>
