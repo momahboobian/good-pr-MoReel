@@ -7,7 +7,7 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 
-const SidebarDashboard = () => {
+export default function SidebarDashboard() {
   return (
     <ul className="flex flex-col items-start gap-6 pt-14">
       <li className="flex items-center text-sm text-[#37BCBA]">
@@ -36,6 +36,4 @@ const SidebarDashboard = () => {
       </li>
     </ul>
   );
-};
-
-export default SidebarDashboard;
+}

@@ -4,7 +4,7 @@ import {
   faSquarePlus,
 } from "@fortawesome/free-solid-svg-icons";
 
-const SidebarTeams = () => {
+export default function SidebarTeams() {
   return (
     <ul className="flex flex-col items-start gap-6 pt-40">
       <li className="flex items-center ml-3 text-sm text-[#717578]">TEAMS</li>
@@ -38,5 +38,4 @@ const SidebarTeams = () => {
       </li>
     </ul>
   );
-};
-export default SidebarTeams;
+}

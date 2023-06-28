@@ -1,5 +1,4 @@
 import { FaShapes, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
-import data from "g1-e-commerce.json";
 
 export default function OverallInfoCard({ issuesClosed, issuesOpen }) {
   return (

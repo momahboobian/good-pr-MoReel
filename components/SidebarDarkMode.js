@@ -1,6 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle, faSun } from "@fortawesome/free-solid-svg-icons";
-const SidebarDarkMode = () => {
+
+export default function SidebarDarkMode() {
   return (
     <div className="flex flex-row gap-1 pt-32">
       <div className="flex text-xs ">Light</div>
@@ -19,5 +20,4 @@ const SidebarDarkMode = () => {
       <div className="flex text-xs">Dark</div>
     </div>
   );
-};
-export default SidebarDarkMode;
+}

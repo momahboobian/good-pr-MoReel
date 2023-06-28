@@ -1,7 +1,7 @@
 import Image from "next/image";
 
 // Color for the avatar border based on the index
-const avatarBorderColor = (index) => {
+export default function avatarBorderColor(index) {
   const colors = [
     "border-yellow-200",
     "border-orange-600",
@@ -79,5 +79,3 @@ const ProjectCard = ({ assignees, repo }) => {
     </div>
   );
 };
-
-export default ProjectCard;
