@@ -13,7 +13,7 @@ export default function Sidebar() {
       <SidebarLogo />
       <SidebarDashboard />
       {/* <SidebarTeams /> */}
-      <SidebarDarkMode />
+      {/* <SidebarDarkMode /> */}
     </div>
   );
 }
