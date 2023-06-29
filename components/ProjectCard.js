@@ -13,8 +13,15 @@ const avatarBorderColor = (index) => {
   return colors[colorIndex];
 };
 
+// Calculate the start and end dates for the progress line
+const calculateProgressDates = (repo) => {
+  const startDate = new Date(repo.created_at);
+  const endDate = new Date(startDate.getTime() + 4 * 7 * 24 * 60 * 60 * 1000); // 4 weeks in milliseconds
+  return { startDate, endDate };
+};
+
 export default function ProjectCard({ repo, pr }) {
-  // finding the date for the last activity from the pull request
+  // Finding the date for the last activity from the pull request
   const lastActivityDate = () => {
     if (repo) {
       const updatedAt = new Date(repo.updated_at);
@@ -32,31 +39,43 @@ export default function ProjectCard({ repo, pr }) {
         </div>
       );
     }
-
-    return "";
   };
 
   const trainees = pr.filter((el) => el.total_count !== 0);
 
+  const { startDate, endDate } = calculateProgressDates(repo);
+
+  // Calculate the total number of days
+  const totalDays = Math.round((endDate - startDate) / (1000 * 60 * 60 * 24));
+
   return (
-    <div className=" flex flex-cols-1 gap-4 max-w-sm bg-[#1A1E1F] p-0 rounded-2xl">
+    <div className="flex flex-cols-1 gap-4 max-w-sm bg-[#1A1E1F] rounded-2xl">
       <div className="flex items-start gap-4">
         <div className="flex flex-col justify-between h-80 w-[22rem] bg-[#1A1E1F] rounded-2xl p-6 relative">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-s text-white">Project</h1>
           </div>
-          <div className="flex items-center justify-between">
-            <span className="w-11 h-2 bg-yellow-500 rounded-full"></span>
-            <span className="w-11 h-2 bg-yellow-500 rounded-full"></span>
-            <span className="w-11 h-2 relative">
-              <span className="absolute left-0 top-0 w-1/2 h-full bg-yellow-500 rounded-l-full "></span>
-              <span className="absolute right-0 top-0 w-1/2 h-full bg-gray-500 rounded-r-full "></span>
-            </span>
-            <span className="w-11 h-2 bg-gray-500 rounded-full"></span>
-            <p className="text-[#606467] text-xs items-end pl-2 whitespace-nowrap">
+          <div className="flex justify-between items-center mt-4">
+            {/* <div className="bg-gray-300 h-2 flex-1 mr-2 rounded-full"></div> */}
+            <div
+              className="bg-yellow-500 h-2 rounded-full relative"
+              style={{
+                width: `${
+                  ((Date.now() - startDate) / (endDate - startDate)) * 100
+                }%`,
+              }}
+            >
+              <div className="absolute top-[-18px] text-[#606467] text-xs rounded-full">
+                {totalDays} days
+              </div>
+              <div className="absolute top-0 right-0 w-2 h-2 bg-yellow-500 transform rotate-45 translate-x-1/2"></div>
+            </div>
+            <div className="bg-gray-300 h-2 flex-1 ml-3 rounded-full"></div>
+            <p className="text-[#606467] text-xs items-end pl-3 whitespace-nowrap">
               Team Progress
             </p>
           </div>
+
           <div className="flex just border rounded-full border-gray-600 p-1">
             {trainees.map((trainee, index) => (
               <Image
