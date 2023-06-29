@@ -25,7 +25,7 @@ export default function TeamActivityPie({ pr }) {
       );
       const total_count = prItem?.total_count || 0;
       return {
-        name: user,
+        name: filterAndTruncateName(user, 6),
         value: calculatePercentage(total_count, totalContributions),
       };
     });
@@ -37,26 +37,28 @@ export default function TeamActivityPie({ pr }) {
       },
       legend: {
         orient: "vertical",
-        right: "1",
-        top: "1",
+        x: "right",
+        right: "10",
         textStyle: {
           fontSize: 12,
           color: "#606467",
         },
-        data: prUsers,
+        padding: [10, 10, 10, 10],
+        data: chartData.map((dataItem) => dataItem.name),
       },
       series: [
         {
           name: "Contributions",
           type: chartType, // Use the current chart type
           radius: ["40%", "70%"],
+          avoidLabelOverlap: false,
           label: {
             show: true,
             position: "inside",
             formatter: "{c}%",
           },
           labelLine: {
-            show: true,
+            show: false,
             length: 10,
             length2: 10,
           },
@@ -82,26 +84,31 @@ export default function TeamActivityPie({ pr }) {
         show: chartType === "bar",
         axisLine: {
           lineStyle: {
-            color: "#606467", // Set the color of the axis line to red
+            color: "#606467",
           },
         },
         splitLine: {
-          show: false, // Hide the grid lines
+          show: false,
         },
       },
       yAxis: {
         type: "value",
         max: 100,
         show: chartType === "bar",
+        axisLabel: {
+          margin: -275,
+          position: "right",
+        },
         axisLine: {
           lineStyle: {
             color: "#606467",
           },
         },
         splitLine: {
+          // show: false,
           lineStyle: {
             color: "#606467",
-            opacity: 0.1,
+            opacity: 0.04,
           },
         },
       },
@@ -109,6 +116,11 @@ export default function TeamActivityPie({ pr }) {
 
     setChartOptions(options);
   }, [pr, chartType]);
+
+  const filterAndTruncateName = (name, maxLength) => {
+    const filteredName = name.replace(/[^A-Za-z0-9]/g, ""); // Remove non-alphanumeric characters
+    return filteredName.substring(0, maxLength);
+  };
 
   useEffect(() => {
     // Update the count of PRs done dynamically
@@ -138,7 +150,6 @@ export default function TeamActivityPie({ pr }) {
         <div className="flex flex-col justify-between h-96 w-96 bg-[#1A1E1F] rounded-2xl p-9 relative">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-s text-white">Team Activity</h1>
-
             <a
               href="#"
               className="text-gray-500 text-lg "
@@ -165,12 +176,12 @@ export default function TeamActivityPie({ pr }) {
               Prs Done
             </p>
           </div>
-          <div className="absolute -bottom-8">
+          <div className="absolute top-16 right-10">
             {chartOptions && (
               <ReactECharts
                 option={chartOptions}
                 notMerge={true}
-                style={{ width: "300px", height: "320px" }} // Prevent merging with previous options
+                style={{ width: "320px", height: "360px" }} // Prevent merging with previous options
               />
             )}
           </div>
