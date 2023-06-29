@@ -6,32 +6,53 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 export default function SidebarDashboard() {
+  const pathname = usePathname();
+
   return (
     <ul className="flex flex-col items-start gap-6 pt-14">
-      <li className="flex items-center text-sm text-[#37BCBA]">
-        <Link className="flex items-center" href="/">
-          <FontAwesomeIcon icon={faHouseUser} className="w-[15px] mr-3" />
-          Home
+      <li className="flex items-center text-sm">
+        <Link href="/">
+          <span
+            className={`${
+              pathname === "/" ? "text-cyan-600" : "text-[#37BCBA]"
+            }`}
+          >
+            <FontAwesomeIcon icon={faHouseUser} className="w-[15px] mr-3" />
+            Home
+          </span>
         </Link>
       </li>
       <li className="flex items-center text-sm">
-        <Link className="flex items-center" href="/dashboard">
-          <FontAwesomeIcon icon={faColumns} className="w-[15px] mr-3" />
-          Dashboard
+        <Link href="/dashboard">
+          <span
+            className={`${pathname === "/dashboard" ? "text-cyan-600" : ""}`}
+          >
+            <FontAwesomeIcon icon={faColumns} className="w-[15px] mr-3" />
+            Dashboard
+          </span>
         </Link>
       </li>
       <li className="flex items-center text-sm">
-        <Link className="flex items-center" href="/my-tasks">
-          <FontAwesomeIcon icon={faListCheck} className="w-[15px] mr-3" />
-          My Tasks
+        <Link href="/my-tasks">
+          <span
+            className={`${pathname === "/my-tasks" ? "text-cyan-600" : ""}`}
+          >
+            <FontAwesomeIcon icon={faListCheck} className="w-[15px] mr-3" />
+            My Tasks
+          </span>
         </Link>
       </li>
       <li className="flex items-center text-sm">
-        <Link className="flex items-center" href="/statistics">
-          <FontAwesomeIcon icon={faChartColumn} className="w-[15px] mr-3" />
-          Statistics
+        <Link href="/statistics">
+          <span
+            className={`${pathname === "/statistics" ? "text-cyan-600" : ""}`}
+          >
+            <FontAwesomeIcon icon={faChartColumn} className="w-[15px] mr-3" />
+            Statistics
+          </span>
         </Link>
       </li>
     </ul>
