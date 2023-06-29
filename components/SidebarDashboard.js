@@ -6,29 +6,36 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
+import { useRouter } from "'next/navigation";
+
 
 export default function SidebarDashboard() {
+  const router = useRouter();
+
   return (
     <ul className="flex flex-col items-start gap-6 pt-14">
-      <li className="flex items-center text-sm text-[#37BCBA]">
-        <Link className="flex items-center" href="/">
+      <li className="flex items-center text-sm text-[#37BCBA] active:text-cyan-600">
+        <Link  href="/">
           <FontAwesomeIcon icon={faHouseUser} className="w-[15px] mr-3" />
+                  <a className={router.pathname === "/" ? "active" : ""}>
+
           Home
+          </a>
         </Link>
       </li>
-      <li className="flex items-center text-sm">
+      <li className="flex items-center text-sm active:text-cyan-600">
         <Link className="flex items-center" href="/dashboard">
           <FontAwesomeIcon icon={faColumns} className="w-[15px] mr-3" />
           Dashboard
         </Link>
       </li>
-      <li className="flex items-center text-sm">
+      <li className="flex items-center text-sm active:text-cyan-600">
         <Link className="flex items-center" href="/my-tasks">
           <FontAwesomeIcon icon={faListCheck} className="w-[15px] mr-3" />
           My Tasks
         </Link>
       </li>
-      <li className="flex items-center text-sm">
+      <li className="flex items-center text-sm active:text-cyan-600">
         <Link className="flex items-center" href="/statistics">
           <FontAwesomeIcon icon={faChartColumn} className="w-[15px] mr-3" />
           Statistics
