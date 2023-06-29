@@ -6,21 +6,14 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
-import { useRouter } from "'next/navigation";
-
 
 export default function SidebarDashboard() {
-  const router = useRouter();
-
   return (
     <ul className="flex flex-col items-start gap-6 pt-14">
       <li className="flex items-center text-sm text-[#37BCBA] active:text-cyan-600">
         <Link  href="/">
           <FontAwesomeIcon icon={faHouseUser} className="w-[15px] mr-3" />
-                  <a className={router.pathname === "/" ? "active" : ""}>
-
           Home
-          </a>
         </Link>
       </li>
       <li className="flex items-center text-sm active:text-cyan-600">
