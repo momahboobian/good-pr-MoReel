@@ -1,3 +1,4 @@
+"use client";
 import SidebarLogo from "@components/SidebarLogo";
 import SidebarDashboard from "@components/SidebarDashboard";
 import SidebarTeams from "@components/SidebarTeams";
