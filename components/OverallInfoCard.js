@@ -1,66 +1,101 @@
+import { useState, useEffect } from "react";
 import { FaShapes, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
 
-export default function OverallInfoCard({ issuesClosed, issuesOpen }) {
+// TaskItem component
+const TaskItem = ({ icon, title, count, bgColor }) => {
+  const itemStyle = `flex flex-col justify-center items-center basis-1/3 space-y-3 py-2 ${bgColor} text-gray-900 rounded-xl`;
+
   return (
-    <div className="flex flex-col gap-4 max-w-sm md:max-w-lg xl:max-w-xl bg-[#1A1E1F] p-9 rounded-2xl">
-      <div className="flex flex-row justify-between">
-        <h2 className="text-[#F9F9F9] font-bold">Overall Information</h2>
-        <button className=" text-gray-500">...</button>
+    <div className={itemStyle}>
+      <div className="text-current border rounded-full border-gray-500 p-2">
+        {icon}
       </div>
-      <div className="flex flex-row justify-left gap-1 items-center my-4">
-        <div className="text-[#F9F9F9] font-bold text-2xl">
-          {" "}
-          {String(issuesClosed.length)}
-          {/* when the issue.state is not open , it will calculate the number of completed issues. To double check with the real API, so we can know for sure how to track them       */}
+      <p className="text-x">{title}</p>
+      <p className="font-bold text-2xl">{count}</p>
+    </div>
+  );
+};
+
+export default function OverallInfoCard({ issuesClosed, issuesOpen }) {
+  const [taskCount, setTaskCount] = useState(0);
+  const [inProgressCount, setInProgressCount] = useState(0);
+  const [completedTasks, setCompletedTasks] = useState(0);
+
+  const totalTasks = issuesClosed.length + issuesOpen.length;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      // Update taskCount
+      if (taskCount < totalTasks) {
+        setTaskCount((prevCount) => prevCount + 1);
+      }
+
+      // Update inProgressCount
+      if (inProgressCount < issuesOpen.length) {
+        setInProgressCount((prevCount) => prevCount + 1);
+      }
+
+      // Update completedTasks
+      if (completedTasks < issuesClosed.length) {
+        setCompletedTasks((prevCount) => prevCount + 1);
+      }
+    }, 30);
+
+    return () => {
+      clearInterval(interval);
+    };
+  }, [
+    taskCount,
+    inProgressCount,
+    completedTasks,
+    totalTasks,
+    issuesOpen.length,
+    issuesClosed.length,
+  ]);
+
+  return (
+    <div className="flex flex-col max-w-sm md:max-w-lg xl:max-w-xl bg-[#1A1E1F] rounded-2xl">
+      <div className="flex flex-col gap-8 h-96 w-96 text-#1A1E1F p-9">
+        <div className="flex justify-between items-center">
+          <h1 className="font-bold text-s text-white">Overall Information</h1>
         </div>
-        <div className="text-[#F9F9F9] ">|</div>
-        <div className="text-[#F9F9F9] font-bold text-2xl">
-          {String(issuesClosed.length + issuesOpen.length)}
-          {/* number of issues in total. double-check accuracy of the code with the real API */}
+        <div className="flex justify-left gap-1 items-center">
+          <div className="text-[#F9F9F9] font-bold text-2xl">
+            {String(completedTasks)}
+          </div>
+          <div className="text-[#F9F9F9] ">|</div>
+          <div className="text-[#F9F9F9] font-bold text-2xl">
+            {String(totalTasks)}
+          </div>
+          <p className="text-[#606467] text-xs ml-[10px] items-end">
+            Tasks Done
+          </p>
         </div>
-        <p className="text-[#606467] text-xs ml-[10px] items-end">Tasks Done</p>
-      </div>
-      <div className="flex flex-row justify-between  gap-6 mt-2">
-        <button className="w-20 bg-[#E2E949] rounded-xl p-3 flex justify-center items-center">
-          <div className="w-16 ">
-            <div className="flex justify-center mt-2">
-              <FaShapes />
-            </div>
-            <p className="font-bold text-lg mt-2">
-              {" "}
-              {String(issuesClosed.length + issuesOpen.length)}
-              {/* number of issues in total. To double-check accuracy of the code with the real API */}
-            </p>
-            <p className="text-xs mt-2 text-black">Tasks</p>
-          </div>
-        </button>
-        <button className="w-20 bg-[#36BCBA] rounded-xl p-3 flex flex-col justify-center items-center">
-          <div className="w-16">
-            <div className="flex justify-center mt-2">
-              <FaSyncAlt />
-            </div>
-            <p className="font-bold text-lg mt-2">
-              {String(issuesOpen.length)}
-              {/* number of issues in progress. To double-check accuracy of the status name in the real API */}
-            </p>
-            <p className="text-xs mt-2 text-black">In progress</p>
-          </div>
-        </button>
-        <button className="w-20 bg-[#F55706] rounded-xl p-3 flex flex-col justify-center items-center">
-          <div className="w-16">
-            <div className="flex justify-center mt-2">
-              <FaExternalLinkAlt />
-            </div>
-            <p className="font-bold text-lg mt-2">
-              {" "}
-              {String(
-                issuesClosed.filter((issue) => issue.state === "closed").length
-              )}
-              {/* number of completed issues. To double-check accuracy of the status name in the real API */}
-            </p>
-            <p className="text-xs mt-2 text-black">Completed</p>
-          </div>
-        </button>
+        <div className="flex justify-between space-x-4">
+          <TaskItem
+            icon={<FaShapes />}
+            title="Tasks"
+            bgColor="bg-yellow-300"
+            count={String(taskCount)}
+          />
+          <TaskItem
+            icon={<FaSyncAlt />}
+            title="In Progress"
+            bgColor="bg-orange-500"
+            count={String(inProgressCount)}
+          />
+          <TaskItem
+            icon={<FaExternalLinkAlt />}
+            title="Completed"
+            bgColor="bg-gray-200"
+            count={String(completedTasks)}
+          />
+        </div>
+        <div className="flex justify-center">
+          <button className="bg-[#37BCBA] text-black rounded-lg p-2 px-12 font-semibold">
+            See All Tasks
+          </button>
+        </div>
       </div>
     </div>
   );
