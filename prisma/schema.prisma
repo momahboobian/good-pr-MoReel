@@ -14,7 +14,7 @@ datasource db {
 
 
 model Repository {
-  id            String       @default(cuid()) @id
+  id Int @id @default(autoincrement())
   name          String?
   owner         String?
   team_name     String?
