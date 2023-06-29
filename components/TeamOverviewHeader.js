@@ -59,7 +59,11 @@ export default function TeamOverview() {
         <TeamActivityPie pr={pr} />
         <OverallInfoCard issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
       </div>
-      <TaskActivity issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
+      <TaskActivity
+        issuesClosed={issuesClosed}
+        issuesOpen={issuesOpen}
+        repo={repo}
+      />
     </div>
   );
 }
