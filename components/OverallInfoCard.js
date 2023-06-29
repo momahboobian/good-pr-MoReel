@@ -92,9 +92,9 @@ export default function OverallInfoCard({ issuesClosed, issuesOpen }) {
           />
         </div>
         <div className="flex justify-center">
-          <button className="bg-[#37BCBA] text-black rounded-lg p-2 px-12 font-semibold">
+          {/* <button className="bg-[#37BCBA] text-black rounded-lg p-2 px-12 font-semibold">
             See All Tasks
-          </button>
+          </button> */}
         </div>
       </div>
     </div>

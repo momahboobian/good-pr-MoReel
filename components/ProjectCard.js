@@ -69,9 +69,9 @@ export default function ProjectCard({ repo, pr }) {
             <p className="mr-1 text-white text-sx">Last Activity:</p>
             {lastActivityDate()}
           </div>{" "}
-          <button className="bg-[#37BCBA] text-black rounded-lg p-2 font-semibold">
+          {/* <button className="bg-[#37BCBA] text-black rounded-lg p-2 font-semibold">
             See All Project
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
