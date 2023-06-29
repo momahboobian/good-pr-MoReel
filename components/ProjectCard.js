@@ -20,8 +20,19 @@ export default function ProjectCard({ repo, pr }) {
       const updatedAt = new Date(repo.updated_at);
       const options = { day: "numeric", month: "long", year: "numeric" };
       const formattedDate = updatedAt.toLocaleDateString(undefined, options);
-      return formattedDate;
+
+      // Split the date into day, month, and year
+      const [day, month, year] = formattedDate.split(" ");
+
+      return (
+        <div className="text-[#F9F9F9] font-bold text-2xl space-x-1">
+          <span>{day}</span>
+          <span className="text-base">{month}</span>
+          <span>{year}</span>
+        </div>
+      );
     }
+
     return "";
   };
 
@@ -30,22 +41,22 @@ export default function ProjectCard({ repo, pr }) {
   return (
     <div className=" flex flex-cols-1 gap-4 max-w-sm bg-[#1A1E1F] p-0 rounded-2xl">
       <div className="flex items-start gap-4">
-        <div className="flex flex-col justify-between h-80 w-80 bg-[#1A1E1F] rounded-2xl p-9 ">
+        <div className="flex flex-col justify-between h-80 w-[22rem] bg-[#1A1E1F] rounded-2xl p-6 relative">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-s text-white">Project</h1>
-            <a href="#" className="text-gray-500 text-lg ">
-              ...
-            </a>
           </div>
-          <div className="flex items-center justify-between mt-4">
-            <span className="w-12 h-2 bg-yellow-300 rounded-full mx-1"></span>
-            <span className="w-12 h-2 bg-yellow-300 rounded-full mx-1"></span>
-            <span className="w-12 h-2 relative mx-1">
-              <span className="absolute left-0 top-0 w-1/2 h-full bg-yellow-300 rounded-l-full "></span>
+          <div className="flex items-center justify-between">
+            <span className="w-11 h-2 bg-yellow-500 rounded-full"></span>
+            <span className="w-11 h-2 bg-yellow-500 rounded-full"></span>
+            <span className="w-11 h-2 relative">
+              <span className="absolute left-0 top-0 w-1/2 h-full bg-yellow-500 rounded-l-full "></span>
               <span className="absolute right-0 top-0 w-1/2 h-full bg-gray-500 rounded-r-full "></span>
             </span>
-            <span className="w-12 h-2 bg-gray-500 rounded-full mx-1"></span>
-          </div>{" "}
+            <span className="w-11 h-2 bg-gray-500 rounded-full"></span>
+            <p className="text-[#606467] text-xs items-end pl-2 whitespace-nowrap">
+              Team Progress
+            </p>
+          </div>
           <div className="flex just border rounded-full border-gray-600 p-1">
             {trainees.map((trainee, index) => (
               <Image
@@ -54,24 +65,25 @@ export default function ProjectCard({ repo, pr }) {
                 width={40}
                 height={40}
                 alt={trainee.items[0].user.login}
-                className={`w-11 h-11 rounded-full border-2 object-cover
+                className={`w-14 h-14 rounded-full border-2 object-cover
                  ${avatarBorderColor(index)}
                 }`}
                 style={{
                   zIndex: index + 1,
                   position: "relative",
-                  left: `${index * -6}%`,
+                  left: `${index * -5}%`,
                 }}
               />
             ))}
           </div>
-          <div className="flex items-left items-center text-gray-500 text-xs text-center">
-            <p className="mr-1 text-white text-sx">Last Activity:</p>
-            {lastActivityDate()}
-          </div>{" "}
-          <button className="bg-[#37BCBA] text-black rounded-lg p-2 font-semibold">
-            See All Project
-          </button>
+          <div className="flex justify-left items-center pb-1">
+            <div className="text-[#F9F9F9] font-bold text-2xl">
+              {lastActivityDate()}
+            </div>
+            <p className="text-[#606467] text-xs pl-4 items-end ">
+              Last Activity
+            </p>
+          </div>
         </div>
       </div>
     </div>
