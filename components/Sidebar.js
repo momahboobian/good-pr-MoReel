@@ -1,7 +1,7 @@
 "use client";
 import SidebarLogo from "@components/SidebarLogo";
 import SidebarDashboard from "@components/SidebarDashboard";
-import SidebarTeams from "@components/SidebarTeams";
+// import SidebarTeams from "@components/SidebarTeams";
 import SidebarDarkMode from "@components/SidebarDarkMode";
 
 export default function Sidebar() {
@@ -12,7 +12,7 @@ export default function Sidebar() {
     >
       <SidebarLogo />
       <SidebarDashboard />
-      <SidebarTeams />
+      {/* <SidebarTeams /> */}
       <SidebarDarkMode />
     </div>
   );

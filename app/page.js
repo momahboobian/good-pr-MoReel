@@ -14,7 +14,7 @@ export default function Home() {
             <h1 className="text-2xl font-bold">Teams</h1>
             <p className="text-sm ">Track teams & members</p>
           </div>
-          {/* below  is the part for teams cards, to be edited for multiple cards */}
+
           <div className="mt-20">
             <GroupsPage />
           </div>
