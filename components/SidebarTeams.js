@@ -12,10 +12,10 @@ export default function SidebarTeams() {
   return (
     <ul className="flex flex-col items-start gap-6 pt-40">
       <li className="flex items-center ml-3 text-sm text-[#717578]active:text-cyan-600">
-        <Link href="/">
+        <Link href="#">
           <span
             className={`${
-              pathname === "/" ? "text-cyan-600" : "text-[#717578]"
+              pathname === "#" ? "text-cyan-600" : "text-[#717578]"
             }`}
           >
             TEAMS
