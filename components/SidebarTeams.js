@@ -25,7 +25,8 @@ export default function SidebarTeams() {
       <li className="flex items-center text-xs active:text-cyan-600">
         <Link href="#">
           <span
-            className={`${pathname === "#" ? "text-cyan-600" : "text-white"}`}>
+            className={`${pathname === "#" ? "text-cyan-600" : "text-white"}`}
+          >
             <FontAwesomeIcon
               icon={faSquareArrowUpRight}
               className="w-[15px] mr-3 text-[#8F46EA]"
@@ -48,16 +49,16 @@ export default function SidebarTeams() {
         </Link>
       </li>
       <li className="flex items-center text-xs active:text-cyan-600">
-               <Link href="#">
+        <Link href="#">
           <span
             className={`${pathname === "#" ? "text-cyan-600" : "text-white"}`}
-          > 
-        <FontAwesomeIcon
-          icon={faSquareArrowUpRight}
-          className="w-[15px] mr-3 text-[#E3EA46]"
-        />
-        Group 4
-        </span>
+          >
+            <FontAwesomeIcon
+              icon={faSquareArrowUpRight}
+              className="w-[15px] mr-3 text-[#E3EA46]"
+            />
+            Group 4
+          </span>
         </Link>
       </li>
       <li className="flex items-center text-xs active:text-cyan-600">
@@ -65,12 +66,12 @@ export default function SidebarTeams() {
           <span
             className={`${pathname === "#" ? "text-cyan-600" : "text-white"}`}
           >
-        <FontAwesomeIcon
-          icon={faSquarePlus}
-          className="w-[15px] mr-3 text-[#D9D9D9]"
-        />
-        View all
-        </span>
+            <FontAwesomeIcon
+              icon={faSquarePlus}
+              className="w-[15px] mr-3 text-[#D9D9D9]"
+            />
+            View all
+          </span>
         </Link>
       </li>
     </ul>
