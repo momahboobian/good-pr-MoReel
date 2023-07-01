@@ -3,6 +3,7 @@
     {
       "id": 1,
       "groupName": "PR Insiders",
+      "projectName": "Good PR",
       "updatedDate": "2023-06-25",
       "pullRequests": 10,
       "collaborators": [
@@ -27,6 +28,7 @@
     {
       "id": 2,
       "groupName": "Study",
+      "projectName": "Study Buddies Final Project",
       "updatedDate": "2023-06-26",
       "pullRequests": 5,
       "collaborators": [
@@ -48,6 +50,7 @@
       "id": 3,
       "owner": "susanssky",
       "groupName": "Group 3",
+      "projectName": "Careless Whisper",
       "updatedDate": "2023-06-27",
       "pullRequests": 7,
       "collaborators": [
@@ -65,6 +68,7 @@
       "id": 4,
       "owner": "BoshraM",
       "groupName": "Ctrl+Shift+Learn",
+      "projectName": "ldn9 fp wordwisee",
       "updatedDate": "2023-06-25",
       "pullRequests": 8,
       "collaborators": [
@@ -90,6 +94,7 @@
       "id": 5,
       "owner": "ShayanMahnam",
       "groupName": "PR Insiders",
+      "projectName": "lentegeur hospital facility board",
       "updatedDate": "2023-06-26",
       "pullRequests": 10,
       "collaborators": [
@@ -119,6 +124,7 @@
       "id": 6,
       "owner": "Innapoliakova",
       "groupName": "A Set",
+      "projectName": "ldn9 Ctrl Shift Learn",
       "updatedDate": "2023-06-27",
       "pullRequests": 11,
       "collaborators": [
@@ -144,6 +150,7 @@
       "id": 7,
       "owner": "Bahare09",
       "groupName": "WordWise",
+      "projectName": "set",
       "updatedDate": "2023-06-27",
       "pullRequests": 12,
       "collaborators": [

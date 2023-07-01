@@ -17,7 +17,7 @@ export default function SidebarDashboard() {
         <Link href="/">
           <span
             className={`${
-              pathname === "/" ? "text-cyan-600" : "text-[#37BCBA]"
+              pathname === "/" ? "text-cyan-600" : ""
             }`}
           >
             <FontAwesomeIcon icon={faHouseUser} className="w-[15px] mr-3" />
@@ -36,7 +36,7 @@ export default function SidebarDashboard() {
         </Link>
       </li>
       <li className="flex items-center text-sm">
-        <Link href="/my-tasks">
+        {/* <Link href="/my-tasks">
           <span
             className={`${pathname === "/my-tasks" ? "text-cyan-600" : ""}`}
           >
@@ -53,7 +53,7 @@ export default function SidebarDashboard() {
             <FontAwesomeIcon icon={faChartColumn} className="w-[15px] mr-3" />
             Statistics
           </span>
-        </Link>
+        </Link> */}
       </li>
     </ul>
   );

@@ -33,9 +33,9 @@ export default function ProjectCard({ repo, pr }) {
         <div className="flex flex-col justify-between h-80 w-80 bg-[#1A1E1F] rounded-2xl p-9 ">
           <div className="flex justify-between items-center">
             <h1 className="font-bold text-s text-white">Project</h1>
-            <a href="#" className="text-gray-500 text-lg ">
+            {/* <a href="#" className="text-gray-500 text-lg ">
               ...
-            </a>
+            </a> */}
           </div>
           <div className="flex items-center justify-between mt-4">
             <span className="w-12 h-2 bg-yellow-300 rounded-full mx-1"></span>
@@ -69,9 +69,9 @@ export default function ProjectCard({ repo, pr }) {
             <p className="mr-1 text-white text-sx">Last Activity:</p>
             {lastActivityDate()}
           </div>{" "}
-          <button className="bg-[#37BCBA] text-black rounded-lg p-2 font-semibold">
+          {/* <button className="bg-[#37BCBA] text-black rounded-lg p-2 font-semibold">
             See All Project
-          </button>
+          </button> */}
         </div>
       </div>
     </div>
