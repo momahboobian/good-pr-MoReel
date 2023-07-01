@@ -15,7 +15,9 @@ export default function SidebarDashboard() {
     <ul className="flex flex-col items-start gap-6 pt-14">
       <li className="flex items-center text-sm">
         <Link href="/">
+
           <span className={`${pathname === "/" ? "text-[#37BCBA]" : ""}`}>
+
             <FontAwesomeIcon icon={faHouseUser} className="w-[15px] mr-3" />
             Home
           </span>
@@ -33,6 +35,7 @@ export default function SidebarDashboard() {
       </li>
       {/* <li className="flex items-center text-sm">
         <Link href="/my-tasks">
+
           <span
             className={`${pathname === "/my-tasks" ? "text-[#37BCBA]" : ""}`}
           >

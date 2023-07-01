@@ -95,6 +95,7 @@ export default function ProjectCard({ repo, pr }) {
               />
             ))}
           </div>
+
           <div className="flex justify-left items-center pb-1">
             <div className="text-[#F9F9F9] font-bold text-2xl">
               {lastActivityDate()}
