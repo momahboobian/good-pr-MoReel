@@ -15,11 +15,9 @@ export default function SidebarDashboard() {
     <ul className="flex flex-col items-start gap-6 pt-14">
       <li className="flex items-center text-sm">
         <Link href="/">
-          <span
-            className={`${
-              pathname === "/" ? "text-cyan-600" : ""
-            }`}
-          >
+
+          <span className={`${pathname === "/" ? "text-[#37BCBA]" : ""}`}>
+
             <FontAwesomeIcon icon={faHouseUser} className="w-[15px] mr-3" />
             Home
           </span>
@@ -28,17 +26,18 @@ export default function SidebarDashboard() {
       <li className="flex items-center text-sm">
         <Link href="/dashboard">
           <span
-            className={`${pathname === "/dashboard" ? "text-cyan-600" : ""}`}
+            className={`${pathname === "/dashboard" ? "text-[#37BCBA]" : ""}`}
           >
             <FontAwesomeIcon icon={faColumns} className="w-[15px] mr-3" />
             Dashboard
           </span>
         </Link>
       </li>
-      <li className="flex items-center text-sm">
-        {/* <Link href="/my-tasks">
+      {/* <li className="flex items-center text-sm">
+        <Link href="/my-tasks">
+
           <span
-            className={`${pathname === "/my-tasks" ? "text-cyan-600" : ""}`}
+            className={`${pathname === "/my-tasks" ? "text-[#37BCBA]" : ""}`}
           >
             <FontAwesomeIcon icon={faListCheck} className="w-[15px] mr-3" />
             My Tasks
@@ -48,13 +47,13 @@ export default function SidebarDashboard() {
       <li className="flex items-center text-sm">
         <Link href="/statistics">
           <span
-            className={`${pathname === "/statistics" ? "text-cyan-600" : ""}`}
+            className={`${pathname === "/statistics" ? "text-[#37BCBA]" : ""}`}
           >
             <FontAwesomeIcon icon={faChartColumn} className="w-[15px] mr-3" />
             Statistics
           </span>
-        </Link> */}
-      </li>
+        </Link>
+      </li> */}
     </ul>
   );
 }

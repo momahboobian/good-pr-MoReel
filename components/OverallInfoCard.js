@@ -3,14 +3,14 @@ import { FaShapes, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
 
 // TaskItem component
 const TaskItem = ({ icon, title, count, bgColor }) => {
-  const itemStyle = `flex flex-col justify-center items-center basis-1/3 space-y-3 py-2 ${bgColor} text-gray-900 rounded-xl`;
+  const itemStyle = `flex flex-col justify-center items-center basis-1/3 space-y-3 py-2 ${bgColor} text-gray-900 rounded-xl whitespace-nowrap`;
 
   return (
     <div className={itemStyle}>
-      <div className="text-current border rounded-full border-gray-500 p-2">
+      <div className="text-current border rounded-full border-gray-900 p-2">
         {icon}
       </div>
-      <p className="text-x">{title}</p>
+      <p className="text-sm font-medium">{title}</p>
       <p className="font-bold text-2xl">{count}</p>
     </div>
   );
@@ -55,7 +55,7 @@ export default function OverallInfoCard({ issuesClosed, issuesOpen }) {
 
   return (
     <div className="flex flex-col max-w-sm md:max-w-lg xl:max-w-xl bg-[#1A1E1F] rounded-2xl">
-      <div className="flex flex-col gap-8 h-96 w-96 text-#1A1E1F p-9">
+      <div className="flex flex-col space-y-10 h-80 w-[22rem] text-#1A1E1F p-6">
         <div className="flex justify-between items-center">
           <h1 className="font-bold text-s text-white">Overall Information</h1>
         </div>
@@ -75,26 +75,21 @@ export default function OverallInfoCard({ issuesClosed, issuesOpen }) {
           <TaskItem
             icon={<FaShapes />}
             title="Tasks"
-            bgColor="bg-yellow-300"
+            bgColor="bg-[#fff043cc]"
             count={String(taskCount)}
           />
           <TaskItem
             icon={<FaSyncAlt />}
             title="In Progress"
-            bgColor="bg-orange-500"
+            bgColor="bg-[#ea580ccc]"
             count={String(inProgressCount)}
           />
           <TaskItem
             icon={<FaExternalLinkAlt />}
             title="Completed"
-            bgColor="bg-gray-200"
+            bgColor="bg-[#0e7490cc]"
             count={String(completedTasks)}
           />
-        </div>
-        <div className="flex justify-center">
-          {/* <button className="bg-[#37BCBA] text-black rounded-lg p-2 px-12 font-semibold">
-            See All Tasks
-          </button> */}
         </div>
       </div>
     </div>

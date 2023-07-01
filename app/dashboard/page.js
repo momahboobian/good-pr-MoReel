@@ -1,6 +1,5 @@
 import Sidebar from "@components/Sidebar";
 import TeamOverviewHeader from "@components/TeamOverviewHeader";
-import { setLazyProp } from "next/dist/server/api-utils";
 
 export default function Home() {
   return (
