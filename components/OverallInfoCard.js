@@ -3,11 +3,11 @@ import { FaShapes, FaExternalLinkAlt, FaSyncAlt } from "react-icons/fa";
 
 // TaskItem component
 const TaskItem = ({ icon, title, count, bgColor }) => {
-  const itemStyle = `flex flex-col justify-center items-center basis-1/3 space-y-3 py-2 ${bgColor} text-gray-900 rounded-xl whitespace-nowrap ...`;
+  const itemStyle = `flex flex-col justify-center items-center basis-1/3 space-y-3 py-2 ${bgColor} text-gray-900 rounded-xl whitespace-nowrap`;
 
   return (
     <div className={itemStyle}>
-      <div className="text-current border rounded-full border-gray-500 p-2">
+      <div className="text-current border rounded-full border-gray-900 p-2">
         {icon}
       </div>
       <p className="text-sm font-medium">{title}</p>
@@ -75,19 +75,19 @@ export default function OverallInfoCard({ issuesClosed, issuesOpen }) {
           <TaskItem
             icon={<FaShapes />}
             title="Tasks"
-            bgColor="bg-yellow-500"
+            bgColor="bg-[#fff043cc]"
             count={String(taskCount)}
           />
           <TaskItem
             icon={<FaSyncAlt />}
             title="In Progress"
-            bgColor="bg-orange-500"
+            bgColor="bg-[#ea580ccc]"
             count={String(inProgressCount)}
           />
           <TaskItem
             icon={<FaExternalLinkAlt />}
             title="Completed"
-            bgColor="bg-teal-500"
+            bgColor="bg-[#0e7490cc]"
             count={String(completedTasks)}
           />
         </div>
