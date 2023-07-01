@@ -8,7 +8,7 @@ export default function Home() {
         <Sidebar />
         <div className="flex-1 w-screen bg-[#070e0e] pl-[5%] pr-[5%]">
           <div class="p-4 py-12">
-            <h1 className="text-2xl font-bold">Teams</h1>
+            <h1 className="text-[30px] font-bold">Teams</h1>
             <p className="text-sm ">Track teams & members</p>
           </div>
 
