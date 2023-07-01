@@ -31,7 +31,7 @@ export default function SidebarDashboard() {
           </span>
         </Link>
       </li>
-      <li className="flex items-center text-sm">
+      {/* <li className="flex items-center text-sm">
         <Link href="/my-tasks">
           <span
             className={`${pathname === "/my-tasks" ? "text-[#37BCBA]" : ""}`}
@@ -50,7 +50,7 @@ export default function SidebarDashboard() {
             Statistics
           </span>
         </Link>
-      </li>
+      </li> */}
     </ul>
   );
 }

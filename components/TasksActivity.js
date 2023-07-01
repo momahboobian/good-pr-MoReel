@@ -23,12 +23,12 @@ export default function TaskActivity({ issuesClosed, issuesOpen, repo }) {
 
       <div className="flex justify-center relative h-[350px] overflow-auto">
         <div className="w-full">
-          <table className="table-auto text-xs text-left w-full">
+          <table className="table-auto text-white text-xs text-left w-full">
             <thead
               className="sticky top-0 bg-[#070E0E]"
-              style={{ height: "29px" }}
+              style={{ height: "40px" }}
             >
-              <div className="bg-gray-600 h-[1px] w-full absolute top-7 "></div>
+              <div className="bg-gray-600 h-[1px] w-full absolute top-10 "></div>
 
               <tr>
                 <th className="text-sm font-normal">Assigned to</th>
@@ -39,7 +39,7 @@ export default function TaskActivity({ issuesClosed, issuesOpen, repo }) {
                 <th className="text-sm font-normal"></th>
               </tr>
             </thead>
-            <tbody className="py-4text-white divide-y divide-gray-900">
+            <tbody className="py-4 text-white divide-y divide-gray-900">
               {issues.map((el, idx) =>
                 el.assignees.length !== 0 ? (
                   <tr key={idx}>
@@ -68,8 +68,8 @@ export default function TaskActivity({ issuesClosed, issuesOpen, repo }) {
                       <span
                         className={`px-4 py-3 rounded-full font-semibold text-xs ${
                           el.state === "open"
-                            ? "text-gray-900 bg-orange-500"
-                            : "text-gray-900 bg-teal-500"
+                            ? "text-[#bc8d5e] bg-[#282e16]"
+                            : "text-[#b9c170] bg-[#122a29]"
                         }`}
                       >
                         {el.state === "open" ? "In progress" : "Done"}
