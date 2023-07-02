@@ -48,22 +48,27 @@ export default function TeamOverview() {
       </svg>
     </div>
   ) : (
-    <div className=" p-6">
-      {/* Content for the right div */}
-      <h1 className="font-bold text-white p-4 ">Team Overview</h1>
-      <p className="font-light	text-xs	text-gray-500	pt-1 p-4 ">
-        Track you projects, tasks & team activity here
-      </p>
-      <div className=" flex flex-nowrap justify-between mt-4 gap-4 p-6 ">
-        <ProjectCard repo={repo} pr={pr} />
-        <TeamActivityPie pr={pr} />
-        <OverallInfoCard issuesClosed={issuesClosed} issuesOpen={issuesOpen} />
+    <div className="">
+      {/* <div class="m-0 h-24 md:h-0 bg-[#1A1E1F]"></div> */}
+      <div className="p-2 pt-24 md:pt-2">
+        <h1 className="font-bold text-white p-4">Team Overview</h1>
+        <p className="font-light text-xs text-gray-500 pt-1 p-4">
+          Track you projects, tasks & team activity here
+        </p>
+        <div className="grid sm:flex space-y-6 mt-4 gap-4 p-3 md:p-6">
+          <ProjectCard repo={repo} pr={pr} />
+          <TeamActivityPie pr={pr} />
+          <OverallInfoCard
+            issuesClosed={issuesClosed}
+            issuesOpen={issuesOpen}
+          />
+        </div>
+        <TaskActivity
+          issuesClosed={issuesClosed}
+          issuesOpen={issuesOpen}
+          repo={repo}
+        />
       </div>
-      <TaskActivity
-        issuesClosed={issuesClosed}
-        issuesOpen={issuesOpen}
-        repo={repo}
-      />
     </div>
   );
 }
