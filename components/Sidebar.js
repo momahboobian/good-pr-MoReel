@@ -1,10 +1,11 @@
 "use client";
+
 import { useState, useEffect } from "react";
 import SidebarLogo from "@components/SidebarLogo";
 import SidebarDashboard from "@components/SidebarDashboard";
 // import SidebarTeams from "@components/SidebarTeams";
 // import SidebarDarkMode from "@components/SidebarDarkMode";
-import { FiMenu } from "react-icons/fi"; 
+import { FiMenu } from "react-icons/fi";
 
 export default function Sidebar() {
   const [isMobile, setIsMobile] = useState(false);
@@ -33,18 +34,23 @@ export default function Sidebar() {
     return (
       <div className="relative">
         <div
-          className="fixed top-4 left-4 z-50 cursor-pointer text-[#606467]"
-          onClick={handleBurgerMenuClick}
+          className=" flex fixed space-x-6 p-6 bg-local bg-[#1A1E1F]  
+         bg-repeat-x w-full m-0 h-24 z-50 items-center"
         >
-          <FiMenu size={48} /> {/* Increase the size to 48 */}
+          <FiMenu
+            size={40} // Increase the size to 40
+            className="cursor-pointer text-[#606467] mr-2 
+            "
+            onClick={handleBurgerMenuClick}
+          />
+          <SidebarLogo className="w-auto h-8" />
         </div>
         <div
           className={`fixed z-20 first-letter:top-0 left-0 w-56 h-full bg-black bg-opacity-50 transform transition-transform duration-300 ${
             showSidebar ? "translate-x-0 w-1/3" : "-translate-x-full"
           }`}
         >
-          <div className="flex flex-col items-center gap-10 pt-14 p-4 min-w-sm bg-[#1A1E1F] text-white">
-            <SidebarLogo />
+          <div className="flex flex-col items-center gap-10 pt-14 p-4 h-full min-w-sm bg-[#1A1E1F] text-white">
             <SidebarDashboard />
             {showSidebar && (
               <>
@@ -59,8 +65,8 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="flex flex-col items-center gap-10 pt-14 p-4 min-w-sm bg-[#1A1E1F] text-white">
-      <SidebarLogo />
+    <div className="flex flex-col items-center gap-10 pt-14 p-4 md:h-full min-w-sm bg-[#1A1E1F] text-white">
+      <SidebarLogo className="w-auto h-8" /> {/* Adjust the desired size */}
       <SidebarDashboard />
       {/* <SidebarTeams /> */}
       {/* <SidebarDarkMode /> */}
