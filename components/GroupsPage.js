@@ -9,12 +9,9 @@ export default function GroupsPage() {
   };
 
   return (
-    <div className="flex flex-row flex-wrap gap-6 relative w-full items-center justify-between">
+    <div className="flex flex-row flex-wrap gap-4   w-full items-center justify-around">
       {groupsData.groups.map((group) => (
-        <div
-          key={group.id}
-          className="flex flex-col  mr-px gap-2 relative items-center "
-        >
+        <div key={group.id}>
           <TeamCard group={group} getRandomAvatar={getRandomAvatar} />
         </div>
       ))}
