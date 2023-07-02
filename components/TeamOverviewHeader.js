@@ -49,7 +49,6 @@ export default function TeamOverview() {
     </div>
   ) : (
     <div className="">
-      {/* <div class="m-0 h-24 md:h-0 bg-[#1A1E1F]"></div> */}
       <div className="p-2 pt-24 md:pt-2">
         <h1 className="font-bold text-white p-4">Team Overview</h1>
         <p className="font-light text-xs text-gray-500 pt-1 p-4">
