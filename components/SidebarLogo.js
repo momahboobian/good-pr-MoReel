@@ -3,7 +3,7 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
 export default function SidebarLogo() {
   return (
-    <Link href="/" className="flex items-center">
+    <Link href="/" className="flex items-center p-6">
         <FontAwesomeIcon
           icon={faGithub}
           className="text-[#37BCBA] w-[20px] mr-1"
