@@ -30,7 +30,7 @@ export default function TeamCard({ group, getRandomAvatar }) {
           {group.projectName}
         </div>
       </div>
-      <div className="bg-[#1a1e1f] flex flex-row items-end justify-center flex-1 h-1/3 mb-2">
+      <div className="bg-[#1a1e1f] flex flex-row items-end justify-center flex-1 h-1/3 mb-2 py-[5%]">
         <div className="flex-1">
           <div className="text-center  ">{lastActivityDate()}</div>
           <div className="text-center text-[14px] text-[#606467] font-light">
