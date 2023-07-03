@@ -39,7 +39,7 @@ export default async (req, res) => {
         repoData.data,
         issuesClosedData.data,
         issuesOpenData.data,
-        prData.map((el) => el.data),
+        prData.filter((el) => el.data.items.length > 0).map((el) => el.data),
       ]);
   } catch (error) {
     console.error("Error fetching data:", error);
