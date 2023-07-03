@@ -54,6 +54,12 @@ export default function TeamOverview() {
         <p className="font-light text-xs text-gray-500 pt-1 p-4">
           Track you projects, tasks & team activity here
         </p>
+        <button
+          class="bg-[#0e7490cc] float-right text-white active:bg-yellow-600 text-base px-8 py-2 rounded shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
+          type="button"
+        >
+           Share this pagee
+        </button>
         <div className="grid sm:flex md:space-y-0 mt-4 gap-4 p-3 md:p-6">
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
