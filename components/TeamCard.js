@@ -2,6 +2,7 @@
 import React, { useEffect, useState } from "react";
 
 export default function TeamCard({ group }) {
+  //to format the Last Update Date
   const lastActivityDate = () => {
     if (repo.updated_at) {
       const updatedAt = new Date(repo.updated_at);
@@ -11,6 +12,8 @@ export default function TeamCard({ group }) {
     }
     return "";
   };
+
+  // to fetch repos
   const [repo, setRepo] = useState({});
   useEffect(() => {
     async function fetchData() {
@@ -21,14 +24,34 @@ export default function TeamCard({ group }) {
         if (!response.ok) {
           throw new Error("Failed to fetch data");
         }
-        const data = await response.json();
-        setRepo(data);
+        const repoData = await response.json();
+        setRepo(repoData);
       } catch (error) {
         console.error(error);
       }
     }
     fetchData();
   }, []);
+
+  //to fetch PRs
+  const [prs, setPrs] = useState([]);
+  useEffect(() => {
+    async function fetchData() {
+      try {
+        const response = await fetch(
+          `https://api.github.com/search/issues?q=is:pr+repo:${group.owner}/${group.name}`
+        );
+        if (!response.ok) {
+          throw new Error("Failed to fetch data");
+        }
+        const prData = await response.json();
+        setPrs(prData);
+      } catch (error) {
+        console.error(error);
+      }
+    }
+    fetchData();
+  })
 
   return (
     <div className="flex flex-col justify-around  mb-[5%] gap-4 h-[350px] w-[400px] shadow-[0_0px_20px_-5px_white] font-normal max-w-sm bg-[#1a1e1f] text-white rounded-2xl">
@@ -60,7 +83,7 @@ export default function TeamCard({ group }) {
         </div>
         <div className="flex-1 ">
           <div className="text-center ">
-            <p>replace</p>
+            <p>{prs.total_count}</p>
           </div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Pull Requests
