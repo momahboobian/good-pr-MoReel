@@ -145,7 +145,7 @@ export default function TeamActivityPie({ pr }) {
   };
 
   return (
-    <div className="flex items-start gap-4 max-w-sx md:max-w-lg xl:max-w-xl bg-[#1A1E1F] rounded-2xl">
+    <div className="flex items-start gap-4 max-w-sm bg-[#1A1E1F] rounded-2xl">
       <div className="flex flex-col justify-between h-80 w-[22rem] bg-[#1A1E1F] rounded-2xl p-6 relative">
         <div className="flex space-x-6 items-center z-10">
           <h1 className="font-bold text-s text-white">Team Activity</h1>
