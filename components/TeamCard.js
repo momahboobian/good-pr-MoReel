@@ -12,46 +12,40 @@ export default function TeamCard({ group }) {
     }
     return "";
   };
-
-  // to fetch repos
+  // to fetch repos and PRs for each team
   const [repo, setRepo] = useState({});
-  useEffect(() => {
-    async function fetchData() {
-      try {
-        const response = await fetch(
-          `https://api.github.com/repos/${group.owner}/${group.name}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
-        }
-        const repoData = await response.json();
-        setRepo(repoData);
-      } catch (error) {
-        console.error(error);
-      }
-    }
-    fetchData();
-  }, []);
-
-  //to fetch PRs
   const [prs, setPrs] = useState([]);
+
   useEffect(() => {
     async function fetchData() {
       try {
-        const response = await fetch(
-          `https://api.github.com/search/issues?q=is:pr+repo:${group.owner}/${group.name}`
-        );
-        if (!response.ok) {
-          throw new Error("Failed to fetch data");
+        const [repoResponse, prsResponse] = await Promise.all([
+          fetch(`https://api.github.com/repos/${group.owner}/${group.name}`),
+          fetch(
+            `https://api.github.com/search/issues?q=is:pr+repo:${group.owner}/${group.name}`
+          ),
+        ]);
+
+        if (!repoResponse.ok) {
+          throw new Error("Failed to fetch repository data");
         }
-        const prData = await response.json();
+
+        if (!prsResponse.ok) {
+          throw new Error("Failed to fetch pull request data");
+        }
+
+        const repoData = await repoResponse.json();
+        const prData = await prsResponse.json();
+
+        setRepo(repoData);
         setPrs(prData);
       } catch (error) {
         console.error(error);
       }
     }
+
     fetchData();
-  })
+  }, []);
 
   return (
     <div className="flex flex-col justify-around  mb-[5%] gap-4 h-[350px] w-[400px] shadow-[0_0px_20px_-5px_white] font-normal max-w-sm bg-[#1a1e1f] text-white rounded-2xl">
