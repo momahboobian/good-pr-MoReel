@@ -145,51 +145,51 @@ export default function TeamActivityPie({ pr }) {
   };
 
   return (
-    <div className="flex items-start gap-4 max-w-sx bg-[#1A1E1F] rounded-2xl">
-        <div className="flex flex-col justify-between h-80 w-[22rem] bg-[#1A1E1F] rounded-2xl p-6 relative">
-          <div className="flex space-x-6 items-center z-10">
-            <h1 className="font-bold text-s text-white">Team Activity</h1>
-            <a
-              href="#"
-              className="text-gray-500 text-lg"
-              onClick={handleChartTypeChange}
-            >
-              {chartType === "pie" ? (
-                <FontAwesomeIcon
-                  icon={faChartSimple}
-                  className="w-5 mr-3 text-[#606467] transition duration-300 hover:scale-110 hover:text-teal-500"
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faChartPie} // Replace faPieIcon with the desired pie chart icon
-                  className="w-5 mr-3 text-[#606467]transition duration-300 hover:scale-110 hover:text-teal-500"
-                />
-              )}
-            </a>
-          </div>
-          <div className="absolute top-4 right-5">
-            {chartOptions && (
-              <ReactECharts
-                option={chartOptions}
-                notMerge={true}
-                style={{ width: "320px", height: "340px" }} // Prevent merging with previous options
+    <div className="flex items-start gap-4 max-w-sm bg-[#1A1E1F] rounded-2xl">
+      <div className="flex flex-col justify-between h-80 w-[22rem] bg-[#1A1E1F] rounded-2xl p-6 relative">
+        <div className="flex space-x-6 items-center z-10">
+          <h1 className="font-bold text-s text-white">Team Activity</h1>
+          <a
+            href="#"
+            className="text-gray-500 text-lg"
+            onClick={handleChartTypeChange}
+          >
+            {chartType === "pie" ? (
+              <FontAwesomeIcon
+                icon={faChartSimple}
+                className="w-5 mr-3 text-[#606467] transition duration-300 hover:scale-110 hover:text-teal-500"
+              />
+            ) : (
+              <FontAwesomeIcon
+                icon={faChartPie} // Replace faPieIcon with the desired pie chart icon
+                className="w-5 mr-3 text-[#606467]transition duration-300 hover:scale-110 hover:text-teal-500"
               />
             )}
-          </div>
-
-          {chartType === "pie" ? (
-            <div className="flex justify-left gap-0 items-center absolute left-32 bottom-[120px]">
-              <div className="text-[#F9F9F9] font-bold text-2xl">
-                {prsDoneCount}
-              </div>
-              <p className="text-[#606467] text-xs ml-[10px] items-end">
-                Prs Done
-              </p>
-            </div>
-          ) : (
-            ""
+          </a>
+        </div>
+        <div className="absolute top-4 right-5">
+          {chartOptions && (
+            <ReactECharts
+              option={chartOptions}
+              notMerge={true}
+              style={{ width: "320px", height: "340px" }} // Prevent merging with previous options
+            />
           )}
         </div>
+
+        {chartType === "pie" ? (
+          <div className="flex justify-left gap-0 items-center absolute left-32 bottom-[120px]">
+            <div className="text-[#F9F9F9] font-bold text-2xl">
+              {prsDoneCount}
+            </div>
+            <p className="text-[#606467] text-xs ml-[10px] items-end">
+              Prs Done
+            </p>
+          </div>
+        ) : (
+          ""
+        )}
       </div>
+    </div>
   );
 }
