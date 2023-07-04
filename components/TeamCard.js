@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 
 export default function TeamCard({ group }) {
   //to format the Last Update Date
-  const lastActivityDate = () => {
+  const lastActivityDate = (repo) => {
     if (repo.updated_at) {
       const updatedAt = new Date(repo.updated_at);
       const options = { day: "numeric", month: "long", year: "numeric" };
@@ -12,44 +12,76 @@ export default function TeamCard({ group }) {
     }
     return "";
   };
+
+  const getTotalCount = (pr) => {
+    let totalCount = 0;
+    for (const obj of pr) {
+      totalCount += obj.total_count;
+    }
+    return totalCount;
+  };
   // to fetch repos and PRs for each team
-  const [repo, setRepo] = useState({});
-  const [prs, setPrs] = useState([]);
+  // const [repo, setRepo] = useState({});
+  // const [prs, setPrs] = useState([]);
+  // const [isLoading, setIsLoading] = useState(true);
+
+  // useEffect(() => {
+  //   async function fetchData() {
+  //     setIsLoading(true);
+  //     try {
+  //       const [repoResponse, prsResponse] = await Promise.all([
+  //         fetch(`https://api.github.com/repos/${group.owner}/${group.name}`),
+  //         fetch(
+  //           `https://api.github.com/search/issues?q=is:pr+repo:${group.owner}/${group.name}`
+  //         ),
+  //       ]);
+
+  //       if (!repoResponse.ok) {
+  //         throw new Error("Failed to fetch repository data");
+  //       }
+
+  //       if (!prsResponse.ok) {
+  //         throw new Error("Failed to fetch pull request data");
+  //       }
+
+  //       const repoData = await repoResponse.json();
+  //       const prData = await prsResponse.json();
+
+  //       setRepo(repoData);
+  //       setPrs(prData);
+  //     } catch (error) {
+  //       console.error(error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   }
+
+  //   fetchData();
+  // }, []);
+
+    const [repo, setRepo] = useState({});
+    console.log(repo);
+    const [pr, setPR] = useState([]);
+    console.log(pr);
     const [isLoading, setIsLoading] = useState(true);
 
-  useEffect(() => {
-    async function fetchData() {
+    useEffect(() => {
+      const fetchData = async () => {
         setIsLoading(true);
-      try {
-        const [repoResponse, prsResponse] = await Promise.all([
-          fetch(`https://api.github.com/repos/${group.owner}/${group.name}`),
-          fetch(
-            `https://api.github.com/search/issues?q=is:pr+repo:${group.owner}/${group.name}`
-          ),
-        ]);
-
-        if (!repoResponse.ok) {
-          throw new Error("Failed to fetch repository data");
+        try {
+          const response = await fetch("/api/gitHubAPI");
+          const data = await response.json();
+          setRepo(data[0]);
+          setPR(data[3]);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        } finally {
+          setIsLoading(false);
         }
+      };
 
-        if (!prsResponse.ok) {
-          throw new Error("Failed to fetch pull request data");
-        }
-
-        const repoData = await repoResponse.json();
-        const prData = await prsResponse.json();
-
-        setRepo(repoData);
-        setPrs(prData);
-      } catch (error) {
-        console.error(error);
-      } finally {
-        setIsLoading(false);
-      }
-    }
-
-    fetchData();
-  }, []);
+      fetchData();
+    }, []);
 
   return isLoading ? (
     <div className="flex items-center justify-center h-screen">
@@ -80,22 +112,24 @@ export default function TeamCard({ group }) {
           />
         </svg>
         <div className="text-center text-[18px] text-white ">
-          {group.groupName}
+          {group.team_name}
         </div>
         <div className="text-center text-white text-[18px]  mt-1">
-          {group.projectName}
+          {group.name}
         </div>
       </div>
       <div className="bg-[#1a1e1f] flex flex-row items-end justify-center flex-1 h-1/3 mb-2 py-[5%]">
         <div className="flex-1">
-          <div className="text-center  ">..</div>
+          <div className="text-center  ">{lastActivityDate(repo)}</div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Last Update
           </div>
         </div>
         <div className="flex-1 ">
           <div className="text-center ">
-            <p>{prs.total_count}</p>
+            <p>
+              <p>{getTotalCount(pr)}</p>
+            </p>
           </div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Pull Requests
