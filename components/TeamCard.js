@@ -2,6 +2,10 @@
 import React, { useEffect, useState } from "react";
 
 export default function TeamCard({ group }) {
+  const owner = group.owner;
+  const repository = group.name;
+
+
   //to format the Last Update Date
   const lastActivityDate = (repo) => {
     if (repo.updated_at) {
@@ -13,6 +17,7 @@ export default function TeamCard({ group }) {
     return "";
   };
 
+  //to calculate number of prs
   const getTotalCount = (pr) => {
     let totalCount = 0;
     for (const obj of pr) {
@@ -20,44 +25,7 @@ export default function TeamCard({ group }) {
     }
     return totalCount;
   };
-  // to fetch repos and PRs for each team
-  // const [repo, setRepo] = useState({});
-  // const [prs, setPrs] = useState([]);
-  // const [isLoading, setIsLoading] = useState(true);
-
-  // useEffect(() => {
-  //   async function fetchData() {
-  //     setIsLoading(true);
-  //     try {
-  //       const [repoResponse, prsResponse] = await Promise.all([
-  //         fetch(`https://api.github.com/repos/${group.owner}/${group.name}`),
-  //         fetch(
-  //           `https://api.github.com/search/issues?q=is:pr+repo:${group.owner}/${group.name}`
-  //         ),
-  //       ]);
-
-  //       if (!repoResponse.ok) {
-  //         throw new Error("Failed to fetch repository data");
-  //       }
-
-  //       if (!prsResponse.ok) {
-  //         throw new Error("Failed to fetch pull request data");
-  //       }
-
-  //       const repoData = await repoResponse.json();
-  //       const prData = await prsResponse.json();
-
-  //       setRepo(repoData);
-  //       setPrs(prData);
-  //     } catch (error) {
-  //       console.error(error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   }
-
-  //   fetchData();
-  // }, []);
+  
 
     const [repo, setRepo] = useState({});
     console.log(repo);
@@ -69,7 +37,13 @@ export default function TeamCard({ group }) {
       const fetchData = async () => {
         setIsLoading(true);
         try {
-          const response = await fetch("/api/gitHubAPI");
+          const response = await fetch("/api/gitHubAPI", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ owner, repository }),
+          });
           const data = await response.json();
           setRepo(data[0]);
           setPR(data[3]);
@@ -81,7 +55,7 @@ export default function TeamCard({ group }) {
       };
 
       fetchData();
-    }, []);
+    }, [owner, repository]);
 
   return isLoading ? (
     <div className="flex items-center justify-center h-screen">
