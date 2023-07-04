@@ -1,8 +1,15 @@
 const { Octokit } = require("@octokit/rest");
 
+// Create an in-memory cache object
+const cache = {};
+
 const octokit = new Octokit({
   auth: process.env.GITHUB_AUTH_TOKEN,
 });
+
+// Time in milliseconds for cache expiration (30 minutes)
+const cacheExpirationTime = 30 * 60 * 1000;
+
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
   const owner = "nataliiazab";
@@ -10,24 +17,34 @@ export default async (req, res) => {
 
   try {
     const [repoData, assigneesData] = await Promise.all([
-      octokit.request(`GET /repos/${owner}/${repository}`),
-      octokit.request(`GET /repos/${owner}/${repository}/assignees`),
+      getCached(`repo_${owner}_${repository}`, () =>
+        octokit.request(`GET /repos/${owner}/${repository}`)
+      ),
+      getCached(`assignees_${owner}_${repository}`, () =>
+        octokit.request(`GET /repos/${owner}/${repository}/assignees`)
+      ),
     ]);
 
     const contributorsNames = assigneesData.data.map((el) => el.login);
 
     const [issuesClosedData, issuesOpenData, prData] = await Promise.all([
-      octokit.request(`GET /repos/${owner}/${repository}/issues`, {
-        state: "closed",
-      }),
-      octokit.request(`GET /repos/${owner}/${repository}/issues`, {
-        state: "open",
-      }),
+      getCached(`closed_issues_${owner}_${repository}`, () =>
+        octokit.request(`GET /repos/${owner}/${repository}/issues`, {
+          state: "closed",
+        })
+      ),
+      getCached(`open_issues_${owner}_${repository}`, () =>
+        octokit.request(`GET /repos/${owner}/${repository}/issues`, {
+          state: "open",
+        })
+      ),
       Promise.all(
         contributorsNames.map((contributorName) =>
-          octokit.request("GET /search/issues", {
-            q: `is:pr repo:${owner}/${repository} author:${contributorName}`,
-          })
+          getCached(`pr_${owner}_${repository}_${contributorName}`, () =>
+            octokit.request("GET /search/issues", {
+              q: `is:pr repo:${owner}/${repository} author:${contributorName}`,
+            })
+          )
         )
       ),
     ]);
@@ -45,3 +62,20 @@ export default async (req, res) => {
     return res.status(500).json({ error: "Error fetching data" });
   }
 };
+
+// Helper function to get data from cache or make a request and store the response in the cache
+async function getCached(key, requestFn) {
+  const cachedItem = cache[key];
+
+  if (cachedItem && Date.now() - cachedItem.cachedTime < cacheExpirationTime) {
+    return cachedItem.data;
+  }
+
+  const response = await requestFn();
+  cache[key] = {
+    data: response,
+    cachedTime: Date.now(),
+  };
+
+  return response;
+}
