@@ -1,11 +1,10 @@
 const { Octokit } = require("@octokit/rest");
 
+const octokit = new Octokit({
+  auth: process.env.GITHUB_AUTH_TOKEN,
+});
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
-  const octokit = new Octokit({
-    auth: process.env.GITHUB_AUTH_TOKEN,
-  });
-
   const owner = "nataliiazab";
   const repository = "good-pr";
 
