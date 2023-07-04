@@ -4,9 +4,14 @@ import OverallInfoCard from "@components/OverallInfoCard";
 import ProjectCard from "@components/ProjectCard";
 import TeamActivityPie from "@components/TaskActivityPie";
 import TaskActivity from "@components/TasksActivity";
+import ShareButton from "@components/ShareButton";
 import React, { useEffect, useState } from "react";
+// import { useSearchParams } from "next/router";
+
 
 export default function TeamOverview() {
+  // const searchParams = useSearchParams();
+
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
   const [issuesOpen, setIssuesOpen] = useState([]);
@@ -32,6 +37,25 @@ export default function TeamOverview() {
 
     fetchData();
   }, []);
+  // const shareCurrentPath = () => {
+  //   const currentPath = searchParams.asPath;
+  //  const search = searchParams.get();
+
+  //   if (searchParams.asPath) {
+  //     router
+  //       .share({
+  //         url: currentPath,
+  //       })
+  //       .then(() => {
+  //         console.log("Successfully shared the current path");
+  //       })
+  //       .catch((error) => {
+  //         console.error("Error sharing the current path:", error);
+  //       });
+  //   } else {
+  //     console.log("Sharing is not supported in this browser");
+  //   }
+  // };
 
   return isLoading ? (
     <div className="flex items-center justify-center h-screen">
@@ -50,16 +74,18 @@ export default function TeamOverview() {
   ) : (
     <div className="">
       <div className="p-2 pt-24 md:pt-2">
-        <h1 className="font-bold text-white p-4">Team Overview</h1>
-        <p className="font-light text-xs text-gray-500 pt-1 p-4">
-          Track you projects, tasks & team activity here
-        </p>
-        <button
-          class="bg-[#0e7490cc] float-right text-white active:bg-yellow-600 text-base px-8 py-2 rounded shadow-md hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 ease-linear transition-all duration-150"
-          type="button"
-        >
-           Share this pagee
-        </button>
+        <div className="flex justify-between items-center pt-8 px-8">
+          <div className="flex flex-col items-start">
+            <h1 className="font-bold w-64 text-white ">Team Overview</h1>
+            <p className="font-light text-xs text-gray-500 pt-1">
+              Track you projects, tasks & team activity here
+            </p>
+          </div>
+          <div className="flex flex-wrap items-center">
+            <ShareButton />
+          </div>
+        </div>
+
         <div className="grid sm:flex md:space-y-0 mt-4 gap-4 p-3 md:p-6">
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
