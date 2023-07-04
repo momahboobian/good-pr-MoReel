@@ -5,7 +5,6 @@ export default function TeamCard({ group }) {
   const owner = group.owner;
   const repository = group.name;
 
-
   //to format the Last Update Date
   const lastActivityDate = (repo) => {
     if (repo.pushed_at) {
@@ -25,37 +24,66 @@ export default function TeamCard({ group }) {
     }
     return totalCount;
   };
-  
 
-    const [repo, setRepo] = useState({});
-    console.log(repo);
-    const [pr, setPR] = useState([]);
-    console.log(pr);
-    const [isLoading, setIsLoading] = useState(true);
+  const [repo, setRepo] = useState({});
+  const [pr, setPR] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  // const [isDataFetched, setIsDataFetched] = useState(false);
 
-    useEffect(() => {
-      const fetchData = async () => {
-        setIsLoading(true);
-        try {
-          const response = await fetch("/api/gitHubAPI", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ owner, repository }),
-          });
-          const data = await response.json();
-          setRepo(data[0]);
-          setPR(data[3]);
-        } catch (error) {
-          console.error("Error fetching data:", error);
-        } finally {
-          setIsLoading(false);
-        }
-      };
+  useEffect(() => {
+    const fetchData = async () => {
+      setIsLoading(true);
+      try {
+        const response = await fetch("/api/gitHubAPI", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ owner, repository }),
+        });
+        const data = await response.json();
+        setRepo(data[0]);
+        setPR(data[3]);
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      } finally {
+        setIsLoading(false);
+      }
+    };
 
-      fetchData();
-    }, [owner, repository]);
+    fetchData();
+  }, [owner, repository]);
+
+  // useEffect(() => {
+  //   const fetchData = async () => {
+  //     setIsLoading(true);
+  //     try {
+  //       const response = await fetch("/api/gitHubAPI", {
+  //         method: "POST",
+  //         headers: {
+  //           "Content-Type": "application/json",
+  //         },
+  //         body: JSON.stringify({ owner, repository }),
+  //       });
+  //       const data = await response.json();
+  //       setRepo(data[0]);
+  //       setPR(data[3]);
+  //       setIsDataFetched(true);
+  //     } catch (error) {
+  //       console.error("Error fetching data:", error);
+  //     } finally {
+  //       setIsLoading(false);
+  //     }
+  //   };
+
+  //   fetchData();
+  // }, []);
+
+  // useEffect(() => {
+  //   if (isDataFetched && (owner !== repo.owner || repository !== repo.name)) {
+  //     setIsDataFetched(false);
+  //   }
+  // }, [owner, repository]);
 
   return isLoading ? (
     <div className="flex items-center justify-center h-screen">
@@ -101,9 +129,7 @@ export default function TeamCard({ group }) {
         </div>
         <div className="flex-1 ">
           <div className="text-center ">
-            <p>
-              <p>{getTotalCount(pr)}</p>
-            </p>
+           <p>{getTotalCount(pr)}</p>
           </div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Pull Requests
