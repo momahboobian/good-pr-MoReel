@@ -8,8 +8,8 @@ export default function TeamCard({ group }) {
 
   //to format the Last Update Date
   const lastActivityDate = (repo) => {
-    if (repo.updated_at) {
-      const updatedAt = new Date(repo.updated_at);
+    if (repo.pushed_at) {
+      const updatedAt = new Date(repo.pushed_at);
       const options = { day: "numeric", month: "long", year: "numeric" };
       const formattedDate = updatedAt.toLocaleDateString(undefined, options);
       return formattedDate;
