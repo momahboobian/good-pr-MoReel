@@ -28,7 +28,7 @@ export default function TeamCard({ group }) {
   const [repo, setRepo] = useState({});
   const [pr, setPR] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  // const [isDataFetched, setIsDataFetched] = useState(false);
+ 
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,36 +54,6 @@ export default function TeamCard({ group }) {
     fetchData();
   }, [owner, repository]);
 
-  // useEffect(() => {
-  //   const fetchData = async () => {
-  //     setIsLoading(true);
-  //     try {
-  //       const response = await fetch("/api/gitHubAPI", {
-  //         method: "POST",
-  //         headers: {
-  //           "Content-Type": "application/json",
-  //         },
-  //         body: JSON.stringify({ owner, repository }),
-  //       });
-  //       const data = await response.json();
-  //       setRepo(data[0]);
-  //       setPR(data[3]);
-  //       setIsDataFetched(true);
-  //     } catch (error) {
-  //       console.error("Error fetching data:", error);
-  //     } finally {
-  //       setIsLoading(false);
-  //     }
-  //   };
-
-  //   fetchData();
-  // }, []);
-
-  // useEffect(() => {
-  //   if (isDataFetched && (owner !== repo.owner || repository !== repo.name)) {
-  //     setIsDataFetched(false);
-  //   }
-  // }, [owner, repository]);
 
   return isLoading ? (
     <div className="flex items-center justify-center h-screen">
