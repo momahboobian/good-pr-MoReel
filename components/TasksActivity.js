@@ -4,9 +4,10 @@ import Image from "next/image";
 const avatarBorderColor = (assigneeId) => {
   const colors = [
     "border-yellow-200",
-    "border-cyan-700",
     "border-orange-600",
+    "border-cyan-700",
     "border-violet-600",
+    "border-yellow-700",
   ];
   const colorIndex = assigneeId % colors.length;
   return colors[colorIndex];
@@ -20,8 +21,7 @@ export default function TaskActivity({ issuesClosed, issuesOpen, repo }) {
   return (
     <div className="p-6">
       <div className="flex text-white font-bold py-4">Task Activity</div>
-
-      <div className="flex justify-center relative h-[350px] overflow-auto">
+      <div className="flex justify-center relative h-[450px] lg:h-80 overflow-auto">
         <div className="w-full">
           <table className="table-auto text-white text-xs text-left w-full">
             <thead
@@ -50,7 +50,7 @@ export default function TaskActivity({ issuesClosed, issuesOpen, repo }) {
                           width={40}
                           height={40}
                           className={`w-10 h-10 rounded-full border-2 object-cover ${avatarBorderColor(
-                            el.assignees[0].id
+                            idx
                           )}`}
                         />
                         <span className="pl-2 font-medium text-[1.2em] min-w-max">

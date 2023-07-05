@@ -1,11 +1,12 @@
 "use client";
 
+import React, { useEffect, useState, useRef } from "react";
 import ProjectCard from "@components/ProjectCard";
-import TicketStatusCard from "@components/TicketStatusCard";
-import TeamActivityPie from "@components/TaskActivityPie";
-import TasksActivity from "@components/TasksActivity";
 import ShareButton from "@components/ShareButton";
-import React, { useEffect, useState } from "react";
+import TicketStatusCard from "@components/TicketStatusCard";
+import TeamActivityPie from "@components/TeamActivityPie";
+import TasksActivity from "@components/TasksActivity";
+
 // import { useSearchParams } from "next/router";
 
 export default function TeamOverview() {
@@ -16,6 +17,7 @@ export default function TeamOverview() {
   const [issuesOpen, setIssuesOpen] = useState([]);
   const [pr, setPR] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -57,7 +59,7 @@ export default function TeamOverview() {
   // };
 
   return isLoading ? (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center min-h-screen">
       <svg
         className="animate-spin h-20 w-20 text-[#36BCBA]"
         xmlns="http://www.w3.org/2000/svg"
@@ -71,21 +73,37 @@ export default function TeamOverview() {
       </svg>
     </div>
   ) : (
-    <div className="">
-      <div className="p-2 pt-24 md:pt-2">
-        <div className="flex justify-between items-center pt-8 px-8">
-          <div className="flex flex-col items-start">
-            <h1 className="font-bold w-64 text-white ">Team Overview</h1>
-            <p className="font-light text-xs text-gray-500 pt-1">
-              Track you projects, tasks & team activity here
-            </p>
-          </div>
-          <div className="flex flex-wrap items-center">
-            <ShareButton />
-          </div>
-        </div>
+    <div className="flex flex-col justify-start w-full">
+      <div className="flex justify-between items-center md:pt-2 px-6">
+        <div className="flex flex-col justify-between py-2">
+          <h1 className="flex justify-start items-center font-semibold text-xl text-white py-2">
+            Team
+            <span className="flex items-center">
+              <a
+                href={repo.homepage}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="font-semibold text-xl text-white p-2 hover:text-[#37BCBA]"
+                title="Link to deployed webpage"
+              >
+                {repo.name}
+              </a>
+            </span>
+            overview
+          </h1>
 
-        <div className="grid sm:flex md:space-y-0 mt-4 gap-4 p-3 md:p-6">
+          <p className="font-light text-xs text-gray-500">
+            Track your projects, tasks & team activity here
+          </p>
+        </div>
+        <ShareButton />
+      </div>
+
+      <div className="relative">
+        <div
+          ref={containerRef}
+          className="grid sm:flex gap-6 md:gap-8 xl:gap-12 2xl:gap-16 p-4 lg:p-6 overflow-x-auto"
+        >
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
           <TicketStatusCard
@@ -93,12 +111,12 @@ export default function TeamOverview() {
             issuesOpen={issuesOpen}
           />
         </div>
-        <TasksActivity
-          issuesClosed={issuesClosed}
-          issuesOpen={issuesOpen}
-          repo={repo}
-        />
       </div>
+      <TasksActivity
+        issuesClosed={issuesClosed}
+        issuesOpen={issuesOpen}
+        repo={repo}
+      />
     </div>
   );
 }
