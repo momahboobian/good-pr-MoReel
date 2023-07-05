@@ -18,6 +18,7 @@ export default function TeamOverview() {
   const [pr, setPR] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  //to replace this
  const owner = "nataliiazab";
  const repository = "good-pr";
 
