@@ -1,6 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
+// Caching object
+const cache = {};
+
 export default function TeamCard({ group }) {
   const owner = group.owner;
   const repository = group.name;
@@ -30,29 +33,59 @@ export default function TeamCard({ group }) {
   const [isLoading, setIsLoading] = useState(true);
  
 
-  useEffect(() => {
-    const fetchData = async () => {
-      setIsLoading(true);
-      try {
-        const response = await fetch("/api/gitHubAPI", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ owner, repository }),
-        });
-        const data = await response.json();
-        setRepo(data[0]);
-        setPR(data[3]);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      } finally {
-        setIsLoading(false);
-      }
-    };
+    useEffect(() => {
+      const fetchData = async () => {
+        setIsLoading(true);
 
-    fetchData();
-  }, [owner, repository]);
+        try {
+          const cacheKey = `${owner}_${repository}`;
+          let data = cache[cacheKey];
+
+          // Check if data exists in cache
+          if (!data) {
+            const response = await fetch("/api/gitHubAPI/", {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ owner, repository }),
+            });
+
+            if (response.status === 200) {
+              const remainingRequests = response.headers.get(
+                "X-RateLimit-Remaining"
+              );
+              const resetTime = response.headers.get("X-RateLimit-Reset");
+
+              // If remainingRequests is 0, wait until the reset time
+              if (remainingRequests === "0") {
+                const currentTime = Math.floor(Date.now() / 1000);
+                const resetTimestamp = parseInt(resetTime, 10);
+
+                const delayDuration = resetTimestamp - currentTime;
+                await delay(delayDuration * 1000); // Convert to milliseconds
+              }
+
+              data = await response.json();
+
+              // Store data in cache
+              cache[cacheKey] = data;
+            } else {
+              throw new Error("Failed to fetch data from GitHub API");
+            }
+          }
+
+          setRepo(data[0]);
+          setPR(data[3]);
+          console.log(`data: ${data[3]}`);
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        } finally {
+          setIsLoading(false);
+        }
+      };
+      fetchData();
+    }, [owner, repository]);
 
 
   return isLoading ? (
