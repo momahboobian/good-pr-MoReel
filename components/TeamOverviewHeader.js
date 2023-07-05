@@ -1,13 +1,12 @@
 "use client";
 
-import OverallInfoCard from "@components/OverallInfoCard";
 import ProjectCard from "@components/ProjectCard";
+import TicketStatusCard from "@components/TicketStatusCard";
 import TeamActivityPie from "@components/TaskActivityPie";
-import TaskActivity from "@components/TasksActivity";
+import TasksActivity from "@components/TasksActivity";
 import ShareButton from "@components/ShareButton";
 import React, { useEffect, useState } from "react";
 // import { useSearchParams } from "next/router";
-
 
 export default function TeamOverview() {
   // const searchParams = useSearchParams();
@@ -89,12 +88,12 @@ export default function TeamOverview() {
         <div className="grid sm:flex md:space-y-0 mt-4 gap-4 p-3 md:p-6">
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
-          <OverallInfoCard
+          <TicketStatusCard
             issuesClosed={issuesClosed}
             issuesOpen={issuesOpen}
           />
         </div>
-        <TaskActivity
+        <TasksActivity
           issuesClosed={issuesClosed}
           issuesOpen={issuesOpen}
           repo={repo}
