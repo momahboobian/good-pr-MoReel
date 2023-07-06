@@ -6,12 +6,8 @@ import TeamActivityPie from "@components/TaskActivityPie";
 import TaskActivity from "@components/TasksActivity";
 import ShareButton from "@components/ShareButton";
 import React, { useEffect, useState } from "react";
-// import { useSearchParams } from "next/router";
-
 
 export default function TeamOverview() {
-  // const searchParams = useSearchParams();
-
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
   const [issuesOpen, setIssuesOpen] = useState([]);
@@ -19,9 +15,8 @@ export default function TeamOverview() {
   const [isLoading, setIsLoading] = useState(true);
 
   //to replace this
- const owner = "nataliiazab";
- const repository = "good-pr";
-
+  const owner = "nataliiazab";
+  const repository = "good-pr";
 
   useEffect(() => {
     const fetchData = async () => {
@@ -48,25 +43,6 @@ export default function TeamOverview() {
 
     fetchData();
   }, []);
-  // const shareCurrentPath = () => {
-  //   const currentPath = searchParams.asPath;
-  //  const search = searchParams.get();
-
-  //   if (searchParams.asPath) {
-  //     router
-  //       .share({
-  //         url: currentPath,
-  //       })
-  //       .then(() => {
-  //         console.log("Successfully shared the current path");
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error sharing the current path:", error);
-  //       });
-  //   } else {
-  //     console.log("Sharing is not supported in this browser");
-  //   }
-  // };
 
   return isLoading ? (
     <div className="flex items-center justify-center h-screen">
