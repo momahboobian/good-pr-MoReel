@@ -1,6 +1,5 @@
 const { Octokit } = require("@octokit/rest");
 import { PrismaClient } from "@prisma/client";
-import { Ephesis } from "next/font/google";
 
 const prisma = new PrismaClient();
 
@@ -61,7 +60,7 @@ export default async (req, res) => {
       .map((el) => el.data.total_count)
       .reduce((sum, el) => sum + el, 0);
 
-    // Insert the repository.updated_at value into the database
+    // Insert the repository.updated_at and total_prs into the database
     await prisma.repository.update({
       where: { id: Number(repoId) },
       data: {
