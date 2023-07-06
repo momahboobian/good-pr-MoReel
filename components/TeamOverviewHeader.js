@@ -7,15 +7,13 @@ import TicketStatusCard from "@components/TicketStatusCard";
 import TeamActivityPie from "@components/TeamActivityPie";
 import TasksActivity from "@components/TasksActivity";
 import Loading from "@components/Loading";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
 // import { useSearchParams } from "next/router";
 
-export default function TeamOverview() {
-  // const searchParams = useSearchParams();
 
+export default function TeamOverview() {
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
   const [issuesOpen, setIssuesOpen] = useState([]);
@@ -23,11 +21,21 @@ export default function TeamOverview() {
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef(null);
 
+  //to replace this
+  const owner = "nataliiazab";
+  const repository = "good-pr";
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("/api/gitHubAPI");
+        const response = await fetch("/api/gitHubAPI", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ owner, repository }),
+        });
         const data = await response.json();
         setRepo(data[0]);
         setIssuesClosed(data[1]);
@@ -42,25 +50,6 @@ export default function TeamOverview() {
 
     fetchData();
   }, []);
-  // const shareCurrentPath = () => {
-  //   const currentPath = searchParams.asPath;
-  //  const search = searchParams.get();
-
-  //   if (searchParams.asPath) {
-  //     router
-  //       .share({
-  //         url: currentPath,
-  //       })
-  //       .then(() => {
-  //         console.log("Successfully shared the current path");
-  //       })
-  //       .catch((error) => {
-  //         console.error("Error sharing the current path:", error);
-  //       });
-  //   } else {
-  //     console.log("Sharing is not supported in this browser");
-  //   }
-  // };
 
   return isLoading ? (
     <Loading />

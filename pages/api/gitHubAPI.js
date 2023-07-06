@@ -1,4 +1,7 @@
 const { Octokit } = require("@octokit/rest");
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 // Create an in-memory cache object
 const cache = {};
@@ -12,8 +15,7 @@ const cacheExpirationTime = 30 * 60 * 1000;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
-  const owner = "nataliiazab";
-  const repository = "good-pr";
+  const { owner, repository } = req.body; // Extract owner and repository from the request body
 
   try {
     const [repoData, assigneesData] = await Promise.all([
@@ -48,6 +50,24 @@ export default async (req, res) => {
         )
       ),
     ]);
+
+    const repositoryUpdatedAt = repoData.data.pushed_at;
+    const repoId = repoData.data.id;
+
+    //calculates total number of prs
+    const prs = prData
+      .filter((el) => el.data.items.length > 0)
+      .map((el) => el.data.total_count)
+      .reduce((sum, el) => sum + el, 0);
+
+    // Insert the repository.updated_at and total_prs into the database
+    await prisma.repository.update({
+      where: { id: Number(repoId) },
+      data: {
+        updated_at: repositoryUpdatedAt,
+        total_prs: prs,
+      },
+    });
 
     return res
       .status(200)
