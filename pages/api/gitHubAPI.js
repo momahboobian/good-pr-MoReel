@@ -1,7 +1,7 @@
 const { Octokit } = require("@octokit/rest");
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 // Create an in-memory cache object
 const cache = {};
