@@ -55,22 +55,17 @@ export default async (req, res) => {
     const repositoryUpdatedAt = repoData.data.pushed_at;
     const repoId = repoData.data.id;
 
-    // Insert the repository.updated_at value into the database
-    await prisma.repository.update({
-      where: { id: Number(repoId) },
-      data: {
-        updated_at: repositoryUpdatedAt,
-      },
-    });
-
+    //calculates total number of prs
     const prs = prData
       .filter((el) => el.data.items.length > 0)
       .map((el) => el.data.total_count)
       .reduce((sum, el) => sum + el, 0);
 
+    // Insert the repository.updated_at value into the database
     await prisma.repository.update({
       where: { id: Number(repoId) },
       data: {
+        updated_at: repositoryUpdatedAt,
         total_prs: prs,
       },
     });
