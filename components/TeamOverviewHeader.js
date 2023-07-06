@@ -65,7 +65,7 @@ export default function TeamOverview() {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="flex flex-col justify-start w-full h-full sm:h-screen">
+    <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full sm:h-screen">
       <div className="flex justify-between items-center md:pt-2 px-6">
         <div className="flex flex-col justify-between py-2">
           <ul>
