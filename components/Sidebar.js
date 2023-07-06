@@ -5,8 +5,6 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import SidebarLogo from "@components/SidebarLogo";
 import SidebarDashboard from "@components/SidebarDashboard";
-import SidebarTeams from "@components/SidebarTeams";
-import SidebarDarkMode from "@components/SidebarDarkMode";
 
 export default function Sidebar() {
   const [isMobile, setIsMobile] = useState(false);
@@ -34,10 +32,7 @@ export default function Sidebar() {
   if (isMobile) {
     return (
       <div className="relative">
-        <div
-          className=" flex fixed space-x-6 p-2 bg-local bg-[#1A1E1F]  
-         bg-repeat-x w-full m-0 h-24 z-50 items-center"
-        >
+        <div className="flex fixed space-x-6 p-2 bg-local bg-[#1A1E1F] bg-repeat-x w-full m-0 h-24 z-50 items-center">
           <FontAwesomeIcon
             icon={faBars}
             className="z-20 text-white cursor-pointer text-3xl pl-4"

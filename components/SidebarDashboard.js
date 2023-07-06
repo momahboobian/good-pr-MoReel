@@ -1,12 +1,7 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHouseUser,
-  faColumns,
-  faListCheck,
-  faChartColumn,
-} from "@fortawesome/free-solid-svg-icons";
+import { faHouseUser, faColumns } from "@fortawesome/free-solid-svg-icons";
 
 export default function SidebarDashboard() {
   const pathname = usePathname();

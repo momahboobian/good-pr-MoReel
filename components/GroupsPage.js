@@ -13,7 +13,7 @@ export default function GroupsPage() {
         const response = await fetch("/api/repositories");
         const data = await response.json();
         setGroups(data);
-        setIsLoading(false)
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {
