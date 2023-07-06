@@ -1,4 +1,7 @@
 const { Octokit } = require("@octokit/rest");
+import { PrismaClient } from "@prisma/client";
+
+const prisma = new PrismaClient();
 
 // Create an in-memory cache object
 const cache = {};
@@ -12,7 +15,27 @@ const cacheExpirationTime = 30 * 60 * 1000;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
-  const { owner, repository } = req.body; // Extract owner and repository from the request body
+  // const { owner, repository } = req.body; // Extract owner and repository from the request body
+  // const owner = "howard-ss";
+  // const repository = "Study-Buddies-Final-Project";
+
+  // const owner = "nataliiazab";
+  // const repository = "good-pr";
+
+  // const owner = "Innapoliakova";
+  // const repository = "set";
+
+  // const owner = "Bahare09";
+  // const repository = "ldn9-fp-wordwise";
+
+  // const owner = "BoshraM";
+  // const repository = "ldn9-Ctrl-Shift-Learn";
+
+  // const owner = "ShayanMahnam";
+  // const repository = "lentegeur-hospital-facility-board";
+
+  const owner = "susanssky";
+  const repository = "careless-whisper";
 
   try {
     const [repoData, assigneesData] = await Promise.all([
@@ -47,6 +70,19 @@ export default async (req, res) => {
         )
       ),
     ]);
+
+    const repositoryUpdatedAt = repoData.data.pushed_at;
+    const repoId = repoData.data.id;
+
+    // Insert the repository.updated_at value into the database
+    const thiss = await prisma.repository.update({
+      where: { id: Number(repoId) },
+      data: {
+        updated_at: repositoryUpdatedAt,
+      },
+    });
+    console.log(thiss);
+    console.log(repoId);
 
     return res
       .status(200)
