@@ -8,6 +8,9 @@ import TeamActivityPie from "@components/TeamActivityPie";
 import TasksActivity from "@components/TasksActivity";
 import Loading from "@components/Loading";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faSitemap } from "@fortawesome/free-solid-svg-icons";
+
 // import { useSearchParams } from "next/router";
 
 export default function TeamOverview() {
@@ -65,9 +68,9 @@ export default function TeamOverview() {
     <div className="flex flex-col justify-start w-full h-screen">
       <div className="flex justify-between items-center md:pt-2 px-6">
         <div className="flex flex-col justify-between py-2">
-          <h1 className="flex justify-start items-center font-semibold text-xl text-white py-2">
-            Team
-            <span className="flex items-center">
+          <ul>
+            <li className="flex justify-start items-center font-semibold text-xl text-white py-2">
+              Team
               <a
                 href={repo.homepage}
                 target="_blank"
@@ -76,11 +79,10 @@ export default function TeamOverview() {
                 title="Link to deployed webpage"
               >
                 {repo.name}
+                <FontAwesomeIcon icon={faSitemap} className="w-8 mr-3" />
               </a>
-            </span>
-            overview
-          </h1>
-
+            </li>
+          </ul>
           <p className="font-light text-xs text-gray-500">
             Track your projects, tasks & team activity here
           </p>
