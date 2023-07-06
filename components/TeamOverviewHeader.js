@@ -18,11 +18,22 @@ export default function TeamOverview() {
   const [pr, setPR] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  //to replace this
+ const owner = "nataliiazab";
+ const repository = "good-pr";
+
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
       try {
-        const response = await fetch("/api/gitHubAPI");
+        const response = await fetch("/api/gitHubAPI", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ owner, repository }),
+        });
         const data = await response.json();
         setRepo(data[0]);
         setIssuesClosed(data[1]);
