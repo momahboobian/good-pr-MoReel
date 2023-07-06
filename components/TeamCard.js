@@ -1,6 +1,9 @@
 "use client";
 
 export default function TeamCard({ group }) {
+
+  // const owner = group.owner;
+  // const repository = group.name;
   //to format the Last Update Date
   const lastActivityDate = (repo) => {
     if (repo.updated_at) {
@@ -35,14 +38,18 @@ export default function TeamCard({ group }) {
       </div>
       <div className="bg-[#1a1e1f] flex flex-row items-end justify-center flex-1 h-1/3 mb-2 py-[5%]">
         <div className="flex-1">
+
           <div className="text-center  ">{lastActivityDate(group)} </div>
+
           <div className="text-center text-[14px] text-[#606467] font-light">
             Last Update
           </div>
         </div>
         <div className="flex-1 ">
           <div className="text-center ">
+
             <p>{group.total_prs}</p>
+
           </div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Pull Requests
