@@ -18,4 +18,6 @@ model Repository {
   name          String?
   owner         String?
   team_name     String?
+  updated_at    DateTime?  @updatedAt
+  total_prs     Int?
 }

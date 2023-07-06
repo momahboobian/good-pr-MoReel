@@ -1,27 +1,18 @@
 "use client";
 
 export default function TeamCard({ group }) {
+
   // const owner = group.owner;
   // const repository = group.name;
-
   //to format the Last Update Date
   const lastActivityDate = (repo) => {
-    if (repo.pushed_at) {
-      const updatedAt = new Date(repo.pushed_at);
+    if (repo.updated_at) {
+      const updatedAt = new Date(repo.updated_at);
       const options = { day: "numeric", month: "long", year: "numeric" };
       const formattedDate = updatedAt.toLocaleDateString(undefined, options);
       return formattedDate;
     }
     return "";
-  };
-
-  //to calculate number of prs
-  const getTotalCount = (pr) => {
-    let totalCount = 0;
-    for (const obj of pr) {
-      totalCount += obj.total_count;
-    }
-    return totalCount;
   };
 
   return (
@@ -47,14 +38,18 @@ export default function TeamCard({ group }) {
       </div>
       <div className="bg-[#1a1e1f] flex flex-row items-end justify-center flex-1 h-1/3 mb-2 py-[5%]">
         <div className="flex-1">
-          <div className="text-center  ">{}</div>
+
+          <div className="text-center  ">{lastActivityDate(group)} </div>
+
           <div className="text-center text-[14px] text-[#606467] font-light">
             Last Update
           </div>
         </div>
         <div className="flex-1 ">
           <div className="text-center ">
-            <p>{}</p>
+
+            <p>{group.total_prs}</p>
+
           </div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Pull Requests
