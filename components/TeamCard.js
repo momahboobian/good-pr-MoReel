@@ -1,10 +1,6 @@
 "use client";
-import React, { useEffect, useState } from "react";
 
 export default function TeamCard({ group }) {
-  const owner = group.owner;
-  const repository = group.name;
-
   //to format the Last Update Date
   const lastActivityDate = (repo) => {
     if (repo.updated_at) {
@@ -14,15 +10,6 @@ export default function TeamCard({ group }) {
       return formattedDate;
     }
     return "";
-  };
-
-  //to calculate number of prs
-  const getTotalCount = (pr) => {
-    let totalCount = 0;
-    for (const obj of pr) {
-      totalCount += obj.total_count;
-    }
-    return totalCount;
   };
 
   return (
@@ -55,7 +42,7 @@ export default function TeamCard({ group }) {
         </div>
         <div className="flex-1 ">
           <div className="text-center ">
-            <p>{}</p>
+            <p>{group.total_prs}</p>
           </div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Pull Requests
