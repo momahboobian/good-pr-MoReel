@@ -19,21 +19,21 @@ export default function TaskActivity({ issuesClosed, issuesOpen, repo }) {
   );
 
   return (
-    <div className="p-6 h-full">
+    <div className="p-6 w-full h-full">
       <div className="flex text-white font-bold relative py-4">
         Task Activity
       </div>
-      <div className="relative flex justify-center p-6 h-full bg-[#1A1E1F] rounded-2xl overflow-auto">
-        <div className="absolute top-0 w-full px-4">
-          <table className="table-auto text-white text-xs text-left w-full ">
-            <thead className="sticky -top-10">
-              <tr className="sticky bg-[#1A1E1F] h-24">
-                <th className="text-sm font-normal">Assigned to</th>
-                <th className="text-sm font-normal">Last Update at</th>
-                <th className="text-sm font-normal">Task</th>
-                <th className="text-sm font-normal">Status</th>
-                <th className="text-sm font-normal">Project</th>
-                <th className="text-sm font-normal"></th>
+      <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-auto w-full h-full">
+        <div className="absolute flex justify-start top-0 w-full px-4">
+          <table className="table-auto text-white text-xs text-left w-full">
+            <thead className="sticky top-0">
+              <tr className=" text-sm font-normal bg-[#1A1E1F] h-20">
+                <th className="">Assigned to</th>
+                <th>Last Update at</th>
+                <th>Task</th>
+                <th>Status</th>
+                <th>Project</th>
+                <th></th>
               </tr>
             </thead>
             <tbody className="py-4 text-white divide-y divide-gray-900">
@@ -90,7 +90,7 @@ export default function TaskActivity({ issuesClosed, issuesOpen, repo }) {
             </tbody>
           </table>
         </div>
-        <div className="sticky bg-gray-600 h-[1px] top-14 w-full"></div>
+        <div className="sticky bg-gray-600 h-[1px] top-20 w-full m-4"></div>
       </div>
     </div>
   );

@@ -18,8 +18,8 @@ export default function RootLayout({ children }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <body className={inter.className}>
-        <main className="lg:bg-zinc-900 lg:p-2">
-          <div className="flex flex-col xl:flex-row rounded-xl overflow-hidden xl:overflow-x-auto border-gray-950">
+        <main className="lg:bg-zinc-900 xl:p-2">
+          <div className="flex flex-col xl:flex-row xl:rounded-xl overflow-hidden xl:overflow-x-auto border-gray-950">
             <div>
               <Sidebar />
             </div>

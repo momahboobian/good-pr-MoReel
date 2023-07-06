@@ -50,12 +50,12 @@ export default function ProjectCard({ repo, pr }) {
   );
 
   return (
-    <div className="bg-[#1A1E1F] rounded-2xl w-full min-w-max">
+    <div className="bg-[#1A1E1F] rounded-2xl w-full min-w-min">
       <div className="flex flex-col justify-between max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-12 w-full">
         <div className="flex justify-between items-center">
           <h1 className="font-bold text-s text-white">Project</h1>
         </div>
-        <div className="flex items-center mt-4">
+        <div className="flex items-center mt-4 min-w-[280px]">
           <div
             className="bg-yellow-500 h-3 rounded-l-full flex-grow-1 relative"
             style={{

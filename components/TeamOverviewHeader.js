@@ -65,7 +65,7 @@ export default function TeamOverview() {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="flex flex-col justify-start w-full h-screen">
+    <div className="flex flex-col justify-start w-full h-full sm:h-screen">
       <div className="flex justify-between items-center md:pt-2 px-6">
         <div className="flex flex-col justify-between py-2">
           <ul>
@@ -93,7 +93,7 @@ export default function TeamOverview() {
       <div className="relative">
         <div
           ref={containerRef}
-          className="grid sm:flex gap-6 p-4 lg:p-6 md:gap-10 xl:gap-20 2xl:gap-24 overflow-x-auto"
+          className="grid sm:flex gap-6 p-4 sm:p-6 lg:gap-10 xl:gap-14 2xl:gap-24 overflow-x-auto"
         >
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
@@ -103,11 +103,13 @@ export default function TeamOverview() {
           />
         </div>
       </div>
-      <TasksActivity
-        issuesClosed={issuesClosed}
-        issuesOpen={issuesOpen}
-        repo={repo}
-      />
+      <div className="flex justify-between items-center h-screen">
+        <TasksActivity
+          issuesClosed={issuesClosed}
+          issuesOpen={issuesOpen}
+          repo={repo}
+        />
+      </div>
     </div>
   );
 }
