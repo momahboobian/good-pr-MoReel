@@ -7,7 +7,7 @@ export default function Home() {
       <div className="flex border-neutral-800  overflow-hidden rounded-lg">
         <Sidebar />
         <div className="flex-1 w-screen bg-[#070e0e] pl-[5%] pr-[5%]">
-          <div class="p-4 py-12">
+          <div className="p-4 py-12">
             <h1 className="text-[30px] font-bold">Teams</h1>
             <p className="text-sm ">Track teams & members</p>
           </div>
