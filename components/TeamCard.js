@@ -1,12 +1,9 @@
 "use client";
 import React, { useEffect, useState } from "react";
 
-// Caching object
-const cache = {};
-
 export default function TeamCard({ group }) {
-  const owner = group.owner;
-  const repository = group.name;
+  // const owner = group.owner;
+  // const repository = group.name;
 
   //to format the Last Update Date
   const lastActivityDate = (repo) => {
@@ -27,57 +24,6 @@ export default function TeamCard({ group }) {
     }
     return totalCount;
   };
-
-  const [repo, setRepo] = useState({});
-  const [pr, setPR] = useState([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const cacheKey = `${owner}_${repository}`;
-        let data = cache[cacheKey];
-
-        // Check if data exists in cache
-        if (!data) {
-          const response = await fetch("/api/gitHubAPI/", {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ owner, repository }),
-          });
-
-          if (response.status === 200) {
-            const remainingRequests = response.headers.get(
-              "X-RateLimit-Remaining"
-            );
-            const resetTime = response.headers.get("X-RateLimit-Reset");
-
-            // If remainingRequests is 0, wait until the reset time
-            if (remainingRequests === "0") {
-              const currentTime = Math.floor(Date.now() / 1000);
-              const resetTimestamp = parseInt(resetTime, 10);
-
-              const delayDuration = resetTimestamp - currentTime;
-              await delay(delayDuration * 1000); // Convert to milliseconds
-            }
-
-            data = await response.json();
-
-            // Store data in cache
-            cache[cacheKey] = data;
-          } else {
-            throw new Error("Failed to fetch data from GitHub API");
-          }
-        }
-        setRepo(data[0]);
-        setPR(data[3]);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-      }
-    };
-    fetchData();
-  }, [owner, repository]);
 
   return (
     <div className="flex flex-col justify-around  mb-[5%] gap-4 h-[350px] w-[400px] shadow-[0_0px_20px_-5px_white] font-normal max-w-sm bg-[#1a1e1f] text-white rounded-2xl">
@@ -102,14 +48,14 @@ export default function TeamCard({ group }) {
       </div>
       <div className="bg-[#1a1e1f] flex flex-row items-end justify-center flex-1 h-1/3 mb-2 py-[5%]">
         <div className="flex-1">
-          <div className="text-center  ">{lastActivityDate(repo)}</div>
+          <div className="text-center  ">{}</div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Last Update
           </div>
         </div>
         <div className="flex-1 ">
           <div className="text-center ">
-            <p>{getTotalCount(pr)}</p>
+            <p>{}</p>
           </div>
           <div className="text-center text-[14px] text-[#606467] font-light">
             Pull Requests
