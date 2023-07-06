@@ -27,6 +27,7 @@
     "react-icons": "^4.9.0"
   },
   "devDependencies": {
+    "@babel/eslint-parser": "^7.22.7",
     "@codeyourfuture/eslint-config-standard": "^4.0.3",
     "autoprefixer": "^10.4.14",
     "babel-eslint": "^10.1.0",
