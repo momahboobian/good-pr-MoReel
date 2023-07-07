@@ -2,11 +2,14 @@
 
 import React, { useEffect, useState } from "react";
 import TeamCard from "./TeamCard";
+
+
 import Link from "next/link";
 
 export default function GroupsPage() {
   const [groups, setGroups] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+
 
   useEffect(() => {
     const fetchData = async () => {
@@ -44,7 +47,7 @@ export default function GroupsPage() {
     <div className="flex flex-row flex-wrap gap-4   w-full items-center justify-around">
       {groups.map((group) => (
         <div key={group.id}>
-          <TeamCard group={group} />
+          <TeamCard group={group}  />
         </div>
       ))}
     </div>
