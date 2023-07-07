@@ -45,6 +45,7 @@ export default function TeamOverviewHeader() {
     };
     fetchData();
   }, []);
+  console.log("lala");
 
   return isLoading ? (
     <Loading />
