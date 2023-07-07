@@ -41,12 +41,18 @@ export default function GroupsPage() {
       </svg>
     </div>
   ) : (
-    <div className="flex flex-row flex-wrap gap-4   w-full items-center justify-around">
-      {groups.map((group) => (
-        <div key={group.id}>
-          <TeamCard group={group} />
-        </div>
-      ))}
-    </div>
+    <>
+      <div className="p-4 py-12">
+        <h1 className="text-[30px] font-bold">Teams</h1>
+        <p className="text-sm ">Track teams & members</p>
+      </div>
+      <div className="flex flex-row flex-wrap gap-4   w-full items-center justify-around">
+        {groups.map((group) => (
+          <div key={group.id}>
+            <TeamCard group={group} />
+          </div>
+        ))}
+      </div>
+    </>
   );
 }
