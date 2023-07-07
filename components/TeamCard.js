@@ -1,6 +1,6 @@
 "use client";
-import  Link  from "next/link";
-export default function TeamCard({ group }) {
+// import  Link  from "next/link";
+export default function TeamCard({ group}) {
 
   // const owner = group.owner;
   // const repository = group.name;
@@ -17,7 +17,7 @@ export default function TeamCard({ group }) {
 
   return (
     <div className="flex flex-col justify-around  mb-[5%] gap-4 h-[350px] w-[400px] shadow-[0_0px_20px_-5px_white] font-normal max-w-sm bg-[#1a1e1f] text-white rounded-2xl">
-      <Link href={`/dashboard?teamId=${group.id}`}>
+      {/* <Link href={`/dashboard?teamId=${group.id}`}> */}
         <div className="bg-[#070e0e] rounded-2xl  flex flex-col items-center justify-center flex-2 h-2/3 p-2">
           <svg
             className=" h-22 w-20 text-[#36BCBA] shadow-[0_0px_30px_-5px_white] rounded-full m-[2%]"
@@ -54,7 +54,7 @@ export default function TeamCard({ group }) {
             </div>
           </div>
         </div>
-      </Link>
+      {/* </Link> */}
     </div>
   );
 }
