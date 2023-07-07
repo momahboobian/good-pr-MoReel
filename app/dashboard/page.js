@@ -1,3 +1,5 @@
+"use client";
+
 import TeamOverviewHeader from "@components/TeamOverviewHeader";
 
 export default function Home() {

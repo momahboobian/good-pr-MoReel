@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState, useRef } from "react";
 import ProjectCard from "@components/ProjectCard";
 import ShareButton from "@components/ShareButton";
@@ -12,8 +10,7 @@ import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
 // import { useSearchParams } from "next/router";
 
-
-export default function TeamOverview() {
+export default function TeamOverviewHeader() {
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
   const [issuesOpen, setIssuesOpen] = useState([]);
@@ -21,7 +18,6 @@ export default function TeamOverview() {
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef(null);
 
-  //to replace this
   const owner = "nataliiazab";
   const repository = "good-pr";
 
@@ -47,9 +43,9 @@ export default function TeamOverview() {
         setIsLoading(false);
       }
     };
-
     fetchData();
   }, []);
+
 
   return isLoading ? (
     <Loading />
