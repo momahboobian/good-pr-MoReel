@@ -1,6 +1,8 @@
 "use client";
+
 import React, { useEffect, useState } from "react";
 import TeamCard from "./TeamCard";
+import Link from "next/link";
 
 export default function GroupsPage() {
   const [groups, setGroups] = useState([]);
@@ -13,7 +15,7 @@ export default function GroupsPage() {
         const response = await fetch("/api/repositories");
         const data = await response.json();
         setGroups(data);
-        setIsLoading(false)
+        setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
       } finally {

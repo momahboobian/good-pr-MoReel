@@ -1,5 +1,3 @@
-"use client";
-
 import React, { useEffect, useState, useRef } from "react";
 import ProjectCard from "@components/ProjectCard";
 import ShareButton from "@components/ShareButton";
@@ -10,10 +8,7 @@ import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
-// import { useSearchParams } from "next/router";
-
-
-export default function TeamOverview() {
+export default function TeamOverviewHeader() {
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
   const [issuesOpen, setIssuesOpen] = useState([]);
@@ -21,10 +16,15 @@ export default function TeamOverview() {
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef(null);
 
- 
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
+      const currentUrl = window.location.href;
+      const url = new URL(currentUrl);
+      const searchParams = new URLSearchParams(url.search);
+      const repository = searchParams.get("name");
+      const owner = searchParams.get("owner");
       try {
         const response = await fetch("/api/gitHubAPI");
         const data = await response.json();
@@ -38,7 +38,6 @@ export default function TeamOverview() {
         setIsLoading(false);
       }
     };
-
     fetchData();
   }, []);
 
