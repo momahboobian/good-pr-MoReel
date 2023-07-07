@@ -16,6 +16,7 @@ export default function TeamOverviewHeader() {
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef(null);
 
+
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
@@ -25,13 +26,7 @@ export default function TeamOverviewHeader() {
       const repository = searchParams.get("name");
       const owner = searchParams.get("owner");
       try {
-        const response = await fetch("/api/gitHubAPI", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ owner, repository }),
-        });
+        const response = await fetch("/api/gitHubAPI");
         const data = await response.json();
         setRepo(data[0]);
         setIssuesClosed(data[1]);

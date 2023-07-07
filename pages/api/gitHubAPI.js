@@ -1,7 +1,7 @@
 const { Octokit } = require("@octokit/rest");
-import { PrismaClient } from "@prisma/client";
+// import { PrismaClient } from "@prisma/client";
 
-const prisma = new PrismaClient();
+// const prisma = new PrismaClient();
 
 // Create an in-memory cache object
 const cache = {};
@@ -15,8 +15,10 @@ const cacheExpirationTime = 30 * 60 * 1000;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
-  const { owner, repository } = req.body; // Extract owner and repository from the request body
+  // const { owner, repository } = req.body; // Extract owner and repository from the request body
 
+  const owner = "nataliiazab";
+  const repository = "good-pr";
   try {
     const [repoData, assigneesData] = await Promise.all([
       getCached(`repo_${owner}_${repository}`, () =>
@@ -68,6 +70,7 @@ export default async (req, res) => {
         total_prs: { set: prs },
       },
     });
+
 
     return res
       .status(200)
