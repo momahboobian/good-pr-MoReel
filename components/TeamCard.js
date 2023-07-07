@@ -1,17 +1,8 @@
 "use client";
 import Link from "next/link";
-import { theme } from  "@tailwind.config";
 
-export default function TeamCard({ group }) {
-  const { customColors } = theme.extend.colors;
-  const color = () => {
-    const colors = [
-      customColors.teamColor1,
-      customColors.teamColor2,
-      customColors.teamColor3,
-    ];
-    return colors[Math.floor(Math.random() * colors.length)];
-  }
+export default function TeamCard({ group, color }) {
+
 
   const lastActivityDate = (repo) => {
     if (repo.updated_at) {
@@ -28,7 +19,7 @@ export default function TeamCard({ group }) {
       <Link href={`/dashboard?name=${group.name}&owner=${group.owner}`}>
         <div className="bg-[#070e0e] rounded-2xl  flex flex-col items-center justify-center flex-2 h-2/3 p-2">
           <svg
-            className={`h-22 w-20 text-[${color()}] shadow-0_0px_30px_-5px_white rounded-full m-2%`}
+            className={`h-22 w-20 text-[${color}] shadow-0_0px_30px_-5px_white rounded-full m-2%`}
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
             viewBox="0 0 24 24"

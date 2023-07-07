@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import TeamCard from "./TeamCard";
-
+import { theme } from "@tailwind.config";
 
 import Link from "next/link";
 
@@ -10,6 +10,13 @@ export default function GroupsPage() {
   const [groups, setGroups] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
+  //to select color for each team
+  const { customColors } = theme.extend.colors;
+  const colors = [
+    customColors.teamColor1,
+    customColors.teamColor2,
+    customColors.teamColor3,
+  ];
 
   useEffect(() => {
     const fetchData = async () => {
@@ -45,9 +52,12 @@ export default function GroupsPage() {
     </div>
   ) : (
     <div className="flex flex-row flex-wrap gap-4   w-full items-center justify-around">
-      {groups.map((group) => (
+      {groups.map((group, index) => (
         <div key={group.id}>
-          <TeamCard group={group}  />
+          <TeamCard
+            group={group}
+            color={[colors[index % colors.length]]}
+          />
         </div>
       ))}
     </div>
