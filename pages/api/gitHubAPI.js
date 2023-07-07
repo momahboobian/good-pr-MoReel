@@ -61,11 +61,11 @@ export default async (req, res) => {
       .reduce((sum, el) => sum + el, 0);
 
     // Insert the repository.updated_at and total_prs into the database
-    await prisma.repository.update({
+    await prisma.repository.updateMany({
       where: { id: Number(repoId) },
       data: {
-        updated_at: repositoryUpdatedAt,
-        total_prs: prs,
+        updated_at: { set: repositoryUpdatedAt },
+        total_prs: { set: prs },
       },
     });
 

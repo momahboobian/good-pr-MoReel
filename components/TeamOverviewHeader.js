@@ -8,8 +8,6 @@ import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
-// import { useSearchParams } from "next/router";
-
 export default function TeamOverviewHeader() {
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
@@ -18,12 +16,14 @@ export default function TeamOverviewHeader() {
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef(null);
 
-  const owner = "nataliiazab";
-  const repository = "good-pr";
-
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
+      const currentUrl = window.location.href;
+      const url = new URL(currentUrl);
+      const searchParams = new URLSearchParams(url.search);
+      const repository = searchParams.get("name");
+      const owner = searchParams.get("owner");
       try {
         const response = await fetch("/api/gitHubAPI", {
           method: "POST",
@@ -45,7 +45,6 @@ export default function TeamOverviewHeader() {
     };
     fetchData();
   }, []);
-
 
   return isLoading ? (
     <Loading />
