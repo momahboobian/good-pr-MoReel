@@ -13,7 +13,12 @@ module.exports = {
     "./app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
-    extend: {},
+    extend: {colors: {
+        customColors: {
+          teamColor1: '#E2E949',
+          teamColor2: '#36BCBA',
+          teamColor3: '#f55706',
+    }},
   },
   plugins: [],
-};
+}};
