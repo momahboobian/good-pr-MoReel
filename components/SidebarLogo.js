@@ -1,18 +1,21 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import Link from "next/link";
-export default function SidebarLogo() {
-  return (
-    <Link href="/" className="flex items-center p-6">
-        <FontAwesomeIcon
-          icon={faGithub}
-          className="text-[#37BCBA] w-[20px] mr-1"
-        />
+import Image from "next/image";
+// want to import the logo from the public folder
+import Logo from "@public/img/cyf.png";
 
-        <h1 className="font-bold text-xl  text-white">
-          <span className="mr-1">GOOD</span>
-          <span className="text-[#37BCBA]">PR</span>
-        </h1>
+export default function SidebarLogo() {
+  const logo = Logo;
+
+  return (
+    <Link href="/" className="flex flex-col items-center p-6">
+      <Image
+        key={logo}
+        src={Logo}
+        width={2000}
+        height={2000}
+        alt="cyf"
+        className="w-28 "
+      />
     </Link>
   );
 }
