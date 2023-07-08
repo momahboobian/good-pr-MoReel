@@ -37,7 +37,7 @@ export default function GroupsPage() {
   }, []);
 
   return isLoading ? (
-    <div className="flex items-center justify-center h-screen">
+    <div className="flex items-center justify-center w-screen h-screen">
       <svg
         className="animate-spin h-20 w-20 text-[#36BCBA]"
         xmlns="http://www.w3.org/2000/svg"

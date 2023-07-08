@@ -23,7 +23,7 @@ export default function SidebarDashboard() {
           </span>
         </Link>
       </li>
-      <li className="flex items-center">
+      {/* <li className="flex items-center">
         <Link href="/dashboard" className="flex items-center">
           <span
             className={`${pathname === "/dashboard" ? "text-[#37BCBA]" : ""}`}
@@ -32,7 +32,7 @@ export default function SidebarDashboard() {
             Dashboard
           </span>
         </Link>
-      </li>
+      </li> */}
       {/* <li className="flex items-center text-sm">
         <Link href="/my-tasks">
 
