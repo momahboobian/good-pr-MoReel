@@ -1,6 +1,5 @@
 import { ImageResponse } from "@vercel/og";
 import { SvgBuilder } from "svg-builder";
-import type { NextApiRequest, NextApiResponse } from "next";
 
 export const config = {
   runtime: "edge",
@@ -17,7 +16,7 @@ const colors = [
   "#5a5766",
   "#48435c",
   "#9792e3",
-] as const;
+];
 
 function randomColor(seed) {
   return colors[random(0, colors.length, seed)];
@@ -27,7 +26,7 @@ function random(min, max, seed) {
   return Math.floor(min + (max - min) * seed);
 }
 
-export default function handler(req: NextApiRequest, res: NextApiResponse) {
+export default function handler(req, res) {
   const svg = new SvgBuilder({
     width: 100,
     height: 100,
