@@ -7,7 +7,7 @@ export default function SidebarLogo() {
   const logo = Logo;
 
   return (
-    <Link href="/" className="flex flex-col items-center p-6">
+    <Link href="/" className="flex flex-col items-center justify-center p-6">
       <Image
         key={logo}
         src={Logo}
