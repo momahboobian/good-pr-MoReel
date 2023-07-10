@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import TeamCard from "./TeamCard";
-import Link from "next/link";
+// import Link from "next/link";
 
 export default function GroupsPage() {
   const [groups, setGroups] = useState([]);
