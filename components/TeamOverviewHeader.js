@@ -21,10 +21,22 @@ export default function TeamOverviewHeader({ id }) {
       setIsLoading(true);
       const currentUrl = window.location.href;
       const url = new URL(currentUrl);
-      const searchParams = new URLSearchParams(url.search);
-      const id = searchParams.get("id");
+      // const searchParams = new URLSearchParams(url.search);
+      // const id = searchParams.get("id");
+      const idURL = Number(url.pathname.slice(11));
+      const res = await fetch("/api/repositories");
+      const data = await res.json();
+      const filterGroup = data.find((el) => el.id === idURL);
+      const owner = filterGroup[0].owner;
+      const repository = filterGroup[0].name;
       try {
-        const response = await fetch(`/api/gitHubAPI/${id}`);
+        const response = await fetch("/api/gitHubAPI", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ owner, repository }),
+        });
         const data = await response.json();
         setRepo(data[0]);
         setIssuesClosed(data[1]);
