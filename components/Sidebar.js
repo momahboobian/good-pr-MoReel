@@ -7,8 +7,12 @@ import SidebarLogo from "@components/SidebarLogo";
 import SidebarDashboard from "@components/SidebarDashboard";
 import SidebarTeams from "@components/SidebarTeams";
 import SidebarDarkMode from "@components/SidebarDarkMode";
+import { usePathname } from "next/navigation";
+
 
 export default function Sidebar() {
+    const pathname = usePathname();
+
   const [isMobile, setIsMobile] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
 
@@ -54,7 +58,7 @@ export default function Sidebar() {
             <SidebarDashboard />
             {showSidebar && (
               <>
-                {/* <SidebarTeams /> */}
+                {pathname.includes("dashboard") ? <SidebarTeams /> : null}
                 {/* <SidebarDarkMode /> */}
               </>
             )}
@@ -68,7 +72,7 @@ export default function Sidebar() {
     <div className="flex xl:flex-col justify-start items-center gap-10 p-4 xl:pt-10 h-full xl:w-[200px] bg-[#1A1E1F] text-white min-h-[100px]">
       <SidebarLogo className="w-auto h-8" />
       <SidebarDashboard />
-      {/* <SidebarTeams /> */}
+      {pathname.includes("dashboard") ? <SidebarTeams /> : null}
       {/* <SidebarDarkMode /> */}
     </div>
   );
