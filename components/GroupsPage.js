@@ -2,9 +2,11 @@
 
 import React, { useEffect, useState } from "react";
 import TeamCard from "./TeamCard";
+
 import { theme } from "@tailwind.config";
 
 import Link from "next/link";
+
 
 export default function GroupsPage() {
   const [groups, setGroups] = useState([]);
