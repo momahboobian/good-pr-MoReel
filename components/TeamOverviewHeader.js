@@ -8,7 +8,7 @@ import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
-export default function TeamOverviewHeader() {
+export default function TeamOverviewHeader({ id }) {
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
   const [issuesOpen, setIssuesOpen] = useState([]);
@@ -22,16 +22,9 @@ export default function TeamOverviewHeader() {
       const currentUrl = window.location.href;
       const url = new URL(currentUrl);
       const searchParams = new URLSearchParams(url.search);
-      const repository = searchParams.get("name");
-      const owner = searchParams.get("owner");
+      const id = searchParams.get("id");
       try {
-        const response = await fetch("/api/gitHubAPI", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ owner, repository }),
-        });
+        const response = await fetch(`/api/gitHubAPI/${id}`);
         const data = await response.json();
         setRepo(data[0]);
         setIssuesClosed(data[1]);
@@ -44,8 +37,7 @@ export default function TeamOverviewHeader() {
       }
     };
     fetchData();
-  }, []);
-  console.log("lala");
+  }, [id]);
 
   return isLoading ? (
     <Loading />

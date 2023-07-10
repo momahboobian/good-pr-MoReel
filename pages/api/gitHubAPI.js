@@ -15,7 +15,7 @@ const cacheExpirationTime = 30 * 60 * 1000;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
-  const { owner, repository } = req.body; // Extract owner and repository from the request body
+  const { id, owner, repository } = req.body; // Extract the id from the request body
 
   try {
     const [repoData, assigneesData] = await Promise.all([
