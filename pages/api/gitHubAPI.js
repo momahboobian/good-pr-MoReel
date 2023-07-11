@@ -67,7 +67,6 @@ export default async (req, res) => {
     await prisma.repository.updateMany({
       where: { id: repoId },
       data: {
-        repo_id: { set: repoId },
         updated_at: { set: repositoryUpdatedAt },
         total_prs: { set: prs },
         github_url: { set: githubURL },
