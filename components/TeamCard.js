@@ -32,6 +32,7 @@ export default function TeamCard({ group }) {
     }
   }, [group.total_prs]);
 
+
   const lastActivityDate = (repo) => {
     if (repo.updated_at) {
       const updatedAt = new Date(repo.updated_at);
@@ -68,6 +69,7 @@ export default function TeamCard({ group }) {
               layout="responsive"
               width={100}
               height={100}
+
             />
           </div>
           <div className="text-center text-xl text-white p-2">
