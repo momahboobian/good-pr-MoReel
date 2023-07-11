@@ -42,10 +42,17 @@ export default function TeamCard({ group }) {
     return "";
   };
 
+  useEffect(() => {
+    import("@components/Tooltips").then((module) => {
+      const handleTooltips = module.handleTooltips;
+      handleTooltips();
+    });
+  }, []);
+
   return (
-    <div className="flex flex-col justify-around p-1 min-w-full sm:min-w-[345px] md:min-w-[370px] lg:min-w-[400px] h-[fit-content] bg-[#1a1e1f] text-white rounded-2xl shadow-[0_0_10px_-5px_white] transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[0_0_15px_-7px_white]">
-      <Link href={`/dashboard?name=${group.name}&owner=${group.owner}`}>
-        <div className="flex flex-col items-center justify-center p-4 bg-[#070E0E] rounded-t-lg shadow-[0_0_10px_-5px_white]">
+    <div className="flex flex-col justify-around p-1 min-w-full sm:min-w-[345px] md:min-w-[370px] lg:min-w-[380px] h-[fit-content] bg-[#1a1e1f] text-white rounded-2xl shadow-[0_0_10px_-5px_white] transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[0_0_15px_-7px_white]">
+      <Link href={`/dashboard?id=${group.id}`}>
+        <div className="flex flex-col items-center justify-center p-4 bg-[#070e0ea8] rounded-t-lg ">
           <div className="w-20 h-20 relative border-t-[3px] border-r-[3px] rounded-full  bg-[#37BCBA] ">
             <Image
               key={group.id}
@@ -55,6 +62,38 @@ export default function TeamCard({ group }) {
               width={100}
               height={100}
             />
+            <div
+              id="tooltip-demo-url"
+              role="tooltip"
+              className="absolute invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+            >
+              Live demo
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <div
+              id="tooltip-github-url"
+              role="tooltip"
+              className="absolute z-10 right-2 button-10 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+            >
+              GitHub repository
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <div
+              id="tooltip-demo-url"
+              role="tooltip"
+              className="absolute z-10 left-2 button-10 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+            >
+              Live demo
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
+            <div
+              id="tooltip-github-url"
+              role="tooltip"
+              className="absolute z-10 right-2 button-10 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+            >
+              GitHub repository
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
           </div>
           <div className="text-center text-xl text-white p-2">
             {group.team_name}
@@ -77,34 +116,38 @@ export default function TeamCard({ group }) {
           </div>
         </div>
       </div>
-
-      <ul className="flex items-center justify-around p-4">
-        <li className="">
-          <a
-            href={`https://github.com/${group.owner}${group.name}`}
-            target="_blank"
-            className="flex items-center text-sx text-white font-light"
-          >
-            <FontAwesomeIcon
-              icon={faShapes}
-              className="text-white h-[35px] transition duration-300 hover:scale-110 hover:text-[#37BCBA]"
-            />
-          </a>
-        </li>
-        <li className="">
-          <a
-            href={group.deployed}
-            target="_blank"
-            className="flex items-center text-sx text-white font-light"
-          >
-            <FontAwesomeIcon
-              icon={faGithub}
-              className="text-white h-[40px] transition duration-300 hover:scale-110 hover:text-[#37BCBA]"
-            />
-          </a>
-        </li>
-        {/* Other list items */}
-      </ul>
+      <div className="">
+        <ul className="flex items-center justify-around p-4">
+          <li className="">
+            <a
+              href={group.demo_url}
+              target="_blank"
+              className="flex items-center text-sx text-white font-light"
+            >
+              <FontAwesomeIcon
+                icon={faShapes}
+                className="text-white h-[35px] transition duration-300 hover:scale-110 hover:text-[#37BCBA]"
+                data-tooltip-target="tooltip-demo-url"
+                data-tooltip-placement="button"
+              />
+            </a>
+          </li>
+          <li className="">
+            <a
+              href={group.github_url}
+              target="_blank"
+              className="flex items-center text-sx text-white font-light"
+            >
+              <FontAwesomeIcon
+                icon={faGithub}
+                className="text-white h-[40px] transition duration-300 hover:scale-110 hover:text-[#37BCBA]"
+                data-tooltip-target="tooltip-github-url"
+                data-tooltip-placement="button"
+              />
+            </a>
+          </li>
+        </ul>
+      </div>
     </div>
   );
 }

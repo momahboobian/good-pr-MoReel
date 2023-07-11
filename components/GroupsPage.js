@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import TeamCard from "@components/TeamCard";
-import Loading from "./Loading";
+import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 

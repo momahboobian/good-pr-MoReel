@@ -1,9 +1,20 @@
 import React, { useEffect, useState, useRef } from "react";
 import ReactECharts from "echarts-for-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faChartSimple, faChartPie } from "@fortawesome/free-solid-svg-icons";
+import {
+  faChartSimple,
+  faChartPie,
+  faInfoCircle,
+} from "@fortawesome/free-solid-svg-icons";
 
 export default function TeamActivityPie({ pr }) {
+  useEffect(() => {
+    import("@components/Tooltips").then((module) => {
+      const handleTooltips = module.handleTooltips;
+      handleTooltips();
+    });
+  }, []);
+
   const [chartOptions, setChartOptions] = useState(null);
   const [chartType, setChartType] = useState("pie");
   const [prsDoneCount, setPrsDoneCount] = useState(0);
@@ -28,13 +39,17 @@ export default function TeamActivityPie({ pr }) {
       return {
         name: filterAndTruncateName(user, 6),
         value: calculatePercentage(total_count, totalContributions),
+        prCount: total_count,
       };
     });
 
     const options = {
       tooltip: {
         trigger: "item",
-        formatter: "{b}: {d}%",
+        // formatter: "{b}: {d}%",
+        formatter: function (params) {
+          return `${params.name}: ${params.data.prCount} PRs`;
+        },
         backgroundColor: "#6064677F",
         textStyle: {
           color: "#fff",
@@ -60,7 +75,7 @@ export default function TeamActivityPie({ pr }) {
           label: {
             show: true,
             position: "inside",
-            formatter: "{c}%",
+            formatter: chartType === "pie" ? "{d}%" : "{c}%",
             color: "#000",
             fontSize: 15,
           },
@@ -144,16 +159,7 @@ export default function TeamActivityPie({ pr }) {
     };
   }, [prsDoneCount, totalContributions]);
 
-  // const calculatePercentage = (individualPrNumber, totalContributions) => {
-  //   if (totalContributions === 0) {
-  //     return 0;
-  //   }
-  //   return Math.round((100 * individualPrNumber) / totalContributions);
-  // };
-
   useEffect(() => {
-    // ...rest of the code...
-
     const handleResize = () => {
       if (
         chartContainerRef.current &&
@@ -179,17 +185,9 @@ export default function TeamActivityPie({ pr }) {
     }
 
     const percentage = (100 * individualPrNumber) / totalContributions;
-    const roundedPercentage = Math.round(percentage); // Round the percentage value
+    const roundedPercentage = Math.round(percentage);
 
-    const adjustment = 100 - roundedPercentage * totalContributions;
-
-    if (individualPrNumber === totalContributions) {
-      return 100; // Return 100 if it's the last item to avoid rounding errors
-    } else if (individualPrNumber % 2 === 0) {
-      return roundedPercentage + Math.sign(adjustment); // Add adjustment with rounding up/down
-    } else {
-      return roundedPercentage;
-    }
+    return roundedPercentage;
   };
 
   const handleChartTypeChange = (event) => {
@@ -208,7 +206,37 @@ export default function TeamActivityPie({ pr }) {
     <div className="bg-[#1A1E1F] rounded-2xl w-full min-w-max">
       <div className="flex flex-col justify-between max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-10 h-80 relative">
         <div className="flex space-x-10 items-center">
-          <h1 className="font-bold text-s text-white">Team Activity</h1>
+          <div className="flex items-center z-10">
+            <h1 className="font-bold text-sm text-white">Team Activity</h1>
+            <div>
+              <FontAwesomeIcon
+                icon={faInfoCircle}
+                data-tooltip-target="tooltip-info"
+                data-tooltip-placement="button"
+                className="w-4 h-4 ml-2 cursor-help text-white hover:text-gray-400 transition duration-300 hover:scale-110"
+              />
+              <div
+                id="tooltip-info"
+                role="tooltip"
+                className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
+              >
+                This interactive chart displays the number of Pull Requests
+                (PRs) and contributions made by each contributor. Clicking on a
+                contributor's name allows you to filter and compare their
+                individual data.
+                <div className="tooltip-arrow" data-popper-arrow></div>
+              </div>
+            </div>
+            <div
+              id="tooltip-info-chart"
+              role="tooltip"
+              className="absolute z-10 right-16 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+            >
+              Change chart type
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
+          </div>
+
           <div className="flex justify-center items-center absolute inset-0 -left-6 -top-[248px]">
             <a
               href="#"
@@ -218,12 +246,16 @@ export default function TeamActivityPie({ pr }) {
               {chartType === "pie" ? (
                 <FontAwesomeIcon
                   icon={faChartSimple}
-                  className="w-6 mr-3 text-[#606467] transition duration-300 hover:scale-110 hover:text-teal-500"
+                  data-tooltip-target="tooltip-info-chart"
+                  data-tooltip-placement="button"
+                  className="w-6 mr-3 text-white transition duration-300 hover:scale-110 hover:text-teal-500"
                 />
               ) : (
                 <FontAwesomeIcon
-                  icon={faChartPie} // Replace faPieIcon with the desired pie chart icon
-                  className="w-6 mr-3 text-[#606467] transition duration-300 hover:scale-110 hover:text-teal-500"
+                  icon={faChartPie}
+                  data-tooltip-target="tooltip-info-chart"
+                  data-tooltip-placement="button"
+                  className="w-6 mr-3 text-white transition duration-300 hover:scale-110 hover:text-teal-500"
                 />
               )}
             </a>
@@ -241,7 +273,7 @@ export default function TeamActivityPie({ pr }) {
               <div className="text-[#F9F9F9] font-bold text-2xl">
                 {prsDoneCount}
               </div>
-              <p className="text-[#606467] text-xs ml-[10px]">Prs Done</p>
+              <p className="text-[#606467] text-xs ml-[10px]">PRs Done</p>
             </div>
           ) : (
             ""
