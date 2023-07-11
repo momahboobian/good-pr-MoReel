@@ -22,4 +22,5 @@ model Repository {
   total_prs     Int?
   github_url    String?
   demo_url      String?
+  cohort        String?
 }
