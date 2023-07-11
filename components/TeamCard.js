@@ -53,7 +53,7 @@ export default function TeamCard({ group }) {
     <div className="flex flex-col justify-around p-1 min-w-full sm:min-w-[345px] md:min-w-[370px] lg:min-w-[380px] h-[fit-content] bg-[#1a1e1f] text-white rounded-2xl shadow-[0_0_10px_-5px_white] transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[0_0_15px_-7px_white]">
       <Link href={`/dashboard?id=${group.id}`}>
         <div className="flex flex-col items-center justify-center p-4 bg-[#070e0ea8] rounded-t-lg ">
-          <div className="w-20 h-20 relative border-t-[3px] border-r-[3px] rounded-full  bg-[#37BCBA] ">
+          <div className="w-20 h-20 border-t-[3px] border-r-[3px] rounded-full bg-[#37BCBA]">
             <Image
               key={group.id}
               src={`/api/avatars`}
@@ -62,38 +62,6 @@ export default function TeamCard({ group }) {
               width={100}
               height={100}
             />
-            <div
-              id="tooltip-demo-url"
-              role="tooltip"
-              className="absolute invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
-            >
-              Live demo
-              <div className="tooltip-arrow" data-popper-arrow></div>
-            </div>
-            <div
-              id="tooltip-github-url"
-              role="tooltip"
-              className="absolute z-10 right-2 button-10 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
-            >
-              GitHub repository
-              <div className="tooltip-arrow" data-popper-arrow></div>
-            </div>
-            <div
-              id="tooltip-demo-url"
-              role="tooltip"
-              className="absolute z-10 left-2 button-10 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
-            >
-              Live demo
-              <div className="tooltip-arrow" data-popper-arrow></div>
-            </div>
-            <div
-              id="tooltip-github-url"
-              role="tooltip"
-              className="absolute z-10 right-2 button-10 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
-            >
-              GitHub repository
-              <div className="tooltip-arrow" data-popper-arrow></div>
-            </div>
           </div>
           <div className="text-center text-xl text-white p-2">
             {group.team_name}
@@ -147,6 +115,22 @@ export default function TeamCard({ group }) {
             </a>
           </li>
         </ul>
+      </div>
+      <div
+        id="tooltip-demo-url"
+        role="tooltip"
+        className=" invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+      >
+        Live demo
+        <div className="tooltip-arrow" data-popper-arrow></div>
+      </div>
+      <div
+        id="tooltip-github-url"
+        role="tooltip"
+        className="absolute z-10 right-2 button-10 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+      >
+        GitHub repository
+        <div className="tooltip-arrow" data-popper-arrow></div>
       </div>
     </div>
   );
