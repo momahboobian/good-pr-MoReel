@@ -11,10 +11,11 @@ export default function SidebarLogo() {
       <Image
         key={logo}
         src={Logo}
-        width={2000}
-        height={2000}
+        width={1000}
+        height={1000}
         alt="cyf"
-        className="w-28 "
+        className="w-28"
+        priority
       />
     </Link>
   );
