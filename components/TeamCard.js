@@ -43,20 +43,27 @@ export default function TeamCard({ group }) {
   };
 
   useEffect(() => {
-    import("@components/Tooltips").then((module) => {
-      const handleTooltips = module.handleTooltips;
-      handleTooltips();
-    });
+    const handleTooltips = async () => {
+      const module = await import("@components/Tooltips");
+      if (module && module.handleTooltips) {
+        module.handleTooltips();
+      }
+    };
+
+    handleTooltips();
   }, []);
+
+  const tooltipDemoId = `tooltip-demo-url-${group.id}`;
+  const tooltipGithubId = `tooltip-github-url-${group.id}`;
 
   return (
     <div className="flex flex-col justify-around p-1 min-w-full sm:min-w-[345px] md:min-w-[370px] lg:min-w-[380px] h-[fit-content] bg-[#1a1e1f] text-white rounded-2xl shadow-[0_0_10px_-5px_white] transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[0_0_15px_-7px_white]">
       <Link href={`/dashboard?id=${group.id}`}>
         <div className="flex flex-col items-center justify-center p-4 bg-[#070e0ea8] rounded-t-lg ">
           <div className="w-20 h-20 border-t-[3px] border-r-[3px] rounded-full bg-[#37BCBA]">
-            <Image
+            <img
               key={group.id}
-              src={`/api/avatars`}
+              src={`/api/avatars?id=${group.id}`}
               alt="Avatar"
               layout="responsive"
               width={100}
@@ -95,10 +102,18 @@ export default function TeamCard({ group }) {
               <FontAwesomeIcon
                 icon={faShapes}
                 className="text-white h-[35px] transition duration-300 hover:scale-110 hover:text-[#37BCBA]"
-                data-tooltip-target="tooltip-demo-url"
+                data-tooltip-target={tooltipDemoId}
                 data-tooltip-placement="button"
               />
             </a>
+            <div
+              id={tooltipDemoId}
+              role="tooltip"
+              className="absolute z-10 left-8 button-8 invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+            >
+              Live demo
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
           </li>
           <li className="">
             <a
@@ -109,28 +124,20 @@ export default function TeamCard({ group }) {
               <FontAwesomeIcon
                 icon={faGithub}
                 className="text-white h-[40px] transition duration-300 hover:scale-110 hover:text-[#37BCBA]"
-                data-tooltip-target="tooltip-github-url"
+                data-tooltip-target={tooltipGithubId}
                 data-tooltip-placement="button"
               />
             </a>
+            <div
+              id={tooltipGithubId}
+              role="tooltip"
+              className="absolute z-10 right-2 button-8 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+            >
+              GitHub repository
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
           </li>
         </ul>
-      </div>
-      <div
-        id="tooltip-demo-url"
-        role="tooltip"
-        className=" invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
-      >
-        Live demo
-        <div className="tooltip-arrow" data-popper-arrow></div>
-      </div>
-      <div
-        id="tooltip-github-url"
-        role="tooltip"
-        className="absolute z-10 right-2 button-10 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
-      >
-        GitHub repository
-        <div className="tooltip-arrow" data-popper-arrow></div>
       </div>
     </div>
   );

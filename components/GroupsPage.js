@@ -49,7 +49,7 @@ export default function GroupsPage() {
           </p>
         </div>
       </div>
-      <div className="flex flex-wrap w-full items-center justify-between gap-6 p-4 sm:p-6 ">
+      <div className="flex flex-wrap w-full items-center justify-around gap-6 p-4 sm:p-6 ">
         {groups.map((group) => (
           <TeamCard key={group.id} group={group} />
         ))}
