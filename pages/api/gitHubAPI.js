@@ -15,7 +15,7 @@ const cacheExpirationTime = 30 * 60 * 1000;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
-  const { id, owner, repository } = req.body; // Extract the id from the request body
+  const { owner, repository } = req.body; // Extract the id from the request body
   // const owner = "nataliiazab";
   // const repository = "good-pr";
   try {
@@ -65,8 +65,9 @@ export default async (req, res) => {
 
     // Insert the repository.updated_at and total_prs into the database
     await prisma.repository.updateMany({
-      where: { id: Number(repoId) },
+      where: { repo_id: Number(repoId) },
       data: {
+        repo_id: { set: repoId },
         updated_at: { set: repositoryUpdatedAt },
         total_prs: { set: prs },
         github_url: { set: githubURL },
