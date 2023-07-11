@@ -64,12 +64,11 @@ export default function TeamCard({ group }) {
           <div className="w-20 h-20 border-t-[3px] border-r-[3px] rounded-full bg-[#37BCBA]">
             <img
               key={group.id}
-              src={`/api/avatars?id=${group.id}`}
+              src={`https://robohash.org/${group.id}.png`}
               alt="Avatar"
               layout="responsive"
               width={100}
               height={100}
-
             />
           </div>
           <div className="text-center text-xl text-white p-2">
