@@ -35,7 +35,7 @@ export default function SidebarTeams() {
         </span>
       </li> */}
 
-      {groups.map((group) => (
+      {groups.slice(0, 10).map((group) => (
         <li className="flex items-center text-xs active:text-cyan-600 cursor-pointer">
           <Link
             href={{ pathname: "/dashboard", query: { id: `${group.id}` } }}
