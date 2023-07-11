@@ -1,17 +1,12 @@
-"use client";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faSquareArrowUpRight,
-  faSquarePlus,
-} from "@fortawesome/free-solid-svg-icons";
+import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 export default function SidebarTeams() {
   const [groups, setGroups] = useState([]);
-  const pathname = usePathname();
+  const router = useRouter();
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,9 +14,9 @@ export default function SidebarTeams() {
         const response = await fetch("/api/repositories");
         const data = await response.json();
         setGroups(data);
-      } catch (error) {
+      } 
+      catch (error) {
         console.error("Error fetching data:", error);
-      } finally {
       }
     };
 
@@ -29,19 +24,32 @@ export default function SidebarTeams() {
   }, []);
 
   return (
-    <ul className="flex flex-col items-start gap-6 pt-40">
-      <li className="flex items-center ml-3 text-sm text-[#717578]active:text-cyan-600">
+    <ul className="flex flex-col items-start gap-6 pt-15">
+      {/* <li className="flex items-center ml-3 text-sm text-[#717578] active:text-cyan-600">
         <span
-          className={`${pathname === "#" ? "text-cyan-600" : "text-[#717578]"}`}
+          className={`${
+            router.asPath === "#" ? "text-cyan-600" : "text-[#717578]"
+          }`}
         >
           TEAMS
         </span>
-      </li>
+      </li> */}
+
       {groups.map((group) => (
-        <Link key={group.id} href={`/dashboard?id=${group.id}`}>
-          <li className="flex items-center text-xs active:text-cyan-600">
+        <li className="flex items-center text-xs active:text-cyan-600 cursor-pointer">
+          <Link
+            href={{ pathname: "/dashboard", query: { id: `${group.id}` } }}
+            key={group.id}
+            onClick={() => {
+              router.push({ pathname: "/dashboard", query: { id: group.id } });
+            }}
+          >
             <span
-              className={`${pathname === "#" ? "text-cyan-600" : "text-white"}`}
+              className={`${
+                router.asPath === "/dashboard?id=${group.id}"
+                  ? "text-cyan-600"
+                  : "text-white"
+              }`}
             >
               <FontAwesomeIcon
                 icon={faSquareArrowUpRight}
@@ -49,8 +57,8 @@ export default function SidebarTeams() {
               />
               {group.name}
             </span>
-          </li>
-        </Link>
+          </Link>
+        </li>
       ))}
     </ul>
   );
