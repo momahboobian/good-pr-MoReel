@@ -218,7 +218,8 @@ export default function TeamActivityPie({ pr }) {
               <div
                 id="tooltip-info"
                 role="tooltip"
-                className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-black "
+                className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
+
               >
                 This interactive chart displays the number of Pull Requests
                 (PRs) and contributions made by each contributor. Clicking on a
@@ -230,7 +231,8 @@ export default function TeamActivityPie({ pr }) {
             <div
               id="tooltip-info-chart"
               role="tooltip"
-              className="absolute z-10 right-16 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#606467a0]"
+              className="absolute z-10 right-16 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+
             >
               Change chart type
               <div className="tooltip-arrow" data-popper-arrow></div>
