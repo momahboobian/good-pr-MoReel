@@ -20,4 +20,6 @@ model Repository {
   team_name     String?
   updated_at    DateTime?  @updatedAt
   total_prs     Int?
+  github_url    String?
+  demo_url      String?
 }
