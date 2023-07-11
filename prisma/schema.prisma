@@ -15,9 +15,13 @@ datasource db {
 
 model Repository {
   id Int @id @default(autoincrement())
+  repo_id       Int?
   name          String?
   owner         String?
   team_name     String?
   updated_at    DateTime?  @updatedAt
   total_prs     Int?
+  github_url    String?
+  demo_url      String?
+  cohort        String?
 }
