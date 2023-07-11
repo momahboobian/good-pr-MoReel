@@ -14,8 +14,7 @@ export default function SidebarTeams() {
         const response = await fetch("/api/repositories");
         const data = await response.json();
         setGroups(data);
-      } 
-      catch (error) {
+      } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
@@ -24,7 +23,7 @@ export default function SidebarTeams() {
   }, []);
 
   return (
-    <ul className="flex flex-col items-start gap-6 pt-15">
+    <ul className="flex flex-col  items-start max-w-sm  text-clip  overflow-hidden whitespace-nowrap gap-6 pt-15">
       {/* <li className="flex items-center ml-3 text-sm text-[#717578] active:text-cyan-600">
         <span
           className={`${
@@ -36,7 +35,7 @@ export default function SidebarTeams() {
       </li> */}
 
       {groups.slice(0, 10).map((group) => (
-        <li className="flex items-center text-xs active:text-cyan-600 cursor-pointer">
+        <li className="flex items-center text-xs  text-clip  overflow-hidden whitespace-nowrap active:text-cyan-600 cursor-pointer">
           <Link
             href={{ pathname: "/dashboard", query: { id: `${group.id}` } }}
             key={group.id}
