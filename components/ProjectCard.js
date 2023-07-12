@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { useEffect } from "react";
 
 // Color for the avatar border based on the index
 const avatarBorderColor = (index) => {
@@ -21,6 +22,15 @@ const calculateProgressDates = (repo) => {
 };
 
 export default function ProjectCard({ repo, pr }) {
+  
+// Enable tooltips feature on component mount
+    useEffect(() => {
+      import("@components/Tooltips").then((module) => {
+        const handleTooltips = module.handleTooltips;
+        handleTooltips();
+      });
+    }, []);
+
   // Finding the date for the last activity from the pull request
   const lastActivityDate = () => {
     if (repo) {
