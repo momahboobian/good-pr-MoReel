@@ -32,13 +32,28 @@ export default function Sidebar() {
     setShowSidebar(!showSidebar);
   };
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (sidebarRef.current && !sidebarRef.current.contains(event.target)) {
+        setShowSidebar(false);
+      }
+    };
+
+    if (isMobile && showSidebar) {
+      document.addEventListener("click", handleClickOutside);
+    } else {
+      document.removeEventListener("click", handleClickOutside);
+    }
+
+    return () => {
+      document.removeEventListener("click", handleClickOutside);
+    };
+  }, [isMobile, showSidebar]);
+
   if (isMobile) {
     return (
       <div className="relative">
-        <div
-          className=" flex fixed space-x-20 p-2 bg-local bg-[#1A1E1F]  
-         bg-repeat-x w-full m-0 h-24 z-50 items-center "
-        >
+        <div className="flex fixed space-x-20 p-2 bg-local bg-[#1A1E1F] bg-repeat-x w-full m-0 h-24 z-50 items-center">
           <FontAwesomeIcon
             icon={faBars}
             className="z-20 text-white cursor-pointer text-3xl pl-4"
@@ -46,21 +61,18 @@ export default function Sidebar() {
           />
           <SidebarLogo className="w-auto h-8" />
         </div>
-        <div
-          className={`fixed z-20 first-letter:top-0 left-0 w-1/2 h-full transform transition-transform duration-300 ${
-            showSidebar ? "translate-x-0 w-1/3" : "-translate-x-full"
-          }`}
-        >
-          <div className="flex flex-col items-center gap-10 pt-36 p-4 h-full min-w-sm bg-[#1A1E1F] text-white">
-            <SidebarDashboard />
-            {showSidebar && (
-              <>
-                {/* <SidebarTeams /> */}
-                {/* <SidebarDarkMode /> */}
-              </>
-            )}
+        {showSidebar && (
+          <div
+            ref={sidebarRef}
+            className="fixed z-20 first-letter:top-0 left-0 w-1/2 h-full transform transition-transform duration-300 translate-x-0 w-1/3"
+          >
+            <div className="flex flex-col items-center gap-10 pt-36 p-4 h-full min-w-sm bg-[#1A1E1F] text-white">
+              <SidebarDashboard />
+              {/* <SidebarTeams /> */}
+              {/* <SidebarDarkMode /> */}
+            </div>
           </div>
-        </div>
+        )}
       </div>
     );
   }
