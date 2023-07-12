@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faBars } from "@fortawesome/free-solid-svg-icons";
+import { faBars, faTimes} from "@fortawesome/free-solid-svg-icons";
 import SidebarLogo from "@components/SidebarLogo";
 import SidebarDashboard from "@components/SidebarDashboard";
 import SidebarTeams from "@components/SidebarTeams";
@@ -55,7 +55,7 @@ export default function Sidebar() {
       <div className="relative">
         <div className="flex fixed space-x-20 p-2 bg-local bg-[#1A1E1F] bg-repeat-x w-full m-0 h-24 z-50 items-center">
           <FontAwesomeIcon
-            icon={faBars}
+            icon={showSidebar ? faTimes :faBars}
             className="z-20 text-white cursor-pointer text-3xl pl-4"
             onClick={handleBurgerMenuClick}
           />
