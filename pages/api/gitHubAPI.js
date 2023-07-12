@@ -15,8 +15,9 @@ const cacheExpirationTime = 30 * 60 * 1000;
 
 // eslint-disable-next-line import/no-anonymous-default-export
 export default async (req, res) => {
-  const { id, owner, repository } = req.body; // Extract the id from the request body
-
+  const { owner, repository } = req.body; // Extract the id from the request body
+  // const owner = "nataliiazab";
+  // const repository = "good-pr";
   try {
     const [repoData, assigneesData] = await Promise.all([
       getCached(`repo_${owner}_${repository}`, () =>
@@ -53,6 +54,8 @@ export default async (req, res) => {
 
     const repositoryUpdatedAt = repoData.data.pushed_at;
     const repoId = repoData.data.id;
+    const githubURL = repoData.data.html_url;
+    const demoURL = repoData.data.homepage;
 
     //calculates total number of prs
     const prs = prData
@@ -62,10 +65,12 @@ export default async (req, res) => {
 
     // Insert the repository.updated_at and total_prs into the database
     await prisma.repository.updateMany({
-      where: { id: Number(repoId) },
+      where: { id: repoId },
       data: {
         updated_at: { set: repositoryUpdatedAt },
         total_prs: { set: prs },
+        github_url: { set: githubURL },
+        demo_url: { set: demoURL },
       },
     });
 

@@ -39,8 +39,8 @@ export default function Sidebar() {
     return (
       <div className="relative">
         <div
-          className=" flex fixed space-x-6 p-2 bg-local bg-[#1A1E1F]  
-         bg-repeat-x w-full m-0 h-24 z-50 items-center"
+          className=" flex fixed space-x-20 p-2 bg-local bg-[#1A1E1F]  
+         bg-repeat-x w-full m-0 h-24 z-50 items-center "
         >
           <FontAwesomeIcon
             icon={faBars}
