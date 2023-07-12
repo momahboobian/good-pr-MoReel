@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars } from "@fortawesome/free-solid-svg-icons";
 import SidebarLogo from "@components/SidebarLogo";
@@ -11,6 +11,7 @@ import SidebarDarkMode from "@components/SidebarDarkMode";
 export default function Sidebar() {
   const [isMobile, setIsMobile] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
+  const sidebarRef = useRef(null);
 
   useEffect(() => {
     const checkIsMobile = () => {
