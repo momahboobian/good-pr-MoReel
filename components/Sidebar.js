@@ -68,8 +68,8 @@ export default function Sidebar() {
   }
 
   return (
-    <div className="flex xl:flex-col justify-start items-center gap-10 p-4 xl:pt-10 h-full xl:w-[200px] bg-[#1A1E1F] text-white min-h-[100px]">
-      <SidebarLogo className="w-auto h-8" />
+    <div className="flex xl:flex-col justify-start items-center lg:items-start gap-10 p-4 xl:pt-10 h-full xl:w-[200px] bg-[#1A1E1F] text-white min-h-[100px]">
+      <SidebarLogo className="w-auto h-8 " />
       <SidebarDashboard />
       {pathname.includes("dashboard") ? <SidebarTeams /> : null}
       {/* <SidebarDarkMode /> */}

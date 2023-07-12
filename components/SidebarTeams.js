@@ -37,6 +37,8 @@ export default function SidebarTeams() {
 
   return (
     <div className="flex flex-col justify-start gap-4 pt-10 p-2">
+      <div className="bg-gray-700 h-[1px] w-full opacity-10"></div>
+
       <p className="text-[#606467] text-xs items-end">GROUPS</p>
       <ul className="flex flex-col xl:flex-col md:flex-row items-start max-w-sm text-clip overflow-hidden whitespace-nowrap gap-6 pt-15">
         {groups.slice(0, 10).map((group) => (
