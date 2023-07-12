@@ -233,7 +233,7 @@ export default function TicketStatusCard({ issuesClosed }) {
               </div>
             </div>
             <div
-              id="tooltip-info-chart"
+              id="tooltip-info-chart-issues"
               role="tooltip"
               className="absolute z-10 right-16 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
             >
@@ -251,14 +251,14 @@ export default function TicketStatusCard({ issuesClosed }) {
               {chartType === "pie" ? (
                 <FontAwesomeIcon
                   icon={faChartSimple}
-                  data-tooltip-target="tooltip-info-chart"
+                  data-tooltip-target="tooltip-info-chart-issues"
                   data-tooltip-placement="button"
                   className="w-6 mr-3 text-white transition duration-300 hover:scale-110 hover:text-teal-500"
                 />
               ) : (
                 <FontAwesomeIcon
                   icon={faChartPie}
-                  data-tooltip-target="tooltip-info-chart"
+                  data-tooltip-target="tooltip-info-chart-issues"
                   data-tooltip-placement="button"
                   className="w-6 mr-3 text-white transition duration-300 hover:scale-110 hover:text-teal-500"
                 />
