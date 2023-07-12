@@ -39,8 +39,8 @@ export default function TeamOverviewHeader({ id }) {
         });
         const data = await response.json();
         setRepo(data[0]);
-        setIssuesClosed(data[1]);
-        setIssuesOpen(data[2]);
+        setIssuesClosed(data[2]);
+        setIssuesOpen(data[1]);
         setPR(data[3]);
       } catch (error) {
         console.error("Error fetching data:", error);
