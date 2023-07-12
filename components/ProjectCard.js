@@ -1,5 +1,7 @@
 import Image from "next/image";
 import { useEffect } from "react";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {faInfoCircle} from "@fortawesome/free-solid-svg-icons";
 
 // Color for the avatar border based on the index
 const avatarBorderColor = (index) => {
