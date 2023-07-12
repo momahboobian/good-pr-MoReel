@@ -20,32 +20,30 @@ export default function TicketStatusCard({ issuesClosed }) {
   const [completedIssues, setCompletedIssues] = useState(0);
   const chartContainerRef = useRef(null);
 
-  const issuesAssignee = issuesClosed
-    .filter((user) => user.items && user.items.length > 0) // Filter out undefined or empty items
-    .map((user) => user.items[0].user.login);
+  // const issuesAssignee = issuesClosed
+  //   .filter((user) => user.items && user.items.length > 0) // Filter out undefined or empty items
+  //   .map((user) => user.items[0].user.login);
 
   const totalIssues = issuesClosed.reduce(
     (total, issue) => total + (issue.total_count || 0),
     0
   );
-  console.log(
-    "t",
-    issuesClosed.map((el) =>
-      el.items[0].assignees.length === 1
-        ? el.items[0].assignees[0].login
-        : el.items[0].assignees[1].login
-    )
+
+  const names = issuesClosed.map((user) =>
+    user.items.filter((el) => el.assignees.length === 1)
   );
 
+  const issuesAssignee = names
+    .map((el) => el.map((e) => e.assignees[0].login))
+    .map((el) => el[0]);
+  console.log(names);
+
   useEffect(() => {
-    const chartData = issuesAssignee.map((user) => {
-      const issueItem = issuesClosed.find(
-        (issue) =>
-          issue.items && issue.items.length > 0 && issue.items[0].user?.login === user
-      );
-      const total_count = issueItem?.total_count || 0;
+    const chartData = names.map((user) => {
+      const total_count = user.length || 0;
+      console.log(total_count);
       return {
-        name: filterAndTruncateName(user, 6),
+        name: filterAndTruncateName(user[0].assignees[0].login, 6),
         value: calculatePercentage(total_count, totalIssues),
         issuesCount: total_count,
       };
@@ -227,8 +225,8 @@ export default function TicketStatusCard({ issuesClosed }) {
                 role="tooltip"
                 className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
-                This interactive chart displays the number of issues
-                (for the repo) and contributions made by each team member. Clicking on a
+                This interactive chart displays the number of issues (for the
+                repo) and contributions made by each team member. Clicking on a
                 contributor's name allows you to filter and compare their
                 individual data.
                 <div className="tooltip-arrow" data-popper-arrow></div>
