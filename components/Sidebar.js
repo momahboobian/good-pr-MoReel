@@ -49,7 +49,7 @@ export default function Sidebar() {
           <SidebarLogo className="w-auto h-8" />
         </div>
         <div
-          className={`fixed z-20 first-letter:top-0 left-0 w-1/2 h-full transform transition-transform duration-300 ${
+          className={`fixed z-20 first-letter:top-0 left-0 min-w-fit h-full transform transition-transform duration-300 ${
             showSidebar ? "translate-x-0 w-1/3" : "-translate-x-full"
           }`}
         >

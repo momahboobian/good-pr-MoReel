@@ -4,6 +4,19 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
+const getRandomColor = () => {
+  const colors = [
+    "text-red-400",
+    "text-yellow-400",
+    "text-green-400",
+    "text-blue-400",
+    "text-indigo-400",
+    "text-purple-400",
+    "text-pink-400",
+  ];
+  return colors[Math.floor(Math.random() * colors.length)];
+};
+
 export default function SidebarTeams() {
   const [groups, setGroups] = useState([]);
   const router = useRouter();
@@ -23,14 +36,16 @@ export default function SidebarTeams() {
   }, []);
 
   return (
-    <div className="flex flex-col justify-start gap-4">
-      <p className="text-[#606467] text-xs items-end">Groups</p>
-      <ul className="flex flex-col  items-start max-w-sm  text-clip  overflow-hidden whitespace-nowrap gap-6 pt-15">
+    <div className="flex flex-col justify-start gap-4 pt-10 p-2">
+      <p className="text-[#606467] text-xs items-end">GROUPS</p>
+      <ul className="flex flex-col xl:flex-col md:flex-row items-start max-w-sm text-clip overflow-hidden whitespace-nowrap gap-6 pt-15">
         {groups.slice(0, 10).map((group) => (
-          <li className="flex items-center text-xs  text-clip  overflow-hidden whitespace-nowrap active:text-cyan-600 cursor-pointer">
+          <li
+            className="flex items-center text-xs text-clip overflow-hidden whitespace-nowrap cursor-pointer"
+            key={group.id}
+          >
             <Link
               href={{ pathname: "/dashboard", query: { id: `${group.id}` } }}
-              key={group.id}
               onClick={() => {
                 router.push({
                   pathname: "/dashboard",
@@ -40,14 +55,14 @@ export default function SidebarTeams() {
             >
               <span
                 className={`${
-                  router.asPath === "/dashboard?id=${group.id}"
+                  router.asPath === `/dashboard?id=${group.id}`
                     ? "text-cyan-600"
                     : "text-white"
-                }`}
+                }  hover:text-[#1a9997]`}
               >
                 <FontAwesomeIcon
                   icon={faSquareArrowUpRight}
-                  className="w-[15px] mr-3 text-[#8F46EA]"
+                  className={`w-[15px] mr-3 ${getRandomColor()} hover:text-[#1a9997]`}
                 />
                 {group.team_name}
               </span>
