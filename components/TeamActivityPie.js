@@ -207,7 +207,7 @@ export default function TeamActivityPie({ pr }) {
       <div className="flex flex-col justify-between max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-10 h-80 relative">
         <div className="flex space-x-10 items-center">
           <div className="flex items-center z-10">
-            <h1 className="font-bold text-sm text-white">Team Activity</h1>
+            <h1 className="font-bold text-sm text-white">PR Activity</h1>
             <div>
               <FontAwesomeIcon
                 icon={faInfoCircle}

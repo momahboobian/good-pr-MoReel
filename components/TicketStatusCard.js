@@ -17,15 +17,15 @@ export default function TicketStatusCard({ issuesClosed }) {
 
   const [chartOptions, setChartOptions] = useState(null);
   const [chartType, setChartType] = useState("pie");
-  const [prsDoneCount, setPrsDoneCount] = useState(0);
+  const [completedIssues, setCompletedIssues] = useState(0);
   const chartContainerRef = useRef(null);
 
-  const prUsers = issuesClosed
+  const issuesAssignee = issuesClosed
     .filter((user) => user.items && user.items.length > 0) // Filter out undefined or empty items
     .map((user) => user.items[0].user.login);
 
-  const totalContributions = issuesClosed.reduce(
-    (total, prs) => total + (prs.total_count || 0),
+  const totalIssues = issuesClosed.reduce(
+    (total, issue) => total + (issue.total_count || 0),
     0
   );
   console.log(
@@ -38,25 +38,24 @@ export default function TicketStatusCard({ issuesClosed }) {
   );
 
   useEffect(() => {
-    const chartData = prUsers.map((user) => {
-      const prItem = issuesClosed.find(
-        (prs) =>
-          prs.items && prs.items.length > 0 && prs.items[0].user?.login === user
+    const chartData = issuesAssignee.map((user) => {
+      const issueItem = issuesClosed.find(
+        (issue) =>
+          issue.items && issue.items.length > 0 && issue.items[0].user?.login === user
       );
-      const total_count = prItem?.total_count || 0;
+      const total_count = issueItem?.total_count || 0;
       return {
         name: filterAndTruncateName(user, 6),
-        value: calculatePercentage(total_count, totalContributions),
-        prCount: total_count,
+        value: calculatePercentage(total_count, totalIssues),
+        issuesCount: total_count,
       };
     });
 
     const options = {
       tooltip: {
         trigger: "item",
-        // formatter: "{b}: {d}%",
         formatter: function (params) {
-          return `${params.name}: ${params.data.prCount} PRs`;
+          return `${params.name}: ${params.data.issuesCount} issues`;
         },
         backgroundColor: "#6064677F",
         textStyle: {
@@ -110,7 +109,7 @@ export default function TicketStatusCard({ issuesClosed }) {
         axisLabel: {
           formatter: (value) => value.substring(0, 6),
         },
-        data: prUsers.map((user) => user),
+        data: issuesAssignee.map((user) => user),
         show: chartType === "bar",
         axisLine: {
           lineStyle: {
@@ -155,17 +154,17 @@ export default function TicketStatusCard({ issuesClosed }) {
   };
 
   useEffect(() => {
-    // Update the count of PRs done dynamically
+    // Update the count of Issues done dynamically
     const interval = setInterval(() => {
-      if (prsDoneCount < totalContributions) {
-        setPrsDoneCount((prevCount) => prevCount + 1);
+      if (completedIssues < totalIssues) {
+        setCompletedIssues((prevCount) => prevCount + 1);
       }
     }, 40);
 
     return () => {
       clearInterval(interval);
     };
-  }, [prsDoneCount, totalContributions]);
+  }, [completedIssues, totalIssues]);
 
   useEffect(() => {
     const handleResize = () => {
@@ -187,12 +186,12 @@ export default function TicketStatusCard({ issuesClosed }) {
     };
   }, []);
 
-  const calculatePercentage = (individualPrNumber, totalContributions) => {
-    if (totalContributions === 0) {
+  const calculatePercentage = (individualIssuesNumber, totalIssues) => {
+    if (totalIssues === 0) {
       return 0;
     }
 
-    const percentage = (100 * individualPrNumber) / totalContributions;
+    const percentage = (100 * individualIssuesNumber) / totalIssues;
     const roundedPercentage = Math.round(percentage);
 
     return roundedPercentage;
@@ -215,21 +214,21 @@ export default function TicketStatusCard({ issuesClosed }) {
       <div className="flex flex-col justify-between max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-10 h-80 relative">
         <div className="flex space-x-10 items-center">
           <div className="flex items-center z-10">
-            <h1 className="font-bold text-sm text-white">Team Activity</h1>
+            <h1 className="font-bold text-sm text-white">Issues Activity</h1>
             <div>
               <FontAwesomeIcon
                 icon={faInfoCircle}
-                data-tooltip-target="tooltip-info"
+                data-tooltip-target="tooltip-info-issues"
                 data-tooltip-placement="button"
                 className="w-4 h-4 ml-2 cursor-help text-white hover:text-gray-400 transition duration-300 hover:scale-110"
               />
               <div
-                id="tooltip-info"
+                id="tooltip-info-issues"
                 role="tooltip"
                 className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
-                This interactive chart displays the number of Pull Requests
-                (PRs) and contributions made by each contributor. Clicking on a
+                This interactive chart displays the number of issues
+                (for the repo) and contributions made by each team member. Clicking on a
                 contributor's name allows you to filter and compare their
                 individual data.
                 <div className="tooltip-arrow" data-popper-arrow></div>
@@ -279,9 +278,9 @@ export default function TicketStatusCard({ issuesClosed }) {
           {chartType === "pie" ? (
             <div className="flex justify-center items-center absolute inset-0 -mb-1">
               <div className="text-[#F9F9F9] font-bold text-2xl">
-                {prsDoneCount}
+                {completedIssues}
               </div>
-              <p className="text-[#606467] text-xs ml-[10px]">PRs Done</p>
+              <p className="text-[#606467] text-xs ml-[10px]">Issues Done</p>
             </div>
           ) : (
             ""
