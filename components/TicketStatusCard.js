@@ -62,7 +62,7 @@ export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
     <div className="bg-[#1A1E1F] rounded-2xl w-full min-w-max">
       <div className="flex flex-col justify-between max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-12 w-full">
         <div className="flex justify-between items-center">
-          <h1 className="font-bold text-s text-white">Ticket Status</h1>
+          <h1 className="font-bold text-s text-white">Issues Activity</h1>
         </div>
         <div className="flex justify-left gap-1 items-center">
           <div className="text-[#F9F9F9] font-bold text-2xl">
