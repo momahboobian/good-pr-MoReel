@@ -23,42 +23,38 @@ export default function SidebarTeams() {
   }, []);
 
   return (
-    <ul className="flex flex-col  items-start max-w-sm  text-clip  overflow-hidden whitespace-nowrap gap-6 pt-15">
-      {/* <li className="flex items-center ml-3 text-sm text-[#717578] active:text-cyan-600">
-        <span
-          className={`${
-            router.asPath === "#" ? "text-cyan-600" : "text-[#717578]"
-          }`}
-        >
-          TEAMS
-        </span>
-      </li> */}
-
-      {groups.slice(0, 10).map((group) => (
-        <li className="flex items-center text-xs  text-clip  overflow-hidden whitespace-nowrap active:text-cyan-600 cursor-pointer">
-          <Link
-            href={{ pathname: "/dashboard", query: { id: `${group.id}` } }}
-            key={group.id}
-            onClick={() => {
-              router.push({ pathname: "/dashboard", query: { id: group.id } });
-            }}
-          >
-            <span
-              className={`${
-                router.asPath === "/dashboard?id=${group.id}"
-                  ? "text-cyan-600"
-                  : "text-white"
-              }`}
+    <div className="flex flex-col justify-start gap-4">
+      <p className="text-[#606467] text-xs items-end">Groups</p>
+      <ul className="flex flex-col  items-start max-w-sm  text-clip  overflow-hidden whitespace-nowrap gap-6 pt-15">
+        {groups.slice(0, 10).map((group) => (
+          <li className="flex items-center text-xs  text-clip  overflow-hidden whitespace-nowrap active:text-cyan-600 cursor-pointer">
+            <Link
+              href={{ pathname: "/dashboard", query: { id: `${group.id}` } }}
+              key={group.id}
+              onClick={() => {
+                router.push({
+                  pathname: "/dashboard",
+                  query: { id: group.id },
+                });
+              }}
             >
-              <FontAwesomeIcon
-                icon={faSquareArrowUpRight}
-                className="w-[15px] mr-3 text-[#8F46EA]"
-              />
-              {group.name}
-            </span>
-          </Link>
-        </li>
-      ))}
-    </ul>
+              <span
+                className={`${
+                  router.asPath === "/dashboard?id=${group.id}"
+                    ? "text-cyan-600"
+                    : "text-white"
+                }`}
+              >
+                <FontAwesomeIcon
+                  icon={faSquareArrowUpRight}
+                  className="w-[15px] mr-3 text-[#8F46EA]"
+                />
+                {group.team_name}
+              </span>
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </div>
   );
 }

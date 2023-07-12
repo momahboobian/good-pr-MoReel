@@ -9,9 +9,8 @@ import SidebarTeams from "@components/SidebarTeams";
 import SidebarDarkMode from "@components/SidebarDarkMode";
 import { usePathname } from "next/navigation";
 
-
 export default function Sidebar() {
-    const pathname = usePathname();
+  const pathname = usePathname();
 
   const [isMobile, setIsMobile] = useState(false);
   const [showSidebar, setShowSidebar] = useState(false);
