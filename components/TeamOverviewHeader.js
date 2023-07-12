@@ -11,7 +11,7 @@ import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 export default function TeamOverviewHeader({ id }) {
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
-  const [issuesOpen, setIssuesOpen] = useState([]);
+  const [allIssues, setAllIssues] = useState([]);
   const [pr, setPR] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const containerRef = useRef(null);
@@ -40,7 +40,7 @@ export default function TeamOverviewHeader({ id }) {
         const data = await response.json();
         setRepo(data[0]);
         setIssuesClosed(data[2]);
-        setIssuesOpen(data[1]);
+        setAllIssues(data[1]);
         setPR(data[3]);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -86,16 +86,13 @@ export default function TeamOverviewHeader({ id }) {
         >
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
-          <TicketStatusCard
-            issuesClosed={issuesClosed}
-            issuesOpen={issuesOpen}
-          />
+          <TicketStatusCard issuesClosed={issuesClosed}  />
         </div>
       </div>
       <div className="flex justify-between items-center h-screen">
         <TasksActivity
           issuesClosed={issuesClosed}
-          issuesOpen={issuesOpen}
+          allIssues={allIssues}
           repo={repo}
         />
       </div>

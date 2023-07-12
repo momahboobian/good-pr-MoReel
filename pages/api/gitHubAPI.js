@@ -4,27 +4,9 @@ const prisma = new PrismaClient();
 // Create an in-memory cache object
 const cache = {};
 
-//tokens
-const tokens = [
-  process.env.GITHUB_AUTH_TOKEN_1,
-  process.env.GITHUB_AUTH_TOKEN_2,
-  process.env.GITHUB_AUTH_TOKEN_3,
-];
-
-let currentTokenIndex = 0;
-
-function rotateToken() {
-  currentTokenIndex = (currentTokenIndex + 1) % tokens.length;
-}
-
-// Function to get the current token
-function getCurrentToken() {
-  return tokens[currentTokenIndex];
-}
-
 // Create Octokit instance with the current token
 const octokit = new Octokit({
-  auth: getCurrentToken(),
+  auth: process.env.GITHUB_AUTH_TOKEN,
 });
 
 // Time in milliseconds for cache expiration (30 minutes)
@@ -45,40 +27,31 @@ export default async (req, res) => {
       ),
     ]);
     const contributorsNames = assigneesData.data.map((el) => el.login);
-    const [prData, closedIndividualIssues, openIndividualIssues] =
-      await Promise.all([
-        Promise.all(
-          contributorsNames.map((contributorName) =>
-            getCached(`pr_${owner}_${repository}_${contributorName}`, () =>
+    const [prData, closedIndividualIssues, issues] = await Promise.all([
+      Promise.all(
+        contributorsNames.map((contributorName) =>
+          getCached(`pr_${owner}_${repository}_${contributorName}`, () =>
+            octokit.request("GET /search/issues", {
+              q: `is:pr repo:${owner}/${repository} author:${contributorName}`,
+            })
+          )
+        )
+      ),
+      Promise.all(
+        contributorsNames.map((contributorName) =>
+          getCached(
+            `pr_${owner}_${repository}_${contributorName}_closedIndividualIssues`,
+            () =>
               octokit.request("GET /search/issues", {
-                q: `is:pr repo:${owner}/${repository} author:${contributorName}`,
+                q: ` repo:${owner}/${repository} type:issue assignee:${contributorName} state:closed`,
               })
-            )
           )
-        ),
-        Promise.all(
-          contributorsNames.map((contributorName) =>
-            getCached(
-              `pr_${owner}_${repository}_${contributorName}_closedIndividualIssues`,
-              () =>
-                octokit.request("GET /search/issues", {
-                  q: ` repo:${owner}/${repository} type:issue assignee:${contributorName} state:closed`,
-                })
-            )
-          )
-        ),
-        Promise.all(
-          contributorsNames.map((contributorName) =>
-            getCached(
-              `pr_${owner}_${repository}_${contributorName}_openIndividualIssues`,
-              () =>
-                octokit.request("GET /search/issues", {
-                  q: ` repo:${owner}/${repository} type:issue assignee:${contributorName} state:open`,
-                })
-            )
-          )
-        ),
-      ]);
+        )
+      ),
+      getCached(`pr_${owner}_${repository}_issues`, () =>
+        octokit.request(`GET /repos/${owner}/${repository}/issues`)
+      ),
+    ]);
     const repositoryUpdatedAt = repoData.data.pushed_at;
     const repoId = repoData.data.id;
     const githubURL = repoData.data.html_url;
@@ -98,21 +71,17 @@ export default async (req, res) => {
         demo_url: { set: demoURL },
       },
     });
-    //
 
-    const issuesClosed = closedIndividualIssues
-      .filter((el) => el.data.items.length > 0)
-      .map((el) => el.data);
-    const issuesOpen = openIndividualIssues
-      .filter((el) => el.data.items.length > 0)
-      .map((el) => el.data);
+    const issuesClosed = closedIndividualIssues;
 
     return res
       .status(200)
       .json([
         repoData.data,
-        issuesOpen,
-        issuesClosed,
+        issues.data,
+        issuesClosed
+          .filter((el) => el.data.items.length > 0)
+          .map((el) => el.data),
         prData.filter((el) => el.data.items.length > 0).map((el) => el.data),
       ]);
   } catch (error) {
@@ -124,36 +93,16 @@ export default async (req, res) => {
 // Helper function to get data from cache or make a request and store the response in the cache
 async function getCached(key, requestFn) {
   const cachedItem = cache[key];
+
   if (cachedItem && Date.now() - cachedItem.cachedTime < cacheExpirationTime) {
     return cachedItem.data;
   }
-  try {
-    const response = await requestFn();
-    cache[key] = {
-      data: response,
-      cachedTime: Date.now(),
-    };
-    return response;
-  } catch (error) {
-    if (
-      error.status === 403 &&
-      error.response.headers["x-ratelimit-remaining"] === "0" &&
-      error.response.headers["x-ratelimit-resource"] === "search"
-    ) {
-      // Delay before retrying
-      await delay(60 * 1000); // Wait for 60 seconds
 
-      rotateToken();
-      octokit.auth = getCurrentToken();
+  const response = await requestFn();
+  cache[key] = {
+    data: response,
+    cachedTime: Date.now(),
+  };
 
-      // Retry the request using the new token
-      return getCached(key, requestFn);
-    }
-    throw error;
-  }
-}
-
-// Helper function for delaying execution
-function delay(ms) {
-  return new Promise((resolve) => setTimeout(resolve, ms));
+  return response;
 }
