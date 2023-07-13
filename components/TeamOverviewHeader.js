@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 import ProjectCard from "@components/ProjectCard";
 import ShareButton from "@components/ShareButton";
-import TicketStatusCard from "@components/TicketStatusCard";
+import IssuesActivityCard from "@components/IssuesActivityCard";
 import TeamActivityPie from "@components/TeamActivityPie";
 import TasksActivity from "@components/TasksActivity";
 import Loading from "@components/Loading";
@@ -86,7 +86,7 @@ export default function TeamOverviewHeader({ id }) {
         >
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
-          <TicketStatusCard issuesClosed={issuesClosed}  />
+          <IssuesActivityCard issuesClosed={issuesClosed} />
         </div>
       </div>
       <div className="flex justify-between items-center h-screen">
