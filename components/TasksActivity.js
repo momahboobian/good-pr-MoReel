@@ -25,8 +25,6 @@ const avatarBorderColor = (assigneeId) => {
 export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
   const [activeTab, setActiveTab] = useState("issues"); // State to track the active tab
 
-  const number = 1;
-
   //grab issues Closed and Issues open in the same array to map for the table
   const issuesArr = [];
   issuesClosed.map((el) => el.items.map((e) => issuesArr.push(e)));
@@ -47,12 +45,14 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
         </div>
         <div className="flex text-white font-bold relative gap-4 py-4">
           <FontAwesomeIcon
+            data-tooltip-target="tooltip-info-chart"
+            data-tooltip-placement="top"
             icon={faListCheck}
             className={`h-6 w-6 ${
               activeTab === "issues"
                 ? "text-gray-900 bg-[#37BCBA]"
-                : "text-white bg-[#1A1E1F]"
-            } rounded-md p-2 transition duration-300 hover:scale-101 hover:bg-[#1a9997]`}
+                : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
+            } rounded-md p-2 transition duration-300`}
             onClick={() => setActiveTab("issues")}
           />
           <FontAwesomeIcon
@@ -60,10 +60,18 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
             className={`h-6 w-6 ${
               activeTab === "pr"
                 ? "text-gray-900 bg-[#37BCBA]"
-                : "text-white bg-[#1A1E1F]"
-            } rounded-md p-2 transition duration-300 hover:scale-101 hover:bg-[#1a9997]`}
+                : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
+            } rounded-md p-2 transition duration-300`}
             onClick={() => setActiveTab("pr")}
           />
+        </div>
+        <div
+          id="tooltip-info-chart"
+          role="tooltip"
+          className="absolute z-10 right-16 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+        >
+          Change chart type
+          <div className="tooltip-arrow" data-popper-arrow></div>
         </div>
       </div>
 
