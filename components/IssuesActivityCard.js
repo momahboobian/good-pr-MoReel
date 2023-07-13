@@ -5,7 +5,7 @@ import {
   faChartSimple,
   faChartPie,
   faInfoCircle,
-  faFaceMeh,
+  faFaceSadCry,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function IssuesActivityCard({ issuesClosed }) {
@@ -270,10 +270,11 @@ export default function IssuesActivityCard({ issuesClosed }) {
         {issuesClosed.length === 0 ? (
           <div className="flex flex-col justify-center items-center">
             <FontAwesomeIcon
-              icon={faFaceMeh}
-              className="w-20 mr-3 text-white transition duration-300"
+              icon={faFaceSadCry}
+              className="h-14 mr-3  p-4 text-yellow-500"
             />
-            <div>Oh no! There are no issues for this group! </div>
+            <div>Oh no!</div>
+            <div>There are no issues closed for this group!</div>
           </div>
         ) : (
           <div
