@@ -82,7 +82,7 @@ export default function TeamOverviewHeader({ id }) {
       <div className="relative">
         <div
           ref={containerRef}
-          className="grid sm:flex gap-6 p-4 sm:p-6 lg:gap-10 xl:gap-14 2xl:gap-24 overflow-x-auto"
+          className="grid sm:flex gap-6 p-4 sm:p-6 lg:gap-10 xl:gap-14 2xl:gap-24 overflow-x-auto	lg:overflow-x-clip"
         >
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
