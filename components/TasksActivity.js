@@ -20,9 +20,7 @@ export default function TaskActivity({ issuesClosed, issuesOpen, repo }) {
 
   return (
     <div className="p-6 w-full h-full">
-      <div className="flex text-white font-bold relative py-4">
-        Task Activity
-      </div>
+      <div className="flex text-white font-bold relative py-4">Open Issues</div>
       <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-auto w-full h-full">
         <div className="absolute flex justify-start top-0 w-full px-4">
           <table className="table-auto text-white text-xs text-left w-full">
