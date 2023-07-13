@@ -108,21 +108,26 @@ export default function ProjectCard({ repo, pr }) {
 
         <div className="flex border rounded-full border-gray-600 p-1">
           {trainees.map((trainee, index) => (
-            <Image
-              key={trainee.items[0].user.id}
-              src={trainee.items[0].user.avatar_url}
-              width={40}
-              height={40}
-              alt={trainee.items[0].user.login}
-              className={`w-14 h-14 rounded-full border-2 object-cover ${avatarBorderColor(
-                index
-              )}`}
-              style={{
-                zIndex: index + 1,
-                position: "relative",
-                left: `${index * -5}%`,
-              }}
-            />
+            <div key={trainee.items[0].user.id} className="group relative">
+              {/* Element with tooltip */}
+              <div
+                className={`w-14 h-14 rounded-full border-2 overflow-hidden ${
+                  index !== 0 ? "ml-[-20%]" : ""
+                }`}
+              >
+                <Image
+                  src={trainee.items[0].user.avatar_url}
+                  width={40}
+                  height={40}
+                  alt={trainee.items[0].user.login}
+                  className="object-cover"
+                />
+              </div>
+              {/* Tooltip */}
+              <div className="invisible absolute bg-gray-200 text-gray-800 p-2 rounded-md shadow group-hover:visible">
+                {trainee.items[0].user.login}
+              </div>
+            </div>
           ))}
         </div>
 
