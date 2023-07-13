@@ -13,11 +13,17 @@ const avatarBorderColor = (assigneeId) => {
   return colors[colorIndex];
 };
 
-export default function TaskActivity({ allIssues, repo }) {
+export default function TaskActivity({ issuesClosed, allIssues, repo }) {
+  const arr = [];
+  issuesClosed.map((el) => el.items.map((e) => arr.push(e)));
+  const issues = [...arr, ...allIssues];
+  console.log(issues);
+  issues.sort((a, b) => b.number - a.number);
+
   return (
     <div className="p-6 w-full h-full">
       <div className="flex text-white font-bold relative py-4">
-        Work in Progress
+        Tasks Activities
       </div>
       <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-auto w-full h-full">
         <div className="absolute flex justify-start top-0 w-full px-4">
@@ -25,7 +31,7 @@ export default function TaskActivity({ allIssues, repo }) {
             <thead className="sticky top-0">
               <tr className=" text-sm font-normal bg-[#1A1E1F] h-20">
                 <th className="">Assigned to</th>
-                <th>Last Update at</th>
+                <th>Last Update</th>
                 <th>Task</th>
                 <th>Status</th>
                 <th>Project</th>
@@ -33,7 +39,7 @@ export default function TaskActivity({ allIssues, repo }) {
               </tr>
             </thead>
             <tbody className="py-4 text-white divide-y divide-gray-900">
-              {allIssues.map((el, idx) =>
+              {issues.map((el, idx) =>
                 el.assignees.length > 0 ? (
                   <tr key={idx}>
                     <td className="py-4 min-w-[170px] whitespace-nowrap">
