@@ -9,6 +9,8 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
 export default function TeamOverviewHeader({ id }) {
+  const [groups, setGroups] = useState([]);
+
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
   const [allIssues, setAllIssues] = useState([]);
@@ -28,7 +30,8 @@ export default function TeamOverviewHeader({ id }) {
       const filterGroup = db.filter((el) => el.id === Number(idURL));
       const owner = filterGroup[0].owner;
       const repository = filterGroup[0].name;
-
+      const groupName = filterGroup[0].team_name;
+      setGroups(groupName);
       try {
         const response = await fetch("/api/gitHubAPI", {
           method: "POST",
@@ -67,7 +70,7 @@ export default function TeamOverviewHeader({ id }) {
                 className="font-semibold text-xl text-white p-2 hover:text-[#37BCBA]"
                 title="Link to deployed webpage"
               >
-                {repo.name}
+                {groups}
                 <FontAwesomeIcon icon={faSitemap} className="w-8 mr-3" />
               </a>
             </li>
