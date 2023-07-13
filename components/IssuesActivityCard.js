@@ -37,7 +37,6 @@ export default function IssuesActivityCard({ issuesClosed }) {
   const issuesAssignee = names
     .map((el) => el.map((e) => e.assignees[0].login))
     .map((el) => el[0]);
-  console.log(names);
 
   useEffect(() => {
     const chartData = names.map((user) => {
@@ -242,36 +241,39 @@ export default function IssuesActivityCard({ issuesClosed }) {
               <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
           </div>
-
-          <div className="flex justify-center items-center absolute inset-0 -left-6 -top-[248px]">
-            <a
-              href="#"
-              className="text-gray-500 text-xl z-10"
-              onClick={handleChartTypeChange}
-            >
-              {chartType === "pie" ? (
-                <FontAwesomeIcon
-                  icon={faChartSimple}
-                  data-tooltip-target="tooltip-info-chart-issues"
-                  data-tooltip-placement="button"
-                  className="w-6 mr-3 text-white transition duration-300 hover:scale-110 hover:text-teal-500"
-                />
-              ) : (
-                <FontAwesomeIcon
-                  icon={faChartPie}
-                  data-tooltip-target="tooltip-info-chart-issues"
-                  data-tooltip-placement="button"
-                  className="w-6 mr-3 text-white transition duration-300 hover:scale-110 hover:text-teal-500"
-                />
-              )}
-            </a>
-          </div>
+          {issuesClosed.length === 0 ? (
+            ""
+          ) : (
+            <div className="flex justify-center items-center absolute inset-0 -left-6 -top-[248px]">
+              <a
+                href="#"
+                className="text-gray-500 text-xl z-10"
+                onClick={handleChartTypeChange}
+              >
+                {chartType === "pie" ? (
+                  <FontAwesomeIcon
+                    icon={faChartSimple}
+                    data-tooltip-target="tooltip-info-chart-issues"
+                    data-tooltip-placement="button"
+                    className="w-6 mr-3 text-white transition duration-300 hover:scale-110 hover:text-teal-500"
+                  />
+                ) : (
+                  <FontAwesomeIcon
+                    icon={faChartPie}
+                    data-tooltip-target="tooltip-info-chart-issues"
+                    data-tooltip-placement="button"
+                    className="w-6 mr-3 text-white transition duration-300 hover:scale-110 hover:text-teal-500"
+                  />
+                )}
+              </a>
+            </div>
+          )}
         </div>
         {issuesClosed.length === 0 ? (
           <div className="flex flex-col justify-center items-center">
             <FontAwesomeIcon
               icon={faFaceSadCry}
-              className="h-14 mr-3  p-4 text-yellow-500"
+              className="h-14 mr-3  p-4 text-yellow-400"
             />
             <div>Oh no!</div>
             <div>There are no issues closed for this group!</div>
