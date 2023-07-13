@@ -1,7 +1,10 @@
 "use client";
 
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faSitemap } from "@fortawesome/free-solid-svg-icons";
+import {
+  faListCheck,
+  faCodePullRequest,
+} from "@fortawesome/free-solid-svg-icons";
 import Image from "next/image";
 
 // Color for the avatar border based on the assignee's ID
@@ -35,12 +38,20 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
 
   return number === 1 ? (
     <div className="p-6 w-full h-full">
-      <div className="flex justify-between">
+      <div className="flex justify-between items-center">
         <div className="flex text-white font-bold relative py-4">
           Tasks Activities
         </div>
-        <div className="flex text-white font-bold relative py-4">
-          <FontAwesomeIcon icon={faSitemap} className="w-8 mr-3" />
+        <div className="flex text-white font-bold relative gap-4 py-4">
+          <FontAwesomeIcon
+            icon={faListCheck}
+            className="h-6 w-6 text-gray-900 bg-[#37BCBA] rounded-md p-2 transition duration-300 hover:scale-101 hover:bg-[#1a9997] "
+          />
+          <FontAwesomeIcon
+            icon={faCodePullRequest}
+            c
+            className="h-6 w-6 text-white bg-[#1A1E1F] rounded-md p-2 transition duration-300 hover:scale-101 hover:bg-[#1a9997]"
+          />
         </div>
       </div>
 
