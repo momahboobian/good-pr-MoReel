@@ -29,7 +29,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
   pr.map((el) => el.items.map((e) => prArray.push(e)));
   console.log(prArray);
 
-  return number === 1 ? (
+  return number === 2 ? (
     <div className="p-6 w-full h-full">
       <div className="flex text-white font-bold relative py-4">
         Tasks Activities
@@ -156,7 +156,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
                           : "text-[#b9c170] bg-[#122a29]"
                       }`}
                     >
-                      {el.state === "open" ? "In progress" : "Done"}
+                      {el.state === "open" ? "In Review" : "Merged"}
                     </span>
                   </td>
                   <td className="pr-4 py-4 min-w-full whitespace-nowrap">
