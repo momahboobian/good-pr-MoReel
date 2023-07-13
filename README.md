@@ -40,7 +40,6 @@ The app is deployed on the Vercel Platform. You can access it at https://good-pr
 
 Our app relies on the Prisma database technology, integrated seamlessly with Vercel. Prisma offers a powerful and efficient way to manage the app's data storage and retrieval. With Prisma, we ensure the app performs optimally, providing a smooth and reliable user experience.
 
-
 ## Features
 
 ### Homepage
@@ -102,7 +101,6 @@ The Issues Activity card displays the number of closed issues for the repository
 </p>
 
 The "Work in Progress" section provides information on the tasks currently being worked on. This data is retrieved from the open issues in the repository. The table presents the last 30 tickets, including the assignee's photo and username, the last update to the issue, the task's name, and a link to the project.
-
 
 ## Getting Started
 
@@ -166,6 +164,7 @@ To connect your Next.js app with a PostgreSQL database, you need to provide the 
 You can set these configuration keys as environment variables in your development environment or provide them through a configuration file, depending on your deployment setup. Ensure that your app's environment is properly configured to establish a successful connection to your PostgreSQL database.
 
 ## Tech Stack
+
 The app is built using the following technologies:
 
 Next.js: A React framework for server-rendered applications.
@@ -173,24 +172,27 @@ Prisma: A database toolkit for working with databases in a type-safe and efficie
 Tailwind CSS: A utility-first CSS framework for quickly building custom user interfaces.
 
 ## Dependencies
+
+## Dependencies
+
 The app relies on the following dependencies:
 
-@fortawesome/fontawesome-svg-core: Version 6.4.0
-@fortawesome/free-brands-svg-icons: Version 6.4.0
-@fortawesome/free-solid-svg-icons: Version 6.4.0
-@fortawesome/react-fontawesome: Version 0.2.0
-@octokit/rest: Version 19.0.13
-@vercel/og: Version 0.5.8 
-axios: Version 1.4.0
-chart.js: Version 4.3.0
-echarts: Version 5.4.2
-echarts-for-react: Version 3.0.2
-eslint: Version 8.42.0
-express: Version 4.18.2
-node-fetch: Version 3.3.1
-react: Version 18.2.0
-react-dom: Version 18.2.0
-react-icons: Version 4.9.0
+- @fortawesome/fontawesome-svg-core: Version 6.4.0
+- @fortawesome/free-brands-svg-icons: Version 6.4.0
+- @fortawesome/free-solid-svg-icons: Version 6.4.0
+- @fortawesome/react-fontawesome: Version 0.2.0
+- @octokit/rest: Version 19.0.13
+- @vercel/og: Version 0.5.8
+- axios: Version 1.4.0
+- chart.js: Version 4.3.0
+- echarts: Version 5.4.2
+- echarts-for-react: Version 3.0.2
+- eslint: Version 8.43.0
+- express: Version 4.18.2
+- node-fetch: Version 3.3.1
+- react: Version 18.2.0
+- react-dom: Version 18.2.0
+- react-icons: Version 4.9.0
 
 ## Feedback
 
