@@ -4,11 +4,12 @@ import Image from "next/image";
 // Color for the avatar border based on the assignee's ID
 const avatarBorderColor = (assigneeId) => {
   const colors = [
-    "border-yellow-200",
-    "border-orange-600",
-    "border-cyan-700",
-    "border-violet-600",
-    "border-yellow-700",
+    // "border-yellow-200",
+    // "border-orange-600",
+    // "border-cyan-700",
+    // "border-violet-600",
+    // "border-yellow-700",
+    "border-gray-500",
   ];
   const colorIndex = assigneeId % colors.length;
   return colors[colorIndex];
@@ -34,6 +35,10 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
       <div className="flex text-white font-bold relative py-4">
         Tasks Activities
       </div>
+      <div className="flex text-white font-bold relative py-4">
+        Pull Requests
+      </div>
+
       <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-auto w-full h-full">
         <div className="absolute flex justify-start top-0 w-full px-4">
           <table className="table-auto text-white text-xs text-left w-full">
