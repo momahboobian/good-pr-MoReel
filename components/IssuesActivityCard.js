@@ -5,6 +5,7 @@ import {
   faChartSimple,
   faChartPie,
   faInfoCircle,
+  faFaceMeh,
 } from "@fortawesome/free-solid-svg-icons";
 
 export default function IssuesActivityCard({ issuesClosed }) {
@@ -36,7 +37,7 @@ export default function IssuesActivityCard({ issuesClosed }) {
   const issuesAssignee = names
     .map((el) => el.map((e) => e.assignees[0].login))
     .map((el) => el[0]);
-  // console.log(names);
+  console.log(names);
 
   useEffect(() => {
     const chartData = names.map((user) => {
@@ -209,9 +210,8 @@ export default function IssuesActivityCard({ issuesClosed }) {
 
   return (
     <div className="bg-[#1A1E1F] rounded-2xl w-full min-w-max">
-      <div className="flex flex-col justify-between max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-10 h-80 relative">
+      <div className="flex flex-col max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-10 h-80 relative">
         <div className="flex space-x-10 items-center">
-          {/* Conditional rendering */}
           <div className="flex items-center z-10">
             <h1 className="font-bold text-sm text-white">Issues Activity</h1>
             <div>
@@ -242,7 +242,6 @@ export default function IssuesActivityCard({ issuesClosed }) {
               <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
           </div>
-          {/* NO DATA */}
 
           <div className="flex justify-center items-center absolute inset-0 -left-6 -top-[248px]">
             <a
@@ -268,12 +267,15 @@ export default function IssuesActivityCard({ issuesClosed }) {
             </a>
           </div>
         </div>
-      </div>
-
-      {issuesClosed.length === 0 ? (
-        <div>no data</div>
-      ) : (
-        <>
+        {issuesClosed.length === 0 ? (
+          <div className="flex flex-col justify-center items-center">
+            <FontAwesomeIcon
+              icon={faFaceMeh}
+              className="w-20 mr-3 text-white transition duration-300"
+            />
+            <div>Oh no! There are no issues for this group! </div>
+          </div>
+        ) : (
           <div
             className="flex justify-center items-center h-80 w-full min-w-[300px] relative"
             style={{
@@ -281,13 +283,15 @@ export default function IssuesActivityCard({ issuesClosed }) {
               height: chartType === "bar" ? "320px" : "360px",
             }}
           >
-            {chartType === "pie" && (
+            {chartType === "pie" ? (
               <div className="flex justify-center items-center absolute inset-0 -mb-1">
                 <div className="text-[#F9F9F9] font-bold text-2xl">
                   {completedIssues}
                 </div>
                 <p className="text-[#606467] text-xs ml-[10px]">Issues Done</p>
               </div>
+            ) : (
+              ""
             )}
             <div
               className="absolute -top-[69px] w-full h-full "
@@ -303,8 +307,8 @@ export default function IssuesActivityCard({ issuesClosed }) {
               )}
             </div>
           </div>
-        </>
-      )}
+        )}
+      </div>
     </div>
   );
 }
