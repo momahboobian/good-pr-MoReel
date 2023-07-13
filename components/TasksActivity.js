@@ -17,7 +17,7 @@ export default function TaskActivity({ allIssues, repo }) {
   return (
     <div className="p-6 w-full h-full">
       <div className="flex text-white font-bold relative py-4">
-        Open Issues
+        Work in Progress
       </div>
       <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-auto w-full h-full">
         <div className="absolute flex justify-start top-0 w-full px-4">
