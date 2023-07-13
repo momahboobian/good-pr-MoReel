@@ -35,18 +35,15 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
   //repeat the process for pr
   const prArray = [];
   pr.map((el) => el.items.map((e) => prArray.push(e)));
-  console.log(prArray);
 
   return (
-    <div className="p-6 w-full h-full">
+    <div className="p-6 w-full h-full min-h-max ">
       <div className="flex justify-between items-center">
         <div className="flex text-white font-bold relative py-4">
           Tasks Activities
         </div>
         <div className="flex text-white font-bold relative gap-4 py-4">
           <FontAwesomeIcon
-            data-tooltip-target="tooltip-info-chart"
-            data-tooltip-placement="top"
             icon={faListCheck}
             className={`h-6 w-6 ${
               activeTab === "issues"
@@ -65,19 +62,11 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
             onClick={() => setActiveTab("pr")}
           />
         </div>
-        <div
-          id="tooltip-info-chart"
-          role="tooltip"
-          className="absolute z-10 right-16 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
-        >
-          Change chart type
-          <div className="tooltip-arrow" data-popper-arrow></div>
-        </div>
       </div>
 
-      <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-auto w-full h-full">
-        <div className="absolute flex justify-start top-0 w-full px-4">
-          <table className="table-auto text-white text-xs text-left w-full">
+      <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-scroll w-full h-full mb-6">
+        <div className="absolute flex justify-start top-0 w-full px-4 mb-10  min-h-fit">
+          <table className="table-auto text-white text-xs text-left w-full ">
             <thead className="sticky top-0">
               <tr className=" text-sm font-normal bg-[#1A1E1F] h-20">
                 <th className="">Assigned to</th>
@@ -112,7 +101,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
                       <td className="pr-4 py-4 max-w-min whitespace-nowrap">
                         {el.updated_at.slice(0, 16).replace("T", " ")}
                       </td>
-                      <td className="pr-6 py-4 max-w-[220px] whitespace-nowrap overflow-hidden">
+                      <td className="pr-6 py-4 max-w-[220px] truncate">
                         {el.title}
                       </td>
                       <td className="pr-4 min-w-max whitespace-nowrap">
@@ -163,7 +152,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
                     <td className="pr-4 py-4 max-w-min whitespace-nowrap">
                       {el.updated_at.slice(0, 16).replace("T", " ")}
                     </td>
-                    <td className="pr-6 py-4 max-w-[220px] whitespace-nowrap overflow-hidden">
+                    <td className="pr-6 py-4 max-w-[220px] truncate">
                       {el.title}
                     </td>
                     <td className="pr-4 min-w-max whitespace-nowrap">
@@ -184,7 +173,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
                       <a
                         href={el.html_url}
                         target="_blank"
-                        className="py-3 px-6  bg-[#2b3234] border-none hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg"
+                        className="py-3 px-6 bg-[#2b3234] border-none hover:text-gray-500 duration-150 hover:bg-gray-50 border rounded-lg"
                       >
                         See Details
                       </a>

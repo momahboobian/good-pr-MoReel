@@ -57,7 +57,7 @@ export default function TeamOverviewHeader({ id }) {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full sm:h-screen">
+    <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full sm:h-screen overflow-scroll p-4">
       <div className="flex justify-between items-center md:pt-2 px-6">
         <div className="flex flex-col justify-between py-2">
           <ul>
@@ -92,7 +92,7 @@ export default function TeamOverviewHeader({ id }) {
           <IssuesActivityCard issuesClosed={issuesClosed} />
         </div>
       </div>
-      <div className="flex justify-between items-center h-screen">
+      <div className="flex justify-between items-center min-h-full pb-16">
         <TasksActivity
           pr={pr}
           issuesClosed={issuesClosed}
