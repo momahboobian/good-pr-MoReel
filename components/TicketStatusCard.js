@@ -7,7 +7,6 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
-
 // TaskItem component
 const TaskItem = ({ icon, title, count, bgColor }) => {
   const itemStyle = `flex flex-col justify-center items-center basis-1/3 min-w-[70px] space-y-3 p-2 ${bgColor} text-gray-900 rounded-xl whitespace-nowrap`;
@@ -24,7 +23,6 @@ const TaskItem = ({ icon, title, count, bgColor }) => {
 };
 
 export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
-
   // Enable tooltips feature on component mount
   useEffect(() => {
     import("@components/Tooltips").then((module) => {
@@ -73,7 +71,7 @@ export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
       <div className="flex flex-col justify-between max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-12 w-full">
         <div className="flex justify-between items-center">
           <h1 className="font-bold text-s text-white">Issues Activity</h1>
-          <div>
+          <div className="relative ml-2">
             <FontAwesomeIcon
               icon={faInfoCircle}
               data-tooltip-target="tooltip-issues"
@@ -83,8 +81,9 @@ export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
             <div
               id="tooltip-issues"
               role="tooltip"
-              className="absolute z-10 right-full top-1/2 px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] ">
-                This pie chart shows the closed issues.
+              className="absolute z-10 right-full top-1/2 px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
+            >
+              This pie chart shows the closed issues.
               <div className="tooltip-arrow" data-popper-arrow></div>
             </div>
           </div>
