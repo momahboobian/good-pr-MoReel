@@ -16,7 +16,7 @@ export default function IssuesActivityCard({ issuesClosed }) {
   }, []);
 
   const [chartOptions, setChartOptions] = useState(null);
-  const [chartType, setChartType] = useState("pie");
+  const [chartType, setChartType] = useState("bar");
   const [completedIssues, setCompletedIssues] = useState(0);
   const chartContainerRef = useRef(null);
 
