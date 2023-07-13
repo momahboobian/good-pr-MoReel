@@ -92,7 +92,7 @@ export default function TeamOverviewHeader({ id }) {
           <IssuesActivityCard issuesClosed={issuesClosed} />
         </div>
       </div>
-      <div className="flex justify-between items-center h-screen">
+      <div className="flex justify-between items-center h-full">
         <TasksActivity
           pr={pr}
           issuesClosed={issuesClosed}
