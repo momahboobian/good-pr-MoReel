@@ -91,6 +91,7 @@ export default function TeamOverviewHeader({ id }) {
       </div>
       <div className="flex justify-between items-center h-screen">
         <TasksActivity
+          pr={pr}
           issuesClosed={issuesClosed}
           allIssues={allIssues}
           repo={repo}
