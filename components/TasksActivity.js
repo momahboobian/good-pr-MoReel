@@ -24,6 +24,8 @@ const avatarBorderColor = (assigneeId) => {
 
 export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
   const [activeTab, setActiveTab] = useState("issues"); // State to track the active tab
+  const [showIssuesTooltip, setShowIssuesTooltip] = useState(false);
+  const [showPRTooltip, setShowPRTooltip] = useState(false);
 
   //grab issues Closed and Issues open in the same array to map for the table
   const issuesArr = [];
@@ -43,24 +45,46 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
           Tasks Activities
         </div>
         <div className="flex text-white font-bold relative gap-4 py-4">
-          <FontAwesomeIcon
-            icon={faListCheck}
-            className={`h-6 w-6 ${
-              activeTab === "issues"
-                ? "text-gray-900 bg-[#37BCBA]"
-                : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
-            } rounded-md p-2 transition duration-300`}
-            onClick={() => setActiveTab("issues")}
-          />
-          <FontAwesomeIcon
-            icon={faCodePullRequest}
-            className={`h-6 w-6 ${
-              activeTab === "pr"
-                ? "text-gray-900 bg-[#37BCBA]"
-                : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
-            } rounded-md p-2 transition duration-300`}
-            onClick={() => setActiveTab("pr")}
-          />
+          <div
+            className="group relative"
+            onMouseEnter={() => setShowIssuesTooltip(true)}
+            onMouseLeave={() => setShowIssuesTooltip(false)}
+          >
+            <FontAwesomeIcon
+              icon={faListCheck}
+              className={`h-6 w-6 ${
+                activeTab === "issues"
+                  ? "text-gray-900 bg-[#37BCBA]"
+                  : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
+              } rounded-md p-2 transition duration-300`}
+              onClick={() => setActiveTab("issues")}
+            />
+            {showIssuesTooltip && (
+              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center  rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
+                Issues
+              </div>
+            )}
+          </div>
+          <div
+            className="group relative"
+            onMouseEnter={() => setShowPRTooltip(true)}
+            onMouseLeave={() => setShowPRTooltip(false)}
+          >
+            <FontAwesomeIcon
+              icon={faCodePullRequest}
+              className={`h-6 w-6 ${
+                activeTab === "pr"
+                  ? "text-gray-900 bg-[#37BCBA]"
+                  : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
+              } rounded-md p-2 transition duration-300`}
+              onClick={() => setActiveTab("pr")}
+            />
+            {showPRTooltip && (
+              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center  rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
+                PRs
+              </div>
+            )}
+          </div>
         </div>
       </div>
 

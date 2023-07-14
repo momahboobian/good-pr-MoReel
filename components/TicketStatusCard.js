@@ -5,6 +5,7 @@ import {
   faSyncAlt,
   faExternalLinkAlt,
 } from "@fortawesome/free-solid-svg-icons";
+import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 
 // TaskItem component
 const TaskItem = ({ icon, title, count, bgColor }) => {
@@ -22,6 +23,13 @@ const TaskItem = ({ icon, title, count, bgColor }) => {
 };
 
 export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
+  // Enable tooltips feature on component mount
+  useEffect(() => {
+    import("@components/Tooltips").then((module) => {
+      const handleTooltips = module.handleTooltips;
+      handleTooltips();
+    });
+  }, []);
   const [taskCount, setTaskCount] = useState(0);
   const [inProgressCount, setInProgressCount] = useState(0);
   const [completedTasks, setCompletedTasks] = useState(0);
@@ -62,7 +70,23 @@ export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
     <div className="bg-[#1A1E1F] rounded-2xl w-full min-w-max">
       <div className="flex flex-col justify-between max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-12 w-full">
         <div className="flex justify-between items-center">
-          <h1 className="font-bold text-s text-white">Ticket Status</h1>
+          <h1 className="font-bold text-s text-white">Issues Activity</h1>
+          <div className="relative ml-2">
+            <FontAwesomeIcon
+              icon={faInfoCircle}
+              data-tooltip-target="tooltip-issues"
+              data-tooltip-placement="bottom"
+              className="w-4 h-4 cursor-help text-white hover:text-gray-400 transition duration-300 hover:scale-110"
+            />
+            <div
+              id="tooltip-issues"
+              role="tooltip"
+              className="absolute z-10 right-full top-1/2 px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
+            >
+              This pie chart shows the closed issues.
+              <div className="tooltip-arrow" data-popper-arrow></div>
+            </div>
+          </div>
         </div>
         <div className="flex justify-left gap-1 items-center">
           <div className="text-[#F9F9F9] font-bold text-2xl">
