@@ -124,7 +124,7 @@ export default function ProjectCard({ repo, pr }) {
                 />
               </div>
               {/* Tooltip */}
-              <div className="invisible absolute bg-gray-900 text-gray-200 p-2 rounded-md shadow group-hover:visible ">
+              <div className="invisible absolute bg-gray-900 text-gray-200 p-2 rounded-md shadow group-hover:visible tooltip border border-slate-100 dark:bg-[#1A1E1F] ">
                 {trainee.items[0].user.login}
               </div>
             </div>
