@@ -44,7 +44,7 @@ export default function GroupsPage() {
               <span className="text-[#37BCBA]">PR</span>
             </h1>
           </div>
-          <p className="font-light text-xs text-gray-500">
+          <p className="font-light text-x text-gray-500">
             Track teams & members
           </p>
         </div>

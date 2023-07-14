@@ -23,7 +23,7 @@ const avatarBorderColor = (assigneeId) => {
 };
 
 export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
-  const [activeTab, setActiveTab] = useState("issues"); // State to track the active tab
+  const [activeTab, setActiveTab] = useState("prs"); // State to track the active tab
   const [showIssuesTooltip, setShowIssuesTooltip] = useState(false);
   const [showPRTooltip, setShowPRTooltip] = useState(false);
 
@@ -37,14 +37,38 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
   //repeat the process for pr
   const prArray = [];
   pr.map((el) => el.items.map((e) => prArray.push(e)));
+  //sort the array based on the pulls number
+  prArray.sort((a, b) => b.number - a.number);
 
   return (
     <div className="p-6 w-full h-full min-h-max ">
       <div className="flex justify-between items-center">
         <div className="flex text-white font-bold relative py-4">
-          Tasks Activities
+          {activeTab === "prs"
+            ? "Tasks Activities Based on Pull Requests"
+            : "Tasks Activities Based on Issues"}
         </div>
         <div className="flex text-white font-bold relative gap-4 py-4">
+          <div
+            className="group relative"
+            onMouseEnter={() => setShowPRTooltip(true)}
+            onMouseLeave={() => setShowPRTooltip(false)}
+          >
+            <FontAwesomeIcon
+              icon={faCodePullRequest}
+              className={`h-6 w-6 ${
+                activeTab === "prs"
+                  ? "text-gray-900 bg-[#37BCBA]"
+                  : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
+              } rounded-md p-2 transition duration-300`}
+              onClick={() => setActiveTab("prs")}
+            />
+            {showPRTooltip && (
+              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
+                PRs
+              </div>
+            )}
+          </div>
           <div
             className="group relative"
             onMouseEnter={() => setShowIssuesTooltip(true)}
@@ -65,30 +89,10 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
               </div>
             )}
           </div>
-          <div
-            className="group relative"
-            onMouseEnter={() => setShowPRTooltip(true)}
-            onMouseLeave={() => setShowPRTooltip(false)}
-          >
-            <FontAwesomeIcon
-              icon={faCodePullRequest}
-              className={`h-6 w-6 ${
-                activeTab === "pr"
-                  ? "text-gray-900 bg-[#37BCBA]"
-                  : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
-              } rounded-md p-2 transition duration-300`}
-              onClick={() => setActiveTab("pr")}
-            />
-            {showPRTooltip && (
-              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center  rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
-                PRs
-              </div>
-            )}
-          </div>
         </div>
       </div>
 
-      <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-scroll w-full h-full mb-6">
+      <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-scroll w-full h-screen sm:h-full sm:mb-6">
         <div className="absolute flex justify-start top-0 w-full px-4 mb-10  min-h-fit">
           <table className="table-auto text-white text-xs text-left w-full ">
             <thead className="sticky top-0">
@@ -154,7 +158,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
                     </tr>
                   ) : null
                 )}
-              {activeTab === "pr" &&
+              {activeTab === "prs" &&
                 prArray.map((el, idx) => (
                   <tr key={idx}>
                     <td className="py-4 min-w-[170px] whitespace-nowrap">
