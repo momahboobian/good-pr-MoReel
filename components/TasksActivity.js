@@ -60,8 +60,8 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
               onClick={() => setActiveTab("issues")}
             />
             {showIssuesTooltip && (
-              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[200px] rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
-                Table based on issues
+              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
+                Issues
               </div>
             )}
           </div>
@@ -80,8 +80,8 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
               onClick={() => setActiveTab("pr")}
             />
             {showPRTooltip && (
-              <div className="absolute bg-gray-900 text-gray-200 w-[200px] right-0 p-2 rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
-                Table based on pull requests
+              <div className="absolute bg-gray-900 text-gray-200 w-[170px] right-0 p-2 text-center rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
+                Pull requests
               </div>
             )}
           </div>
