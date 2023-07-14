@@ -23,7 +23,7 @@ const avatarBorderColor = (assigneeId) => {
 };
 
 export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
-  const [activeTab, setActiveTab] = useState("issues"); // State to track the active tab
+  const [activeTab, setActiveTab] = useState("prs"); // State to track the active tab
   const [showIssuesTooltip, setShowIssuesTooltip] = useState(false);
   const [showPRTooltip, setShowPRTooltip] = useState(false);
 
@@ -42,9 +42,31 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
     <div className="p-6 w-full h-full min-h-max ">
       <div className="flex justify-between items-center">
         <div className="flex text-white font-bold relative py-4">
-          Tasks Activities
+          {activeTab === "prs"
+            ? "Tasks Activities Based on Pull Requests"
+            : "Tasks Activities Based on Issues"}
         </div>
         <div className="flex text-white font-bold relative gap-4 py-4">
+          <div
+            className="group relative"
+            onMouseEnter={() => setShowPRTooltip(true)}
+            onMouseLeave={() => setShowPRTooltip(false)}
+          >
+            <FontAwesomeIcon
+              icon={faCodePullRequest}
+              className={`h-6 w-6 ${
+                activeTab === "prs"
+                  ? "text-gray-900 bg-[#37BCBA]"
+                  : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
+              } rounded-md p-2 transition duration-300`}
+              onClick={() => setActiveTab("prs")}
+            />
+            {showPRTooltip && (
+              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center  rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
+                PRs
+              </div>
+            )}
+          </div>
           <div
             className="group relative"
             onMouseEnter={() => setShowIssuesTooltip(true)}
@@ -62,26 +84,6 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
             {showIssuesTooltip && (
               <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center  rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
                 Issues
-              </div>
-            )}
-          </div>
-          <div
-            className="group relative"
-            onMouseEnter={() => setShowPRTooltip(true)}
-            onMouseLeave={() => setShowPRTooltip(false)}
-          >
-            <FontAwesomeIcon
-              icon={faCodePullRequest}
-              className={`h-6 w-6 ${
-                activeTab === "pr"
-                  ? "text-gray-900 bg-[#37BCBA]"
-                  : "text-white bg-[#1A1E1F] cursor-pointer hover:bg-[#37BCBA]"
-              } rounded-md p-2 transition duration-300`}
-              onClick={() => setActiveTab("pr")}
-            />
-            {showPRTooltip && (
-              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center  rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
-                PRs
               </div>
             )}
           </div>
@@ -154,7 +156,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
                     </tr>
                   ) : null
                 )}
-              {activeTab === "pr" &&
+              {activeTab === "prs" &&
                 prArray.map((el, idx) => (
                   <tr key={idx}>
                     <td className="py-4 min-w-[170px] whitespace-nowrap">
