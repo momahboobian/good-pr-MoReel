@@ -58,8 +58,8 @@ export default function TeamOverviewHeader({ id }) {
     <Loading />
   ) : (
     <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full sm:h-screen overflow-scroll p-4">
-      <div className="flex justify-between items-center md:pt-2 px-6">
-        <div className="flex flex-col justify-between py-2">
+      <div className="flex justify-between items-center md:pt-2 gap-2 px-6">
+        <div className="flex flex-col justify-between items-start py-2">
           <ul>
             <li className="flex justify-start items-center font-semibold text-xl text-white py-2">
               Team
@@ -67,7 +67,7 @@ export default function TeamOverviewHeader({ id }) {
                 href={repo.homepage}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="font-semibold text-xl text-white p-2 hover:text-[#37BCBA]"
+                className="flex whitespace-nowrap font-semibold text-xl text-white p-2 hover:text-[#37BCBA]"
                 title="Link to deployed webpage"
               >
                 {groups}
@@ -75,7 +75,7 @@ export default function TeamOverviewHeader({ id }) {
               </a>
             </li>
           </ul>
-          <p className="font-light text-xs text-gray-500">
+          <p className="font-light text-x text-gray-500">
             Track your projects, tasks & team activity here
           </p>
         </div>
@@ -85,7 +85,7 @@ export default function TeamOverviewHeader({ id }) {
       <div className="relative">
         <div
           ref={containerRef}
-          className="grid sm:flex gap-6 p-4 sm:p-6 lg:gap-10 xl:gap-14 2xl:gap-24 overflow-x-auto lg:overflow-x-clip"
+          className="grid sm:flex gap-6 p-4 sm:p-6 lg:gap-10 xl:gap-14 2xl:gap-24 overflow-x-auto lg:overflow-y-clip"
         >
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />

@@ -10,7 +10,7 @@ export default function ShareButton() {
     navigator.clipboard
       .writeText(currentUrl)
       .then(() => {
-        setButtonText("Link copied to clipboard!");
+        setButtonText("Shareable Link Copied!");
         setTimeout(() => {
           setButtonText("Share this page");
         }, 2000); // Show the popup for 2 seconds
@@ -25,13 +25,15 @@ export default function ShareButton() {
       onClick={handleShareClick}
       className="bg-[#37BCBA] text-gray-900 rounded-lg p-2 px-4 font-semibold flex items-center hover:bg-[#1a9997]"
     >
-      {buttonText !== "Link copied to clipboard!" && (
-        <FontAwesomeIcon
-          icon={faShareFromSquare}
-          className="w-[15px] mr-3 hidden md:block"
-        />
-      )}
-      {buttonText}
+      <div className="flex items-center">
+        {buttonText !== "Shareable Link Copied!" && (
+          <FontAwesomeIcon
+            icon={faShareFromSquare}
+            className="w-[15px] mr-3 hidden md:block"
+          />
+        )}
+        {buttonText}
+      </div>
     </button>
   );
 }
