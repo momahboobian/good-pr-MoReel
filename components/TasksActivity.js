@@ -37,6 +37,8 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
   //repeat the process for pr
   const prArray = [];
   pr.map((el) => el.items.map((e) => prArray.push(e)));
+  //sort the array based on the pulls number
+  prArray.sort((a, b) => b.number - a.number);
 
   return (
     <div className="p-6 w-full h-full min-h-max ">
@@ -62,7 +64,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
               onClick={() => setActiveTab("prs")}
             />
             {showPRTooltip && (
-              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center  rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
+              <div className="absolute bg-gray-900 text-gray-200 p-2 left-1/2 transform -translate-x-1/2 w-[80px] text-center rounded-md shadow bottom-full tooltip border border-slate-100 dark:bg-[#1A1E1F]">
                 PRs
               </div>
             )}
@@ -90,7 +92,7 @@ export default function TaskActivity({ issuesClosed, allIssues, repo, pr }) {
         </div>
       </div>
 
-      <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-scroll w-full h-full mb-6">
+      <div className="relative flex justify-center bg-[#1A1E1F] rounded-2xl overflow-scroll w-full h-screen sm:h-full sm:mb-6">
         <div className="absolute flex justify-start top-0 w-full px-4 mb-10  min-h-fit">
           <table className="table-auto text-white text-xs text-left w-full ">
             <thead className="sticky top-0">
