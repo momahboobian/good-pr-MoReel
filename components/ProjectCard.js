@@ -76,7 +76,7 @@ export default function ProjectCard({ repo, pr }) {
               <div
                 id="tooltip-project"
                 role="tooltip"
-                className="absolute z-10 right-full top-1/2 px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
+                className="absolute z-10 right-full w-[320px] top-1/2 px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
                 This card contains; The arrow diagram to represent the final
                 project timeline. Collaborators GitHub profile's picture. The
