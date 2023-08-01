@@ -89,7 +89,7 @@ export default function TeamOverviewHeader({ id }) {
         >
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} />
-          <IssuesActivityCard issuesClosed={issuesClosed} />
+          <IssuesActivityCard issuesClosed={issuesClosed} pr={pr} />
         </div>
       </div>
       <div className="flex justify-between items-center min-h-full sm:pb-16">

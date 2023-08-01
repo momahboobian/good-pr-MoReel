@@ -8,7 +8,7 @@ import {
   faFaceSadCry,
 } from "@fortawesome/free-solid-svg-icons";
 
-export default function IssuesActivityCard({ issuesClosed }) {
+export default function IssuesActivityCard({ issuesClosed, pr }) {
   useEffect(() => {
     import("@components/Tooltips").then((module) => {
       const handleTooltips = module.handleTooltips;
@@ -30,20 +30,28 @@ export default function IssuesActivityCard({ issuesClosed }) {
     0
   );
 
+  //now we count the issues which are assigned to multiple trainees too
   const names = issuesClosed.map((user) =>
-    user.items.filter((el) => el.assignees.length === 1)
+    user.items.filter((el) => el.assignees.length >= 1)
   );
 
-  const issuesAssignee = names
-    .map((el) => el.map((e) => e.assignees[0].login))
-    .map((el) => el[0]);
+  //to have the same trainees as in the project Card
+  const trainees = (pr && pr.filter((el) => el.total_count !== 0)) || [];
+  const issuesAssignee = trainees.map((trainee) => trainee.items[0].user.login);
+  console.log(
+    "tr",
+    trainees.map((trainee) => trainee.items[0].user.login)
+  );
 
   useEffect(() => {
-    const chartData = names.map((user) => {
+    const chartData = names.map((user, index) => {
       const total_count = user.length || 0;
       console.log(total_count);
       return {
-        name: filterAndTruncateName(user[0].assignees[0].login, 6),
+        name: filterAndTruncateName(
+          user[0] ? user[0].assignees[0].login : issuesAssignee[index],
+          6
+        ),
         value: calculatePercentage(total_count, totalIssues),
         issuesCount: total_count,
       };
