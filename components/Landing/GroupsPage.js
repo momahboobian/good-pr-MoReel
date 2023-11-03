@@ -44,12 +44,12 @@ export default function GroupsPage() {
     <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full ">
       <div className="flex justify-between items-center md:pt-6 px-6">
         <div className="flex flex-col justify-between py-2 gap-4">
-          <div className="flex items-start">
+          <div className="flex items-center">
             <FontAwesomeIcon
               icon={faGithub}
-              className="text-[#37BCBA] w-[20px] mr-1"
+              className="text-[#37BCBA] h-7 mr-2"
             />
-            <h1 className="font-semibold text-xl  text-white">
+            <h1 className="font-semibold text-2xl text-white">
               <span className="mr-1">GOOD</span>
               <span className="text-[#37BCBA]">PR</span>
             </h1>
@@ -63,13 +63,12 @@ export default function GroupsPage() {
           />
         </div>
       </div>
-      <div className="flex flex-wrap w-full items-center justify-around gap-6 p-4 sm:p-6 ">
-        {groups.map((group) => (
+      <div className="flex flex-wrap w-full items-center justify-around gap-6 p-4 sm:p-6">
+        {filteredGroups.map((group) => (
           <TeamCard
             key={group.id}
             group={group}
-            // groupStatus={group.useState}
-            groupStatus={false}
+            groupStatus={group.groupStatus}
           />
         ))}
       </div>
