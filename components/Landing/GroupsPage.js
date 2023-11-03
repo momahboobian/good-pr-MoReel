@@ -38,6 +38,8 @@ export default function GroupsPage() {
     ? groups.filter((group) => group.groupStatus)
     : groups;
 
+  const noTeamsNeedHelp = filteredGroups.length === 0;
+
   return isLoading ? (
     <Loading />
   ) : (
@@ -63,14 +65,22 @@ export default function GroupsPage() {
           />
         </div>
       </div>
-      <div className="flex flex-wrap w-full items-center justify-around gap-6 p-4 sm:p-6">
-        {filteredGroups.map((group) => (
-          <TeamCard
-            key={group.id}
-            group={group}
-            groupStatus={group.groupStatus}
-          />
-        ))}
+      <div className="flex flex-wrap w-full h-full items-center justify-around gap-6 p-4 sm:p-6">
+        {noTeamsNeedHelp ? (
+          <div className="flex items-center justify-center text-3xl text-white py-8">
+            <span className="transform -rotate-90 text-6xl mr-2">🎉</span>
+            All Teams on track
+            <span className="text-6xl ml-2">🎉</span>
+          </div>
+        ) : (
+          filteredGroups.map((group) => (
+            <TeamCard
+              key={group.id}
+              group={group}
+              groupStatus={group.groupStatus}
+            />
+          ))
+        )}
       </div>
     </div>
   );
