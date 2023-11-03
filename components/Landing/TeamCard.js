@@ -2,13 +2,10 @@ import { useState, useEffect } from "react";
 import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import {
-  faShapes,
-  faTriangleExclamation,
-} from "@fortawesome/free-solid-svg-icons";
-import AlertIcon from "./AlterIcon";
+import { faShapes } from "@fortawesome/free-solid-svg-icons";
+import AlertIcon from "./AlertIcon";
 
-export default function TeamCard({ group }) {
+export default function TeamCard({ group, groupStatus }) {
   const [prsDoneCount, setPrsDoneCount] = useState(0);
 
   useEffect(() => {
@@ -50,9 +47,14 @@ export default function TeamCard({ group }) {
 
   const tooltipDemoId = `tooltip-demo-url-${group.id}`;
   const tooltipGithubId = `tooltip-github-url-${group.id}`;
+  const tooltipIconId = `tooltip-icon-${group.id}`;
 
   return (
-    <div className="flex flex-col justify-around mb-6 p-1 pb-3 min-w-full sm:min-w-[345px] md:min-w-[360px] 2xl:min-w-[400px] h-[fit-content] bg-[#1a1e1f] text-white rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[0_0_15px_-7px_white]">
+    <div
+      className={`flex flex-col justify-around mb-6 p-1 pb-3 min-w-full sm:min-w-[345px] md:min-w-[360px] 2xl:min-w-[400px] h-[fit-content] bg-[#1a1e1f] text-white ${
+        groupStatus === true ? "drop-shadow-3xl" : ""
+      } rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[0_0_15px_-7px_white]`}
+    >
       <Link href={`/dashboard?id=${group.id}`}>
         <div className="flex flex-col items-center justify-center p-4 bg-[#070e0ea8] rounded-t-lg relative">
           <div className="flex items-center justify-between h-20 ">
@@ -66,9 +68,11 @@ export default function TeamCard({ group }) {
                 height={100}
               />
             </div>
-            <AlertIcon tooltipId={tooltipDemoId} />{" "}
+
             {/* Display the alert icon */}
+            {groupStatus === true && <AlertIcon tooltipId={tooltipIconId} />}
           </div>
+
           <div className="text-center text-xl text-white p-2">
             {group.team_name}
           </div>

@@ -48,13 +48,19 @@ export default function GroupsPage() {
           <p className="font-light text-x text-gray-500">
             Track teams & members
           </p>
-          <FilterToggle />
+          {/* <FilterToggle /> */}
         </div>
       </div>
       <div className="flex flex-wrap w-full items-center justify-around gap-6 p-4 sm:p-6 ">
         {groups.map((group) => (
-          <TeamCard key={group.id} group={group} />
+          <TeamCard
+            key={group.id}
+            group={group}
+            // groupStatus={group.useState}
+            groupStatus={false}
+          />
         ))}
+        {/* If group.status=1 ?  */}
       </div>
     </div>
   );
