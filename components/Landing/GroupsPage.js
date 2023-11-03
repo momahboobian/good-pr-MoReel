@@ -10,6 +10,7 @@ import FilterToggle from "./FillterToggle";
 export default function GroupsPage() {
   const [groups, setGroups] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [filterActive, setFilterActive] = useState(false);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -28,6 +29,14 @@ export default function GroupsPage() {
 
     fetchData();
   }, []);
+
+  const handleFilterToggle = () => {
+    setFilterActive(!filterActive);
+  };
+
+  const filteredGroups = filterActive
+    ? groups.filter((group) => group.groupStatus)
+    : groups;
 
   return isLoading ? (
     <Loading />
@@ -48,7 +57,10 @@ export default function GroupsPage() {
           <p className="font-light text-x text-gray-500">
             Track teams & members
           </p>
-          {/* <FilterToggle /> */}
+          <FilterToggle
+            filterActive={filterActive}
+            onToggle={handleFilterToggle}
+          />
         </div>
       </div>
       <div className="flex flex-wrap w-full items-center justify-around gap-6 p-4 sm:p-6 ">
@@ -60,7 +72,6 @@ export default function GroupsPage() {
             groupStatus={false}
           />
         ))}
-        {/* If group.status=1 ?  */}
       </div>
     </div>
   );
