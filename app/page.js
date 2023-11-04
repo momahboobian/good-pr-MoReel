@@ -1,4 +1,4 @@
-import GroupsPage from "@components/GroupsPage";
+import GroupsPage from "@components/Landing/GroupsPage";
 
 export default function Home() {
   return (

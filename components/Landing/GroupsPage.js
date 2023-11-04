@@ -1,10 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TeamCard from "@components/TeamCard";
+import TeamCard from "@components/Landing/TeamCard";
 import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import FilterToggle from "./FillterToggle";
 
 export default function GroupsPage() {
   const [groups, setGroups] = useState([]);
@@ -34,7 +35,7 @@ export default function GroupsPage() {
     <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full ">
       <div className="flex justify-between items-center md:pt-6 px-6">
         <div className="flex flex-col justify-between py-2 gap-4">
-          <div className="flex items-center">
+          <div className="flex items-start">
             <FontAwesomeIcon
               icon={faGithub}
               className="text-[#37BCBA] w-[20px] mr-1"
@@ -47,12 +48,19 @@ export default function GroupsPage() {
           <p className="font-light text-x text-gray-500">
             Track teams & members
           </p>
+          {/* <FilterToggle /> */}
         </div>
       </div>
       <div className="flex flex-wrap w-full items-center justify-around gap-6 p-4 sm:p-6 ">
         {groups.map((group) => (
-          <TeamCard key={group.id} group={group} />
+          <TeamCard
+            key={group.id}
+            group={group}
+            // groupStatus={group.useState}
+            groupStatus={false}
+          />
         ))}
+        {/* If group.status=1 ?  */}
       </div>
     </div>
   );

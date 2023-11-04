@@ -18,6 +18,7 @@ module.exports = {
       half: "30%",
     },
   },
+
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -32,6 +33,18 @@ module.exports = {
           teamColor3: "#f55706",
         },
       },
+    },
+    dropShadow: {
+      "3xl": [
+        "-2px -2px 5px rgba(188, 186, 54, 0.4)",
+        "2px 2px 5px rgba(188, 186, 54, 0.4)",
+        "2px -2px 5px rgba(188, 186, 54, 0.4)",
+        "-2px 2px 5px rgba(188, 186, 54, 0.4)",
+      ],
+      "4xl": [
+        "0 5px 5px rgba(188, 186, 54, 0.75)",
+        "0 10px 10px rgba(188, 186, 54, 0.75)",
+      ],
     },
     plugins: [],
   },
