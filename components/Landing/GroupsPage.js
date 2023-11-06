@@ -35,7 +35,7 @@ export default function GroupsPage() {
   };
 
   const filteredGroups = filterActive
-    ? groups.filter((group) => group.groupStatus)
+    ? groups.filter((group) => group.statusId === 2)
     : groups;
 
   const noTeamsNeedHelp = filteredGroups.length === 0;
@@ -65,7 +65,7 @@ export default function GroupsPage() {
           />
         </div>
       </div>
-      <div className="flex flex-wrap w-full h-full items-center justify-around gap-6 p-4 sm:p-6">
+      <div className="flex flex-wrap content-start w-full h-full items-center justify-around gap-6 p-4 sm:p-6">
         {noTeamsNeedHelp ? (
           <div className="flex items-center justify-center text-3xl text-white py-8">
             <span className="transform -rotate-90 text-6xl mr-2">🎉</span>
@@ -77,7 +77,7 @@ export default function GroupsPage() {
             <TeamCard
               key={group.id}
               group={group}
-              groupStatus={group.groupStatus}
+              groupStatus={group.statusId}
             />
           ))
         )}
