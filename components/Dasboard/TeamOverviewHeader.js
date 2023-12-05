@@ -1,9 +1,9 @@
 import React, { useEffect, useState, useRef } from "react";
-import ProjectCard from "@components/ProjectCard";
-import ShareButton from "@components/ShareButton";
-import IssuesActivityCard from "@components/IssuesActivityCard";
-import TeamActivityPie from "@components/TeamActivityPie";
-import TasksActivity from "@components/TasksActivity";
+import ProjectCard from "@components/Dasboard/ProjectCard";
+import ShareButton from "@components/Dasboard/ShareButton";
+import IssuesActivityCard from "@components/Dasboard/IssuesActivityCard";
+import TeamActivityPie from "@components/Dasboard/TeamActivityPie";
+import TasksActivity from "@components/Dasboard/TasksActivity";
 import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSitemap } from "@fortawesome/free-solid-svg-icons";

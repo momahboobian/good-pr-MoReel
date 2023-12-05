@@ -26,7 +26,7 @@ const calculateProgressDates = (repo) => {
 export default function ProjectCard({ repo, pr }) {
   // Enable tooltips feature on component mount
   useEffect(() => {
-    import("@components/Tooltips").then((module) => {
+    import("@components/Dasboard/Tooltips").then((module) => {
       const handleTooltips = module.handleTooltips;
       handleTooltips();
     });

@@ -1,6 +1,6 @@
 "use client";
 
-import TeamOverviewHeader from "@components/TeamOverviewHeader";
+import TeamOverviewHeader from "@components/Dasboard/TeamOverviewHeader";
 
 export default function dashboardId() {
   return (

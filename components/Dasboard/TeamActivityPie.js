@@ -9,7 +9,7 @@ import {
 
 export default function TeamActivityPie({ pr, repo }) {
   useEffect(() => {
-    import("@components/Tooltips").then((module) => {
+    import("@components/Dasboard/Tooltips").then((module) => {
       const handleTooltips = module.handleTooltips;
       handleTooltips();
     });

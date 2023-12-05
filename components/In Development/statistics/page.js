@@ -1,5 +1,5 @@
-import ComingSoon from "@components/Extra/ComingSoon";
-import Sidebar from "@components/Sidebar";
+import ComingSoon from "@components/In Development/ComingSoon";
+import Sidebar from "@components/Sidebar/Sidebar";
 
 export default function Home() {
   return (

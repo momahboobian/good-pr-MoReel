@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TeamCard from "@components/Landing/TeamCard";
+import TeamCard from "@components/Home/TeamCard";
 import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";

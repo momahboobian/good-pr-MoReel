@@ -36,7 +36,7 @@ export default function TeamCard({ group, groupStatus }) {
 
   useEffect(() => {
     const handleTooltips = async () => {
-      const module = await import("@components/Tooltips");
+      const module = await import("@components/Dasboard/Tooltips");
       if (module && module.handleTooltips) {
         module.handleTooltips();
       }
