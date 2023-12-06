@@ -1,11 +1,11 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import TeamCard from "@components/Home/TeamCard";
+import TeamCard from "@components/GroupsPage/Components/TeamCard";
 import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import FilterToggle from "./FillterToggle";
+import FilterToggle from "./Components/FillterToggle";
 
 export default function GroupsPage() {
   const [groups, setGroups] = useState([]);

@@ -1,14 +1,14 @@
 import React, { useEffect, useState, useRef } from "react";
-import ProjectCard from "@components/Dasboard/ProjectCard";
-import ShareButton from "@components/Dasboard/ShareButton";
-import IssuesActivityCard from "@components/Dasboard/IssuesActivityCard";
-import TeamActivityPie from "@components/Dasboard/TeamActivityPie";
-import TasksActivity from "@components/Dasboard/TasksActivity";
+import ProjectCard from "@components/Dashboard/Components/ProjectCard";
+import ShareButton from "@components/Dashboard/Components/ShareButton";
+import IssuesActivityCard from "@components/Dashboard/Components/IssuesActivityCard";
+import TeamActivityPie from "@components/Dashboard/Components/TeamActivityPie";
+import TasksActivity from "@components/Dashboard/Components/TasksActivity";
 import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
-export default function TeamOverviewHeader({ id }) {
+export default function Dashboard({ id }) {
   const [groups, setGroups] = useState([]);
 
   const [repo, setRepo] = useState({});

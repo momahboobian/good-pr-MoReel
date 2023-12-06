@@ -10,7 +10,7 @@ import {
 
 export default function IssuesActivityCard({ issuesClosed, pr }) {
   useEffect(() => {
-    import("@components/Dasboard/Tooltips").then((module) => {
+    import("@components/Dashboard/Components/Tooltips").then((module) => {
       const handleTooltips = module.handleTooltips;
       handleTooltips();
     });
