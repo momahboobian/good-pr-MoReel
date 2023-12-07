@@ -25,7 +25,7 @@ const TaskItem = ({ icon, title, count, bgColor }) => {
 export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
   // Enable tooltips feature on component mount
   useEffect(() => {
-    import("@components/Tooltips").then((module) => {
+    import("@components/Dashboard/Components/Tooltips").then((module) => {
       const handleTooltips = module.handleTooltips;
       handleTooltips();
     });

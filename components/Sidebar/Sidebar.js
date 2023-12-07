@@ -3,10 +3,10 @@
 import { useState, useEffect, useRef } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faBars, faTimes } from "@fortawesome/free-solid-svg-icons";
-import SidebarLogo from "@components/SidebarLogo";
-import SidebarDashboard from "@components/SidebarDashboard";
-import SidebarTeams from "@components/SidebarTeams";
-import SidebarDarkMode from "@components/SidebarDarkMode";
+import SidebarLogo from "@components/Sidebar/SidebarLogo";
+import SidebarDashboard from "@components/Sidebar/SidebarDashboard";
+import SidebarTeams from "@components/Sidebar/SidebarTeams";
+import SidebarDarkMode from "@components/Sidebar/SidebarDarkMode";
 import { usePathname } from "next/navigation";
 
 export default function Sidebar() {

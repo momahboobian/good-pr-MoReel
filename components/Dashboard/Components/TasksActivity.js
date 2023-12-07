@@ -11,11 +11,6 @@ import Image from "next/image";
 // Color for the avatar border based on the assignee's ID
 const avatarBorderColor = (assigneeId) => {
   const colors = [
-    // "border-yellow-200",
-    // "border-orange-600",
-    // "border-cyan-700",
-    // "border-violet-600",
-    // "border-yellow-700",
     "border-gray-500",
   ];
   const colorIndex = assigneeId % colors.length;
