@@ -1,5 +1,4 @@
----
-name: "Deploy container to Kubernetes"
+name: "Deploy to Kubernetes"
 
 on:
   workflow_call:
@@ -23,20 +22,21 @@ on:
         required: true
       s3-uri:
         required: true
+
 jobs:
   push:
     name: "Push container to repo in AWS ECR"
     runs-on: ubuntu-22.04
     environment:
-      name: ${{ inputs.environment }}
+      name: ${{ inputs.aws-region }}
     steps:
       - uses: actions/checkout@v3
       - uses: docker/setup-buildx-action@v3
       - uses: actions/download-artifact@v3
         with:
-          name: goodpr-image
+          name: good-pr-image
           path: /tmp
-      - run: docker load --input /tmp/goodpr-image.tar
+      - run: docker load --input /tmp/good-pr-image.tar
       - uses: aws-actions/configure-aws-credentials@v4-node16
         with:
           aws-access-key-id: ${{ secrets.aws-access-key-id }}
@@ -45,12 +45,13 @@ jobs:
       - uses: aws-actions/amazon-ecr-login@v2
         id: ecr-login
       - run: |
-          docker tag cyf/goodpr $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          docker tag cyf/good-pr $REGISTRY/$REPOSITORY:$IMAGE_TAG
           docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
         env:
           IMAGE_TAG: ${{ github.sha }}
           REGISTRY: ${{ steps.ecr-login.outputs.registry }}
           REPOSITORY: ${{ inputs.ecr-repo }}
+
   deploy:
     name: "Update deployment with new container in Kubernetes"
     runs-on: ubuntu-22.04
@@ -81,8 +82,8 @@ jobs:
         run: |
           kubectl \
             --namespace=staging \
-            set image deployment/class-planner \
-            class-planner=$REGISTRY/$REPOSITORY:$IMAGE_TAG
+            set image deployment/good-pr \
+            good-pr=$REGISTRY/$REPOSITORY:$IMAGE_TAG
         env:
           KUBECONFIG: ${{ steps.get-kubeconfig.outputs.kubeconfig }}
           IMAGE_TAG: ${{ github.sha }}
