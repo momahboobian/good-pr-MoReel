@@ -3,7 +3,7 @@ name: Build Docker Image
 on:
   push:
     branches:
-      - main
+      - momahboobian-patch-1
 
 jobs:
   build:
@@ -22,4 +22,4 @@ jobs:
         with:
           context: .
           push: true
-          tags: cyf/good-pr-image:latest
+          tags: momahboobian/good-pr:latest
