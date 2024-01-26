@@ -228,10 +228,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
                 role="tooltip"
                 className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
-                This interactive chart displays the number of issues (for the
-                repo) and contributions made by each team member. Clicking on a
-                contributor's name allows you to filter and compare their
-                individual data.
+                This interactive chart displays the number of issues (for the repo) and contributions made by each team member. Clicking on a contributor&apos;s name allows you to filter and compare their individual data.
                 <div className="tooltip-arrow" data-popper-arrow></div>
               </div>
             </div>
@@ -279,7 +276,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
               className="h-14 mr-3  p-4 text-yellow-400"
             />
             <div>Oh no!</div>
-            <div>There are no issues closed for this group!</div>
+            <div>There are no issues closed for this group!{' '}</div>
           </div>
         ) : (
           <div
