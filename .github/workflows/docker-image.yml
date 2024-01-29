@@ -3,7 +3,7 @@ name: Docker Build
 on:
   push:
     branches:
-      - main
+      - momahboobian-patch-1
 
 jobs:
   build:
