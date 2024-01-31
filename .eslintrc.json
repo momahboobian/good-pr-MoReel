@@ -1,7 +1,6 @@
 {
   "extends": [
-    "next/core-web-vitals",
-    "@codeyourfuture/standard"
+    "next/core-web-vitals"
   ],
   "parser": "@babel/eslint-parser",
   "env": {
