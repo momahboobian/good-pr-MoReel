@@ -1,17 +1,31 @@
-name: Build Docker Image
+name: ci
 
 on:
+  push:
+    branches:
+      - staging
+      - production
   pull_request:
     branches:
-      - main
+      - staging
 
 jobs:
   build:
     runs-on: ubuntu-latest
-
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
+      - name: Set up QEMU
+        uses: docker/setup-qemu-action@v2
+
       - name: Build Docker image
-        run: docker build -t good-pre:latest .
+        uses: docker/setup-buildx-action@v3
+      
+      - name: Build Docker image
+        run: |
+          docker buildx create --use
+          docker buildx build --platform linux/amd64,linux/arm64 -t your-docker-username/your-image-name:latest .
+     
+
+
