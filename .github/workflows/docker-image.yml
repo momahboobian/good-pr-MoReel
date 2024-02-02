@@ -3,8 +3,9 @@ name: ci
 on:
   push:
     branches:
+      - feature
       - staging
-      - production
+      - main
   pull_request:
     branches:
       - staging
