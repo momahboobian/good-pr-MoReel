@@ -12,6 +12,8 @@ RUN \
   if [ -f package-lock.json ]; then npm ci; \
   else echo "Lockfile not found." && exit 1; \
   fi
+# This is necessary to run sharp
+RUN npm install -g --arch=x64 --platform=linux --libc=glibc sharp@0.33.0-rc.2
 
 
 # Rebuild the source code only when needed
@@ -35,6 +37,8 @@ WORKDIR /app
 ENV NODE_ENV production
 # Uncomment the following line in case you want to disable telemetry during runtime.
 # ENV NEXT_TELEMETRY_DISABLED 1
+# Path to global installation of sharp
+ENV NEXT_SHARP_PATH=/usr/local/lib/node_modules/sharp
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -51,12 +55,10 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/standalone ./
 COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 
 USER nextjs
-
 EXPOSE 3000
-
 ENV PORT 3000
 # set hostname to localhost
-ENV HOSTNAME "localhost"
+ENV HOSTNAME "0.0.0.0"
 
 # server.js is created by next build from the standalone output
 # https://nextjs.org/docs/pages/api-reference/next-config-js/output
