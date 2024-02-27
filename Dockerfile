@@ -13,8 +13,6 @@ RUN \
   if [ -f package-lock.json ]; then npm ci; \
   else echo "Lockfile not found." && exit 1; \
   fi
-# This is necessary to run sharp
-RUN npm install --global sharp@0.33.0-rc.2
 
 # Rebuild the source code only when needed
 FROM base AS builder
