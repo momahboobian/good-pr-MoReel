@@ -20,7 +20,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-
 RUN npm run build
 
 # Production image, copy all the files and run next
@@ -28,10 +27,6 @@ FROM base AS runner
 WORKDIR /app
 
 ENV NODE_ENV production
-
-
-# Path to global installation of sharp
-ENV NEXT_SHARP_PATH=/usr/local/lib/node_modules/sharp
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs

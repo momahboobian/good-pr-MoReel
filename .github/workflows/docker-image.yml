@@ -1,6 +1,10 @@
 name: ci
 
 on:
+  push:
+    branches:
+      - staging
+      - production
   pull_request:
     branches:
       - staging
