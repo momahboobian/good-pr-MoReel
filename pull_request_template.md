@@ -17,8 +17,8 @@
 <!-- Provide steps or instructions on how to validate the changes -->
 
 #### Links (if any):
-- Project board ticket: [Ticket Title](https://chat.openai.com/c/link)
-- Related PRs/issues: [PR/Issue Title](https://chat.openai.com/c/link)
+- Project board ticket: [Ticket Title](link)
+- Related PRs/issues: [PR/Issue Title](link)
 
 #### Author checklist:
 
