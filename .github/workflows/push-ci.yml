@@ -45,3 +45,18 @@ jobs:
         run: |
           docker load --input /tmp/good-pr.tar
           docker image ls -a
+
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ secrets.region }}
+      - uses: aws-actions/amazon-ecr-login@v2
+        id: ecr-login
+      - run: |
+          docker tag good-pr $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+          REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+          REPOSITORY: good-pr-staging
