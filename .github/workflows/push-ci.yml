@@ -1,4 +1,4 @@
-name: ci
+name: "CI"
 
 on:
   push:
@@ -11,6 +11,7 @@ on:
 
 jobs:
   build:
+    name: "Build Docker Container"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout Repository
@@ -19,44 +20,63 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
-      - name: Build and export
+      - name: Build and Export
         uses: docker/build-push-action@v5
         with:
           context: .
-          tags: good-pr:latest
+          tags: good-pr
           outputs: type=docker,dest=/tmp/good-pr.tar
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: good-pr
-          path: /tmp/good-pr.tar
+          name: good-pr-image
+          path: /tmp/good-pr-image.tar
 
-  use:
-    runs-on: ubuntu-latest
+  deploy-staging:
+    name: "Deploy container to staging environment"
     needs: build
-    steps:
-      - name: Download artifact
-        uses: actions/download-artifact@v4
-        with:
-          name: good-pr
-          path: /tmp
-      - name: Load image
-        run: |
-          docker load --input /tmp/good-pr.tar
-          docker image ls -a
+    if: github.event_name == 'push' && github.ref == 'refs/heads/staging'
+    uses: "./.github/workflows/deployment.yml"
+    with:
+      artifact: "good-pr-image"
+      container: "good-pr"
+      deployment: "good-pr"
+      environment: "staging"
+      namespace: "staging"
+      repository: "good-pr-staging"
+      tag: "cyf/good-pr"
+      url: "https://good-pr.staging.codeyourfuture.io/"
+    secrets:
+      # environment level
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      # organization level
+      GPG_KEY: ${{ secrets.STAGING_GPG_KEY }}
+      K8S_MASTER_PORT: ${{ secrets.AWS_K8S_MASTER_PORT }}
+      K8S_SECURITY_GROUP: ${{ secrets.AWS_K8S_MASTER_SG }}
+      S3_URI: ${{ secrets.STAGING_S3_CONFIG_URI }}
 
-      - uses: aws-actions/configure-aws-credentials@v4
-        with:
-          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-          aws-region: ${{ secrets.region }}
-      - uses: aws-actions/amazon-ecr-login@v2
-        id: ecr-login
-      - run: |
-          docker tag good-pr $REGISTRY/$REPOSITORY:$IMAGE_TAG
-          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
-        env:
-          IMAGE_TAG: ${{ github.sha }}
-          REGISTRY: ${{ steps.ecr-login.outputs.registry }}
-          REPOSITORY: good-pr-staging
+  deploy-production:
+    name: "Deploy container to production environment"
+    needs: build
+    if: github.event_name == 'push' && github.ref == 'refs/heads/production'
+    uses: "./.github/workflows/deployment.yml"
+    with:
+      artifact: "good-pr-image"
+      container: "good-pr"
+      deployment: "good-pr"
+      environment: "production"
+      namespace: "default"
+      repository: "good-pr-production"
+      tag: "cyf/good-pr"
+      url: "https://good-pr.codeyourfuture.io/"
+    secrets:
+      # environment level
+      AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+      AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+      # organization level
+      GPG_KEY: ${{ secrets.PRODUCTION_GPG_KEY }}
+      K8S_MASTER_PORT: ${{ secrets.AWS_K8S_MASTER_PORT }}
+      K8S_SECURITY_GROUP: ${{ secrets.AWS_K8S_MASTER_SG }}
+      S3_URI: ${{ secrets.PRODUCTION_S3_CONFIG_URI }}
