@@ -24,7 +24,7 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           context: .
-          tags: cyf/good-pr-image
+          tags: cyf/good-pr
           outputs: type=docker,dest=/tmp/good-pr-image.tar
 
       - name: Upload artifact
