@@ -6,7 +6,7 @@ export default async function handler(req, res) {
     res.status(200).json(status);
   } catch (error) {
     console.error(error);
-    res.status(500).json({ message: "Internal Server Error" });
+    res.status(500).json({ message: "Internal Server Error in status.js", error });
   } finally {
     await prisma.$disconnect();
   }

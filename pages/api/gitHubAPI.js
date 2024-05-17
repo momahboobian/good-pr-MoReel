@@ -86,7 +86,7 @@ export default async (req, res) => {
       ]);
   } catch (error) {
     console.error("Error fetching data:", error);
-    return res.status(500).json({ error: "Error fetching data" });
+    return res.status(500).json({ error: "Error fetching data in gitHubAPI.js", error });
   }
 };
 
