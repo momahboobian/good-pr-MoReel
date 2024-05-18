@@ -16,6 +16,9 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
+# Generate Prisma client and apply migrations
+RUN npx prisma generate && npx prisma migrate deploy --preview-feature
+
 RUN npm run build
 
 # Production image,
