@@ -3,6 +3,7 @@ name: "CI Workflow"
 on:
   push:
     branches:
+      - staging
       - production
       - refactor/update-ci-workflow
   pull_request:
