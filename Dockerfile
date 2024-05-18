@@ -17,7 +17,7 @@ COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
 # Generate Prisma client and apply migrations
-RUN npx prisma generate && npx prisma db push
+RUN npx prisma generate
 
 RUN npm run build
 
@@ -42,5 +42,7 @@ USER nextjs
 EXPOSE 3000
 ENV PORT 3000
 ENV HOSTNAME "0.0.0.0"
+
+ARG DATABASE_URL
 
 CMD ["node", "server.js"]
