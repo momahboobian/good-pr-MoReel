@@ -20,11 +20,15 @@ jobs:
       - name: Set up Docker Buildx
         uses: docker/setup-buildx-action@v3
 
+      - name: Set up .env file
+        run: echo "DATABASE_URL=${{ secrets.DATABASE_URL }}" >> .env
+
       - name: Build and Export
         uses: docker/build-push-action@v5
         with:
           context: .
           tags: cyf/good-pr
+          build-args: DATABASE_URL=${{ secrets.DATABASE_URL }}
           outputs: type=docker,dest=/tmp/good-pr-image.tar
 
       - name: Upload artifact
