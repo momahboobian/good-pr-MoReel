@@ -4,22 +4,22 @@ generator client {
 }
 
 datasource db {
-  provider          = "postgresql"
-  url               = env("DATABASE_URL")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Repository {
-  id         Int       @id
   name       String?
   owner      String?
   team_name  String?
-  updated_at DateTime? @updatedAt
-  total_prs  Int?
-  github_url String?
-  demo_url   String?
   cohort     String?
+  demo_url   String?
+  github_url String?
   region     String?
   statusId   Int?
+  total_prs  Int?
+  updated_at DateTime? @updatedAt
+  id         Int       @id
   Status     Status?   @relation(fields: [statusId], references: [id])
 }
 
