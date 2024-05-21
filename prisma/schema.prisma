@@ -1,27 +1,25 @@
 generator client {
   provider        = "prisma-client-js"
-  previewFeatures = ["jsonProtocol"]
+  binaryTargets = ["native", "linux-musl"]
 }
 
 datasource db {
-  provider          = "postgresql"
-  url               = env("POSTGRES_PRISMA_URL")
-  directUrl         = env("POSTGRES_URL_NON_POOLING")
-  shadowDatabaseUrl = env("POSTGRES_URL_NON_POOLING")
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
 }
 
 model Repository {
-  id         Int       @id
   name       String?
   owner      String?
   team_name  String?
-  updated_at DateTime? @updatedAt
-  total_prs  Int?
-  github_url String?
-  demo_url   String?
   cohort     String?
+  demo_url   String?
+  github_url String?
   region     String?
   statusId   Int?
+  total_prs  Int?
+  updated_at DateTime? @updatedAt
+  id         Int       @id
   Status     Status?   @relation(fields: [statusId], references: [id])
 }
 
