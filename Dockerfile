@@ -16,8 +16,6 @@ WORKDIR /app
 COPY --from=deps /app/node_modules ./node_modules
 COPY . .
 
-RUN npm install --global --save-exact "prisma@$(node -p "require('./node_modules/@prisma/client/package.json').version")"
-
 RUN npm run build
 
 # Production image,
@@ -40,7 +38,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/start.sh ./start.sh
 
-RUN npm install --global --save-exact prisma
+RUN npm install --global --save-exact "prisma@$(node -p "require('./node_modules/@prisma/client/package.json').version")"
 
 USER nextjs
 EXPOSE 3000
