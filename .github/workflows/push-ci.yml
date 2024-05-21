@@ -25,7 +25,6 @@ jobs:
         with:
           context: .
           tags: cyf/good-pr
-          build-args: DATABASE_URL=${{ secrets.DATABASE_URL }}
           outputs: type=docker,dest=/tmp/good-pr-image.tar
 
       - name: Upload artifact
