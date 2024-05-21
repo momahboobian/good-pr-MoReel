@@ -5,4 +5,4 @@ set -ex
 prisma migrate deploy
 
 # Start the application
-node server.js
+exec node server.js
