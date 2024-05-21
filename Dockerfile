@@ -38,7 +38,7 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/start.sh ./start.sh
 
-RUN npm install --global --save-exact "prisma@$(node -p "require('./node_modules/@prisma/client/package.json').version")"
+RUN npm install --global --save-exact "prisma@$(node -p "require('./node_modules/@prisma/client/package.json').version")" --update-notifier=false
 
 USER nextjs
 EXPOSE 3000
