@@ -37,6 +37,8 @@ COPY --from=builder --chown=nextjs:nodejs /app/.next/static ./.next/static
 COPY --from=builder /app/prisma ./prisma
 COPY --from=builder /app/start.sh ./start.sh
 
+RUN npm install -g prisma@5.10.2 --update-notifier=false 
+
 USER nextjs
 EXPOSE 3000
 ENV PORT 3000
