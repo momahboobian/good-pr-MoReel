@@ -6,6 +6,8 @@
   - Changed the column `name` on the `Repository` table to `repo_name`.
   - Changed the column `owner` on the `Repository` table to `repo_owner`.
   - Changed the column `github_url` on the `Repository` table to `repo_url`.
+  - A unique constraint covering the columns `[repo_name]` on the table `Repository` will be added. If there are existing duplicate values, this will fail.
+
   
 */
 -- AlterTable
@@ -26,6 +28,8 @@ ALTER TABLE "Repository" RENAME COLUMN "name" TO "repo_name";
 ALTER TABLE "Repository" RENAME COLUMN "owner" TO "repo_owner";
 ALTER TABLE "Repository" RENAME COLUMN "github_url" TO "repo_url";
 
+-- CreateIndex
+CREATE UNIQUE INDEX "Repository_repo_name_key" ON "Repository"("repo_name");
 
 -- CreateTable
 CREATE TABLE "Status" (
