@@ -13,14 +13,13 @@
 
 -- Steps to avoid any data loss and keep the primary key constraint
 ALTER TABLE "Repository" ADD COLUMN "new_id" INTEGER NOT NULL;
-UPDATE "Repository" SET "new_id" = "id";
+UPDATE "Repository" SET "new_id" = CAST("id" AS INTEGER);
 ALTER TABLE "Repository" DROP CONSTRAINT "Repository_pkey";
 ALTER TABLE "Repository" DROP COLUMN "id";
 ALTER TABLE "Repository" RENAME COLUMN "new_id" TO "id";
 ALTER TABLE "Repository" ADD CONSTRAINT "Repository_pkey" PRIMARY KEY ("id");
 
-
--- AlterTable
+-- AlterTable adding new columns
 ALTER TABLE "Repository"
 ADD COLUMN     "github_url" TEXT,
 ADD COLUMN     "demo_url" TEXT,
@@ -30,7 +29,7 @@ ADD COLUMN     "total_prs" INTEGER,
 ADD COLUMN     "statusId" INTEGER,
 ADD COLUMN     "updated_at" TIMESTAMP(3);
 
--- AlterTable
+-- AlterTable renaming
 ALTER TABLE "Repository" RENAME COLUMN "name" TO "repo_name";
 ALTER TABLE "Repository" RENAME COLUMN "owner" TO "repo_owner";
 ALTER TABLE "Repository" RENAME COLUMN "github_url" TO "repo_url";
