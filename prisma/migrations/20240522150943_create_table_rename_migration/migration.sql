@@ -12,8 +12,9 @@
 */
 
 -- Steps to avoid any data loss and keep the primary key constraint
-ALTER TABLE "Repository" ADD COLUMN "new_id" INTEGER NOT NULL;
-UPDATE "Repository" SET "new_id" = CAST("id" AS INTEGER);
+ALTER TABLE "Repository" ADD COLUMN "new_id" INTEGER;
+UPDATE "Repository" SET "new_id" = "id"::INTEGER;
+ALTER TABLE "Repository" ALTER COLUMN "new_id" SET NOT NULL;
 ALTER TABLE "Repository" DROP CONSTRAINT "Repository_pkey";
 ALTER TABLE "Repository" DROP COLUMN "id";
 ALTER TABLE "Repository" RENAME COLUMN "new_id" TO "id";
