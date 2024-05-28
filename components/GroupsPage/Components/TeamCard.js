@@ -70,20 +70,20 @@ export default function TeamCard({ group, groupStatus }) {
             {groupStatus === 2 && <AlertIcon tooltipId={tooltipIconId} />}
           </div>
 
-          <div className="p-2 text-xl text-center text-white">
+          <div className="text-center text-xl text-white p-2">
             {group.team_name}
           </div>
         </div>
       </Link>
-      <div className="flex items-center justify-center flex-1 py-6 h-1/3">
+      <div className="flex justify-center items-center flex-1 h-1/3 py-6">
         <div className="flex-1">
-          <p className="text-lg text-center">{lastActivityDate(group)}</p>
+          <p className="text-center text-lg">{lastActivityDate(group)}</p>
           <div className="text-center text-sm text-[#606467] font-light">
             Last Update
           </div>
         </div>
         <div className="flex-1">
-          <div className="text-base text-center">
+          <div className="text-center text-base">
             <p className="text-xl">{prsDoneCount}</p>
           </div>
           <div className="text-center text-sm text-[#606467] font-light">
@@ -97,7 +97,7 @@ export default function TeamCard({ group, groupStatus }) {
             <a
               href={group.demo_url}
               target="_blank"
-              className="flex items-center font-light text-white text-sx"
+              className="flex items-center text-sx text-white font-light"
             >
               <FontAwesomeIcon
                 icon={faShapes}
@@ -117,9 +117,9 @@ export default function TeamCard({ group, groupStatus }) {
           </li>
           <li className="">
             <a
-              href={group.repo_url}
+              href={group.github_url}
               target="_blank"
-              className="flex items-center font-light text-white text-sx"
+              className="flex items-center text-sx text-white font-light"
             >
               <FontAwesomeIcon
                 icon={faGithub}
