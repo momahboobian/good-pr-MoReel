@@ -22,27 +22,23 @@ ALTER TABLE "Repository" ADD CONSTRAINT "Repository_pkey" PRIMARY KEY ("id");
 
 -- AlterTable adding new columns
 ALTER TABLE "Repository"
-ADD COLUMN     "github_url" TEXT,
-ADD COLUMN     "demo_url" TEXT,
-ADD COLUMN     "cohort" TEXT,
-ADD COLUMN     "region" TEXT,
-ADD COLUMN     "total_prs" INTEGER,
-ADD COLUMN     "statusId" INTEGER,
-ADD COLUMN     "updated_at" TIMESTAMP(3);
+ADD COLUMN  "github_url" TEXT,
+ADD COLUMN  "demo_url" TEXT,
+ADD COLUMN  "cohort" TEXT,
+ADD COLUMN  "region" TEXT,
+ADD COLUMN  "total_prs" INTEGER,
+ADD COLUMN  "statusId" INTEGER,
+ADD COLUMN  "updated_at" TIMESTAMP(3);
 
 -- AlterTable renaming
 ALTER TABLE "Repository" RENAME COLUMN "name" TO "repo_name";
 ALTER TABLE "Repository" RENAME COLUMN "owner" TO "repo_owner";
 ALTER TABLE "Repository" RENAME COLUMN "github_url" TO "repo_url";
 
--- CreateIndex
-CREATE UNIQUE INDEX "Repository_repo_name_key" ON "Repository"("repo_name");
-
 -- CreateTable
 CREATE TABLE "Status" (
     "id" SERIAL NOT NULL,
     "status" TEXT NOT NULL,
-
     CONSTRAINT "Status_pkey" PRIMARY KEY ("id")
 );
 
