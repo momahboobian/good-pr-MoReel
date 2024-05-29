@@ -117,7 +117,7 @@ export default function TeamCard({ group, groupStatus }) {
           </li>
           <li className="">
             <a
-              href={group.github_url}
+              href={group.repo_url}
               target="_blank"
               className="flex items-center text-sx text-white font-light"
             >

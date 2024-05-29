@@ -28,9 +28,9 @@ export default function Dashboard({ id }) {
       const res = await fetch("/api/repositories");
       const db = await res.json();
       const filterGroup = db.filter((el) => el.id === Number(idURL));
+      const owner = filterGroup[0].owner;
       const owner = filterGroup[0].repo_owner;
       const repository = filterGroup[0].repo_name;
-      const groupName = filterGroup[0].team_name;
       setGroups(groupName);
       try {
         const response = await fetch("/api/gitHubAPI", {
@@ -57,11 +57,11 @@ export default function Dashboard({ id }) {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="flex flex-col justify-start w-full h-full p-4 pt-24 overflow-scroll sm:pt-0 sm:h-screen">
-      <div className="flex items-center justify-between gap-2 px-6 md:pt-2">
-        <div className="flex flex-col items-start justify-between py-2">
+    <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full sm:h-screen overflow-scroll p-4">
+      <div className="flex justify-between items-center md:pt-2 gap-2 px-6">
+        <div className="flex flex-col justify-between items-start py-2">
           <ul>
-            <li className="flex items-center justify-start py-2 text-xl font-semibold text-white">
+            <li className="flex justify-start items-center font-semibold text-xl text-white py-2">
               Team
               <a
                 href={repo.homepage}
@@ -75,7 +75,7 @@ export default function Dashboard({ id }) {
               </a>
             </li>
           </ul>
-          <p className="font-light text-gray-500 text-x">
+          <p className="font-light text-x text-gray-500">
             Track your projects, tasks & team activity here
           </p>
         </div>
@@ -85,14 +85,14 @@ export default function Dashboard({ id }) {
       <div className="relative">
         <div
           ref={containerRef}
-          className="grid gap-6 p-4 overflow-x-auto sm:flex sm:p-6 lg:gap-10 xl:gap-14 2xl:gap-24 lg:overflow-y-clip"
+          className="grid sm:flex gap-6 p-4 sm:p-6 lg:gap-10 xl:gap-14 2xl:gap-24 overflow-x-auto lg:overflow-y-clip"
         >
           <ProjectCard repo={repo} pr={pr} />
           <TeamActivityPie pr={pr} repo={repo} />
           <IssuesActivityCard issuesClosed={issuesClosed} pr={pr} />
         </div>
       </div>
-      <div className="flex items-center justify-between min-h-full sm:pb-16">
+      <div className="flex justify-between items-center min-h-full sm:pb-16">
         <TasksActivity
           pr={pr}
           issuesClosed={issuesClosed}
