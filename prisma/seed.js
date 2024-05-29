@@ -5,8 +5,8 @@ const prisma = new PrismaClient();
 async function main() {
   // Seed Status data
   const statusData = [
-    { id: 1, status: "1" },
-    { id: 2, status: "0" },
+    { id: 1, status: "On Track" },
+    { id: 2, status: "At Risk" },
   ];
 
   for (const status of statusData) {
@@ -27,7 +27,7 @@ async function main() {
       demo_url: "https://the-goodpr.onrender.com",
       cohort: "WM5",
       team_name: "Team Alpha",
-      statusId: 1, // Assuming the status for this repo is 1
+      statusId: 1,
     },
     {
       id: 653794551,
@@ -38,7 +38,7 @@ async function main() {
       demo_url: "https://lentegeur-hospital-facility-board.vercel.app/",
       cohort: "WM5",
       team_name: "Group 5",
-      statusId: 1, // Assuming the status for this repo is 1
+      statusId: 1,
     },
     {
       id: 654251545,
@@ -48,27 +48,27 @@ async function main() {
       demo_url: "https://cyf-set.onrender.com/",
       cohort: "NW6",
       team_name: "Set",
-      statusId: 2, // Assuming the status for this repo is 0
+      statusId: 2,
     },
     {
       id: 466878624,
       repo_owner: "erin-switchstitch",
       repo_name: "deskeando",
       repo_url: "https://github.com/erin-switchstitch/deskeando",
-      demo_url: "https://starter-kit-rd3m.onrender.com/",
+      demo_url: "",
       cohort: "WM5",
       team_name: "example deskeando",
-      statusId: 1, // Assuming the status for this repo is 1
+      statusId: 1,
     },
     {
       id: 654107827,
       repo_owner: "howard-ss",
       repo_name: "Study-Buddies-Final-Project",
       repo_url: "https://github.com/howard-ss/Study-Buddies-Final-Project",
-      demo_url: "https://starter-kit-rd3m.onrender.com/",
+      demo_url: "",
       cohort: "NW6",
       team_name: "Group 2",
-      statusId: 2, // Assuming the status for this repo is 0
+      statusId: 2,
     },
     {
       id: 668917801,
@@ -78,13 +78,13 @@ async function main() {
       demo_url: "https://starter-kit-rd3m.onrender.com/",
       cohort: "NW6",
       team_name: "Hub Planner",
-      statusId: 1, // Assuming the status for this repo is 1
+      statusId: 1,
     },
   ];
 
   for (const repo of repositories) {
     await prisma.repository.upsert({
-      where: { repo_name: repo.repo_name },
+      where: { id: repo.id },
       update: {},
       create: repo,
     });
