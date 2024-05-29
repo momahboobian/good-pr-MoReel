@@ -1,7 +1,7 @@
 /*
   Warnings:
 
-  - To prevent any change to primary key for the `Repository` table will be be adding a few steps to cloning and recreating the `id` column.
+  - Create a backup from `Repository` table.
   - Changed the type of `id` on the `Repository` table. No cast exists, the column would be dropped and recreated, which cannot be done if there is data, since the column is required.
   - Changed the column `name` on the `Repository` table to `repo_name`.
   - Changed the column `owner` on the `Repository` table to `repo_owner`.
@@ -11,24 +11,22 @@
   
 */
 
--- Steps to avoid any data loss and keep the primary key constraint
-ALTER TABLE "Repository" ADD COLUMN "new_id" INTEGER;
-UPDATE "Repository" SET "new_id" = "id"::INTEGER;
-ALTER TABLE "Repository" ALTER COLUMN "new_id" SET NOT NULL;
-ALTER TABLE "Repository" DROP CONSTRAINT "Repository_pkey";
-ALTER TABLE "Repository" DROP COLUMN "id";
-ALTER TABLE "Repository" RENAME COLUMN "new_id" TO "id";
-ALTER TABLE "Repository" ADD CONSTRAINT "Repository_pkey" PRIMARY KEY ("id");
+
+-- Create a backup
+CREATE TABLE "Repository_backup" AS TABLE "Repository";
 
 -- AlterTable adding new columns
-ALTER TABLE "Repository"
+ALTER TABLE "Repository" DROP CONSTRAINT "Repository_pkey",
+DROP COLUMN "id",
+ADD COLUMN  "id" INTEGER NOT NULL,
 ADD COLUMN  "github_url" TEXT,
 ADD COLUMN  "demo_url" TEXT,
 ADD COLUMN  "cohort" TEXT,
 ADD COLUMN  "region" TEXT,
 ADD COLUMN  "total_prs" INTEGER,
 ADD COLUMN  "statusId" INTEGER,
-ADD COLUMN  "updated_at" TIMESTAMP(3);
+ADD COLUMN  "updated_at" TIMESTAMP(3)
+ADD CONSTRAINT "Repository_pkey" PRIMARY KEY ("id");
 
 -- AlterTable renaming
 ALTER TABLE "Repository" RENAME COLUMN "name" TO "repo_name";
