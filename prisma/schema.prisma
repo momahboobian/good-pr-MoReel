@@ -11,7 +11,7 @@ datasource db {
 model Repository {
   id         Int       @id
   team_name  String?
-  repo_name  String?   @unique
+  repo_name  String?
   repo_owner String?
   repo_url   String?
   demo_url   String?

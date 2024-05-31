@@ -9,9 +9,6 @@
   - A unique constraint covering the columns `[repo_name]` on the table `Repository` will be added. If there are existing duplicate values, this will fail.
 
 */
--- Create a backup
-CREATE TABLE "Repository_backup" AS TABLE "Repository";
-
 -- AlterTable
 ALTER TABLE "Repository" DROP CONSTRAINT "Repository_pkey",
 ADD COLUMN  "github_url" TEXT,
