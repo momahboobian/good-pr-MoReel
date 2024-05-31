@@ -36,6 +36,9 @@ CREATE TABLE "Status" (
     CONSTRAINT "Status_pkey" PRIMARY KEY ("id")
 );
 
+-- Insert initial data into the Status table
+INSERT INTO "Status" ("status") VALUES ('onTrack'), ('needHelp');
+
 -- CreateIndex
 CREATE UNIQUE INDEX "Repository_repo_name_key" ON "Repository"("repo_name");
 

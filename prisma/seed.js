@@ -5,8 +5,8 @@ const prisma = new PrismaClient();
 async function main() {
   // Seed Status data
   const statusData = [
-    { id: 1, status: "On Track" },
-    { id: 2, status: "At Risk" },
+    { id: 1, status: "onTrack" },
+    { id: 2, status: "needHelp" },
   ];
 
   for (const status of statusData) {
