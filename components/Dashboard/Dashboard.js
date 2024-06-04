@@ -28,8 +28,8 @@ export default function Dashboard({ id }) {
       const res = await fetch("/api/repositories");
       const db = await res.json();
       const filterGroup = db.filter((el) => el.id === Number(idURL));
-      const owner = filterGroup[0].owner;
-      const repository = filterGroup[0].name;
+      const owner = filterGroup[0].repo_owner;
+      const repository = filterGroup[0].repo_name;
       const groupName = filterGroup[0].team_name;
       setGroups(groupName);
       try {

@@ -67,7 +67,7 @@ export default async (req, res) => {
       data: {
         updated_at: { set: repositoryUpdatedAt },
         total_prs: { set: prs },
-        github_url: { set: githubURL },
+        repo_url: { set: githubURL },
         demo_url: { set: demoURL },
       },
     });
