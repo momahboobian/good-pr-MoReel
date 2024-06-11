@@ -10,6 +10,40 @@ on:
       - staging
 
 jobs:
+  migration-check:
+    name: "Check Prisma Migrations"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Repository
+        uses: actions/checkout@v4
+        
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: '16'
+          
+      - name: Install Dependencies
+        run: npm install
+        
+      - name: Reset Database to Staging State
+        env:
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+        run: npx prisma migrate reset --force --skip-seed
+        
+      - name: Deploy Migrations from Feature Branch
+        env:
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+        run: npx prisma migrate deploy
+        
+      - name: Check for Migration Drift
+        env:
+          DATABASE_URL: ${{ secrets.TEST_DATABASE_URL }}
+        run: |
+          npx prisma migrate dev --name migration-check
+          if [ -n "$(git status --porcelain)" ]; then
+            echo "Migrations are out of sync with the schema."
+            exit 1
+          fi
   build:
     name: "Build Docker Container"
     runs-on: ubuntu-latest
