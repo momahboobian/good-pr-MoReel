@@ -14,7 +14,7 @@ jobs:
     name: "Check Prisma Migrations"
     runs-on: ubuntu-latest
     services:
-      db:
+      postgres:
         image: postgres:latest
         ports:
           - 5432:5432
@@ -41,17 +41,17 @@ jobs:
         
       - name: Reset Database to Staging State
         env:
-          DATABASE_URL: postgresql://postgres:password@db:5432/mydatabase
+          DATABASE_URL: postgres://postgres:password@localhost:5432/mydatabase
         run: npx prisma migrate reset --force --skip-seed
         
       - name: Deploy Migrations from Feature Branch
         env:
-          DATABASE_URL: postgresql://postgres:password@db:5432/mydatabase
+          DATABASE_URL: postgres://postgres:password@localhost:5432/mydatabase
         run: npx prisma migrate deploy
         
       - name: Check for Migration Drift
         env:
-          DATABASE_URL: postgresql://postgres:password@db:5432/mydatabase
+          DATABASE_URL: postgres://postgres:password@localhost:5432/mydatabase
         run: |
           npx prisma migrate dev --name migration-check
           if [ -n "$(git status --porcelain)" ]; then
