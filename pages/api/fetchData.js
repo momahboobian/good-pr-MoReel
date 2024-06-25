@@ -2,11 +2,11 @@ import { google } from "googleapis";
 import { fetchRepoData } from "./github";
 
 // Fetch Data from Google Sheets
-export async function dataFromGoogleSheets(sheetId) {
+export async function dataFromGoogleSheets() {
   try {
     const auth = new google.auth.GoogleAuth({
       credentials: {
-        client_email: process.env.GOOGLE_CLIENT_EMAIL,
+        client_email: "google-sheets-api@good-pr.iam.gserviceaccount.com",
         private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
       },
       scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
@@ -18,7 +18,7 @@ export async function dataFromGoogleSheets(sheetId) {
     });
 
     const response = await sheets.spreadsheets.values.get({
-      spreadsheetId: sheetId,
+      spreadsheetId: "1z9Svk5NKdDlg-Ph00ol8B-MC70tIOJxYIczSOWnGj0E",
       range: "spreadsheet!A2:C",
     });
 
@@ -53,7 +53,6 @@ export async function dataFromGoogleSheets(sheetId) {
             demo_url: repoData.demo_url,
           };
         } catch (error) {
-          console.error(`Error fetching repo data: ${error.message}`);
           throw new Error(
             `One or more repository URLs are invalid! ${error.message}`
           );
@@ -62,14 +61,11 @@ export async function dataFromGoogleSheets(sheetId) {
     );
 
     return {
-      message: "Data retrieved and logged successfully!",
+      message: "Data retrieved and logged successfully data!",
       data: dataSheet,
     };
   } catch (error) {
-    console.error("Error fetching data:", error);
-    throw new Error(
-      "Failed to fetch data from Google Sheets: " + error.message
-    );
+    throw new Error(error.message);
   }
 }
 // Placeholder for future data fetching function from Admin Panel

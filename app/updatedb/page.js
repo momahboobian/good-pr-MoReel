@@ -3,28 +3,23 @@
 import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
-import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
 import ToggleCheckbox from "@components/UpdateDb/ToggleCheckbox";
 
 export default function UpdateDB() {
-  const [sheetId, setSheetId] = useState("");
   const [action, setAction] = useState("update");
   const [message, setMessage] = useState(null);
   const [data, setData] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const handleUpdateData = async () => {
+    setData([]);
+
     try {
       setMessage(null);
+      setLoading(true);
 
-      if (!sheetId) {
-        setMessage("Please enter a Google Sheet ID");
-        return;
-      }
-
-      const url = `/api/googleSheet?sheetId=${encodeURIComponent(
-        sheetId
-      )}&action=${action}`;
+      const url = `/api/googleSheet?action=${action}`;
       const response = await fetch(url, {
         method: "POST",
         headers: {
@@ -34,7 +29,7 @@ export default function UpdateDB() {
 
       if (response.ok) {
         const responseData = await response.json();
-        setData(responseData.data);
+        setData(responseData.data.data);
         setMessage(responseData.message);
       } else {
         const errorMessage = await response.json();
@@ -47,6 +42,8 @@ export default function UpdateDB() {
       console.error("Error fetching data:", error);
       setMessage("An error occurred. Please try again.");
       setData([]);
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -74,28 +71,13 @@ export default function UpdateDB() {
         </div>
       </div>
       <div className="flex flex-col items-center justify-start w-full h-full gap-10 pt-20 sm:items-start sm:pl-6 md:flex-row">
-        <div className="flex flex-col items-start justify-center gap-4">
-          <div className="flex flex-col items-start justify-center ">
-            <div className="relative focus-within:text-teal-700 ">
-              <span className="absolute inset-y-0 left-0 flex items-center">
-                <FontAwesomeIcon
-                  icon={faSearch}
-                  className="h-5 pl-4 text-teal-700 "
-                />
-              </span>
-              <input
-                type="text"
-                value={sheetId}
-                onChange={(e) => setSheetId(e.target.value)}
-                placeholder="Enter Google Sheet ID"
-                className="p-3 pl-12 bg-[#edeaea] font-medium rounded-md w-[21rem] my-2 text-left text-md text-teal-700"
-              />
-            </div>
-
-            {message && (
-              <div className="ml-2 font-light text-s w-80 ">{message}</div>
-            )}
-          </div>
+        <div className="flex flex-col items-start justify-center gap-4 w-80">
+          <button
+            onClick={handleUpdateData}
+            className="w-full text-center bg-[#37BCBA] text-gray-900 rounded-lg p-3 font-semibold flex items-center justify-center hover:bg-[#1a9997] whitespace-nowrap"
+          >
+            {action === "replace" ? "Replace Data" : "Update Data"}
+          </button>
 
           <ToggleCheckbox
             message={"Remove Existing Data"}
@@ -103,51 +85,56 @@ export default function UpdateDB() {
             onToggle={toggleAction}
           />
 
-          <button
-            onClick={handleUpdateData}
-            className="w-full text-center bg-[#37BCBA] text-gray-900 rounded-lg p-3 font-semibold flex items-center justify-center hover:bg-[#1a9997] whitespace-nowrap"
-          >
-            {action === "replace" ? "Replace Data" : "Update Data"}
-          </button>
+          <div className="flex flex-col items-start justify-center ">
+            {message && (
+              <div className="ml-2 font-light text-s ">{message}</div>
+            )}
+          </div>
         </div>
 
-        {data.length > 0 && (
-          <div className="mt-2 overflow-hidden shadow w-96 sm:rounded-lg">
-            <table className="min-w-full leading-normal bg-[#1e1e1e] text-sm text-gray-400">
-              <thead className="text-xs font-medium uppercase bg-gray-800">
-                <tr>
-                  <th className="px-4 py-4 tracking-wider text-left">#</th>
-                  <th
-                    scope="col"
-                    className="px-6 py-4 tracking-wider text-left"
-                  >
-                    Team Name
-                  </th>
-                  <th
-                    scope="col"
-                    className="px-6 py-4 tracking-wider text-left"
-                  >
-                    Cohort
-                  </th>
-                </tr>
-              </thead>
-              <tbody>
-                {data.map((item, index) => (
-                  <tr key={item.id}>
-                    <td className="px-4 py-4 border-b border-gray-700 whitespace-nowrap">
-                      {index + 1}
-                    </td>
-                    <td className="w-1/2 px-6 py-4 border-b border-gray-700 whitespace-nowrap">
-                      {item.team_name}
-                    </td>
-                    <td className="w-1/2 px-6 py-4 border-b border-gray-700">
-                      {item.cohort}
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
+        {loading ? (
+          <div className="sm:pl-28 flex-1sm:">
+            <div className="w-32 h-32 border-t-2 border-b-2 border-teal-500 rounded-full animate-spin"></div>
           </div>
+        ) : (
+          data.length > 0 && (
+            <div className="overflow-auto shadow w-96 sm:rounded-lg">
+              <table className="min-w-full leading-normal bg-[#1e1e1e] text-sm text-gray-400">
+                <thead className="text-xs font-medium uppercase bg-gray-800">
+                  <tr>
+                    <th className="px-4 py-4 tracking-wider text-left">#</th>
+                    <th
+                      scope="col"
+                      className="px-6 py-4 tracking-wider text-left"
+                    >
+                      Team Name
+                    </th>
+                    <th
+                      scope="col"
+                      className="px-6 py-4 tracking-wider text-left"
+                    >
+                      Cohort
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {data.map((item, index) => (
+                    <tr key={item.id}>
+                      <td className="px-4 py-4 border-b border-gray-700 whitespace-nowrap">
+                        {index + 1}
+                      </td>
+                      <td className="px-6 py-4 border-b border-gray-700 whitespace-nowrap">
+                        {item.team_name}
+                      </td>
+                      <td className="px-6 py-4 border-b border-gray-700">
+                        {item.cohort}
+                      </td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
+            </div>
+          )
         )}
       </div>
     </div>
