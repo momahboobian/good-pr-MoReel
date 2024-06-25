@@ -1,5 +1,4 @@
 import { PrismaClient } from "@prisma/client";
-import { data } from "autoprefixer";
 
 const prisma = new PrismaClient();
 
@@ -8,7 +7,7 @@ export async function replaceData(dataSheet) {
     await prisma.repository.deleteMany({});
 
     await prisma.repository.createMany({
-      data: dataSheet,
+      data: dataSheet.data,
       skipDuplicates: true,
     });
     console.log("Database updated successfully");
@@ -20,7 +19,7 @@ export async function replaceData(dataSheet) {
 
 export async function updateData(dataSheet) {
   try {
-    for (const data of dataSheet) {
+    for (const data of dataSheet.data) {
       await prisma.repository.upsert({
         where: { id: data.id },
         update: {

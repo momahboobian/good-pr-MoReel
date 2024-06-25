@@ -51,7 +51,7 @@ export default function UpdateDB() {
   };
 
   const toggleAction = () => {
-    setAction((prevAction) => (prevAction === "update" ? "remove" : "update"));
+    setAction((prevAction) => (prevAction === "update" ? "replace" : "update"));
   };
 
   return (
@@ -75,9 +75,9 @@ export default function UpdateDB() {
       </div>
       <div className="flex flex-col items-center justify-start w-full h-full gap-10 pt-20 sm:items-start sm:pl-6 md:flex-row">
         <div className="flex flex-col items-start justify-center gap-4">
-          <div className="flex flex-col items-start justify-center">
+          <div className="flex flex-col items-start justify-center ">
             <div className="relative focus-within:text-teal-700 ">
-              <span className="absolute inset-y-0 left-0 flex items-center ">
+              <span className="absolute inset-y-0 left-0 flex items-center">
                 <FontAwesomeIcon
                   icon={faSearch}
                   className="h-5 pl-4 text-teal-700 "
@@ -88,35 +88,26 @@ export default function UpdateDB() {
                 value={sheetId}
                 onChange={(e) => setSheetId(e.target.value)}
                 placeholder="Enter Google Sheet ID"
-                className="p-3 pl-12 bg-[#edeaea] font-medium rounded-md w-80 my-2 text-left text-md text-teal-700"
+                className="p-3 pl-12 bg-[#edeaea] font-medium rounded-md w-[21rem] my-2 text-left text-md text-teal-700"
               />
             </div>
 
             {message && (
-              <div
-                className={`ml-2 text-s w-80 font-light text-${
-                  message.includes("successfully") ? "green" : "red"
-                }-500`}
-              >
-                {message}
-              </div>
+              <div className="ml-2 font-light text-s w-80 ">{message}</div>
             )}
           </div>
 
           <ToggleCheckbox
-            Remove
-            Existing
-            Data
             message={"Remove Existing Data"}
-            filterActive={action !== "update"}
+            filterActive={action === "replace"}
             onToggle={toggleAction}
           />
 
           <button
             onClick={handleUpdateData}
-            className="bg-[#37BCBA] text-gray-900 rounded-lg p-3 px-28 font-semibold flex items-center hover:bg-[#1a9997] whitespace-nowrap"
+            className="w-full text-center bg-[#37BCBA] text-gray-900 rounded-lg p-3 font-semibold flex items-center justify-center hover:bg-[#1a9997] whitespace-nowrap"
           >
-            Update Data
+            {action === "replace" ? "Replace Data" : "Update Data"}
           </button>
         </div>
 

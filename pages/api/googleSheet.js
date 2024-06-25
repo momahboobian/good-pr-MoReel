@@ -1,4 +1,4 @@
-import { fetchFromGoogleSheets } from "./fetchData";
+import { dataFromGoogleSheets } from "./fetchData";
 import { processData } from "./processData";
 
 export default async function googleSheet(req, res) {
@@ -15,7 +15,7 @@ export default async function googleSheet(req, res) {
         .json({ error: "The provided Sheet ID does not match our records." });
     }
 
-    const dataSheet = await fetchFromGoogleSheets(sheetId);
+    const dataSheet = await dataFromGoogleSheets(sheetId);
 
     await processData(dataSheet, action);
 
