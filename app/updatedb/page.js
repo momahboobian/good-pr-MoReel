@@ -1,63 +1,17 @@
-import { google } from "googleapis";
-import { PrismaClient } from "@prisma/client";
+"use client";
 
+import { useState } from "react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faSearch } from "@fortawesome/free-solid-svg-icons";
 
-// import ToggleCheckbox from "@/components/UpdateDB/ToggleCheckbox";
+import ToggleCheckbox from "@components/UpdateDb/ToggleCheckbox";
 
-export default async function UpdateDB() {
-  const prisma = new PrismaClient();
-
-  const repositoryDb = await prisma.repository.findMany({});
-
-  const auth = new google.auth.GoogleAuth({
-    credentials: {
-      client_email: process.env.GOOGLE_CLIENT_EMAIL,
-      private_key: process.env.GOOGLE_PRIVATE_KEY?.replace(/\\n/g, "\n"),
-    },
-    scopes: ["https://www.googleapis.com/auth/spreadsheets.readonly"],
-  });
-
-  const sheets = google.sheets({
-    version: "v4",
-    auth: await auth.getClient(),
-  });
-
-  const response = await sheets.spreadsheets.values.get({
-    spreadsheetId: process.env.GOOGLE_SHEET_ID,
-    range: "spreadsheet!A2:C",
-  });
-
-  const rows = response.data.values;
-
-  if (!rows || rows.length === 0) {
-    return "No data found in the sheet";
-  }
-
-  const dataSheet = await Promise.all(
-    rows.map(async (row) => {
-      const [team_name, repo_url, cohort] = row;
-
-      if (!team_name || !repo_url || !cohort) {
-        throw new Error("One or more required columns are empty!");
-      }
-
-      const urlParts = repo_url.split("/");
-      const repo_owner = urlParts[urlParts.length - 2];
-      const repo_name = urlParts[urlParts.length - 1];
-      return {
-        // id: repoData.data.id,
-        team_name,
-        repo_url,
-        cohort,
-        // repo_owner,
-        // repo_name,
-        // demo_url: repoData.data.homepage,
-      };
-    })
-  );
+export default function UpdateDB() {
+  const [sheetId, setSheetId] = useState("");
+  const [action, setAction] = useState("update");
+  const [message, setMessage] = useState(null);
+  const [data, setData] = useState([]);
 
   const handleUpdateData = async () => {
     try {
@@ -68,7 +22,7 @@ export default async function UpdateDB() {
         return;
       }
 
-      const url = `/api/update-db?sheetId=${encodeURIComponent(
+      const url = `/api/googleSheet?sheetId=${encodeURIComponent(
         sheetId
       )}&action=${action}`;
       const response = await fetch(url, {
@@ -131,15 +85,14 @@ export default async function UpdateDB() {
               </span>
               <input
                 type="text"
-                // value={sheetId}
-                value={"1z9Svk5NKdDlg-Ph00ol8B-MC70tIOJxYIczSOWnGj0E"}
-                // onChange={(e) => setSheetId(e.target.value)}
+                value={sheetId}
+                onChange={(e) => setSheetId(e.target.value)}
                 placeholder="Enter Google Sheet ID"
                 className="p-3 pl-12 bg-[#edeaea] font-medium rounded-md w-80 my-2 text-left text-md text-teal-700"
               />
             </div>
 
-            {/* {message && (
+            {message && (
               <div
                 className={`ml-2 text-s w-80 font-light text-${
                   message.includes("successfully") ? "green" : "red"
@@ -147,57 +100,64 @@ export default async function UpdateDB() {
               >
                 {message}
               </div>
-            )} */}
+            )}
           </div>
 
-          {/* <ToggleCheckbox
+          <ToggleCheckbox
             Remove
             Existing
             Data
             message={"Remove Existing Data"}
             filterActive={action !== "update"}
             onToggle={toggleAction}
-          /> */}
+          />
 
           <button
-            // onClick={handleUpdateData}
+            onClick={handleUpdateData}
             className="bg-[#37BCBA] text-gray-900 rounded-lg p-3 px-28 font-semibold flex items-center hover:bg-[#1a9997] whitespace-nowrap"
           >
             Update Data
           </button>
         </div>
-        {/* {data.length > 0 && ( */}
-        <div className="mt-2 overflow-hidden shadow w-96 sm:rounded-lg">
-          <table className="min-w-full leading-normal bg-[#1e1e1e] text-sm text-gray-400">
-            <thead className="text-xs font-medium uppercase bg-gray-800">
-              <tr>
-                <th className="px-4 py-4 tracking-wider text-left">#</th>
-                <th scope="col" className="px-6 py-4 tracking-wider text-left">
-                  Team Name
-                </th>
-                <th scope="col" className="px-6 py-4 tracking-wider text-left">
-                  Cohort
-                </th>
-              </tr>
-            </thead>
-            <tbody>
-              {dataSheet.map((item, index) => (
-                <tr key={item.id}>
-                  <td className="px-4 py-4 border-b border-gray-700 whitespace-nowrap">
-                    {index + 1}
-                  </td>
-                  <td className="w-1/2 px-6 py-4 border-b border-gray-700 whitespace-nowrap">
-                    {item.team_name}
-                  </td>
-                  <td className="w-1/2 px-6 py-4 border-b border-gray-700">
-                    {item.cohort}
-                  </td>
+
+        {data.length > 0 && (
+          <div className="mt-2 overflow-hidden shadow w-96 sm:rounded-lg">
+            <table className="min-w-full leading-normal bg-[#1e1e1e] text-sm text-gray-400">
+              <thead className="text-xs font-medium uppercase bg-gray-800">
+                <tr>
+                  <th className="px-4 py-4 tracking-wider text-left">#</th>
+                  <th
+                    scope="col"
+                    className="px-6 py-4 tracking-wider text-left"
+                  >
+                    Team Name
+                  </th>
+                  <th
+                    scope="col"
+                    className="px-6 py-4 tracking-wider text-left"
+                  >
+                    Cohort
+                  </th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
-        </div>
-        {/* )} */}
+              </thead>
+              <tbody>
+                {data.map((item, index) => (
+                  <tr key={item.id}>
+                    <td className="px-4 py-4 border-b border-gray-700 whitespace-nowrap">
+                      {index + 1}
+                    </td>
+                    <td className="w-1/2 px-6 py-4 border-b border-gray-700 whitespace-nowrap">
+                      {item.team_name}
+                    </td>
+                    <td className="w-1/2 px-6 py-4 border-b border-gray-700">
+                      {item.cohort}
+                    </td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        )}
       </div>
     </div>
   );
