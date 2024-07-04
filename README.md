@@ -113,6 +113,16 @@ yarn dev
 # or
 pnpm dev
 ```
+4. Make sure you have a Postgres server up and running, for example, you can try the command below installing Postgres using Docker:
+```sh
+docker run --name postgres -d -p 5432:5432 -e POSTGRES_PASSWORD=password postgres
+```
+
+Also to test if you have a postgres DB up and running, and you have `psql` installed, you can try line below:
+```sh
+psql postgresql://postgres:password@localhost:5432/postgres
+```
+5. You then need to provide env variables as they are listed [here](#development-keys).
 
 4. Open http://localhost:3000 in your browser to access the app.
 
