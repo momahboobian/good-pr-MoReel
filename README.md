@@ -140,7 +140,7 @@ The following keys are essential for developing your Next.js app:
 
 To connect your Next.js app with a PostgreSQL database, you need to provide the following configuration keys:
 
-- **POSTGRES_URL**:
+- **DATABASE_URL**:
 
   - Description: The URL or connection string for your PostgreSQL database.
 
