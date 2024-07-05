@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import FilterToggle from "./Components/FillterToggle";
 
-export default function GroupsPage() {
+export default function GroupsPage({ cohort }) {
   const [groups, setGroups] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filterActive, setFilterActive] = useState(false);
@@ -18,7 +18,10 @@ export default function GroupsPage() {
       try {
         const response = await fetch("/api/repositories");
         const data = await response.json();
-        setGroups(data);
+        const filterCohorts = cohort
+          ? data.filter((group) => group.cohort === cohort.toUpperCase())
+          : data;
+        setGroups(filterCohorts);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -78,6 +81,7 @@ export default function GroupsPage() {
               key={group.id}
               group={group}
               groupStatus={group.statusId}
+              cohort={cohort}
             />
           ))
         )}
