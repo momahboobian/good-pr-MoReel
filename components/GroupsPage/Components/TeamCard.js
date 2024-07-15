@@ -53,7 +53,7 @@ export default function TeamCard({ group, groupStatus, cohort }) {
         groupStatus === 2 ? "drop-shadow-3xl" : ""
       } rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[0_0_15px_-7px_white]`}
     >
-      <Link rel="preload" href={`${cohort}/dashboard?id=${group.id}`}>
+      <Link rel="preload" href={`${cohort}/${group.id}`}>
         <div className="flex flex-col items-center justify-center p-4 bg-[#070e0ea8] rounded-t-lg relative">
           <div className="flex items-center justify-between h-20 ">
             <div className="flex item-center w-20 h-20 border-t-[3px] border-r-[3px] rounded-full bg-teal-900  overflow-hide ">

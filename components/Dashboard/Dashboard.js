@@ -1,3 +1,4 @@
+"use client";
 import React, { useEffect, useState, useRef } from "react";
 import ProjectCard from "@components/Dashboard/Components/ProjectCard";
 import ShareButton from "@components/Dashboard/Components/ShareButton";
@@ -8,29 +9,28 @@ import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSitemap } from "@fortawesome/free-solid-svg-icons";
 
-export default function Dashboard({ id }) {
+export default function Dashboard({ teamId }) {
   const [groups, setGroups] = useState([]);
-
   const [repo, setRepo] = useState({});
   const [issuesClosed, setIssuesClosed] = useState([]);
   const [allIssues, setAllIssues] = useState([]);
   const [pr, setPR] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
+  const [cohort, setCohort] = useState("");
   const containerRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
       setIsLoading(true);
-      const currentUrl = window.location.href;
-      const url = new URL(currentUrl);
-      const searchParams = new URLSearchParams(url.search);
-      const idURL = searchParams.get("id");
       const res = await fetch("/api/repositories");
       const db = await res.json();
-      const filterGroup = db.filter((el) => el.id === Number(idURL));
-      const owner = filterGroup[0].repo_owner;
-      const repository = filterGroup[0].repo_name;
-      const groupName = filterGroup[0].team_name;
+      const filterGroup = db.find((el) => el.id === Number(teamId));
+
+      const owner = filterGroup.repo_owner;
+      const repository = filterGroup.repo_name;
+      const groupName = filterGroup.team_name;
+      const cohort = filterGroup.cohort;
+
       setGroups(groupName);
       try {
         const response = await fetch("/api/gitHubAPI", {
@@ -52,7 +52,7 @@ export default function Dashboard({ id }) {
       }
     };
     fetchData();
-  }, [id]);
+  }, []);
 
   return isLoading ? (
     <Loading />
