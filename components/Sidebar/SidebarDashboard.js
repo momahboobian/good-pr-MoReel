@@ -11,13 +11,20 @@ import {
 export default function SidebarDashboard() {
   const pathname = usePathname();
 
+  const urlPath = pathname.split("/");
+  const cohortIdFromUrl = urlPath[urlPath.length - 2];
+
   return (
     <ul
       className={`flex flex-col md:flex-row xl:flex-col justify-start items-start gap-6 xl:pt-20 whitespace-nowrap`}
     >
       <li className="flex items-center">
-        <Link href="/" className="flex items-center">
-          <span className={`${pathname === "/" ? "text-[#37BCBA]" : ""}`}>
+        <Link href={`/${cohortIdFromUrl}`} className="flex items-center">
+          <span
+            className={`${
+              pathname === `/${cohortIdFromUrl}` ? "text-[#37BCBA]" : ""
+            }`}
+          >
             <FontAwesomeIcon icon={faHouseUser} className="w-[15px] mr-3" />
             Teams
           </span>
