@@ -53,11 +53,14 @@ export async function processData(dataSheet, action) {
     throw new Error("No data to update in the database");
   }
 
-  if (action === "replace") {
-    await replaceData(dataSheet);
-  } else if (action === "update") {
-    await updateData(dataSheet);
-  } else {
-    throw new Error("Invalid action!");
+  switch (action) {
+    case "replace":
+      await replaceData(dataSheet);
+      break;
+    case "update":
+      await updateData(dataSheet);
+      break;
+    default:
+      throw new Error("Invalid action!");
   }
 }

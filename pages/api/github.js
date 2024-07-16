@@ -23,7 +23,9 @@ export async function fetchRepoData(repoOwner, repoName) {
         error.message
       );
       retries++;
-      if (retries >= maxRetries) {
+      if (retries < maxRetries) {
+        await delay(2 ** retries * 1000); // Exponential backoff
+      } else {
         throw new Error(`Failed to fetch data for ${repoOwner}/${repoName}`);
       }
     }

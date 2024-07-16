@@ -80,7 +80,7 @@ export default function UpdateDB() {
           </button>
 
           <ToggleCheckbox
-            message={"Remove Existing Data"}
+            message="Remove Existing Data"
             filterActive={action === "replace"}
             onToggle={toggleAction}
           />
