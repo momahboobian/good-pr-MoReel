@@ -13,6 +13,8 @@ jobs:
   migration-check:
     name: "Check Prisma Migrations"
     runs-on: ubuntu-latest
+    env:
+      DATABASE_URL: postgres://postgres:password@localhost:5432/mydatabase
     services:
       postgres:
         image: postgres:latest
@@ -30,30 +32,21 @@ jobs:
     steps:
       - name: Checkout Repository
         uses: actions/checkout@v4
-        
+
       - name: Set up Node.js
-        uses: actions/setup-node@v3
+        uses: actions/setup-node@v4
         with:
-          node-version: '16'
-          
+          node-version: "18"
+
       - name: Install Dependencies
         run: npm ci
-        
-      - name: Reset Database to Staging State
-        env:
-          DATABASE_URL: postgres://postgres:password@localhost:5432/mydatabase
+
+      - name: Drops all existing tables and reapplies all migrations from scratch
         run: npx prisma migrate reset --force --skip-seed
-        
-      - name: Deploy Migrations from Feature Branch
-        env:
-          DATABASE_URL: postgres://postgres:password@localhost:5432/mydatabase
-        run: npx prisma migrate deploy
-        
+
       - name: Check for Migration Drift
-        env:
-          DATABASE_URL: postgres://postgres:password@localhost:5432/mydatabase
         run: |
-          npx prisma migrate dev --create-only
+          npx prisma migrate dev --name drift
           if [ -n "$(git status --porcelain)" ]; then
             echo "Migrations are out of sync with the schema."
             exit 1
@@ -85,7 +78,7 @@ jobs:
 
   deploy-staging:
     name: "Deploy container to staging environment"
-    needs: [build, migration-check]
+    needs: build
     if: github.event_name == 'push' && github.ref == 'refs/heads/staging'
     uses: "./.github/workflows/deployment.yml"
     with:
