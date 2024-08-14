@@ -8,8 +8,8 @@ export const metadata = {
 
 export default function CohortDashboardLayout({ children }) {
   return (
-    <main className=" xl:p-2 h-full">
-      <div className="flex flex-col xl:flex-row xl:rounded-xl overflow-hidden border-gray-100 h-full">
+    <main className="lg:bg-zinc-900 xl:p-2">
+      <div className="flex flex-col xl:flex-row xl:rounded-xl overflow-hidden xl:overflow-x-auto border-gray-950 ">
         <div className="xl:min-w-1/4">
           <Sidebar />
         </div>
