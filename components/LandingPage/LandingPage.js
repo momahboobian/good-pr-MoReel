@@ -38,8 +38,8 @@ export default function LandingPage() {
         <Image
           src={Hero}
           alt="App Screenshot"
-          width={500}
-          height={500}
+          width={450}
+          height={4500}
           className="object-contain rounded-t-xl mt-8"
         />
       </section>
