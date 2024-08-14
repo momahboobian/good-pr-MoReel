@@ -12,7 +12,7 @@ export default function SidebarDashboard() {
   const pathname = usePathname();
 
   const urlPath = pathname.split("/");
-  const cohortIdFromUrl = urlPath[urlPath.length - 2];
+  const cohortIdFromUrl = urlPath[1];
 
   return (
     <ul
