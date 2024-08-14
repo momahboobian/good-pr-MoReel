@@ -46,7 +46,7 @@ export default function GroupsPage({ cohort }) {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full ">
+    <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full min-h-screen">
       <div className="flex justify-between items-center md:pt-6 px-6">
         <div className="flex flex-col justify-between py-2 gap-4">
           <div className="flex items-center">
