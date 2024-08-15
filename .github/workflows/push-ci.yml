@@ -41,7 +41,7 @@ jobs:
       - name: Install Dependencies
         run: npm ci
 
-      - name: Drops all existing tables and reapplies all migrations from scratch
+      - name: Applies all migrations from scratch
         run: npx prisma migrate reset --force --skip-seed
 
       - name: Check for Migration Drift
