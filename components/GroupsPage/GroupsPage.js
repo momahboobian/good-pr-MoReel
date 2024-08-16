@@ -11,6 +11,11 @@ export default function GroupsPage({ cohort }) {
   const [groups, setGroups] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filterActive, setFilterActive] = useState(false);
+  const filterCohortsByName = (data, cohort) => {
+    return cohort
+      ? data.filter((group) => group.cohort === cohort.toUpperCase())
+      : data;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,9 +23,7 @@ export default function GroupsPage({ cohort }) {
       try {
         const response = await fetch("/api/repositories");
         const data = await response.json();
-        const filterCohorts = cohort
-          ? data.filter((group) => group.cohort === cohort.toUpperCase())
-          : data;
+        const filterCohorts = filterCohortsByName(data, cohort);
         setGroups(filterCohorts);
         setIsLoading(false);
       } catch (error) {
