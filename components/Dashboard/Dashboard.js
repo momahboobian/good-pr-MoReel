@@ -16,7 +16,6 @@ export default function Dashboard({ teamId }) {
   const [allIssues, setAllIssues] = useState([]);
   const [pr, setPR] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
-  const [cohort, setCohort] = useState("");
   const containerRef = useRef(null);
 
   useEffect(() => {
@@ -29,7 +28,6 @@ export default function Dashboard({ teamId }) {
       const owner = filterGroup.repo_owner;
       const repository = filterGroup.repo_name;
       const groupName = filterGroup.team_name;
-      const cohort = filterGroup.cohort;
 
       setGroups(groupName);
       try {
