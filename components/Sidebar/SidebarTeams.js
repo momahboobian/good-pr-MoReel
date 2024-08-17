@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { usePathname } from "next/navigation";
+import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const getRandomColor = () => {
@@ -19,28 +19,38 @@ const getRandomColor = () => {
 
 export default function SidebarTeams() {
   const [groups, setGroups] = useState([]);
-  const pathname = usePathname();
+  const params = useParams();
+  console.log(params);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("/api/repositories");
         const data = await response.json();
+        console.log(data);
 
-        const urlPath = pathname.split("/");
-        const teamIdFromUrl = urlPath[urlPath.length - 1];
+        const teamIdFromUrl = params.id;
+        const cohortFromUrl = params.cohort;
+        console.log("URL Params:", { teamIdFromUrl, cohortFromUrl });
 
-        if (!isNaN(teamIdFromUrl)) {
+        if (!isNaN(teamIdFromUrl) && cohortFromUrl) {
           const teamInUrl = data.find(
             (team) => team.id === Number(teamIdFromUrl)
           );
+          if (teamInUrl) {
+            const filteredTeam = data.filter(
+              (team) =>
+                team.cohort.toLowerCase() === cohortFromUrl.toLowerCase()
+            );
+            console.log("Filtered team:", filteredTeam);
 
-          const cohortName = teamInUrl.cohort;
-          const filteredTeam = data.filter(
-            (team) => team.cohort === cohortName
-          );
-          setGroups(filteredTeam);
+            setGroups(filteredTeam);
+          } else {
+            console.log("No team found for the given ID");
+            setGroups([]);
+          }
         } else {
+          console.log("Invalid parameters");
           setGroups([]);
         }
       } catch (error) {
@@ -49,7 +59,7 @@ export default function SidebarTeams() {
     };
 
     fetchData();
-  }, [pathname]);
+  }, [params.id, params.cohort]);
 
   return (
     <div className="flex flex-col sm:hidden xl:flex justify-start gap-4 pt-10 p-2">
@@ -67,9 +77,7 @@ export default function SidebarTeams() {
             >
               <span
                 className={`${
-                  pathname.asPath === `/${group.cohort}/${group.id}`
-                    ? "text-cyan-600"
-                    : "text-white"
+                  params.id === `${group.id}` ? "text-cyan-600" : "text-white"
                 }  hover:text-[#1a9997]`}
               >
                 <FontAwesomeIcon
