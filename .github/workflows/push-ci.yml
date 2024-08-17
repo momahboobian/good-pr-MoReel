@@ -42,7 +42,7 @@ jobs:
         run: npm ci
 
       - name: Applies all migrations from scratch
-        run: npx prisma migrate reset --force --skip-seed
+        run: npx prisma migrate reset --force --skip-seed --skip-generate
 
       - name: Check for Migration Drift
         run: |
