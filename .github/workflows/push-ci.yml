@@ -42,11 +42,11 @@ jobs:
         run: npm ci
 
       - name: Applies all migrations from scratch
-        run: npx prisma migrate reset --force --skip-seed --skip-generate
+        run: npx prisma migrate reset --force --skip-seed
 
       - name: Check for Migration Drift
         run: |
-          npx prisma migrate dev --name drift
+          npx prisma migrate dev --name drift --skip-generate
           if [ -n "$(git status --porcelain)" ]; then
             echo "Migrations are out of sync with the schema."
             exit 1
