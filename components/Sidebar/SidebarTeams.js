@@ -20,7 +20,6 @@ const getRandomColor = () => {
 export default function SidebarTeams() {
   const [groups, setGroups] = useState([]);
   const params = useParams();
-  console.log(params);
 
   useEffect(() => {
     const fetchData = async () => {
@@ -31,7 +30,6 @@ export default function SidebarTeams() {
 
         const teamIdFromUrl = params.id;
         const cohortFromUrl = params.cohort;
-        console.log("URL Params:", { teamIdFromUrl, cohortFromUrl });
 
         if (!isNaN(teamIdFromUrl) && cohortFromUrl) {
           const teamInUrl = data.find(
@@ -42,15 +40,12 @@ export default function SidebarTeams() {
               (team) =>
                 team.cohort.toLowerCase() === cohortFromUrl.toLowerCase()
             );
-            console.log("Filtered team:", filteredTeam);
 
             setGroups(filteredTeam);
           } else {
-            console.log("No team found for the given ID");
             setGroups([]);
           }
         } else {
-          console.log("Invalid parameters");
           setGroups([]);
         }
       } catch (error) {
