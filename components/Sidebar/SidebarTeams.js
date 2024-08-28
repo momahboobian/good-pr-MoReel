@@ -26,7 +26,6 @@ export default function SidebarTeams() {
       try {
         const response = await fetch("/api/repositories");
         const data = await response.json();
-        console.log(data);
 
         const teamIdFromUrl = params.id;
         const cohortFromUrl = params.cohort;
