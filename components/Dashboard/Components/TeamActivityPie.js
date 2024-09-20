@@ -93,10 +93,7 @@ export default function TeamActivityPie({ pr, repo }) {
 
       const findStatusAndUpdate = (statusData, statusName, statusToUpdate) => {
         const status = statusData.find((el) => el.status === statusName);
-        if (status) {
-          statusToUpdate = status.id;
-        }
-        return statusToUpdate;
+        return status ? status.id : 0;
       };
 
       const teamStatus = calculateTeamStatus(pr, totalContributions);
@@ -249,7 +246,7 @@ export default function TeamActivityPie({ pr, repo }) {
         setPrsDoneCount((prevCount) => prevCount + 1);
       }
     }, 40);
-
+  
     return () => {
       clearInterval(interval);
     };
@@ -316,10 +313,7 @@ export default function TeamActivityPie({ pr, repo }) {
                 role="tooltip"
                 className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
-                This interactive chart displays the number of Pull Requests
-                (PRs) and contributions made by each contributor. Clicking on a
-                contributor's name allows you to filter and compare their
-                individual data.
+                This interactive chart displays the number of Pull Requests (PRs) and contributions made by each contributor. Clicking on a contributor&apos;s name allows you to filter and compare their individual data.
                 <div className="tooltip-arrow" data-popper-arrow></div>
               </div>
             </div>

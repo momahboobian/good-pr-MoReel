@@ -78,9 +78,7 @@ export default function ProjectCard({ repo, pr }) {
                 role="tooltip"
                 className="absolute z-10 top-12 left-0 inline-block transform tooltip-transition px-2 py-1 mx-6  text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
-                This card contains; The arrow diagram to represent the final
-                project timeline. Collaborators GitHub profile's picture. The
-                date of last pull request of the team.
+                This card contains the arrow diagram to represent the final project timeline. Collaborators GitHub profile&apos;s picture. The date of last pull request of the team.
                 <div className="tooltip-arrow" data-popper-arrow></div>
               </div>
             </div>

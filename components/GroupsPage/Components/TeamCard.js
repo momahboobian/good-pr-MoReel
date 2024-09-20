@@ -4,6 +4,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
 import AlertIcon from "./AlertIcon";
+import Image from "next/image";
 
 export default function TeamCard({ group, groupStatus }) {
   const [prsDoneCount, setPrsDoneCount] = useState(0);
@@ -22,7 +23,7 @@ export default function TeamCard({ group, groupStatus }) {
       }, 40);
       return () => clearInterval(interval);
     }
-  }, [group.total_prs]);
+  }, [group.total_prs, prsDoneCount]);
 
   const lastActivityDate = (repo) => {
     if (repo.updated_at) {
@@ -33,16 +34,13 @@ export default function TeamCard({ group, groupStatus }) {
     }
     return "";
   };
-
+  
+  // Enable tooltips feature on component mount
   useEffect(() => {
-    const handleTooltips = async () => {
-      const module = await import("@components/Dashboard/Components/Tooltips");
-      if (module && module.handleTooltips) {
-        module.handleTooltips();
-      }
-    };
-
-    handleTooltips();
+    import("@components/Dashboard/Components/Tooltips").then((module) => {
+      const handleTooltips = module.handleTooltips;
+      handleTooltips();
+    });
   }, []);
 
   const tooltipDemoId = `tooltip-demo-url-${group.id}`;
@@ -55,15 +53,14 @@ export default function TeamCard({ group, groupStatus }) {
         groupStatus === 2 ? "drop-shadow-3xl" : ""
       } rounded-2xl transition-all duration-300 hover:transform hover:scale-105 hover:shadow-[0_0_15px_-7px_white]`}
     >
-      <Link href={`/dashboard?id=${group.id}`}>
+      <Link rel="preload" href={`/dashboard?id=${group.id}`}>
         <div className="flex flex-col items-center justify-center p-4 bg-[#070e0ea8] rounded-t-lg relative">
           <div className="flex items-center justify-between h-20 ">
             <div className="flex item-center w-20 h-20 border-t-[3px] border-r-[3px] rounded-full bg-teal-900  overflow-hide ">
-              <img
+              <Image
                 key={group.id}
                 src={`https://robohash.org/${group.id}.png`}
                 alt="Avatar"
-                layout="responsive"
                 width={100}
                 height={100}
               />
