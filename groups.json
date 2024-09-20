@@ -1,176 +1,176 @@
 {
-  "groups": [
-    {
-      "id": 1,
-      "groupName": "PR Insiders",
-      "projectName": "Good PR",
-      "updatedDate": "2023-06-25",
-      "pullRequests": 10,
-      "collaborators": [
-        {
-          "login": "Nataliiazab",
-          "avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4"
-        },
-        {
-          "login": "LorenaCapraru",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
-        },
-        {
-          "login": "Farnooshmo",
-          "avatar_url": "https://avatars.githubusercontent.com/u/91014204?v=4"
-        },
-        {
-          "login": "Momahboobian",
-          "avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
-        }
-      ]
-    },
-    {
-      "id": 2,
-      "groupName": "Group 2",
-      "projectName": "Study Buddies ",
-      "updatedDate": "2023-06-26",
-      "pullRequests": 5,
-      "collaborators": [
-        {
-          "login": "howard-ss",
-          "avatar_url": "https://avatars.githubusercontent.com/u/102481688?v=4"
-        },
-        {
-          "login": "ebrahimbeiati",
-          "avatar_url": "https://avatars.githubusercontent.com/u/45979474?v=4"
-        },
-        {
-          "login": "laxmikckarki",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108900563?v=4"
-        }
-      ]
-    },
-    {
-      "id": 3,
-      "owner": "susanssky",
-      "groupName": "Group 3",
-      "projectName": "Careless Whisper",
-      "updatedDate": "2023-06-27",
-      "pullRequests": 7,
-      "collaborators": [
-        {
-          "login": "susanssky",
-          "avatar_url": "https://avatars.githubusercontent.com/u/107769663?v=4"
-        },
-        {
-          "login": "leilafarsani",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108967493?v=4"
-        }
-      ]
-    },
-    {
-      "id": 4,
-      "owner": "BoshraM",
-      "groupName": "Ctrl+Shift+Learn",
-      "projectName": "ldn9 fp wordwisee",
-      "updatedDate": "2023-06-25",
-      "pullRequests": 8,
-      "collaborators": [
-        {
-          "login": "BoshraM",
-          "avatar_url": "https://avatars.githubusercontent.com/u/113248018?v=4"
-        },
-        {
-          "login": "Mohammad sefidgar",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108987757?v=4"
-        },
-        {
-          "login": "Olena Reukova",
-          "avatar_url": "https://avatars.githubusercontent.com/u/34659641?v=4"
-        },
-        {
-          "login": "Zobeir-Rigi",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108760076?v=4"
-        }
-      ]
-    },
-    {
-      "id": 5,
-      "owner": "ShayanMahnam",
-      "groupName": "PR Insiders",
-      "projectName": "lentegeur hospital facility board",
-      "updatedDate": "2023-06-26",
-      "pullRequests": 10,
-      "collaborators": [
-        {
-          "login": "ShayanMahnam",
-          "avatar_url": "https://avatars.githubusercontent.com/u/95313895?v=4"
-        },
-        {
-          "login": "VitalinaKuzmenko",
-          "avatar_url": "https://avatars.githubusercontent.com/u/91835307?v=4"
-        },
-        {
-          "login": "bazmurphy",
-          "avatar_url": "https://avatars.githubusercontent.com/u/61154071?v=4"
-        },
-        {
-          "login": "KhadijaHaji",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108950237?v=4"
-        },
-        {
-          "login": "tiritaki",
-          "avatar_url": "https://avatars.githubusercontent.com/u/12444326?v=4"
-        }
-      ]
-    },
-    {
-      "id": 6,
-      "owner": "Innapoliakova",
-      "groupName": "A Set",
-      "projectName": "ldn9 Ctrl Shift Learn",
-      "updatedDate": "2023-06-27",
-      "pullRequests": 11,
-      "collaborators": [
-        {
-          "login": "Innapoliakova",
-          "avatar_url": "https://avatars.githubusercontent.com/u/113248050?v=4"
-        },
-        {
-          "login": "Roozbehshokri1990",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108986775?v=4"
-        },
-        {
-          "login": "MohamedAbdi114",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108987770?v=4"
-        },
-        {
-          "login": "Mohamed-Abdalla-1",
-          "avatar_url": "https://avatars.githubusercontent.com/u/103330478?v=4"
-        }
-      ]
-    },
-    {
-      "id": 7,
-      "owner": "Bahare09",
-      "groupName": "WordWise",
-      "projectName": "set",
-      "updatedDate": "2023-06-27",
-      "pullRequests": 12,
-      "collaborators": [
-        {
-          "login": "Bahare09",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108987748?v=4"
-        },
-        {
-          "login": "ZahraaTayyar",
-          "avatar_url": "https://avatars.githubusercontent.com/u/113244988?v=4"
-        },
-        {
-          "login": "hadipournigjeh",
-          "avatar_url": "https://avatars.githubusercontent.com/u/108987953?v=4"
-        },
-        {
-          "login": "LexiisYing",
-          "avatar_url": "https://avatars.githubusercontent.com/u/105919943?v=4"
-        }
-      ]
-    }
-  ]
+	"groups": [
+		{
+			"id": 1,
+			"groupName": "PR Insiders",
+			"projectName": "Good PR",
+			"updatedDate": "2023-06-25",
+			"pullRequests": 10,
+			"collaborators": [
+				{
+					"login": "Nataliiazab",
+					"avatar_url": "https://avatars.githubusercontent.com/u/113237479?v=4"
+				},
+				{
+					"login": "LorenaCapraru",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108892538?v=4"
+				},
+				{
+					"login": "Farnooshmo",
+					"avatar_url": "https://avatars.githubusercontent.com/u/91014204?v=4"
+				},
+				{
+					"login": "Momahboobian",
+					"avatar_url": "https://avatars.githubusercontent.com/u/17272675?v=4"
+				}
+			]
+		},
+		{
+			"id": 2,
+			"groupName": "Group 2",
+			"projectName": "Study Buddies ",
+			"updatedDate": "2023-06-26",
+			"pullRequests": 5,
+			"collaborators": [
+				{
+					"login": "howard-ss",
+					"avatar_url": "https://avatars.githubusercontent.com/u/102481688?v=4"
+				},
+				{
+					"login": "ebrahimbeiati",
+					"avatar_url": "https://avatars.githubusercontent.com/u/45979474?v=4"
+				},
+				{
+					"login": "laxmikckarki",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108900563?v=4"
+				}
+			]
+		},
+		{
+			"id": 3,
+			"owner": "susanssky",
+			"groupName": "Group 3",
+			"projectName": "Careless Whisper",
+			"updatedDate": "2023-06-27",
+			"pullRequests": 7,
+			"collaborators": [
+				{
+					"login": "susanssky",
+					"avatar_url": "https://avatars.githubusercontent.com/u/107769663?v=4"
+				},
+				{
+					"login": "leilafarsani",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108967493?v=4"
+				}
+			]
+		},
+		{
+			"id": 4,
+			"owner": "BoshraM",
+			"groupName": "Ctrl+Shift+Learn",
+			"projectName": "ldn9 fp wordwisee",
+			"updatedDate": "2023-06-25",
+			"pullRequests": 8,
+			"collaborators": [
+				{
+					"login": "BoshraM",
+					"avatar_url": "https://avatars.githubusercontent.com/u/113248018?v=4"
+				},
+				{
+					"login": "Mohammad sefidgar",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108987757?v=4"
+				},
+				{
+					"login": "Olena Reukova",
+					"avatar_url": "https://avatars.githubusercontent.com/u/34659641?v=4"
+				},
+				{
+					"login": "Zobeir-Rigi",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108760076?v=4"
+				}
+			]
+		},
+		{
+			"id": 5,
+			"owner": "ShayanMahnam",
+			"groupName": "PR Insiders",
+			"projectName": "lentegeur hospital facility board",
+			"updatedDate": "2023-06-26",
+			"pullRequests": 10,
+			"collaborators": [
+				{
+					"login": "ShayanMahnam",
+					"avatar_url": "https://avatars.githubusercontent.com/u/95313895?v=4"
+				},
+				{
+					"login": "VitalinaKuzmenko",
+					"avatar_url": "https://avatars.githubusercontent.com/u/91835307?v=4"
+				},
+				{
+					"login": "bazmurphy",
+					"avatar_url": "https://avatars.githubusercontent.com/u/61154071?v=4"
+				},
+				{
+					"login": "KhadijaHaji",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108950237?v=4"
+				},
+				{
+					"login": "tiritaki",
+					"avatar_url": "https://avatars.githubusercontent.com/u/12444326?v=4"
+				}
+			]
+		},
+		{
+			"id": 6,
+			"owner": "Innapoliakova",
+			"groupName": "A Set",
+			"projectName": "ldn9 Ctrl Shift Learn",
+			"updatedDate": "2023-06-27",
+			"pullRequests": 11,
+			"collaborators": [
+				{
+					"login": "Innapoliakova",
+					"avatar_url": "https://avatars.githubusercontent.com/u/113248050?v=4"
+				},
+				{
+					"login": "Roozbehshokri1990",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108986775?v=4"
+				},
+				{
+					"login": "MohamedAbdi114",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108987770?v=4"
+				},
+				{
+					"login": "Mohamed-Abdalla-1",
+					"avatar_url": "https://avatars.githubusercontent.com/u/103330478?v=4"
+				}
+			]
+		},
+		{
+			"id": 7,
+			"owner": "Bahare09",
+			"groupName": "WordWise",
+			"projectName": "set",
+			"updatedDate": "2023-06-27",
+			"pullRequests": 12,
+			"collaborators": [
+				{
+					"login": "Bahare09",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108987748?v=4"
+				},
+				{
+					"login": "ZahraaTayyar",
+					"avatar_url": "https://avatars.githubusercontent.com/u/113244988?v=4"
+				},
+				{
+					"login": "hadipournigjeh",
+					"avatar_url": "https://avatars.githubusercontent.com/u/108987953?v=4"
+				},
+				{
+					"login": "LexiisYing",
+					"avatar_url": "https://avatars.githubusercontent.com/u/105919943?v=4"
+				}
+			]
+		}
+	]
 }

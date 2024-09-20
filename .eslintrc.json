@@ -1,4 +1,5 @@
 {
+<<<<<<< HEAD
   "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:react/recommended"],
   "prettier/prettier": "error",
 
@@ -28,4 +29,40 @@
     "quotes": ["error", "double"]
   },
   "root": true
+=======
+	"extends": [
+		"next/core-web-vitals",
+		"eslint:recommended",
+		"plugin:react/recommended"
+	],
+	"parser": "@babel/eslint-parser",
+	"env": {
+		"es6": true,
+		"node": true,
+		"browser": true
+	},
+	"rules": {
+		"react/jsx-filename-extension": [
+			"error",
+			{ "extensions": [".jsx", ".tsx"] }
+		],
+		"import/order": [
+			"error",
+			{
+				"alphabetize": { "caseInsensitive": true, "order": "asc" },
+				"newlines-between": "always"
+			}
+		],
+		"indent": "off",
+		"operator-linebreak": "off",
+		"import/no-unresolved": "off",
+		"import/named": "off",
+		"react/react-in-jsx-scope": "off",
+		"no-console": "warn",
+		"no-warning-comments": "warn",
+		"comma-dangle": "off",
+		"object-shorthand": "error"
+	},
+	"root": true
+>>>>>>> 60d7b2c6e096f957bb81572040c1c39291ead2f0
 }
