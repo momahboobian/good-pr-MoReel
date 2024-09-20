@@ -21,7 +21,6 @@
 - [Feedback](#feedback)
 - [Contributors](#contributors)
 
-
 ## Introduction
 
 The Good PR App is a web application developed using Next.js, Prisma and Tailwind CSS. The app designed to provide users with a clear visualization of the progress and activity of Code Your Future (CYF) trainees' final projects on GitHub.
