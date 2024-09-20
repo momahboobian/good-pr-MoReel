@@ -1,10 +1,17 @@
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
-import AlertIcon from "./AlertIcon";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import Link from "next/link";
+import PropTypes from "prop-types";
+import { useState, useEffect } from "react";
+
+import AlertIcon from "./AlertIcon";
+
+TeamCard.propTypes = {
+  group: PropTypes.array.isRequired,
+  groupStatus: PropTypes.object.isRequired,
+};
 
 export default function TeamCard({ group, groupStatus }) {
   const [prsDoneCount, setPrsDoneCount] = useState(0);
@@ -34,7 +41,15 @@ export default function TeamCard({ group, groupStatus }) {
     }
     return "";
   };
-  
+
+  // Enable tooltips feature on component mount
+  useEffect(() => {
+    import("@components/Dashboard/Components/Tooltips").then((module) => {
+      const handleTooltips = module.handleTooltips;
+      handleTooltips();
+    });
+  }, []);
+
   // Enable tooltips feature on component mount
   useEffect(() => {
     import("@components/Dashboard/Components/Tooltips").then((module) => {
@@ -70,25 +85,19 @@ export default function TeamCard({ group, groupStatus }) {
             {groupStatus === 2 && <AlertIcon tooltipId={tooltipIconId} />}
           </div>
 
-          <div className="text-center text-xl text-white p-2">
-            {group.team_name}
-          </div>
+          <div className="p-2 text-xl text-center text-white">{group.team_name}</div>
         </div>
       </Link>
-      <div className="flex justify-center items-center flex-1 h-1/3 py-6">
+      <div className="flex items-center justify-center flex-1 py-6 h-1/3">
         <div className="flex-1">
-          <p className="text-center text-lg">{lastActivityDate(group)}</p>
-          <div className="text-center text-sm text-[#606467] font-light">
-            Last Update
-          </div>
+          <p className="text-lg text-center">{lastActivityDate(group)}</p>
+          <div className="text-center text-sm text-[#606467] font-light">Last Update</div>
         </div>
         <div className="flex-1">
-          <div className="text-center text-base">
+          <div className="text-base text-center">
             <p className="text-xl">{prsDoneCount}</p>
           </div>
-          <div className="text-center text-sm text-[#606467] font-light">
-            Pull Requests
-          </div>
+          <div className="text-center text-sm text-[#606467] font-light">Pull Requests</div>
         </div>
       </div>
       <div className="">
@@ -96,8 +105,9 @@ export default function TeamCard({ group, groupStatus }) {
           <li className="">
             <a
               href={group.demo_url}
+              rel="noreferrer"
               target="_blank"
-              className="flex items-center text-sx text-white font-light"
+              className="flex items-center font-light text-white text-sx"
             >
               <FontAwesomeIcon
                 icon={faShapes}
@@ -117,9 +127,10 @@ export default function TeamCard({ group, groupStatus }) {
           </li>
           <li className="">
             <a
-              href={group.github_url}
+              href={group.repo_url}
+              rel="noreferrer"
               target="_blank"
-              className="flex items-center text-sx text-white font-light"
+              className="flex items-center font-light text-white text-sx"
             >
               <FontAwesomeIcon
                 icon={faGithub}

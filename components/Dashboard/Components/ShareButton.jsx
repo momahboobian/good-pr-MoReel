@@ -1,6 +1,6 @@
-import React, { useState } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faShareFromSquare } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useState } from "react";
 
 export default function ShareButton() {
   const [buttonText, setButtonText] = useState("Share this page");
@@ -27,10 +27,7 @@ export default function ShareButton() {
     >
       <div className="flex items-center">
         {buttonText !== "Shareable Link Copied!" && (
-          <FontAwesomeIcon
-            icon={faShareFromSquare}
-            className="w-[15px] mr-3 hidden md:block"
-          />
+          <FontAwesomeIcon icon={faShareFromSquare} className="w-[15px] mr-3 hidden md:block" />
         )}
         {buttonText}
       </div>

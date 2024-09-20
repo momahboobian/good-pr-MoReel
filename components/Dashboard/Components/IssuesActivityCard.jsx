@@ -1,12 +1,13 @@
-import React, { useEffect, useState, useRef } from "react";
-import ReactECharts from "echarts-for-react";
+import { faChartSimple, faChartPie, faInfoCircle, faFaceSadCry } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChartSimple,
-  faChartPie,
-  faInfoCircle,
-  faFaceSadCry,
-} from "@fortawesome/free-solid-svg-icons";
+import ReactECharts from "echarts-for-react";
+import PropTypes from "prop-types";
+import React, { useEffect, useState, useRef } from "react";
+
+IssuesActivityCard.propTypes = {
+  issuesClosed: PropTypes.array.isRequired,
+  pr: PropTypes.object.isRequired,
+};
 
 export default function IssuesActivityCard({ issuesClosed, pr }) {
   useEffect(() => {
@@ -25,15 +26,10 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
   //   .filter((user) => user.items && user.items.length > 0) // Filter out undefined or empty items
   //   .map((user) => user.items[0].user.login);
 
-  const totalIssues = issuesClosed.reduce(
-    (total, issue) => total + (issue.total_count || 0),
-    0
-  );
+  const totalIssues = issuesClosed.reduce((total, issue) => total + (issue.total_count || 0), 0);
 
   //now we count the issues which are assigned to multiple trainees too
-  const names = issuesClosed.map((user) =>
-    user.items.filter((el) => el.assignees.length >= 1)
-  );
+  const names = issuesClosed.map((user) => user.items.filter((el) => el.assignees.length >= 1));
 
   //to have the same trainees as in the project Card
   const trainees = (pr && pr.filter((el) => el.total_count !== 0)) || [];
@@ -43,10 +39,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
     const chartData = names.map((user, index) => {
       const total_count = user.length || 0;
       return {
-        name: filterAndTruncateName(
-          user[0] ? user[0].assignees[0].login : issuesAssignee[index],
-          6
-        ),
+        name: filterAndTruncateName(user[0] ? user[0].assignees[0].login : issuesAssignee[index], 6),
         value: calculatePercentage(total_count, totalIssues),
         issuesCount: total_count,
       };
@@ -55,7 +48,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
     const options = {
       tooltip: {
         trigger: "item",
-        formatter: function (params) {
+        formatter(params) {
           return `${params.name}: ${params.data.issuesCount} issues`;
         },
         backgroundColor: "#6064677F",
@@ -169,12 +162,8 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (
-        chartContainerRef.current &&
-        chartContainerRef.current.echartsElement
-      ) {
-        const echartsInstance =
-          chartContainerRef.current.echartsElement.getEchartsInstance();
+      if (chartContainerRef.current && chartContainerRef.current.echartsElement) {
+        const echartsInstance = chartContainerRef.current.echartsElement.getEchartsInstance();
         if (echartsInstance) {
           echartsInstance.resize();
         }
@@ -212,23 +201,24 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
 
   return (
     <div className="bg-[#1A1E1F] rounded-2xl w-full min-w-max">
-      <div className="flex flex-col max-w-xs mx-auto md:max-w-md lg:max-w-lg p-6 space-y-10 h-80 relative">
-        <div className="flex space-x-10 items-center">
-          <div className="flex items-center z-10">
-            <h1 className="font-bold text-sm text-white">Issues Activity</h1>
+      <div className="relative flex flex-col max-w-xs p-6 mx-auto space-y-10 md:max-w-md lg:max-w-lg h-80">
+        <div className="flex items-center space-x-10">
+          <div className="z-10 flex items-center">
+            <h1 className="text-sm font-bold text-white">Issues Activity</h1>
             <div>
               <FontAwesomeIcon
                 icon={faInfoCircle}
                 data-tooltip-target="tooltip-info-issues"
                 data-tooltip-placement="button"
-                className="w-4 h-4 ml-2 cursor-help text-white hover:text-gray-400 transition duration-300 hover:scale-110"
+                className="w-4 h-4 ml-2 text-white transition duration-300 cursor-help hover:text-gray-400 hover:scale-110"
               />
               <div
                 id="tooltip-info-issues"
                 role="tooltip"
                 className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
-                This interactive chart displays the number of issues (for the repo) and contributions made by each team member. Clicking on a contributor&apos;s name allows you to filter and compare their individual data.
+                This interactive chart displays the number of issues (for the repo) and contributions made by each team
+                member. Clicking on a contributor&apos;s name allows you to filter and compare their individual data.
                 <div className="tooltip-arrow" data-popper-arrow></div>
               </div>
             </div>
@@ -245,11 +235,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
             ""
           ) : (
             <div className="flex justify-center items-center absolute inset-0 -left-6 -top-[248px]">
-              <a
-                href="#"
-                className="text-gray-500 text-xl z-10"
-                onClick={handleChartTypeChange}
-              >
+              <a href="#" className="z-10 text-xl text-gray-500" onClick={handleChartTypeChange}>
                 {chartType === "pie" ? (
                   <FontAwesomeIcon
                     icon={faChartSimple}
@@ -270,13 +256,10 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
           )}
         </div>
         {issuesClosed.length === 0 ? (
-          <div className="flex flex-col justify-center items-center">
-            <FontAwesomeIcon
-              icon={faFaceSadCry}
-              className="h-14 mr-3  p-4 text-yellow-400"
-            />
+          <div className="flex flex-col items-center justify-center">
+            <FontAwesomeIcon icon={faFaceSadCry} className="p-4 mr-3 text-yellow-400 h-14" />
             <div>Oh no!</div>
-            <div>There are no issues closed for this group!{' '}</div>
+            <div>There are no issues closed for this group! </div>
           </div>
         ) : (
           <div
@@ -287,19 +270,14 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
             }}
           >
             {chartType === "pie" ? (
-              <div className="flex justify-center items-center absolute inset-0 -mb-1">
-                <div className="text-[#F9F9F9] font-bold text-2xl">
-                  {completedIssues}
-                </div>
+              <div className="absolute inset-0 flex items-center justify-center -mb-1">
+                <div className="text-[#F9F9F9] font-bold text-2xl">{completedIssues}</div>
                 <p className="text-[#606467] text-xs ml-[10px]">Issues Done</p>
               </div>
             ) : (
               ""
             )}
-            <div
-              className="absolute -top-[69px] w-full h-full "
-              ref={chartContainerRef}
-            >
+            <div className="absolute -top-[69px] w-full h-full " ref={chartContainerRef}>
               {chartOptions && (
                 <ReactECharts
                   option={chartOptions}

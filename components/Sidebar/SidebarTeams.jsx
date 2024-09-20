@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -36,14 +36,14 @@ export default function SidebarTeams() {
   }, []);
 
   return (
-    <div className="flex flex-col sm:hidden xl:flex justify-start gap-4 pt-10 p-2">
+    <div className="flex flex-col justify-start gap-4 p-2 pt-10 sm:hidden xl:flex">
       <div className="bg-gray-700 h-[1px] w-full opacity-10"></div>
 
       <p className="text-[#606467] text-xs items-end">GROUPS</p>
-      <ul className="flex flex-col items-start max-w-sm text-clip overflow-hidden whitespace-nowrap gap-6 pt-15 ">
+      <ul className="flex flex-col items-start max-w-sm gap-6 overflow-hidden text-clip whitespace-nowrap pt-15 ">
         {groups.slice(0, 10).map((group) => (
           <li
-            className="flex items-center text-xs text-clip overflow-hidden whitespace-nowrap cursor-pointer"
+            className="flex items-center overflow-hidden text-xs cursor-pointer text-clip whitespace-nowrap"
             key={group.id}
           >
             <Link
@@ -57,9 +57,7 @@ export default function SidebarTeams() {
             >
               <span
                 className={`${
-                  router.asPath === `/dashboard?id=${group.id}`
-                    ? "text-cyan-600"
-                    : "text-white"
+                  router.asPath === `/dashboard?id=${group.id}` ? "text-cyan-600" : "text-white"
                 }  hover:text-[#1a9997]`}
               >
                 <FontAwesomeIcon

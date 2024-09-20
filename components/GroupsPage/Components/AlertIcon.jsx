@@ -1,5 +1,10 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faTriangleExclamation } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import PropTypes from "prop-types";
+
+AlertIcon.propTypes = {
+  tooltipId: PropTypes.array.isRequired,
+};
 
 export default function AlertIcon({ tooltipId }) {
   return (

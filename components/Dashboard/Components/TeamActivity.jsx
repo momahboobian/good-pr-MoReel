@@ -1,9 +1,15 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
+import PropTypes from "prop-types";
+import React, { useEffect, useRef } from "react";
 
 Chart.register(...registerables);
+
+TeamActivity.propTypes = {
+  assignees: PropTypes.array.isRequired,
+  pr: PropTypes.object.isRequired,
+};
 
 export default function TeamActivity({ assignees, pr }) {
   const chartRef = useRef(null);
@@ -14,11 +20,8 @@ export default function TeamActivity({ assignees, pr }) {
   });
 
   function calculatePercentage(individualPrNumber) {
-    return Math.round(
-      (100 * individualPrNumber.total_count) / totalContributions
-    );
+    return Math.round((100 * individualPrNumber.total_count) / totalContributions);
   }
-  console.log("ta", totalContributions);
 
   useEffect(() => {
     const chartData = {
@@ -74,7 +77,7 @@ export default function TeamActivity({ assignees, pr }) {
 
   return (
     <div className="grid grid-cols-1 gap-4 max-w-m bg-[#1A1E1F] p-9 rounded-2xl ">
-      <div className="flex flex-column justify-between">
+      <div className="flex justify-between flex-column">
         <h2 className="text-[#F9F9F9] font-bold">Team Activity</h2>
       </div>
       <canvas ref={chartRef}></canvas>
