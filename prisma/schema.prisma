@@ -8,18 +8,18 @@ datasource db {
   url      = env("DATABASE_URL")
 }
 
-
 model Repository {
   id         Int       @id
-  name       String?
-  owner      String?
   team_name  String?
-  updated_at DateTime? @updatedAt
-  total_prs  Int?
-  github_url String?
+  repo_name  String?
+  repo_owner String?
+  repo_url   String?
   demo_url   String?
+  total_prs  Int?
   cohort     String?
   region     String?
+  updated_at DateTime? @updatedAt
+
   statusId   Int?
   Status     Status?   @relation(fields: [statusId], references: [id])
 }
