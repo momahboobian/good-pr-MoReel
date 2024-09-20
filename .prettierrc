@@ -1,5 +1,4 @@
 {
-<<<<<<< HEAD
   "arrowParens": "always",
   "bracketSpacing": true,
   "trailingComma": "es5",
@@ -8,13 +7,4 @@
   "singleQuote": false,
   "tabWidth": 2,
   "printWidth": 120
-=======
-	"arrowParens": "always",
-	"bracketSpacing": true,
-	"trailingComma": "es5",
-	"endOfLine": "lf",
-	"semi": true,
-	"singleQuote": false,
-	"useTabs": true
->>>>>>> 60d7b2c6e096f957bb81572040c1c39291ead2f0
 }

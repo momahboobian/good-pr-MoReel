@@ -1,6 +1,6 @@
 module.exports = {
-	images: {
-		domains: ["avatars.githubusercontent.com", "robohash.org"],
-	},
-	output: "standalone",
+  images: {
+    domains: ["avatars.githubusercontent.com", "robohash.org"],
+  },
+  output: "standalone",
 };
