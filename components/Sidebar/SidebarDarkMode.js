@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCircle, faSun } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 export default function SidebarDarkMode() {
   return (
@@ -10,10 +10,7 @@ export default function SidebarDarkMode() {
           <FontAwesomeIcon icon={faSun} className="w-[12px] text-[#D9D9D9]" />
         </span>
         <span className="flex">
-          <FontAwesomeIcon
-            icon={faCircle}
-            className="w-[16px] text-[#37BCBA]"
-          />
+          <FontAwesomeIcon icon={faCircle} className="w-[16px] text-[#37BCBA]" />
         </span>
       </div>
 

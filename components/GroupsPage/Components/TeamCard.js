@@ -1,10 +1,11 @@
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
-import AlertIcon from "./AlertIcon";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Image from "next/image";
+import Link from "next/link";
+import { useState, useEffect } from "react";
+
+import AlertIcon from "./AlertIcon";
 
 export default function TeamCard({ group, groupStatus }) {
   const [prsDoneCount, setPrsDoneCount] = useState(0);
@@ -34,7 +35,7 @@ export default function TeamCard({ group, groupStatus }) {
     }
     return "";
   };
-  
+
   // Enable tooltips feature on component mount
   useEffect(() => {
     import("@components/Dashboard/Components/Tooltips").then((module) => {
@@ -70,25 +71,19 @@ export default function TeamCard({ group, groupStatus }) {
             {groupStatus === 2 && <AlertIcon tooltipId={tooltipIconId} />}
           </div>
 
-          <div className="text-center text-xl text-white p-2">
-            {group.team_name}
-          </div>
+          <div className="text-center text-xl text-white p-2">{group.team_name}</div>
         </div>
       </Link>
       <div className="flex justify-center items-center flex-1 h-1/3 py-6">
         <div className="flex-1">
           <p className="text-center text-lg">{lastActivityDate(group)}</p>
-          <div className="text-center text-sm text-[#606467] font-light">
-            Last Update
-          </div>
+          <div className="text-center text-sm text-[#606467] font-light">Last Update</div>
         </div>
         <div className="flex-1">
           <div className="text-center text-base">
             <p className="text-xl">{prsDoneCount}</p>
           </div>
-          <div className="text-center text-sm text-[#606467] font-light">
-            Pull Requests
-          </div>
+          <div className="text-center text-sm text-[#606467] font-light">Pull Requests</div>
         </div>
       </div>
       <div className="">
@@ -98,6 +93,7 @@ export default function TeamCard({ group, groupStatus }) {
               href={group.demo_url}
               target="_blank"
               className="flex items-center text-sx text-white font-light"
+              rel="noreferrer"
             >
               <FontAwesomeIcon
                 icon={faShapes}
@@ -120,6 +116,7 @@ export default function TeamCard({ group, groupStatus }) {
               href={group.github_url}
               target="_blank"
               className="flex items-center text-sx text-white font-light"
+              rel="noreferrer"
             >
               <FontAwesomeIcon
                 icon={faGithub}

@@ -1,11 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import ReactECharts from "echarts-for-react";
+import { faChartSimple, faChartPie, faInfoCircle } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChartSimple,
-  faChartPie,
-  faInfoCircle,
-} from "@fortawesome/free-solid-svg-icons";
+import ReactECharts from "echarts-for-react";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function TeamActivityPie({ pr, repo }) {
   useEffect(() => {
@@ -26,10 +22,7 @@ export default function TeamActivityPie({ pr, repo }) {
     .filter((user) => user.items && user.items.length > 0) // Filter out undefined or empty items
     .map((user) => user.items[0].user.login);
 
-  const totalContributions = pr.reduce(
-    (total, prs) => total + (prs.total_count || 0),
-    0
-  );
+  const totalContributions = pr.reduce((total, prs) => total + (prs.total_count || 0), 0);
 
   //fetch from status table
   useEffect(() => {
@@ -80,15 +73,11 @@ export default function TeamActivityPie({ pr, repo }) {
   useEffect(() => {
     if (statusData.length > 0 && repositoriesData.length > 0) {
       const calculateTeamStatus = (pr, totalContributions) => {
-        const individualPRPercentages = pr.map(
-          (el) => (el.total_count / totalContributions) * 100
-        );
+        const individualPRPercentages = pr.map((el) => (el.total_count / totalContributions) * 100);
         const sizeOfTeam = individualPRPercentages.length;
         const minimum = 100 / (sizeOfTeam + 1);
         const maximum = 100 / (sizeOfTeam - 1);
-        return individualPRPercentages.every(
-          (el) => el >= minimum && el <= maximum
-        );
+        return individualPRPercentages.every((el) => el >= minimum && el <= maximum);
       };
 
       const findStatusAndUpdate = (statusData, statusName, statusToUpdate) => {
@@ -100,17 +89,9 @@ export default function TeamActivityPie({ pr, repo }) {
       let statusToUpdate = 0;
 
       if (!teamStatus) {
-        statusToUpdate = findStatusAndUpdate(
-          statusData,
-          "needHelp",
-          statusToUpdate
-        );
+        statusToUpdate = findStatusAndUpdate(statusData, "needHelp", statusToUpdate);
       } else {
-        statusToUpdate = findStatusAndUpdate(
-          statusData,
-          "onTrack",
-          statusToUpdate
-        );
+        statusToUpdate = findStatusAndUpdate(statusData, "onTrack", statusToUpdate);
       }
 
       const updatedData = repositoriesData.find((el) => el.id === repo.id);
@@ -124,10 +105,7 @@ export default function TeamActivityPie({ pr, repo }) {
 
   useEffect(() => {
     const chartData = prUsers.map((user) => {
-      const prItem = pr.find(
-        (prs) =>
-          prs.items && prs.items.length > 0 && prs.items[0].user?.login === user
-      );
+      const prItem = pr.find((prs) => prs.items && prs.items.length > 0 && prs.items[0].user?.login === user);
       const total_count = prItem?.total_count || 0;
       return {
         name: filterAndTruncateName(user, 6),
@@ -140,7 +118,7 @@ export default function TeamActivityPie({ pr, repo }) {
       tooltip: {
         trigger: "item",
         // formatter: "{b}: {d}%",
-        formatter: function (params) {
+        formatter(params) {
           return `${params.name}: ${params.data.prCount} PRs`;
         },
         backgroundColor: "#6064677F",
@@ -246,7 +224,7 @@ export default function TeamActivityPie({ pr, repo }) {
         setPrsDoneCount((prevCount) => prevCount + 1);
       }
     }, 40);
-  
+
     return () => {
       clearInterval(interval);
     };
@@ -254,12 +232,8 @@ export default function TeamActivityPie({ pr, repo }) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (
-        chartContainerRef.current &&
-        chartContainerRef.current.echartsElement
-      ) {
-        const echartsInstance =
-          chartContainerRef.current.echartsElement.getEchartsInstance();
+      if (chartContainerRef.current && chartContainerRef.current.echartsElement) {
+        const echartsInstance = chartContainerRef.current.echartsElement.getEchartsInstance();
         if (echartsInstance) {
           echartsInstance.resize();
         }
@@ -313,7 +287,9 @@ export default function TeamActivityPie({ pr, repo }) {
                 role="tooltip"
                 className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
-                This interactive chart displays the number of Pull Requests (PRs) and contributions made by each contributor. Clicking on a contributor&apos;s name allows you to filter and compare their individual data.
+                This interactive chart displays the number of Pull Requests (PRs) and contributions made by each
+                contributor. Clicking on a contributor&apos;s name allows you to filter and compare their individual
+                data.
                 <div className="tooltip-arrow" data-popper-arrow></div>
               </div>
             </div>
@@ -328,11 +304,7 @@ export default function TeamActivityPie({ pr, repo }) {
           </div>
 
           <div className="flex justify-center items-center absolute inset-0 -left-6 -top-[248px]">
-            <a
-              href="#"
-              className="text-gray-500 text-xl z-10"
-              onClick={handleChartTypeChange}
-            >
+            <a href="#" className="text-gray-500 text-xl z-10" onClick={handleChartTypeChange}>
               {chartType === "pie" ? (
                 <FontAwesomeIcon
                   icon={faChartSimple}
@@ -360,18 +332,13 @@ export default function TeamActivityPie({ pr, repo }) {
         >
           {chartType === "pie" ? (
             <div className="flex justify-center items-center absolute inset-0 -mb-1">
-              <div className="text-[#F9F9F9] font-bold text-2xl">
-                {prsDoneCount}
-              </div>
+              <div className="text-[#F9F9F9] font-bold text-2xl">{prsDoneCount}</div>
               <p className="text-[#606467] text-xs ml-[10px]">PRs Done</p>
             </div>
           ) : (
             ""
           )}
-          <div
-            className="absolute -top-[69px] w-full h-full "
-            ref={chartContainerRef}
-          >
+          <div className="absolute -top-[69px] w-full h-full " ref={chartContainerRef}>
             {chartOptions && (
               <ReactECharts
                 option={chartOptions}

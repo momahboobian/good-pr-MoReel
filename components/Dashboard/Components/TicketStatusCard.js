@@ -1,11 +1,7 @@
-import { useState, useEffect } from "react";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faShapes,
-  faSyncAlt,
-  faExternalLinkAlt,
-} from "@fortawesome/free-solid-svg-icons";
+import { faShapes, faSyncAlt, faExternalLinkAlt } from "@fortawesome/free-solid-svg-icons";
 import { faInfoCircle } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useState, useEffect } from "react";
 
 // TaskItem component
 const TaskItem = ({ icon, title, count, bgColor }) => {
@@ -57,14 +53,7 @@ export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
     return () => {
       clearInterval(interval);
     };
-  }, [
-    taskCount,
-    inProgressCount,
-    completedTasks,
-    totalTasks,
-    issuesOpen.length,
-    issuesClosed.length,
-  ]);
+  }, [taskCount, inProgressCount, completedTasks, totalTasks, issuesOpen.length, issuesClosed.length]);
 
   return (
     <div className="bg-[#1A1E1F] rounded-2xl w-full min-w-max">
@@ -89,30 +78,14 @@ export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
           </div>
         </div>
         <div className="flex justify-left gap-1 items-center">
-          <div className="text-[#F9F9F9] font-bold text-2xl">
-            {String(completedTasks)}
-          </div>
+          <div className="text-[#F9F9F9] font-bold text-2xl">{String(completedTasks)}</div>
           <div className="text-[#F9F9F9] ">|</div>
-          <div className="text-[#F9F9F9] font-bold text-2xl">
-            {String(totalTasks)}
-          </div>
-          <p className="text-[#606467] text-xs ml-[10px] items-end">
-            Tasks Done
-          </p>
+          <div className="text-[#F9F9F9] font-bold text-2xl">{String(totalTasks)}</div>
+          <p className="text-[#606467] text-xs ml-[10px] items-end">Tasks Done</p>
         </div>
         <div className="flex justify-between space-x-3 md:space-x-4 pb-2">
-          <TaskItem
-            icon={faShapes}
-            title="Issues"
-            bgColor="bg-[#fff043cc]"
-            count={String(taskCount)}
-          />
-          <TaskItem
-            icon={faSyncAlt}
-            title="In Progress"
-            bgColor="bg-[#ea580ccc]"
-            count={String(inProgressCount)}
-          />
+          <TaskItem icon={faShapes} title="Issues" bgColor="bg-[#fff043cc]" count={String(taskCount)} />
+          <TaskItem icon={faSyncAlt} title="In Progress" bgColor="bg-[#ea580ccc]" count={String(inProgressCount)} />
           <TaskItem
             icon={faExternalLinkAlt}
             title="Completed"

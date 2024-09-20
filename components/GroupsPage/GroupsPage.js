@@ -1,10 +1,11 @@
 "use client";
 
-import { useEffect, useState } from "react";
 import TeamCard from "@components/GroupsPage/Components/TeamCard";
 import Loading from "@components/Loading";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useEffect, useState } from "react";
+
 import FilterToggle from "./Components/FillterToggle";
 
 export default function GroupsPage() {
@@ -34,9 +35,7 @@ export default function GroupsPage() {
     setFilterActive(!filterActive);
   };
 
-  const filteredGroups = filterActive
-    ? groups.filter((group) => group.statusId === 2)
-    : groups;
+  const filteredGroups = filterActive ? groups.filter((group) => group.statusId === 2) : groups;
 
   const noTeamsNeedHelp = filteredGroups.length === 0;
 
@@ -47,22 +46,14 @@ export default function GroupsPage() {
       <div className="flex justify-between items-center md:pt-6 px-6">
         <div className="flex flex-col justify-between py-2 gap-4">
           <div className="flex items-center">
-            <FontAwesomeIcon
-              icon={faGithub}
-              className="text-[#37BCBA] h-7 mr-2"
-            />
+            <FontAwesomeIcon icon={faGithub} className="text-[#37BCBA] h-7 mr-2" />
             <h1 className="font-semibold text-2xl text-white">
               <span className="mr-1">GOOD</span>
               <span className="text-[#37BCBA]">PR</span>
             </h1>
           </div>
-          <p className="font-light text-x text-gray-500">
-            Track teams & members
-          </p>
-          <FilterToggle
-            filterActive={filterActive}
-            onToggle={handleFilterToggle}
-          />
+          <p className="font-light text-x text-gray-500">Track teams & members</p>
+          <FilterToggle filterActive={filterActive} onToggle={handleFilterToggle} />
         </div>
       </div>
       <div className="flex flex-wrap content-start w-full h-full items-center justify-around gap-6 p-4 sm:p-6">
@@ -73,13 +64,7 @@ export default function GroupsPage() {
             <span className="text-6xl ml-2">🎉</span>
           </div>
         ) : (
-          filteredGroups.map((group) => (
-            <TeamCard
-              key={group.id}
-              group={group}
-              groupStatus={group.statusId}
-            />
-          ))
+          filteredGroups.map((group) => <TeamCard key={group.id} group={group} groupStatus={group.statusId} />)
         )}
       </div>
     </div>

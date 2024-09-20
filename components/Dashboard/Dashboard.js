@@ -1,58 +1,58 @@
-import React, { useEffect, useState, useRef } from 'react'
-import ProjectCard from '@components/Dashboard/Components/ProjectCard'
-import ShareButton from '@components/Dashboard/Components/ShareButton'
-import IssuesActivityCard from '@components/Dashboard/Components/IssuesActivityCard'
-import TeamActivityPie from '@components/Dashboard/Components/TeamActivityPie'
-import TasksActivity from '@components/Dashboard/Components/TasksActivity'
-import Loading from '@components/Loading'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faSitemap } from '@fortawesome/free-solid-svg-icons'
+import IssuesActivityCard from "@components/Dashboard/Components/IssuesActivityCard";
+import ProjectCard from "@components/Dashboard/Components/ProjectCard";
+import ShareButton from "@components/Dashboard/Components/ShareButton";
+import TasksActivity from "@components/Dashboard/Components/TasksActivity";
+import TeamActivityPie from "@components/Dashboard/Components/TeamActivityPie";
+import Loading from "@components/Loading";
+import { faSitemap } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function Dashboard({ id }) {
-  const [groups, setGroups] = useState([])
+  const [groups, setGroups] = useState([]);
 
-  const [repo, setRepo] = useState({})
-  const [issuesClosed, setIssuesClosed] = useState([])
-  const [allIssues, setAllIssues] = useState([])
-  const [pr, setPR] = useState([])
-  const [isLoading, setIsLoading] = useState(true)
-  const containerRef = useRef(null)
+  const [repo, setRepo] = useState({});
+  const [issuesClosed, setIssuesClosed] = useState([]);
+  const [allIssues, setAllIssues] = useState([]);
+  const [pr, setPR] = useState([]);
+  const [isLoading, setIsLoading] = useState(true);
+  const containerRef = useRef(null);
 
   useEffect(() => {
     const fetchData = async () => {
-      setIsLoading(true)
-      const currentUrl = window.location.href
-      const url = new URL(currentUrl)
-      const searchParams = new URLSearchParams(url.search)
-      const idURL = searchParams.get('id')
-      const res = await fetch('/api/repositories')
-      const db = await res.json()
-      const filterGroup = db.filter(el => el.id === Number(idURL))
-      const owner = filterGroup[0].repo_owner
-      const repository = filterGroup[0].repo_name
-      const groupName = filterGroup[0].team_name
-      setGroups(groupName)
+      setIsLoading(true);
+      const currentUrl = window.location.href;
+      const url = new URL(currentUrl);
+      const searchParams = new URLSearchParams(url.search);
+      const idURL = searchParams.get("id");
+      const res = await fetch("/api/repositories");
+      const db = await res.json();
+      const filterGroup = db.filter((el) => el.id === Number(idURL));
+      const owner = filterGroup[0].repo_owner;
+      const repository = filterGroup[0].repo_name;
+      const groupName = filterGroup[0].team_name;
+      setGroups(groupName);
       try {
-        const response = await fetch('/api/gitHubAPI', {
-          method: 'POST',
+        const response = await fetch("/api/gitHubAPI", {
+          method: "POST",
           headers: {
-            'Content-Type': 'application/json',
+            "Content-Type": "application/json",
           },
           body: JSON.stringify({ owner, repository }),
-        })
-        const data = await response.json()
-        setRepo(data[0])
-        setIssuesClosed(data[2])
-        setAllIssues(data[1])
-        setPR(data[3])
+        });
+        const data = await response.json();
+        setRepo(data[0]);
+        setIssuesClosed(data[2]);
+        setAllIssues(data[1]);
+        setPR(data[3]);
       } catch (error) {
-        console.error('Error fetching data:', error)
+        console.error("Error fetching data:", error);
       } finally {
-        setIsLoading(false)
+        setIsLoading(false);
       }
-    }
-    fetchData()
-  }, [id])
+    };
+    fetchData();
+  }, [id]);
 
   return isLoading ? (
     <Loading />
@@ -75,9 +75,7 @@ export default function Dashboard({ id }) {
               </a>
             </li>
           </ul>
-          <p className="font-light text-gray-500 text-x">
-            Track your projects, tasks & team activity here
-          </p>
+          <p className="font-light text-gray-500 text-x">Track your projects, tasks & team activity here</p>
         </div>
         <ShareButton />
       </div>
@@ -96,5 +94,5 @@ export default function Dashboard({ id }) {
         <TasksActivity pr={pr} issuesClosed={issuesClosed} allIssues={allIssues} repo={repo} />
       </div>
     </div>
-  )
+  );
 }

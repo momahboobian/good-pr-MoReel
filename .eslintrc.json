@@ -1,5 +1,7 @@
 {
   "extends": ["next/core-web-vitals", "eslint:recommended", "plugin:react/recommended"],
+  "prettier/prettier": "error",
+
   "parser": "@babel/eslint-parser",
   "env": {
     "es6": true,
@@ -16,14 +18,14 @@
       }
     ],
     "indent": "off",
-    "operator-linebreak": "off",
     "import/no-unresolved": "off",
     "import/named": "off",
     "react/react-in-jsx-scope": "off",
     "no-console": "warn",
     "no-warning-comments": "warn",
     "comma-dangle": "off",
-    "object-shorthand": "error"
+    "object-shorthand": "error",
+    "quotes": ["error", "double"]
   },
   "root": true
 }

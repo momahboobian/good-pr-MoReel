@@ -1,5 +1,5 @@
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useEffect, useState } from "react";
@@ -57,9 +57,7 @@ export default function SidebarTeams() {
             >
               <span
                 className={`${
-                  router.asPath === `/dashboard?id=${group.id}`
-                    ? "text-cyan-600"
-                    : "text-white"
+                  router.asPath === `/dashboard?id=${group.id}` ? "text-cyan-600" : "text-white"
                 }  hover:text-[#1a9997]`}
               >
                 <FontAwesomeIcon

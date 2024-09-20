@@ -1,20 +1,13 @@
+import { faHouseUser, faColumns, faListCheck, faChartColumn } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faHouseUser,
-  faColumns,
-  faListCheck,
-  faChartColumn,
-} from "@fortawesome/free-solid-svg-icons";
 
 export default function SidebarDashboard() {
   const pathname = usePathname();
 
   return (
-    <ul
-      className={`flex flex-col md:flex-row xl:flex-col justify-start items-start gap-6 xl:pt-20 whitespace-nowrap`}
-    >
+    <ul className={`flex flex-col md:flex-row xl:flex-col justify-start items-start gap-6 xl:pt-20 whitespace-nowrap`}>
       <li className="flex items-center">
         <Link href="/" className="flex items-center">
           <span className={`${pathname === "/" ? "text-[#37BCBA]" : ""}`}>

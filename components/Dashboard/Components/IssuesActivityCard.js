@@ -1,12 +1,7 @@
-import React, { useEffect, useState, useRef } from "react";
-import ReactECharts from "echarts-for-react";
+import { faChartSimple, faChartPie, faInfoCircle, faFaceSadCry } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import {
-  faChartSimple,
-  faChartPie,
-  faInfoCircle,
-  faFaceSadCry,
-} from "@fortawesome/free-solid-svg-icons";
+import ReactECharts from "echarts-for-react";
+import React, { useEffect, useState, useRef } from "react";
 
 export default function IssuesActivityCard({ issuesClosed, pr }) {
   useEffect(() => {
@@ -25,15 +20,10 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
   //   .filter((user) => user.items && user.items.length > 0) // Filter out undefined or empty items
   //   .map((user) => user.items[0].user.login);
 
-  const totalIssues = issuesClosed.reduce(
-    (total, issue) => total + (issue.total_count || 0),
-    0
-  );
+  const totalIssues = issuesClosed.reduce((total, issue) => total + (issue.total_count || 0), 0);
 
   //now we count the issues which are assigned to multiple trainees too
-  const names = issuesClosed.map((user) =>
-    user.items.filter((el) => el.assignees.length >= 1)
-  );
+  const names = issuesClosed.map((user) => user.items.filter((el) => el.assignees.length >= 1));
 
   //to have the same trainees as in the project Card
   const trainees = (pr && pr.filter((el) => el.total_count !== 0)) || [];
@@ -43,10 +33,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
     const chartData = names.map((user, index) => {
       const total_count = user.length || 0;
       return {
-        name: filterAndTruncateName(
-          user[0] ? user[0].assignees[0].login : issuesAssignee[index],
-          6
-        ),
+        name: filterAndTruncateName(user[0] ? user[0].assignees[0].login : issuesAssignee[index], 6),
         value: calculatePercentage(total_count, totalIssues),
         issuesCount: total_count,
       };
@@ -55,7 +42,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
     const options = {
       tooltip: {
         trigger: "item",
-        formatter: function (params) {
+        formatter(params) {
           return `${params.name}: ${params.data.issuesCount} issues`;
         },
         backgroundColor: "#6064677F",
@@ -169,12 +156,8 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
 
   useEffect(() => {
     const handleResize = () => {
-      if (
-        chartContainerRef.current &&
-        chartContainerRef.current.echartsElement
-      ) {
-        const echartsInstance =
-          chartContainerRef.current.echartsElement.getEchartsInstance();
+      if (chartContainerRef.current && chartContainerRef.current.echartsElement) {
+        const echartsInstance = chartContainerRef.current.echartsElement.getEchartsInstance();
         if (echartsInstance) {
           echartsInstance.resize();
         }
@@ -228,7 +211,8 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
                 role="tooltip"
                 className="absolute z-10 left-0 top-12 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
-                This interactive chart displays the number of issues (for the repo) and contributions made by each team member. Clicking on a contributor&apos;s name allows you to filter and compare their individual data.
+                This interactive chart displays the number of issues (for the repo) and contributions made by each team
+                member. Clicking on a contributor&apos;s name allows you to filter and compare their individual data.
                 <div className="tooltip-arrow" data-popper-arrow></div>
               </div>
             </div>
@@ -245,11 +229,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
             ""
           ) : (
             <div className="flex justify-center items-center absolute inset-0 -left-6 -top-[248px]">
-              <a
-                href="#"
-                className="text-gray-500 text-xl z-10"
-                onClick={handleChartTypeChange}
-              >
+              <a href="#" className="text-gray-500 text-xl z-10" onClick={handleChartTypeChange}>
                 {chartType === "pie" ? (
                   <FontAwesomeIcon
                     icon={faChartSimple}
@@ -271,12 +251,9 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
         </div>
         {issuesClosed.length === 0 ? (
           <div className="flex flex-col justify-center items-center">
-            <FontAwesomeIcon
-              icon={faFaceSadCry}
-              className="h-14 mr-3  p-4 text-yellow-400"
-            />
+            <FontAwesomeIcon icon={faFaceSadCry} className="h-14 mr-3  p-4 text-yellow-400" />
             <div>Oh no!</div>
-            <div>There are no issues closed for this group!{' '}</div>
+            <div>There are no issues closed for this group! </div>
           </div>
         ) : (
           <div
@@ -288,18 +265,13 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
           >
             {chartType === "pie" ? (
               <div className="flex justify-center items-center absolute inset-0 -mb-1">
-                <div className="text-[#F9F9F9] font-bold text-2xl">
-                  {completedIssues}
-                </div>
+                <div className="text-[#F9F9F9] font-bold text-2xl">{completedIssues}</div>
                 <p className="text-[#606467] text-xs ml-[10px]">Issues Done</p>
               </div>
             ) : (
               ""
             )}
-            <div
-              className="absolute -top-[69px] w-full h-full "
-              ref={chartContainerRef}
-            >
+            <div className="absolute -top-[69px] w-full h-full " ref={chartContainerRef}>
               {chartOptions && (
                 <ReactECharts
                   option={chartOptions}

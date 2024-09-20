@@ -1,7 +1,7 @@
 "use client";
 
-import React, { useEffect, useRef } from "react";
 import { Chart, registerables } from "chart.js";
+import React, { useEffect, useRef } from "react";
 
 Chart.register(...registerables);
 
@@ -14,9 +14,7 @@ export default function TeamActivity({ assignees, pr }) {
   });
 
   function calculatePercentage(individualPrNumber) {
-    return Math.round(
-      (100 * individualPrNumber.total_count) / totalContributions
-    );
+    return Math.round((100 * individualPrNumber.total_count) / totalContributions);
   }
   console.log("ta", totalContributions);
 
