@@ -5,5 +5,5 @@ export default function Home() {
     <div className="flex justify-center items-start bg-[#070E0E] min-h-screen md:w-screen">
       <LandingPage />
     </div>
-  );
+  )
 }

@@ -1,4 +1,5 @@
 'use client'
+
 import React, { useEffect, useState, useRef } from 'react'
 import ProjectCard from '@components/Dashboard/Components/ProjectCard'
 import ShareButton from '@components/Dashboard/Components/ShareButton'
@@ -11,6 +12,7 @@ import { faSitemap } from '@fortawesome/free-solid-svg-icons'
 
 export default function Dashboard({ teamId }) {
   const [groups, setGroups] = useState([])
+
   const [repo, setRepo] = useState({})
   const [issuesClosed, setIssuesClosed] = useState([])
   const [allIssues, setAllIssues] = useState([])
@@ -51,6 +53,7 @@ export default function Dashboard({ teamId }) {
     }
     fetchData()
   }, [])
+
 
   return isLoading ? (
     <Loading />

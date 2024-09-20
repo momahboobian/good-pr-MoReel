@@ -17,10 +17,13 @@ model Repository {
   demo_url   String?
   total_prs  Int?
   cohort     String?
+  demo_url   String?
   region     String?
   updated_at DateTime? @updatedAt
-
   statusId   Int?
+  total_prs  Int?
+  updated_at DateTime? @updatedAt
+  id         Int       @id
   Status     Status?   @relation(fields: [statusId], references: [id])
 }
 
