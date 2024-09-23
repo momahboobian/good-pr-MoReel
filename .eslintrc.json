@@ -10,6 +10,7 @@
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
     "prefer-arrow-callback": "error",
     "prefer-template": "error",
+    "semi": ["error", "always"],
     "import/order": [
       "error",
       {
