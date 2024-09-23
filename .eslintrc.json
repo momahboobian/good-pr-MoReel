@@ -1,9 +1,5 @@
 {
-  "extends": [
-    "next/core-web-vitals",
-    "eslint:recommended",
-    "plugin:react/recommended"
-  ],
+  "extends": ["next/core-web-vitals", "prettier"],
   "parser": "@babel/eslint-parser",
   "env": {
     "es6": true,
@@ -11,10 +7,8 @@
     "browser": true
   },
   "rules": {
-    "react/jsx-filename-extension": [
-      "error",
-      { "extensions": [".jsx", ".tsx"] }
-    ],
+    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    "prefer-arrow-callback": "error",
     "import/order": [
       "error",
       {
@@ -30,8 +24,7 @@
     "no-console": "warn",
     "no-warning-comments": "warn",
     "comma-dangle": "off",
-		"object-shorthand": "error"
+    "object-shorthand": "error"
   },
   "root": true
-
 }
