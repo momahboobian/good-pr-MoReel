@@ -9,6 +9,7 @@
   "rules": {
     "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
     "prefer-arrow-callback": "error",
+    "prefer-template": "error",
     "import/order": [
       "error",
       {
