@@ -71,7 +71,7 @@ export default function Sidebar() {
           >
             <div className="flex flex-col items-start gap-10 pt-36 p-4 h-full min-w-sm bg-[#1A1E1F] text-white">
               <SidebarDashboard />
-              {pathname.includes("dashboard") ? <SidebarTeams /> : null}
+              <SidebarTeams />
               {/* <SidebarDarkMode /> */}
             </div>
           </div>
@@ -84,7 +84,7 @@ export default function Sidebar() {
     <div className="flex xl:flex-col justify-start items-center xl:items-start gap-10 p-4 xl:pt-10 h-full xl:w-[200px] bg-[#1A1E1F] text-white min-h-[100px]">
       <SidebarLogo className="w-auto h-8 " />
       <SidebarDashboard />
-      {pathname.includes("dashboard") ? <SidebarTeams /> : null}
+      <SidebarTeams />
       {/* <SidebarDarkMode /> */}
     </div>
   );

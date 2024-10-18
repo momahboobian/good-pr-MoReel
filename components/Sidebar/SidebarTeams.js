@@ -1,7 +1,7 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faSquareArrowUpRight } from "@fortawesome/free-solid-svg-icons";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import { useParams } from "next/navigation";
 import React, { useEffect, useState } from "react";
 
 const getRandomColor = () => {
@@ -19,21 +19,41 @@ const getRandomColor = () => {
 
 export default function SidebarTeams() {
   const [groups, setGroups] = useState([]);
-  const router = useRouter();
+  const params = useParams();
 
   useEffect(() => {
     const fetchData = async () => {
       try {
         const response = await fetch("/api/repositories");
         const data = await response.json();
-        setGroups(data);
+
+        const teamIdFromUrl = params.id;
+        const cohortFromUrl = params.cohort;
+
+        if (!isNaN(teamIdFromUrl) && cohortFromUrl) {
+          const teamInUrl = data.find(
+            (team) => team.id === Number(teamIdFromUrl)
+          );
+          if (teamInUrl) {
+            const filteredTeam = data.filter(
+              (team) =>
+                team.cohort.toLowerCase() === cohortFromUrl.toLowerCase()
+            );
+
+            setGroups(filteredTeam);
+          } else {
+            setGroups([]);
+          }
+        } else {
+          setGroups([]);
+        }
       } catch (error) {
         console.error("Error fetching data:", error);
       }
     };
 
     fetchData();
-  }, []);
+  }, [params.id, params.cohort]);
 
   return (
     <div className="flex flex-col sm:hidden xl:flex justify-start gap-4 pt-10 p-2">
@@ -41,25 +61,17 @@ export default function SidebarTeams() {
 
       <p className="text-[#606467] text-xs items-end">GROUPS</p>
       <ul className="flex flex-col items-start max-w-sm text-clip overflow-hidden whitespace-nowrap gap-6 pt-15 ">
-        {groups.slice(0, 10).map((group) => (
+        {groups.map((group) => (
           <li
             className="flex items-center text-xs text-clip overflow-hidden whitespace-nowrap cursor-pointer"
             key={group.id}
           >
             <Link
-              href={{ pathname: "/dashboard", query: { id: `${group.id}` } }}
-              onClick={() => {
-                router.push({
-                  pathname: "/dashboard",
-                  query: { id: group.id },
-                });
-              }}
+              href={{ pathname: `/${group.cohort.toLowerCase()}/${group.id}` }}
             >
               <span
                 className={`${
-                  router.asPath === `/dashboard?id=${group.id}`
-                    ? "text-cyan-600"
-                    : "text-white"
+                  params.id === `${group.id}` ? "text-cyan-600" : "text-white"
                 }  hover:text-[#1a9997]`}
               >
                 <FontAwesomeIcon

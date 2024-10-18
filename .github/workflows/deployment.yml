@@ -1,0 +1,135 @@
+name: "Deploy container to Kubernetes"
+
+on:
+  workflow_call:
+    inputs:
+      artifact:
+        description: the name of the artifact containing the image to deploy
+        required: true
+        type: string
+      container:
+        description: the name of the container to update in the deployment
+        required: true
+        type: string
+      deployment:
+        description: the name of the deployment to update
+        required: true
+        type: string
+      environment:
+        description: the name of the environment containing relevant secrets/variables
+        required: true
+        type: string
+      file:
+        description: the name of the image file in the build artifact (defaults to the same as the artifact name)
+        required: false
+        type: string
+      namespace:
+        description: the namespace containing the deployment to update
+        required: true
+        type: string
+      region:
+        description: AWS region containing the ECR repo (defaults to 'eu-west-1')
+        default: "eu-west-1"
+        required: false
+        type: string
+      repository:
+        description: ECR repo to push to and pull from
+        required: true
+        type: string
+      tag:
+        description: the existing tag of the image to deploy
+        required: true
+        type: string
+      url:
+        description: the public URL of the deployment (optional)
+        required: false
+        type: string
+    secrets:
+      AWS_ACCESS_KEY_ID:
+        required: true
+      AWS_SECRET_ACCESS_KEY:
+        required: true
+      GPG_KEY:
+        required: true
+      K8S_MASTER_PORT:
+        required: true
+      K8S_SECURITY_GROUP:
+        required: true
+      S3_URI:
+        required: true
+
+jobs:
+  push:
+    name: "Push image to repo in AWS ECR"
+    runs-on: ubuntu-latest
+    environment:
+      name: ${{ inputs.environment }}
+    steps:
+      - uses: actions/checkout@v4
+      - uses: docker/setup-buildx-action@v3
+      - uses: actions/download-artifact@v4
+        with:
+          name: ${{ inputs.artifact }}
+          path: /tmp
+      - run: |
+          docker load --input /tmp/$FILENAME
+        env:
+          FILENAME: ${{ inputs.file || inputs.artifact }}.tar
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.region }}
+      - uses: aws-actions/amazon-ecr-login@v2
+        id: ecr-login
+      - run: |
+          docker tag ${{ inputs.tag }} $REGISTRY/$REPOSITORY:$IMAGE_TAG
+          docker push $REGISTRY/$REPOSITORY:$IMAGE_TAG
+        env:
+          IMAGE_TAG: ${{ github.sha }}
+          REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+          REPOSITORY: ${{ inputs.repository }}
+
+  deploy:
+    name: "Update deployment with new image in Kubernetes"
+    runs-on: ubuntu-22.04
+    environment:
+      name: ${{ inputs.environment }}
+      url: ${{ inputs.url }}
+    needs:
+      - push
+    steps:
+      - uses: actions/checkout@v4
+      - uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-region: ${{ inputs.region }}
+      - uses: aws-actions/amazon-ecr-login@v2
+        id: ecr-login
+      - name: Authorize runner IP
+        uses: CodeYourFuture/actions/.github/actions/allow-ip@main
+        with:
+          group: ${{ secrets.K8S_SECURITY_GROUP }}
+          port: ${{ secrets.K8S_MASTER_PORT }}
+          region: ${{ inputs.region }}
+      - name: Get config and set KUBECONFIG
+        uses: CodeYourFuture/actions/.github/actions/get-kubeconfig@main
+        id: get-kubeconfig
+        with:
+          gpg-key: ${{ secrets.GPG_KEY }}
+          s3-uri: ${{ secrets.S3_URI }}
+      - name: Update deployment
+        run: |
+          kubectl \
+            --namespace=$NAMESPACE \
+            set image deployment/$DEPLOYMENT \
+            $CONTAINER=$REGISTRY/$REPOSITORY:$IMAGE_TAG
+        env:
+          CONTAINER: ${{ inputs.container }}
+          DEPLOYMENT: ${{ inputs.deployment }}
+          KUBECONFIG: ${{ steps.get-kubeconfig.outputs.kubeconfig }}
+          IMAGE_TAG: ${{ github.sha }}
+          NAMESPACE: ${{ inputs.namespace }}
+          REGISTRY: ${{ steps.ecr-login.outputs.registry }}
+          REPOSITORY: ${{ inputs.repository }}
