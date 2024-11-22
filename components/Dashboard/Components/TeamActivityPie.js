@@ -120,6 +120,7 @@ export default function TeamActivityPie({ pr, repo }) {
         updateRecord(repo.id, updatedData);
       }
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [repositoriesData, statusData]);
 
   useEffect(() => {
@@ -232,6 +233,7 @@ export default function TeamActivityPie({ pr, repo }) {
     };
 
     setChartOptions(options);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [pr, chartType]);
 
   const filterAndTruncateName = (name, maxLength) => {

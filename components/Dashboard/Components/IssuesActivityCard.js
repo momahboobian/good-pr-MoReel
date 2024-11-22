@@ -147,6 +147,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
     };
 
     setChartOptions(options);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [issuesClosed, chartType]);
 
   const filterAndTruncateName = (name, maxLength) => {
@@ -276,7 +277,7 @@ export default function IssuesActivityCard({ issuesClosed, pr }) {
               className="h-14 mr-3  p-4 text-yellow-400"
             />
             <div>Oh no!</div>
-            <div>There are no issues closed for this group!{' '}</div>
+            <div>There are no issues closed for this group!{" "}</div>
           </div>
         ) : (
           <div
