@@ -7,27 +7,22 @@
     "browser": true
   },
   "rules": {
-    "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
     "prefer-arrow-callback": "error",
     "prefer-template": "error",
     "semi": ["error", "always"],
     "quotes": ["error", "double"],
-    "import/order": [
-      "error",
-      {
-        "alphabetize": { "caseInsensitive": true, "order": "asc" },
-        "newlines-between": "always"
-      }
-    ],
-    "indent": "off",
     "operator-linebreak": "off",
-    "import/no-unresolved": "off",
-    "import/named": "off",
-    "react/react-in-jsx-scope": "off",
-    "no-console": "warn",
-    "no-warning-comments": "warn",
-    "comma-dangle": "off",
-    "object-shorthand": "error"
+    "no-warning-comments": "warn"
+    // "react/jsx-filename-extension": ["error", { "extensions": [".jsx", ".tsx"] }],
+    // "no-console": "warn,"
+    // "object-shorthand": "error"
+     // "import/order": [
+    //   "error",
+    //   {
+    //     "alphabetize": { "caseInsensitive": true, "order": "asc" },
+    //     "newlines-between": "always"
+    //   }
+    // ]
   },
   "root": true
 }
