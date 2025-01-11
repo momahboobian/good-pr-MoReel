@@ -13,6 +13,7 @@
 		"quotes": ["error", "double"],
 		"operator-linebreak": "off",
 		"no-warning-comments": "warn",
+		"react-hooks/exhaustive-deps": "off",
 		"import/order": [
 			"error",
 			{
