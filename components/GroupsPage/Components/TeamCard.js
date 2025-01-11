@@ -3,8 +3,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
-import AlertIcon from "./AlertIcon";
 import Image from "next/image";
+
+import AlertIcon from "./AlertIcon";
 
 export default function TeamCard({ group, groupStatus }) {
   const [prsDoneCount, setPrsDoneCount] = useState(0);
