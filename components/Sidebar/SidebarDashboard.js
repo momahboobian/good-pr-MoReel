@@ -15,9 +15,7 @@ export default function SidebarDashboard() {
   const cohortIdFromUrl = urlPath[1];
 
   return (
-    <ul
-      className={"flex flex-col md:flex-row xl:flex-col justify-start items-start gap-6 xl:pt-20 whitespace-nowrap"}
-    >
+    <ul className="flex flex-col items-start justify-start gap-6 md:flex-row xl:flex-col xl:pt-20 whitespace-nowrap">
       <li className="flex items-center">
         <Link href={`/${cohortIdFromUrl}`} className="flex items-center">
           <span
