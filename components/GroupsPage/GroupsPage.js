@@ -8,10 +8,15 @@ import { faGithub } from "@fortawesome/free-brands-svg-icons";
 
 import FilterToggle from "./Components/FillterToggle";
 
-export default function GroupsPage() {
+export default function GroupsPage({ cohort }) {
   const [groups, setGroups] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [filterActive, setFilterActive] = useState(false);
+  const filterCohortsByName = (data, cohort) => {
+    return cohort
+      ? data.filter((group) => group.cohort === cohort.toUpperCase())
+      : data;
+  };
 
   useEffect(() => {
     const fetchData = async () => {
@@ -19,7 +24,8 @@ export default function GroupsPage() {
       try {
         const response = await fetch("/api/repositories");
         const data = await response.json();
-        setGroups(data);
+        const filterCohorts = filterCohortsByName(data, cohort);
+        setGroups(filterCohorts);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -44,7 +50,7 @@ export default function GroupsPage() {
   return isLoading ? (
     <Loading />
   ) : (
-    <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full ">
+    <div className="flex flex-col pt-24 sm:pt-0 justify-start w-full h-full min-h-screen">
       <div className="flex justify-between items-center md:pt-6 px-6">
         <div className="flex flex-col justify-between py-2 gap-4">
           <div className="flex items-center">
@@ -79,6 +85,7 @@ export default function GroupsPage() {
               key={group.id}
               group={group}
               groupStatus={group.statusId}
+              cohort={cohort}
             />
           ))
         )}
