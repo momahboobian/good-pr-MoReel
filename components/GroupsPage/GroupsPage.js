@@ -5,6 +5,7 @@ import TeamCard from "@components/GroupsPage/Components/TeamCard";
 import Loading from "@components/Loading";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
+
 import FilterToggle from "./Components/FillterToggle";
 
 export default function GroupsPage({ cohort }) {
