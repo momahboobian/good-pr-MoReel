@@ -1,6 +1,18 @@
 module.exports = {
   images: {
-    domains: ["avatars.githubusercontent.com", "robohash.org"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "avatars.githubusercontent.com",
+        port: "",
+      },
+      {
+        protocol: "https",
+        hostname: "robohash.org",
+        port: "",
+        search: "",
+      },
+    ],
   },
   output: "standalone",
 };
