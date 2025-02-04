@@ -175,17 +175,11 @@ The app relies on the following dependencies:
 - @fortawesome/free-solid-svg-icons: Version 6.4.0
 - @fortawesome/react-fontawesome: Version 0.2.0
 - @octokit/rest: Version 19.0.13
-- @vercel/og: Version 0.5.8
-- axios: Version 1.4.0
-- chart.js: Version 4.3.0
 - echarts: Version 5.4.2
 - echarts-for-react: Version 3.0.2
 - eslint: Version 8.43.0
-- express: Version 4.18.2
-- node-fetch: Version 3.3.1
 - react: Version 18.2.0
 - react-dom: Version 18.2.0
-- react-icons: Version 4.9.0
 
 ## Feedback
 
