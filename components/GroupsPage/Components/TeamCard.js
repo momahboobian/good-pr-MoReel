@@ -110,7 +110,7 @@ export default function TeamCard({ group, groupStatus, cohort }) {
             <div
               id={tooltipDemoId}
               role="tooltip"
-              className="absolute z-10 left-8 button-8 invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+              className="absolute z-10 left-8 button-8 invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
             >
               Live demo
               <div className="tooltip-arrow" data-popper-arrow></div>
@@ -132,7 +132,7 @@ export default function TeamCard({ group, groupStatus, cohort }) {
             <div
               id={tooltipGithubId}
               role="tooltip"
-              className="absolute z-10 right-2 button-8 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+              className="absolute z-10 right-2 button-8 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
             >
               GitHub repository
               <div className="tooltip-arrow" data-popper-arrow></div>

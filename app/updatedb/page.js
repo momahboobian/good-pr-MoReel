@@ -97,7 +97,7 @@ export default function UpdateDB() {
           </div>
         ) : (
           data.length > 0 && (
-            <div className="overflow-auto shadow w-96 sm:rounded-lg">
+            <div className="overflow-auto shadow-sm w-96 sm:rounded-lg">
               <table className="min-w-full leading-normal bg-[#1e1e1e] text-sm text-gray-400">
                 <thead className="text-xs font-medium uppercase bg-gray-800">
                   <tr>

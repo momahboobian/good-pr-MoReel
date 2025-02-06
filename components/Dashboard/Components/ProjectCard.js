@@ -76,7 +76,7 @@ export default function ProjectCard({ repo, pr }) {
               <div
                 id="tooltip-project"
                 role="tooltip"
-                className="absolute z-10 top-12 left-0 inline-block transform tooltip-transition px-2 py-1 mx-6  text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
+                className="absolute z-10 top-12 left-0 inline-block transform tooltip-transition px-2 py-1 mx-6  text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
               >
                 This card contains the arrow diagram to represent the final project timeline. Collaborators GitHub profile&apos;s picture. The date of last pull request of the team.
                 <div className="tooltip-arrow" data-popper-arrow></div>
@@ -91,8 +91,8 @@ export default function ProjectCard({ repo, pr }) {
               width: `${((totalDays / 28) * 100).toFixed(2)}%`,
             }}
           >
-            <div className="absolute top-[0] -right-2 w-3 h-3 bg-[#1A1E1F] transform rotate-45 translate-x-1/2"></div>
-            <div className="absolute top-[0] right-0 w-3 h-3 bg-yellow-500 transform rotate-45 translate-x-1/2"></div>
+            <div className="absolute top-0 -right-2 w-3 h-3 bg-[#1A1E1F] transform rotate-45 translate-x-1/2"></div>
+            <div className="absolute top-0 right-0 w-3 h-3 bg-yellow-500 transform rotate-45 translate-x-1/2"></div>
             <p className="absolute -top-5 text-[#606467] text-xs rounded-full">
               Created {totalDays} days ago
             </p>
@@ -101,7 +101,7 @@ export default function ProjectCard({ repo, pr }) {
             </p>
           </div>
 
-          <div className="bg-gray-300 h-4 flex-grow ml-2 rounded-r-full"></div>
+          <div className="bg-gray-300 h-4 grow ml-2 rounded-r-full"></div>
         </div>
 
         <div className="flex border rounded-full border-gray-600 p-1">
@@ -122,7 +122,7 @@ export default function ProjectCard({ repo, pr }) {
                   left: `${index * -20}%`,
                 }}
               />
-              <div className="invisible absolute bg-gray-900 text-gray-200 p-2 rounded-md shadow group-hover:visible tooltip border border-slate-100 dark:bg-[#1A1E1F] ">
+              <div className="invisible absolute bg-gray-900 text-gray-200 p-2 rounded-md shadow-sm group-hover:visible tooltip border border-slate-100 dark:bg-[#1A1E1F] ">
                 {trainee.items[0].user.login}
               </div>
             </div>
