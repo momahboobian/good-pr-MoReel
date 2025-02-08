@@ -81,7 +81,7 @@ export default function TicketStatusCard({ issuesClosed, issuesOpen }) {
             <div
               id="tooltip-issues"
               role="tooltip"
-              className="absolute z-10 right-full top-1/2 px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
+              className="absolute z-10 right-full top-1/2 px-2 py-1 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F] "
             >
               This pie chart shows the closed issues.
               <div className="tooltip-arrow" data-popper-arrow></div>
