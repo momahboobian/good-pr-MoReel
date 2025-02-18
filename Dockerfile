@@ -22,7 +22,7 @@ RUN npm run build
 FROM base AS production
 WORKDIR /app
 
-ENV NODE_ENV production
+ENV NODE_ENV=production
 
 RUN addgroup --system --gid 1001 nodejs
 RUN adduser --system --uid 1001 nextjs
@@ -42,7 +42,7 @@ RUN npm install --global --save-exact "prisma@$(node -p "require('./node_modules
 
 USER nextjs
 EXPOSE 3000
-ENV PORT 3000
-ENV HOSTNAME "0.0.0.0"
+ENV PORT=3000
+ENV HOSTNAME=0.0.0.0
 
 ENTRYPOINT ["./start.sh"]

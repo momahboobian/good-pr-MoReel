@@ -3,8 +3,9 @@ import Link from "next/link";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGithub } from "@fortawesome/free-brands-svg-icons";
 import { faShapes } from "@fortawesome/free-solid-svg-icons";
-import AlertIcon from "./AlertIcon";
 import Image from "next/image";
+
+import AlertIcon from "./AlertIcon";
 
 export default function TeamCard({ group, groupStatus, cohort }) {
   const [prsDoneCount, setPrsDoneCount] = useState(0);
@@ -70,20 +71,20 @@ export default function TeamCard({ group, groupStatus, cohort }) {
             {groupStatus === 2 && <AlertIcon tooltipId={tooltipIconId} />}
           </div>
 
-          <div className="text-center text-xl text-white p-2">
+          <div className="p-2 text-xl text-center text-white">
             {group.team_name}
           </div>
         </div>
       </Link>
-      <div className="flex justify-center items-center flex-1 h-1/3 py-6">
+      <div className="flex items-center justify-center flex-1 py-6 h-1/3">
         <div className="flex-1">
-          <p className="text-center text-lg">{lastActivityDate(group)}</p>
+          <p className="text-lg text-center">{lastActivityDate(group)}</p>
           <div className="text-center text-sm text-[#606467] font-light">
             Last Update
           </div>
         </div>
         <div className="flex-1">
-          <div className="text-center text-base">
+          <div className="text-base text-center">
             <p className="text-xl">{prsDoneCount}</p>
           </div>
           <div className="text-center text-sm text-[#606467] font-light">
@@ -97,7 +98,7 @@ export default function TeamCard({ group, groupStatus, cohort }) {
             <a
               href={group.demo_url}
               target="_blank"
-              className="flex items-center text-sx text-white font-light"
+              className="flex items-center font-light text-white text-sx"
             >
               <FontAwesomeIcon
                 icon={faShapes}
@@ -109,7 +110,7 @@ export default function TeamCard({ group, groupStatus, cohort }) {
             <div
               id={tooltipDemoId}
               role="tooltip"
-              className="absolute z-10 left-8 button-8 invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+              className="absolute z-10 left-8 button-8 invisible p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
             >
               Live demo
               <div className="tooltip-arrow" data-popper-arrow></div>
@@ -119,7 +120,7 @@ export default function TeamCard({ group, groupStatus, cohort }) {
             <a
               href={group.repo_url}
               target="_blank"
-              className="flex items-center text-sx text-white font-light"
+              className="flex items-center font-light text-white text-sx"
             >
               <FontAwesomeIcon
                 icon={faGithub}
@@ -131,7 +132,7 @@ export default function TeamCard({ group, groupStatus, cohort }) {
             <div
               id={tooltipGithubId}
               role="tooltip"
-              className="absolute z-10 right-2 button-8 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-sm opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
+              className="absolute z-10 right-2 button-8 invisible inline-block p-2 mx-6 text-sm font-medium text-white transition-opacity duration-300 bg-gray-900 rounded-lg shadow-xs opacity-0 tooltip border border-slate-100 dark:bg-[#1A1E1F]"
             >
               GitHub repository
               <div className="tooltip-arrow" data-popper-arrow></div>

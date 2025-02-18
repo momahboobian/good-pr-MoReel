@@ -104,9 +104,12 @@ To use the app, follow these steps:
 
 1. Clone the repository.
 2. Install the dependencies by running npm install or yarn install.
-3. Start the development server by running
+3. Set up the database (see below)
+4. Set up GitHub auth (see below)
 
-```bash
+5. Start the development server by running
+
+```sh
 npm run dev
 # or
 yarn dev
@@ -114,50 +117,44 @@ yarn dev
 pnpm dev
 ```
 
-4. Open http://localhost:3000 in your browser to access the app.
+6. Open http://localhost:3000 in your browser to access the app.
 
 For more information, refer to the Next.js documentation [https://nextjs.org/docs] and the Learn Next.js tutorial [https://nextjs.org/learn].
 
-## Development Keys
+### Set up database
 
-The following keys are essential for developing your Next.js app:
+1. Install [Docker Desktop](https://www.docker.com/products/docker-desktop/) if not installed already
 
-### GITHUB_AUTH_TOKEN
+2. Run PostgreSQL in Docker by running
 
-- **Description**: This token authenticates your Next.js app with the GitHub API, allowing authorized requests on behalf of a user or an application. Generate a GitHub authentication token and set it as an environment variable in your app's configuration. Ensure the token has appropriate permissions for your app's required actions.
+```sh
+docker run --rm --detach -p 5432:5432 -e POSTGRES_USER=goodpr -e POSTGRES_PASSWORD=goodpr --name=postgres postgres:17
+```
 
-### PostgreSQL Configuration
+3. In the repo root, create a `.env` file with the PostgreSQL connection details:
 
-To connect your Next.js app with a PostgreSQL database, you need to provide the following configuration keys:
+```sh
+# ensure current working directory is the repo root!
+echo "DATABASE_URL=postgresql://goodpr:goodpr@localhost:5432/goodpr" >> .env
+```
 
-- **POSTGRES_URL**:
+4. Migrate the db: `npx prisma migrate dev`
 
-  - Description: The URL or connection string for your PostgreSQL database.
+5. Seed the db: `npx prisma db seed`
 
-- **POSTGRES_PRISMA_URL**:
+### GitHub auth token
 
-  - Description: The Prisma connection URL for your PostgreSQL database (if using Prisma as your ORM).
+This token authenticates your Next.js app with the GitHub API, allowing authorized requests on behalf of the application.
 
-- **POSTGRES_URL_NON_POOLING**:
+1. Log in to GitHub, go to Settings > Developer Settings > Personal access tokens > Tokens (classic)
 
-  - Description: An alternative connection URL for non-pooling connections (if necessary).
+2. Generate a new token with the "Full control of private repositories" scope ticked
 
-- **POSTGRES_USER**:
+3. Save the auth token to the `.env` file (replace `ghp_token_string` below with the token created in the GitHub UI):
 
-  - Description: The username or role used for authentication and accessing the PostgreSQL database.
-
-- **POSTGRES_HOST**:
-
-  - Description: The hostname or IP address where the PostgreSQL database is hosted.
-
-- **POSTGRES_PASSWORD**:
-
-  - Description: The password associated with the username or role for authentication and access to the PostgreSQL database.
-
-- **POSTGRES_DATABASE**:
-  - Description: The name of the PostgreSQL database you want to connect to.
-
-You can set these configuration keys as environment variables in your development environment or provide them through a configuration file, depending on your deployment setup. Ensure that your app's environment is properly configured to establish a successful connection to your PostgreSQL database.
+```sh
+echo "GITHUB_AUTH_TOKEN=ghp_token_string" >> .env
+```
 
 ## Tech Stack
 
@@ -178,17 +175,11 @@ The app relies on the following dependencies:
 - @fortawesome/free-solid-svg-icons: Version 6.4.0
 - @fortawesome/react-fontawesome: Version 0.2.0
 - @octokit/rest: Version 19.0.13
-- @vercel/og: Version 0.5.8
-- axios: Version 1.4.0
-- chart.js: Version 4.3.0
 - echarts: Version 5.4.2
 - echarts-for-react: Version 3.0.2
 - eslint: Version 8.43.0
-- express: Version 4.18.2
-- node-fetch: Version 3.3.1
 - react: Version 18.2.0
 - react-dom: Version 18.2.0
-- react-icons: Version 4.9.0
 
 ## Feedback
 
